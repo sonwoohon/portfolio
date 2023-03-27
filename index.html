@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>가이드</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <h1 class="tit1">포트폴리오 가이드</h1>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="table_wrap">
+            <table>
+                <caption>번호, 경로, 화면명, 작업자</caption>
+                <colgroup>
+                    <col style="width:10%">
+                    <col style="width:40%">
+                    <col style="width:40%">
+                    <col style="width:10%">
+                </colgroup>
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">경로</th>
+                    <th scope="col">화면명</th>
+                    <th scope="col">작업자</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th><a href="tab.html" target="_blank" title="새창열림">tab.html</a></th>
+                    <th>여러종류의 탭버튼</th>
+                    <th>손우헌</th>
+                </tr> 
+                <tr>
+                    <th>1</th>
+                    <th><a href="tab.html" target="_blank" title="새창열림">tab.html</a></th>
+                    <th>여러종류의 탭버튼</th>
+                    <th>손우헌</th>
+                </tr> 
+            </table>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+<script>
+    function common(){
+    //header    
+    let headerTop = document.querySelector('header').clientHeight;
+    document.querySelector('main').style.marginTop = headerTop +'px';
+}
+common();
+</script>
+</body>
+</html>

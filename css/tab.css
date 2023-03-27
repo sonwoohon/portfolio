@@ -1,0 +1,2 @@
+.tab_page{padding: 40px;}
+.tab_page h1:before{content:"$";background: red; width: 100%;}
