@@ -4,12 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
     <link rel="stylesheet" href="./css/main.css">
+    <!-- js -->
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui.1.12.1.min.js"></script>
+
     <title>탭버튼</title>
 </head>
 <body>
     <div class="tab_page">
-        <h1>탭버튼</h1>
+        <div class="tab_wrap">
+            <h1>탭버튼</h1>
+        </div>
+        <div class="ui_tab_wrap">
+            <div class="ui_tab">
+                <ul>
+                    <li class="active"><a href="#tabCont1">탭버튼1</a></li>
+                    <li><a href="#tabCont2">탭버튼2</a></li>
+                    <li><a href="#tabCont3">탭버튼3</a></li>
+                    <li><a href="#tabCont4">탭버튼4</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="tabCont1" class="tab_panel">111111111</div>
+        <div id="tabCont2" class="tab_panel">222222222</div>
+        <div id="tabCont3" class="tab_panel">333333333</div>
+        <div id="tabCont4" class="tab_panel">444444444</div>  
     </div>
+    
 </body>
+<script>
+function jstab(){
+    $('.ui_tab a').on('click', function(e){
+        e.preventDefault();
+        $(this).closest('li').addClass('active').siblings().removeClass('active');
+        const $href = $(this).attr('href')
+        $($href).addClass('active').siblings().removeClass('active')
+    })
+}
+jstab()
+
+
+/*     function TestObject() {
+    this.one = "one";
+    this.two = "two";
+    this.three = "three";
+}
+
+TestObject.prototype.init = function () {
+    this.one = null;
+    this.two = null;
+    this.three = null;
+}
+
+var myObject = new TestObject();    //객체생성
+alert(myObject.one + " : " + myObject.two + " : " + myObject.three);
+
+myObject.init();    //객체 초기화 함수 호출
+alert(myObject.one + " : " + myObject.two + " : " + myObject.three); */
+</script>
 </html>

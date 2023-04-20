@@ -39,6 +39,10 @@
                     </span>
                 </div>
             </div>  
+            <select name="몰라" id="">
+                <option value="0">000</option>
+                <option value="1">111</option>
+            </select>
             <div class="main_contBox_Type2">
                 <div class="main_img">
                     <img src="../img/images.jpg" alt="">
@@ -89,17 +93,6 @@
             </div>  
         </div>
     </div> 
-    <script>
-        let num = 0;
-        var _inner = document.querySelector('#maininner');
-        var setInter = setInterval(() => {
-        num--
-        _inner.style.transform = "translateY("+ num +"px)"; 
-            if(_inner.style.transform = "translateY("+ num +"px)" == _inner.style.height){
-                clearInterval(setInter)
-            }
-        }, 50); 
-        console.log(_inner.style.height)
-    </script>
+
 </body>
 </html>

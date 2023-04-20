@@ -7,11 +7,7 @@
     box-sizing: border-box;
 }
 
-html{
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-body{font-family: 'Noto Sans KR', sans-serif; font-size:10px;}
+html,body{font-family: 'Noto Sans KR', sans-serif; font-size:10px;}
 
 h1 {
     margin: 0;
@@ -40,14 +36,17 @@ ol{
     padding-left: 0;
     list-style: none;
 }
-
+/* 공통 사용  */
+.active{display:block !important;}
+.hide{display:none !important;}
 /* header */
 header{position:fixed;top:0;left:0;width:100%;background:#000;color:#fff;z-index:100;padding:20px;}
 h1.tit1{font-size: 1.8rem;}
 
 /* main */
 main{padding:20px;}
-main .table_wrap table{width:100%;}
-
+main .table_wrap table{width:100%;border-spacing:0;border-collapse: collapse;}
+main .table_wrap table th{border:1px solid #dedede; padding:5px;}
 
 /* footer */
+
