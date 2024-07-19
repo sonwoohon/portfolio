@@ -9,7 +9,7 @@
     <style>
         .alram-box{position: relative;display: flex; justify-content: space-between; padding: 0 20px;align-items: center;} 
         .alram-box img:nth-child(1){width: 28px; height: 28px;}
-        .alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation: alramBanner 1.7s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
+        .alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation:  alramBanner1 0.5s cubic-bezier(0.1, 0.5, 0.22, 1) forwards,alramBanner2 .7s 0.3s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
         .alram-box img:nth-child(3){width: 72px; height: 28px; margin-left: auto;}
         .banner{position: relative; height: 334px; background-color: #F38C32; border-radius: 12px;}
         .banner p{font-size:20px;font-weight:700;line-height:30px;padding-top:40px;color: #fff; text-align: center;}
@@ -67,11 +67,13 @@
         nav ul li {width: 75px;}
         nav ul li a{display:inline-block; width: 100%; height: 100%;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
-        @keyframes alramBanner{
-            0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(350deg)}
-            15%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}
-            25%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(358deg)}
-            35%, 100%{width: 130px; height: 28px; opacity: 1;transform: translateY(0px) rotate(360deg) }
+        @keyframes alramBanner1{
+            0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(355deg)}
+            100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(361deg);transition: 0.5s;}
+        }
+        @keyframes alramBanner2{
+            0%, 100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}
+            50%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(358deg)}
         }
     </style>
 </head>
@@ -171,7 +173,7 @@
                 <button></button>
             </div>
 
-            <a href="#none" class="home-cardlist interaction on" onclick="drPopupOpen('.pop1', 'element')">
+            <a href="#none" class="home-cardlist interaction on" onclick="drPopupOpen('.pop1', 'element');count();">
                 <img src="./images/home-cardlist.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
@@ -315,15 +317,17 @@
                 var mainAnimates = document.querySelectorAll('.interaction');
                 var windowHeight = window.innerHeight;
                 mainAnimates.forEach(function(mainAnimate) {
-                    var contentOffset = mainAnimate.offsetTop;
+                    var contentOffset = mainAnimate.offsetTop +200;
                     var scrollPosition = window.scrollY;    
                     if (scrollPosition + windowHeight >= contentOffset) {
                         mainAnimate.classList.add('on');
+                        console.log(scrollPosition, windowHeight, contentOffset )
                     } 
                     else {
                         mainAnimate.classList.remove('on');
                     }
                 });
+               
             });
         });
 
@@ -343,27 +347,30 @@
         }
         
         //숫자 카운트 애니메이션
-        $('.nums').each(function () {
-            const $this = $(this),
-                countTo = $this.attr('data-count');
+        function count(){
+            $('.nums').each(function () {
+                const $this = $(this),
+                    countTo = $this.attr('data-count');
 
-            $({
-                countNum: $this.text()
-            }).animate({
-                countNum: countTo
-            }, {
-                duration: 3000,
-                easing: 'linear',
-                step: function () {
-                    $this.text(Math.floor(this.countNum));
-                },
-                complete: function () {
-                    $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
-                    //3자리 마다 콤마 표시 적용
-                }
+                $({
+                    countNum: $this.text()
+                }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 1500,
+                    easing: 'linear',
+                    step: function () {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function () {
+                        $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
+                        //3자리 마다 콤마 표시 적용
+                    }
+                });
             });
-        });
-
+        }
+        count();
+        // 리렌더링 
         document.getElementById('home').addEventListener('click', function() {
             window.location.href = 'index.html';
         });
