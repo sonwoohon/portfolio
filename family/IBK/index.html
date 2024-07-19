@@ -10,12 +10,6 @@
         .alram-box{position: relative;display: flex; justify-content: space-between; padding: 0 20px;align-items: center;} 
         .alram-box img:nth-child(1){width: 28px; height: 28px;}
         .alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation: alramBanner 1.7s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
-        @keyframes alramBanner{
-            0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(350deg)}
-            15%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}
-            25%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(358deg)}
-            35%, 100%{width: 130px; height: 28px; opacity: 1;transform: translateY(0px) rotate(360deg) }
-        }
         .alram-box img:nth-child(3){width: 72px; height: 28px; margin-left: auto;}
         .banner{position: relative; height: 334px; background-color: #F38C32; border-radius: 12px;}
         .banner p{font-size:20px;font-weight:700;line-height:30px;padding-top:40px;color: #fff; text-align: center;}
@@ -54,6 +48,31 @@
         .nums{font-size: 26px; font-weight: 700; color: #fff;}
         .nums .one{font-size: 16px; font-weight: 500;}
         .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;}
+        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
+        .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
+        .popup .pop-cont{position: relative; text-align: center;}
+        .popup .popupimg{display: flex; justify-content: space-between; margin-bottom: 30px;}
+        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
+        .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s 0.5s forwards;}
+        .banklist-box:nth-of-type(1){z-index: 10;}
+        .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
+        .banklist-box:nth-of-type(3){z-index: 8;  transform: translateY(-385px);}
+        .banklist-box:nth-of-type(4){z-index: 7;  transform: translateY(-543px);}
+        .banklist-box:nth-of-type(5){z-index: 6;  transform: translateY(-702px);}
+        .banklist-box:nth-of-type(6){z-index: 5;  transform: translateY(-861px);}
+        .banklist-box .nums{position: absolute;top: 92px;left: 18px;}
+        .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
+        nav{ position: fixed;bottom: 0;width: 375px;left: 50%;transform: translateX(-50%);background: #fff;border-radius: 12px 12px 0 0;fill: #FFF;filter: drop-shadow(0px -4px 8.3px rgba(0, 0, 0, 0.12));}
+        nav ul {position: absolute;bottom: 0;display: flex;justify-content: space-around;height: 90px;width: 100%;}
+        nav ul li {width: 75px;}
+        nav ul li a{display:inline-block; width: 100%; height: 100%;}
+        @keyframes banklist{to{transform: unset; margin-top: 12px;}}
+        @keyframes alramBanner{
+            0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(350deg)}
+            15%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}
+            25%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(358deg)}
+            35%, 100%{width: 130px; height: 28px; opacity: 1;transform: translateY(0px) rotate(360deg) }
+        }
     </style>
 </head>
 <body>
@@ -199,7 +218,18 @@
                 <img src="./images/home-ex9.png" alt=""> 
             </div>
         </div>
-
+        <nav>
+            <div>
+                <img src="./images/navigation-bar1.png" alt="" >
+            </div>
+            <ul>
+                <li><a id="home" href=""></a>1</li>
+                <li><a href=""></a>2</li>
+                <li><a href=""></a>3</li>
+                <li><a href="./wallet.html"></a>4</li>
+                <li><a href=""> </a>5</li>
+            </ul>
+        </nav>
     </div>
     <div class="popup pop1">
         <div class="popupimg">
@@ -209,18 +239,35 @@
         <div class="pop-cont">
             <div class="banklist-box">
                 <img src="./images/home-pop-ex1.png" alt="">
+                <div class="nums" data-count="13000000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+                <a href="./financial.html" class="move"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home-pop-ex2.png" alt="">
+                <div class="nums" data-count="13000000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+                <a href="./financial.html" class="move"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home-pop-ex3.png" alt="">
+                <div class="nums" data-count="13000000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home-pop-ex4.png" alt="">
+                <div class="nums" data-count="13000000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home-pop-ex5.png" alt="">
+                <div class="nums" data-count="13000000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home-pop-ex6.png" alt="">
@@ -232,26 +279,6 @@
         <button class="pop-close" onclick="drPopupClose('.popup', 'element')"></button>
     </div>
     <div class="dim"></div>
-
-    <style>
-        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
-        .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; display: none;}
-        .popup .pop-cont{position: relative; text-align: center;}
-        .popup .popupimg{display: flex; justify-content: space-between; margin-bottom: 30px;}
-        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
-        .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s 0.5s forwards;}
-        .banklist-box:nth-of-type(1){z-index: 10;}
-        .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
-        .banklist-box:nth-of-type(3){z-index: 8;  transform: translateY(-385px);}
-        .banklist-box:nth-of-type(4){z-index: 7;  transform: translateY(-543px);}
-        .banklist-box:nth-of-type(5){z-index: 6;  transform: translateY(-702px);}
-        .banklist-box:nth-of-type(6){z-index: 5;  transform: translateY(-861px);}
-
-        @keyframes banklist{
-            from{}
-            to{transform: unset; margin-top: 12px;}
-        }
-   </style>
     <script>
 
         // 상단 알림센터 배너 
@@ -335,6 +362,10 @@
                     //3자리 마다 콤마 표시 적용
                 }
             });
+        });
+
+        document.getElementById('home').addEventListener('click', function() {
+            window.location.href = 'index.html';
         });
     </script>
 </body>
