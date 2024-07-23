@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/font.css">
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        .accordion{margin: 12px 0; background-color: #215C9C; border-radius: 12px; padding: 16px 10px 17px; color: #fff;}
+        .accordion h2{display: flex;align-items: center;justify-content: space-between;font-size: 16px; font-weight: 700; margin-left:10px;letter-spacing: -0.16px;}
+        .accordion .folding-btn{display: inline-block; width: 16px; height: 16px; background: url(./images/wallet/icon.png) no-repeat; background-size: contain; margin-right: 10px;}
+
+        .folding-panel{padding: 25px 0;}
+        .folding-panel div{ background: var(--gradient-gr-1, linear-gradient(92deg, #EBF5FF 38.68%, #DCEEFF 100%));font-size: 14px; border-radius: 12px;color: #333;font-weight: 700;line-height: 17px; margin-bottom: 5px;}
+        .folding-panel div:last-child {margin-bottom: 0;}
+        .folding-panel div > a{display: block;padding: 17px 10px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alram-box">
+            <a href="#none">
+                <img src="./images/home-icon1.png" alt="">
+            </a>
+            <img src="./images/home-icon2.png" alt="">
+            <img src="./images/home-icon3.png" alt="">
+        </div>
+        <div class="page-wrap">
+            <img src="./images/wallet/tit1.png" alt="">
+            <div class="accordion">
+                <h2>증명서 <a href="#none" class="folding-btn open" role="button"></a></h2>
+                <div class="folding-panel">
+                    <div class="folding-panel-sub">
+                        <a href="#none" class="folding-sub-btn" role="button">운전면허증</a>
+                    </div>
+                    <div class="folding-panel-sub">
+                        <a href="#none" class="folding-sub-btn" role="button">외국인등록 사실증명</a>
+                    </div>
+                    <div class="folding-panel-sub">
+                        <a href="#none" class="folding-sub-btn" role="button">여권정보증명서</a>
+                    </div>
+                    <div class="folding-panel-sub">
+                        <a href="#none" class="folding-sub-btn" role="button">예방접종증명서</a>
+                    </div>
+                    
+                    <div class="folding-panel-sub">
+                        <a href="#none" class="folding-sub-btn" role="button">건강보험 자격득실확인서</a>
+                        <img src="./images/wallet/card1.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="./images/wallet/tit3.png" alt="">
+            </div>
+
+            <div class="mgt30 interaction">
+                <img src="./images/wallet/group1.png" alt="">
+            </div>
+            <div class="mgt45 interaction">
+                <img src="./images/wallet/tit4.png" alt="">
+            </div>
+            <div class="mgt15 interaction">
+                <img src="./images/wallet/tit5.png" alt="">
+            </div>
+            <div class="mgt60 interaction">
+                <img src="./images/wallet/group2.png" alt="">
+            </div>
+        </div>
+
+
+        <nav>
+            <div>
+                <img src="./images/navigation-bar-wallet.png" alt="" >
+            </div>
+            <ul>
+                <li><a id="home"></a>1</li>
+                <li><a href=""></a>2</li>
+                <li><a href=""></a>3</li>
+                <li><a href="./wallet.html"></a>4</li>
+                <li><a href="./menu.html"> </a>5</li>
+            </ul>
+        </nav>
+    </div>
+    <script src="./res/ibk-com.js"></script>
+    <script>
+        // 아코디언 서브 
+        function accordionSub() {
+            $('.folding-sub-btn').on('click', function (e) {
+            e.preventDefault();
+            if ($(this).hasClass('on')) {
+                $(this).removeClass('on');
+                $(this).closest('.folding-panel-sub').find('img').show();
+            } else {
+                $(this).addClass('on');
+                $(this).closest('.folding-panel-sub').find('img').hide();
+            }
+            });
+        }
+        accordionSub();
+        // 홈버튼 리 렌더링 
+        document.getElementById('home').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        .container .page-wrap.search{padding: 0 20px 150px;}
+        .search-wrap{position: relative; margin: 0 -20px;}
+        .search-wrap a{position: absolute;width: 40px;height: 40px;top: 20px;left: 13px;}
+        .checkbox-wrap{display: flex;gap: 12px;}
+        .checkbox-wrap .input-wrap{position: relative; width: 100%; background-color: #F7F7F7;text-align: center; border-radius: 12px;  }
+        .checkbox-wrap .input-wrap label{display: inline-block; width:100%; padding: 22px 24px; font-size: 15px;  font-weight: 500; white-space: nowrap; cursor: pointer; border-radius: 12px; }
+        .checkbox-wrap .input-wrap input{display: none;}
+        .checkbox-wrap .input-wrap input,.checkbox-wrap > .input-wrap input + i {position: absolute; top: 10px; right: 10px;}
+        .checkbox-wrap .input-wrap input[type="checkbox"] + i{width: 16px; height: 16px; background: url(./images/menu/btn.png) no-repeat;}
+        .checkbox-wrap .input-wrap input[type="checkbox"]:checked + i{width: 16px; height: 16px; background: url(./images/menu/btn-on.png) no-repeat;}
+        .move{display: flex;width: 100%; height: 57px;justify-content: center;align-items: center; color: #fff; background-color: #1D74E8; border-radius: 10px; margin-top: 40px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-wrap search">
+             <div class="search-wrap">
+                <a href="./menu.html"></a>
+                <img src="./images/menu/apppbar.png" alt="">
+                <img src="./images/menu/tit3.png" alt="">
+             </div>
+             <div class="mgt40 mgb20">
+                <img src="./images/menu/tit4.png" alt="">
+             </div>
+
+             <div class="checkbox-wrap">
+                <div class="input-wrap">
+                    <label for="work1">카드
+                        <input type="checkbox" id="work1">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work2">계좌
+                        <input type="checkbox" id="work2">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work3">현금
+                        <input type="checkbox" id="work3">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <div class="checkbox-wrap mgt12">
+                <div class="input-wrap">
+                    <label for="work4">공과금
+                        <input type="checkbox" id="work4">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work5">퇴직연금
+                        <input type="checkbox" id="work5">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work6">보험
+                        <input type="checkbox" id="work6">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <div class="checkbox-wrap mgt12">
+                <div class="input-wrap">
+                    <label for="work7">펀드/채권
+                        <input type="checkbox" id="work7">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work8">주식
+                        <input type="checkbox" id="work8">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work9">외환
+                        <input type="checkbox" id="work9">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <div class="checkbox-wrap mgt12">
+                <div class="input-wrap">
+                    <label for="work10">신탁
+                        <input type="checkbox" id="work10">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work11">ISA
+                        <input type="checkbox" id="work11">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work12">대출
+                        <input type="checkbox" id="work12">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <div class="mgt40 mgb20">
+                <img src="./images/menu/tit5.png" alt="">
+             </div>
+
+             <div class="checkbox-wrap mgt12">
+                <div class="input-wrap">
+                    <label for="work13">이체
+                        <input type="checkbox" id="work13">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work14">조회
+                        <input type="checkbox" id="work14">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work15">납부
+                        <input type="checkbox" id="work15">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <div class="checkbox-wrap mgt12">
+                <div class="input-wrap">
+                    <label for="work16">내역
+                        <input type="checkbox" id="work16">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work17">관리
+                        <input type="checkbox" id="work17">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work18">출금
+                        <input type="checkbox" id="work18">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <div class="checkbox-wrap mgt12">
+                <div class="input-wrap">
+                    <label for="work19">가입
+                        <input type="checkbox" id="work19">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work20">해지
+                        <input type="checkbox" id="work20">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="input-wrap">
+                    <label for="work21">등록
+                        <input type="checkbox" id="work21">
+                        <i></i>
+                    </label>
+                </div>
+             </div>
+
+             <a href="./menu-search-detail.html" class="move">바로 찾기</a>
+        </div>
+    </div>
+    <nav>
+        <div>
+            <img src="./images/navigation-menu.png" alt="" >
+        </div>
+        <ul>
+            <li><a id="home" href="./index.html"></a>1</li>
+            <li><a href=""></a>2</li>
+            <li><a href=""></a>3</li>
+            <li><a href="./wallet.html"></a>4</li>
+            <li><a href="./menu.html"> </a>5</li>
+        </ul>
+    </nav>
+
+
+    <script src="./res/ibk-com.js"></script>
+    <script>
+        // 버튼 요소를 가져옵니다.
+        const checkeddButton = document.querySelectorAll('input');
+        // 클릭 이벤트 리스너를 추가합니다.
+        checkeddButton.forEach( function(El){
+            El.addEventListener('change', function(e) {
+                if(!e.target === El.checked ){
+                    El.parentElement.style.background = '#F7F7F7';
+                    El.parentElement.style.color = '#333';
+            }else{
+                El.parentElement.style.background = '#F0F6FF';
+                El.parentElement.style.color = '#0F53A8';
+            }
+            })
+        });
+    </script>
+</body>
+</html>

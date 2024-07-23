@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+    <style>
+        .collection-wrap{position: relative;display: flex;justify-content: center;}
+        .collection-wrap .menu-tab-wrap{display: flex;justify-content: center;align-items: center;height: 32px; background: #F7F7F7;border-radius: 20px;}
+        .collection-wrap .search{position:absolute; width:24px; height:24px; top: 50%; right: 0; transform: translateY(-50%); background: url(./images/menu/search.png)no-repeat ; background-size: cover;}
+        .collection-wrap .menu-tab-wrap a {display: block; color: #9F9F9F; padding: 6px 16px; border-radius:20px;}
+        .collection-wrap .menu-tab-wrap div.active a{background-color: #114287; color: #fff; font-weight: 700; transition: all 0.7s;}
+        .gray-box-wrap{position: relative; padding: 8px 20px; border-radius: 12px; background-color: #F7F7F7; margin-top: 18px;}
+        .tab-panel.summary{margin-top:40px;}
+        .tab-panel.summary .gray-box-wrap > .box{display: flex; justify-content: space-between;align-items: center; border-bottom: 1px solid #E5E8EC; padding: 12px 0;}
+        .tab-panel.summary .gray-box-wrap > .box:last-child{border-bottom: 0;}
+        .tab-panel.summary .gray-box-wrap .box span{font-size: 15px; font-weight: 500; line-height: 20px;}
+        .tab-panel.summary .gray-box-wrap .box i.star{width: 20px; height: 20px; background: url(./images/menu/star.png) no-repeat; cursor: pointer;}
+        .tab-panel.summary .gray-box-wrap .box i.star.on{background: url(./images/menu/star-on.png) no-repeat;}
+        .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png); background-size: contain; margin-left: 8px; margin-right: auto;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-wrap">
+            <div class="collection-wrap">
+                <div class="menu-tab-wrap ui-tab">
+                    <div class="active">
+                        <a href="#tab1">요약</a>
+                    </div>
+                    <div>
+                        <a href="#tab2">전체</a>
+                    </div>
+                </div>
+                <a href="./menu-search.html" class="search"></a>
+            </div>
+            <div class="mgt30 t-center">
+                <img src="./images/menu/group1.png" alt="">
+            </div>
+            <div id="tab1" class="tab-panel summary active">
+                <img src="./images/menu/tit1.png" alt="">
+                <div class="gray-box-wrap">
+                    <div class="box">
+                        <span>계좌이체</span>
+                        <i class="star on" aria-label="별"></i>
+                    </div>
+                    <div class="box">
+                        <span>공과금납부</span>
+                        <i class="star" aria-label="별"></i>
+                    </div>
+                    <div class="box">
+                        <span>자동이체</span>
+                        <i class="star" aria-label="별"></i>
+                    </div>
+                    <div class="box">
+                        <span>환전</span>
+                        <i class="star" aria-label="별"></i>
+                    </div>
+                </div>
+
+                <img src="./images/menu/tit2.png" alt="" class="mgt50">
+                <div class="gray-box-wrap">
+                    <div class="box">
+                        <span>청년도약계좌</span>
+                        <i class="up" aria-label="급상승"></i>
+                    </div>
+                    <div class="box">
+                        <span>신용점수올리기</span>
+                        <i class="up" aria-label="급상승"></i>
+                    </div>
+                    <div class="box">
+                        <span>한도변경</span>
+                    </div>
+                    <div class="box">
+                        <span>포인트 조회/전환</span>
+                    </div>
+                    <div class="box">
+                        <span>예금해지</span>
+                    </div>
+                </div>  
+            </div>
+            <div id="tab2" class="tab-panel all">
+                <div class="depth">
+                    <div class="depth-1">
+                        <ul>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none" class="on">이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">뱅킹</a></li>
+                            <li><a href="#none">카드</a></li>
+                            <li><a href="#none">외환</a></li>
+                            <li><a href="#none">상품가입</a></li>
+                            <li><a href="#none">자산관리</a></li>
+                            <li><a href="#none">혜택</a></li>
+                            <li><a href="#none">생활서비스</a></li>
+                            <li><a href="#none">고객센터</a></li>
+                        </ul>
+                    </div>
+                    <div class="depth-2">
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li>
+                                <a href="#none" class="on">자동이체</a>
+                                <div class="depth-3">
+                                    <ul>
+                                        <li><a href="#none">자동이체 신청/변경</a></li>
+                                        <li><a href="#none">자동이체 이력조회</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                        <ul class="panel">
+                            <li><a href="#none">이체</a></li>
+                            <li><a href="#none">지연이체</a></li>
+                            <li><a href="#none">공과금</a></li>
+                            <li><a href="#none">자동이체</a></li>
+                            <li><a href="#none">톡톡송금</a></li>
+                            <li><a href="#none">빠른이체</a></li>
+                            <li><a href="#none">메세지송급</a></li>
+                            <li><a href="#none">이체관리</a></li>
+                            <li><a href="#none">ATM출금</a></li>
+                            <li><a href="#none">오픈뱅킹</a></li>
+                        </ul>
+                    </div>
+                </div>    
+                <style>
+
+                    /* .tab-panel.all{display: flex; margin: 15px -20px 0; height: 580px;} */
+                    .depth {display: flex; margin: 15px -20px 0; height: 580px;}
+                    .depth-1{ position: relative; width: 134px; background-color: #215C9C; color: #ebebeb; }
+                    .depth-1 ul{display: flex;height: 767px; flex-direction: column;}
+                    .depth-1 ul li{}
+                    .depth-1 ul li a{display: inline-block;padding: 14px 30px;}
+                    .depth-1 ul li a.on{color: #fff; font-weight: 700;}
+                    .depth-2{width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px;}
+                    .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
+                    .depth-2 ul > li{    border-bottom: 1px solid #F7F7F7;}
+                    .depth-2 ul li a{display: inline-block; padding: 20px 0;}
+                    .depth-2 ul li a.on{ color: #1D74E8; font-weight: 700;}
+
+                    .depth-3{}
+                    .depth-3 ul{}
+                    .depth-3 ul li{ border-bottom: 0;}
+                    .depth-3 ul li a{}
+
+                
+                </style> 
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div>
+            <img src="./images/navigation-menu.png" alt="" >
+        </div>
+        <ul>
+            <li><a id="home" href="./index.html"></a>1</li>
+            <li><a href=""></a>2</li>
+            <li><a href=""></a>3</li>
+            <li><a href="./wallet.html"></a>4</li>
+            <li><a href="./menu.html"> </a>5</li>
+        </ul>
+    </nav>
+
+
+    <script src="./res/ibk-com.js"></script>
+    <script>
+        // 버튼 요소를 가져옵니다.
+        const starButton = document.querySelectorAll('.star');
+        // 클릭 이벤트 리스너를 추가합니다.
+        starButton.forEach( function(El){
+            El.addEventListener('click', function() {
+                if (El.classList.contains('on')) {
+                    El.classList.remove('on');
+                } else {
+                    El.classList.add('on');
+                }
+            })
+        });
+
+        $('.depth-1 a').click(function (e) {
+            e.preventDefault();
+            const $idx = $(this).closest('li').index();
+            const $paenl = $('.depth-2 .panel').eq($idx).scrollTop()
+            const $parent = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx); // 부모 요소의 클래스명에 맞게 수정.
+            const $parentTop = $parent.offset().top;
+            console.log($parentTop)
+            $(this).addClass('on').closest('li').siblings().find('a').removeClass('on')
+
+            $('.depth-2').stop().animate({ scrollTop: $parentTop }, 500);
+        
+          /* const idx = target.closest('li').index();
+          const panel = $('.panel').eq(idx);
+          const boxTop = panel.offset().top;
+          const headH = $('.depth-2').outerHeight();
+          const tabH = $('.page-wrap').outerHeight();
+          const sclVal = boxTop - headH - tabH;
+          console.log(panel )
+          $('html, body').stop().animate({ scrollTop: sclVal }, 500); */
+        });
+
+        $('.depth-2 a').click(function (e) {
+            e.preventDefault();
+            $(this).addClass('on').closest('li').siblings().find('a').removeClass('on')
+
+        });
+
+    </script>
+</body>
+</html>

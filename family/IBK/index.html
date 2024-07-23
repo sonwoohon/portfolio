@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./res/ink-com.css">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
-        .alram-box{position: relative;display: flex; justify-content: space-between; padding: 0 20px;align-items: center;} 
-        .alram-box img:nth-child(1){width: 28px; height: 28px;}
-        .alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation:  alramBanner1 0.5s cubic-bezier(0.1, 0.5, 0.22, 1) forwards,alramBanner2 .7s 0.3s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
-        .alram-box img:nth-child(3){width: 72px; height: 28px; margin-left: auto;}
+        .container .page-wrap {padding: 20px 20px 0px;}
+
         .banner{position: relative; height: 334px; background-color: #F38C32; border-radius: 12px;}
         .banner p{font-size:20px;font-weight:700;line-height:30px;padding-top:40px;color: #fff; text-align: center;}
-        .banner button{position: absolute; top: 24px; right: 20px; width: 20px; height: 20px; background: url(./images/home-close.png) no-repeat; background-size: cover; }
+        .banner button{position: absolute; top: 24px; right: 20px; width: 20px; height: 20px; background: url(./images/home/home-close.png) no-repeat; background-size: cover; }
         .banner a{position: absolute;width: 295px; bottom: 24px;height: 44px;left: 20px;}
-        .banner > img{position: absolute;}
-        .banner > img:nth-of-type(1){top: 168px; left: 110px; z-index: 5;}
-        .banner > img:nth-of-type(2){top: 230px; left: 120px; }
-        .banner > img:nth-of-type(3){top: 157px; left: 56px; }
-        .banner > img:nth-of-type(4){top: 114px; left: 96px; }
-        .banner > img:nth-of-type(5){top: 119px; left: 171px; }
-        .banner > img:nth-of-type(6){top: 154px; left: 224px; } 
+        .banner > img{position: absolute; opacity: 0; animation:banner 1s ease-out forwards;}
+        .banner > img:nth-of-type(1){top: 168px; left: 110px; z-index: 5;animation-delay: 1s; } 
+        .banner > img:nth-of-type(2){top: 230px; left: 120px; animation-delay: .8s;}
+        .banner > img:nth-of-type(3){top: 157px; left: 56px;animation-delay: 1.2s; }
+        .banner > img:nth-of-type(4){top: 114px; left: 96px;animation-delay: 1.4s; }
+        .banner > img:nth-of-type(5){top: 119px; left: 171px;animation-delay: 1.6s; }
 
         .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
         .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
@@ -40,19 +38,17 @@
         .modalbox-wrap .modalbox .modalbox_cont .txt{font-size: 15px; margin-left: 12px;}
         .modalbox-wrap .modalbox .modalbox_cont strong{display: inline-block; margin-top: 3px; color: #0F53A8; font-weight: 700;}
         .modalbox-wrap > button{position: absolute; top: 0px; width: 100%; background-color: #F5F5F5; padding: 12px 10px;transition: 0.5s; opacity: 0; cursor: pointer;}
-        .modalbox-wrap > button.on{display: block; position: absolute; height: 40px; top: 450px; opacity: 1; background: url(./images/home-btn2.png) no-repeat;}
+        .modalbox-wrap > button.on{display: block; position: absolute; height: 40px; top: 450px; opacity: 1; background: url(./images/home/home-btn2.png) no-repeat;}
         .modalbox-wrap .modalbox > button{width: 100%; color: #5E8FC0; border-top: 1px solid #C8E3FF; font-size: 12px; font-weight: 500; margin-top: 11px; padding-top: 11px; background: transparent;cursor: pointer; transition: 0.5s;}
-        .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
-        .interaction{position: relative; top: 50px; opacity: 0; display: block; transition: all .6s ease-in-out;}
-        .interaction.on{animation: interaction 1s ease-in-out ;opacity: 1; top: 0;}
+        .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/home/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
         .nums{font-size: 26px; font-weight: 700; color: #fff;}
         .nums .one{font-size: 16px; font-weight: 500;}
         .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;}
         .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
         .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
         .popup .pop-cont{position: relative; text-align: center;}
-        .popup .popupimg{display: flex; justify-content: space-between; margin-bottom: 30px;}
-        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
+        .popup .popupimg{display: flex; justify-content: space-between; align-items: center;margin-bottom: 30px;}
+        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
         .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s 0.5s forwards;}
         .banklist-box:nth-of-type(1){z-index: 10;}
         .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
@@ -60,30 +56,17 @@
         .banklist-box:nth-of-type(4){z-index: 7;  transform: translateY(-543px);}
         .banklist-box:nth-of-type(5){z-index: 6;  transform: translateY(-702px);}
         .banklist-box:nth-of-type(6){z-index: 5;  transform: translateY(-861px);}
-        .banklist-box .nums{position: absolute;top: 92px;left: 18px;}
+        .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
-        nav{ position: fixed;bottom: 0;width: 375px;left: 50%;transform: translateX(-50%);background: #fff;border-radius: 12px 12px 0 0;fill: #FFF;filter: drop-shadow(0px -4px 8.3px rgba(0, 0, 0, 0.12));}
-        nav ul {position: absolute;bottom: 0;display: flex;justify-content: space-around;height: 90px;width: 100%;}
-        nav ul li {width: 75px;}
-        nav ul li a{display:inline-block; width: 100%; height: 100%;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
-        @keyframes alramBanner1{
-            0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(355deg)}
-            100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(361deg);transition: 0.5s;}
-        }
-        @keyframes alramBanner2{
-            0%, 100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}
-            50%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(358deg)}
-        }
     </style>
 </head>
 <body>
-    <div class="conatiner">
-        <header>
-            <img src="./images/header.png" alt="">
-        </header>
+    <div class="container">
         <div class="alram-box">
-            <img src="./images/home-icon1.png" alt="">
+            <a href="#none">
+                <img src="./images/home-icon1.png" alt="">
+            </a>
             <img src="./images/home-icon2.png" alt="">
             <img src="./images/home-icon3.png" alt="">
         </div>
@@ -91,15 +74,15 @@
 
             <div class="banner">
                 <p>내 가족의 금융 정보를<br>같이 공유 하시겠어요?</p>
-                <img src="./images//home-bank-book.png" alt="">
-                <img src="./images/home-shadow1.png" alt="">
-                <img src="./images/home-children1.png" alt="">
-                <img src="./images/home-couple1.png" alt="">
-                <img src="./images/home-couple2.png" alt="">
-                <img src="./images/home-children2.png" alt="">
-                <button onclick="collapseElement(this.parentNode, 600)"></button>
-                <a href="./wallet.html" role="button">
-                    <img src="./images/home-btn1.png" alt="" style="display: inline-block; height: 100%;" >
+                <img src="./images/home/home-bank-book.png" alt="">
+                <img src="./images/home/home-shadow1.png" alt="">
+                <img src="./images/home/home-children1.png" alt="">
+                <img src="./images/home/home-couple1.png" alt="">
+                <img src="./images/home/home-couple2.png" alt="">
+                <img src="./images/home/home-children2.png" alt="">
+                <button onclick="collapseElement(this.parentNode, 300)"></button>
+                <a href="./financial.html" role="button">
+                    <img src="./images/home/home-btn1.png" alt="">
                 </a>
             </div>
 
@@ -108,7 +91,7 @@
                     <div class="modalbox_cont">
                         <div>
                             <div class="img">
-                                <img src="./images/home-icon4.png" alt="">
+                                <img src="./images/home/home-icon4.png" alt="">
                             </div>
                             <div class="txt">
                                 <p>내 신용 점수가 변동되었어요</p>
@@ -122,7 +105,7 @@
                     <div class="modalbox_cont">
                         <div> 
                             <div class="img">
-                                <img src="./images/home-icon5.png" alt="">
+                                <img src="./images/home/home-icon5.png" alt="">
                             </div>
                             <div class="txt">
                                 <p>지금 출석 체크하고</p>
@@ -135,7 +118,7 @@
                     <div class="modalbox_cont">
                         <div> 
                             <div class="img">
-                                <img src="./images/home-icon6.png" alt="">
+                                <img src="./images/home/home-icon6.png" alt="">
                             </div>
                             <div class="txt">
                                 <p style="letter-spacing: -1.9px;">이번달 보험료 지출금액이 변동되었어요</p>
@@ -148,7 +131,7 @@
                     <div class="modalbox_cont">
                         <div> 
                             <div class="img">
-                                <img src="./images/home-icon7.png" alt="">
+                                <img src="./images/home/home-icon7.png" alt="">
                             </div>
                             <div class="txt">
                                 <p>새로운 신용카드를 발급 받으셨네요</p>
@@ -161,7 +144,7 @@
                     <div class="modalbox_cont">
                         <div> 
                             <div class="img">
-                                <img src="./images/home-icon8.png" alt="">
+                                <img src="./images/home/home-icon8.png" alt="">
                             </div>
                             <div class="txt">
                                 <p>부부통장의 금액이 변동되었어요</p>
@@ -174,50 +157,56 @@
             </div>
 
             <a href="#none" class="home-cardlist interaction on" onclick="drPopupOpen('.pop1', 'element');count();">
-                <img src="./images/home-cardlist.png" alt="">
+                <img src="./images/home/home-cardlist.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </a>
-            <img src="./images/home-btn3.png" alt="" style="margin-top: 20px; margin-bottom: 40px;">
+            <img src="./images/home/home-btn3.png" alt="" style="margin-top: 20px; margin-bottom: 40px;">
+            <!-- <div class="click">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+            <style>
+                .click{position: absolute;}
+            </style> -->
         </div>
         <div class="page-wrap type2">
 
             <div class="interaction">
-                <img src="./images/home-txt1.png" alt="">
-                <img src="./images/home-txt2.png" alt="" class="mgt5">
+                <img src="./images/home/home-txt1.png" alt="">
+                <img src="./images/home/home-txt2.png" alt="" class="mgt5">
             </div>
             <div class="mgt40 interaction">
-                <img src="./images/home-ex1.png" alt="" class="mgb15">
+                <img src="./images/home/home-ex1.png" alt="" class="mgb15">
             </div>
             <div class="interaction">
-                <img src="./images/home-ex2.png" alt="" class="mgb15">
+                <img src="./images/home/home-ex2.png" alt="" class="mgb15">
             </div>
             <div class="interaction">
-                <img src="./images/home-ex3.png" alt="" class="mgb15">
+                <img src="./images/home/home-ex4.png" alt="" class="mgb15">
             </div>
             <div class="interaction">
-                <img src="./images/home-ex4.png" alt="" class="mgb15">
+                <img src="./images/home/home-ex7.png" alt="" class="mgb15">
+            </div>
+            <div class="interaction">
+                <img src="./images/home/home-ex3.png" alt="" class="mgb15">
             </div>
             <div class="interaction">
                 <a href="./financial.html">
-                    <img src="./images/home-ex5.png" alt="" class="mgb15">
+                    <img src="./images/home/home-ex5.png" alt="" class="mgb15">
                 </a>
             </div>
             <div class="interaction">
-                <img src="./images/home-ex6.png" alt="" class="mgb15">
+                <img src="./images/home/home-ex6.png" alt="" class="mgb15">
             </div>
             <div class="interaction">
-                <img src="./images/home-ex7.png" alt="" class="mgb15">
+                <img src="./images/home/home-ex8.png" alt="" class="mgb15">
             </div>
             <div class="interaction">
-                <img src="./images/home-ex3.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home-ex8.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home-ex9.png" alt=""> 
+                <img src="./images/home/home-ex9.png" alt=""> 
             </div>
         </div>
         <nav>
@@ -229,58 +218,60 @@
                 <li><a href=""></a>2</li>
                 <li><a href=""></a>3</li>
                 <li><a href="./wallet.html"></a>4</li>
-                <li><a href=""> </a>5</li>
+                <li><a href="./menu.html"> </a>5</li>
             </ul>
         </nav>
     </div>
     <div class="popup pop1">
         <div class="popupimg">
-            <img src="./images/home-pop.png" alt="">
-            <img src="./images/home-pop-icon.png" alt="">
+            <img src="./images/home/home-pop.png" alt="">
+            <img src="./images/home/home-pop-icon.png" alt="">
         </div>
         <div class="pop-cont">
             <div class="banklist-box">
-                <img src="./images/home-pop-ex1.png" alt="">
+                <img src="./images/home/home-pop-ex1.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
             </div>
             <div class="banklist-box">
-                <img src="./images/home-pop-ex2.png" alt="">
+                <img src="./images/home/home-pop-ex2.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
             </div>
             <div class="banklist-box">
-                <img src="./images/home-pop-ex3.png" alt="">
+                <img src="./images/home/home-pop-ex3.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
-                <img src="./images/home-pop-ex4.png" alt="">
+                <img src="./images/home/home-pop-ex4.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
-                <img src="./images/home-pop-ex5.png" alt="">
+                <img src="./images/home/home-pop-ex5.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
-                <img src="./images/home-pop-ex6.png" alt="">
+                <img src="./images/home/home-pop-ex6.png" alt="">
             </div>
         </div>
         <div class="mgt12">
-            <img src="./images/home-pop-ex7.png" alt="">
+            <img src="./images/home/home-pop-ex7.png" alt="">
         </div>
         <button class="pop-close" onclick="drPopupClose('.popup', 'element')"></button>
     </div>
+
     <div class="dim"></div>
+    <script src="./res/ibk-com.js"></script>
     <script>
 
         // 상단 알림센터 배너 
@@ -305,47 +296,11 @@
 
         // 버튼 클릭시 닫힘 
         function collapseElement(element, duration) {
-            element.style.transition = 'height ' + (duration / 1000) + 's'; // transition 설정
+            element.style.transition = 'all ' + (duration / 1000) + 's'; // transition 설정
             element.style.height = '0'
             element.style.opacity = '0'; // 높이를 0으로 설정
 
         }
-
-        // 애니메이션 show hide 
-        document.addEventListener('DOMContentLoaded', function() {
-            window.addEventListener('scroll', function() {
-                var mainAnimates = document.querySelectorAll('.interaction');
-                var windowHeight = window.innerHeight;
-                mainAnimates.forEach(function(mainAnimate) {
-                    var contentOffset = mainAnimate.offsetTop +200;
-                    var scrollPosition = window.scrollY;    
-                    if (scrollPosition + windowHeight >= contentOffset) {
-                        mainAnimate.classList.add('on');
-                        console.log(scrollPosition, windowHeight, contentOffset )
-                    } 
-                    else {
-                        mainAnimate.classList.remove('on');
-                    }
-                });
-               
-            });
-        });
-
-        //팝업 열기
-        function drPopupOpen(popName){
-            $('body').css('overflow','hidden');
-            $('.dim').css('display','block');
-            $(popName).css('display','block')
-            $(popName).stop().animate({ scrollTop: 0 }, 300);
-        }
-        //팝업 닫기
-        function drPopupClose(pop, element){
-            $('body').css('overflow','auto');
-            $(pop).closest('.popup').css('display','none');
-            $('.dim').css('display','none');
-
-        }
-        
         //숫자 카운트 애니메이션
         function count(){
             $('.nums').each(function () {
@@ -370,10 +325,6 @@
             });
         }
         count();
-        // 리렌더링 
-        document.getElementById('home').addEventListener('click', function() {
-            window.location.href = 'index.html';
-        });
     </script>
 </body>
 </html>
