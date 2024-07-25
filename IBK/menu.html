@@ -7,6 +7,7 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
+        /* 요약 */
         .collection-wrap{position: relative;display: flex;justify-content: center;}
         .collection-wrap .menu-tab-wrap{display: flex;justify-content: center;align-items: center;height: 32px; background: #F7F7F7;border-radius: 20px;}
         .collection-wrap .search{position:absolute; width:24px; height:24px; top: 50%; right: 0; transform: translateY(-50%); background: url(./images/menu/search.png)no-repeat ; background-size: cover;}
@@ -20,6 +21,36 @@
         .tab-panel.summary .gray-box-wrap .box i.star{width: 20px; height: 20px; background: url(./images/menu/star.png) no-repeat; cursor: pointer;}
         .tab-panel.summary .gray-box-wrap .box i.star.on{background: url(./images/menu/star-on.png) no-repeat;}
         .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png); background-size: contain; margin-left: 8px; margin-right: auto;}
+    
+        
+        /* 전체 */
+        .depth {display: flex; height: 740px; margin: 15px -20px 0; height: 580px;}
+        .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
+        .depth-1 ul{display: flex;height: 767px; flex-direction: column;}
+        .depth-1 ul li{padding: 14px 30px; white-space: nowrap;}
+        .depth-1 ul li a{display: inline-block; color: #fff; opacity: 0.6;}
+        .depth-1 ul li a.on{color: #fff; font-weight: 700; opacity: 1;}
+        .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png); vertical-align: sub; margin-right: 4px;}
+        .depth-1 ul li:nth-of-type(2) a::before{background: url(./images/menu/icon-1.png);}
+        .depth-1 ul li:nth-of-type(3) a::before{background: url(./images/menu/icon-2.png);}
+        .depth-1 ul li:nth-of-type(4) a::before{background: url(./images/menu/icon-3.png);}
+        .depth-1 ul li:nth-of-type(5) a::before{background: url(./images/menu/icon-4.png);}
+        .depth-1 ul li:nth-of-type(6) a::before{background: url(./images/menu/icon-5.png);}
+        .depth-1 ul li:nth-of-type(7) a::before{background: url(./images/menu/icon-6.png);}
+        .depth-1 ul li:nth-of-type(8) a::before{background: url(./images/menu/icon-7.png);}
+        .depth-1 ul li:nth-of-type(9) a::before{background: url(./images/menu/icon-8.png);}
+        .depth-1 ul li:nth-of-type(10) a::before{background: url(./images/menu/icon-9.png);}
+        .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-10.png);}
+        .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px;}
+        .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
+        .depth-2 ul > li{    border-bottom: 1px solid #F7F7F7;}
+        .depth-2 ul li a{position: relative; display:block; padding: 20px 0;}
+        .depth-2 ul li a.on{ color: #1D74E8; font-weight: 700;}
+        .depth-2 .accordion > a::after{content: ""; position: absolute; width: 14px; height: 14px; background: url(./images/menu/icon-up.png);top:50%;right:0;transform: translateY(-50%);}
+        .depth-2 .accordion > a.open::after{transform: translateY(-50%) rotate(180deg);}
+        .depth-3.folding-panel{display: none;}
+        .depth-3.folding-panel.open{display: block;}
+        .depth-3 ul li{ border-bottom: 0;}
     </style>
 </head>
 <body>
@@ -112,9 +143,33 @@
                                     </ul>
                                 </div>    
                             </li>
-                            <li><a href="#none">톡톡송금</a></li>
-                            <li><a href="#none">빠른이체</a></li>
-                            <li><a href="#none">메세지송급</a></li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">톡톡송금</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">자동이체 신청/변경</a></li>
+                                        <li><a href="#none">자동이체 이력조회</a></li>
+                                    </ul>
+                                </div> 
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">빠른이체</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">자동이체 신청/변경</a></li>
+                                        <li><a href="#none">자동이체 이력조회</a></li>
+                                    </ul>
+                                </div> 
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">메세지송급</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">자동이체 신청/변경</a></li>
+                                        <li><a href="#none">자동이체 이력조회</a></li>
+                                    </ul>
+                                </div> 
+                            </li>
                             <li><a href="#none">이체관리</a></li>
                             <li><a href="#none">ATM출금</a></li>
                             <li><a href="#none">오픈뱅킹</a></li>
@@ -241,40 +296,6 @@
                         </ul>
                     </div>
                 </div>    
-                <style>
-
-                    /* .tab-panel.all{display: flex; margin: 15px -20px 0; height: 580px;} */
-                    .depth {display: flex; height: 740px; margin: 15px -20px 0; height: 580px;}
-                    .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
-                    .depth-1 ul{display: flex;height: 767px; flex-direction: column;}
-                    .depth-1 ul li{padding: 14px 30px; white-space: nowrap;}
-                    .depth-1 ul li a{display: inline-block; color: #fff; opacity: 0.6;}
-                    .depth-1 ul li a.on{color: #fff; font-weight: 700; opacity: 1;}
-                    .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png); vertical-align: sub; margin-right: 4px;}
-                    .depth-1 ul li:nth-of-type(2) a::before{background: url(./images/menu/icon-1.png);}
-                    .depth-1 ul li:nth-of-type(3) a::before{background: url(./images/menu/icon-2.png);}
-                    .depth-1 ul li:nth-of-type(4) a::before{background: url(./images/menu/icon-3.png);}
-                    .depth-1 ul li:nth-of-type(5) a::before{background: url(./images/menu/icon-4.png);}
-                    .depth-1 ul li:nth-of-type(6) a::before{background: url(./images/menu/icon-5.png);}
-                    .depth-1 ul li:nth-of-type(7) a::before{background: url(./images/menu/icon-6.png);}
-                    .depth-1 ul li:nth-of-type(8) a::before{background: url(./images/menu/icon-7.png);}
-                    .depth-1 ul li:nth-of-type(9) a::before{background: url(./images/menu/icon-8.png);}
-                    .depth-1 ul li:nth-of-type(10) a::before{background: url(./images/menu/icon-9.png);}
-                    .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-10.png);}
-                    .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px;}
-                    .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
-                    .depth-2 ul > li{    border-bottom: 1px solid #F7F7F7;}
-                    .depth-2 ul li a{position: relative; display:block; padding: 20px 0;}
-                    .depth-2 ul li a.on{ color: #1D74E8; font-weight: 700;}
-                    .depth-2 .accordion > a::after{content: ""; position: absolute; width: 14px; height: 14px; background: url(./images/menu/icon-up.png);top:50%;right:0;transform: translateY(-50%);}
-                    .depth-2 .accordion > a.open::after{transform: translateY(-50%) rotate(180deg);}
-                    .depth-3{}
-                    .depth-3 ul{}
-                    .depth-3 ul li{ border-bottom: 0;}
-                    .depth-3 ul li a{}
-
-                
-                </style> 
             </div>
         </div>
     </div>
