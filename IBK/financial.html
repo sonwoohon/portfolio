@@ -9,6 +9,7 @@
     <title>Document</title>
     <style>
         .container .page-wrap{padding: 20px 20px 45px;}
+
         .financial-box{position: relative;margin: -16px -20px 0;}
         .financial-box a{position: absolute; top: 10px; left: 15px; width:35px; height: 35px;}
         .financial-tab-wrap{display: flex;justify-content: space-between;align-items: center;margin-top: 22px; margin-bottom: 34px;}
@@ -23,6 +24,8 @@
         .financial-tab-wrap ul li.active a.bangsa::before{content: ""; background: url(./images/financial/bangsa-on-icon.png) no-repeat;}
         .financial-tab-wrap ul li a.list::before{content: "";background: url(./images/financial/list-icon.png) no-repeat;}
         .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;}
+
+        /* 리스트형 */
         .financial-accordion {padding: 16px 12px; background-color: #e5e8ec; border-radius: 12px; margin-bottom: 12px;}
         .financial-accordion h2{display: flex; align-items: center;font-size: 16px; font-weight: 700; line-height: 20px;}
         .financial-accordion h2 span{margin-left: 4px; font-weight: 400;}
@@ -35,6 +38,30 @@
         .financial-accordion h2.mother::before{ background: url(./images/financial/mother.png) no-repeat;}
         .financial-accordion h2.profile::before{ background: url(./images/financial/profile.png) no-repeat;}
         .invite-btn{display: flex;height: 52px;padding: 18px 0px;justify-content: center;align-items: center; border-radius: 10px; background-color: #E8F4FF; font-weight: 700; color: #004F9D;}
+        
+        /* 방사형 */
+        #tab1{margin: 0 -20px;}
+        .wrap {max-width: 375px;height: 400px;margin: 0 auto;}
+        .hidden {overflow: hidden;width: 100%;height: 400px;position: relative;}
+        .move-wrap {position: absolute;width: 100%;height: 400px;overflow: hidden; /* overflow-x, overflow-y 제거하고 한번에 설정 */top: 50%;left: 50%;transform: translate(-50%, -50%);}
+        .move-wrap {}
+        .move-box {position: absolute;width: 100%;height: 100%;border-radius: 50%;display: flex;justify-content: center;align-items: center;background: url(./images/financial/bangsa-bg.png) no-repeat;top: 0; /* 초기에는 화면의 맨 위에 위치 */left: 0; /* 초기에는 화면의 맨 왼쪽에 위치 */transition: top 0.4s ease, left 0.4s ease; /* top, left 속성에 대해 부드러운 전환 효과 */}
+        .num {position: absolute;width: 30px;height: 30px;border-radius: 50%;background: red;cursor: pointer;transition: transform 0.3s ease; /* transform 속성에 대한 부드러운 전환 효과 */}
+        .num.this{width: 50px;height: 50px;}
+        .num a {display: inline-block;width: 100%;height: 100%;}
+        .num.num1 {top: 25%; left: 40%; }
+        .num.num2 { top: 40%; left: 30%; }
+        .num.num3 { top: 54%; left: 43%;  background: url(./images/financial/me.png) no-repeat;}
+        .num.num4 { top: 32%; left: 58%; width: 50px; height: 50px;background: url(./images/financial/wife.png) no-repeat;}
+        .num.num5 { top: 83%; left: 70%; }
+        .sub-box{opacity: 0;transition: 1s ease;}
+        /* .line{position: absolute;width: 30px;height: 1px;background: red;}
+        .line.line1{top:13px;left:37px;transform:rotate(360deg);}
+        .line.line2{top:54px;left:0px;transform:rotate(90deg);} */
+    
+        .sub-num{position:absolute;width:20px;height:20px;background:red;border-radius:50%;}
+        .sub-num.sub-num1{top:80px;left:5px;}
+        .sub-num.sub-num2{top: 4px;left: 80px;}
     </style>
 </head>
 <body>
@@ -49,14 +76,35 @@
             <div class="financial-tab-wrap">
                 <div class="txt">나와 연결된 인원 : <span>6명</span></div>
                 <ul class="ui-tab">
-                    <li><a href="#tab1" class="bangsa">방사형</a></li>
-                    <li class="active"><a href="#tab2" class="list">리스트형</a></li>
+                    <li  class="active"><a href="#tab1" class="bangsa">방사형</a></li>
+                    <li><a href="#tab2" class="list">리스트형</a></li>
                 </ul>
             </div>
-            <div id="tab1" class="tab-panel">
-                방사형
+            <div id="tab1" class="tab-panel active">
+                <div class="wrap">
+                    <div class="hidden">
+                        <div class="move-wrap"><!-- 배경 밀리는부분 -->
+                            <div class="move-box">
+                                <div class="num num1"><a href="#none"></a></div>
+                                <div class="num num2"><a href="#none"></a></div>
+                                <div class="num num3 this"><a href="#none"></a></div>
+                                <div class="num num4"><a href="#none"></a></div>
+                                <div class="num num5" >
+                                    <a href="#none">
+                                        <div class="sub-box">
+                                            <span class="line line1"></span>
+                                            <span class="line line2"></span>
+                                            <div class="sub-num sub-num1"></div>
+                                            <div class="sub-num sub-num2"></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="tab2" class="tab-panel active">
+            <div id="tab2" class="tab-panel">
                 <div class="accordion financial-accordion">
                     <h2 class="mother">아내<span>성춘향</span><a href="#none" class="folding-btn" role="button">연결 통장<span>4</span></a></h2>
                     <div class="folding-panel">
@@ -103,7 +151,44 @@
     </div>
     <script src="./res/ibk-com.js"></script>
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+            var numElements = document.querySelectorAll('.num');
+            var moveBox = document.querySelector('.move-box');
         
+            numElements.forEach(function(element) {
+                element.addEventListener('click', function(event) {
+                    event.preventDefault();
+        
+                    // 모든 num 요소에서 active 클래스를 제거.
+                    numElements.forEach(function(num) {
+                        num.style.transform = 'scale(1)';
+                    });
+        
+                    // 클릭된 num 요소의 위치를 move-box의 정중앙으로 이동.
+                    var rect = moveBox.getBoundingClientRect();
+                    var targetRect = this.getBoundingClientRect();
+                    console.log(rect);
+                    console.log(targetRect);
+                    var moveX = rect.left + rect.width / 2 - (targetRect.left + targetRect.width / 2);
+                    var moveY = rect.top + rect.height / 2 - (targetRect.top + targetRect.height / 2);
+                    console.log(moveX);
+                    console.log(moveY);
+        
+                    moveBox.style.top = moveY + 'px';
+                    moveBox.style.left = moveX + 'px';
+        
+                    this.style.transform = 'scale(2)';
+                    if(this.classList.contains('this')){
+                        this.style.transform = 'scale(1)';
+                    }
+                    if(this.classList.contains('num5')){
+                        document.querySelector('.sub-box').style.opacity = '1';   
+                    }else{
+                        document.querySelector('.sub-box').style.opacity = '0';  
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
