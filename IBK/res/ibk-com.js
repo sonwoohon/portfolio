@@ -1,18 +1,17 @@
 /* header 넣기 */
 document.addEventListener('DOMContentLoaded', function() {
-    // 새로운 header 요소를 생성합니다.
+    // 새로운 header 요소를 생성
     var header = document.createElement('header');
     
-    // header 요소에 이미지를 추가합니다.
+    // header 요소에 이미지를 추가
     var img = document.createElement('img');
     img.src = './images/header.png'; // 이미지 경로 설정
-    img.alt = ''; // alt 속성 설정
+    img.alt = '';
     header.appendChild(img);
-    
-    // container 클래스를 가진 요소를 찾습니다.
+
     var container = document.querySelector('.container');
     
-    // container의 첫 번째 자식 요소로 header 요소를 추가합니다.
+    // container의 첫 번째 자식 요소로 header 요소를 추가
     if (container) {
         container.insertBefore(header, container.firstChild);
     } else {

@@ -43,13 +43,13 @@
         .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/home/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
         .nums{font-size: 26px; font-weight: 700; color: #fff;}
         .nums .one{font-size: 16px; font-weight: 500;}
-        .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;}
+        .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;    transition-delay: 2s;}
         .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
         .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
         .popup .pop-cont{position: relative; text-align: center;}
         .popup .popupimg{display: flex; justify-content: space-between; align-items: center;margin-bottom: 30px;}
         .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
-        .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s 0.5s forwards;}
+        .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s forwards;}
         .banklist-box:nth-of-type(1){z-index: 10;}
         .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
         .banklist-box:nth-of-type(3){z-index: 8;  transform: translateY(-385px);}
@@ -59,6 +59,7 @@
         .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
+        .wallet{position: absolute;top: 0px;right: 60px;width: 40px;height: 32px;}
     </style>
 </head>
 <body>
@@ -69,6 +70,7 @@
             </a>
             <img src="./images/home-icon2.png" alt="">
             <img src="./images/home-icon3.png" alt="">
+            <a href="./wallet.html" class="wallet"></a>
         </div>
         <div class="page-wrap">
 
@@ -210,15 +212,36 @@
             </div>
         </div>
         <nav>
-            <div>
-                <img src="./images/navigation-bar1.png" alt="" >
-            </div>
             <ul>
-                <li><a id="home" href=""></a>1</li>
-                <li><a href=""></a>2</li>
-                <li><a href=""></a>3</li>
-                <li><a href="./wallet.html"></a>4</li>
-                <li><a href="./menu.html"> </a>5</li>
+                <li>
+                    <a id="home" href="">
+                        <i aria-label="홈 탭" class="home on"></i>
+                        <span class="on">홈</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i aria-label="상품 탭" class="goods"></i>
+                        <span>상품</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i aria-label="AI 탭" class="ai"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i aria-label="라운지 탭" class="lounge"></i>
+                        <span>라운지</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./menu.html">
+                        <i aria-label="전체보기 탭" class="allmenu"></i>
+                        <span>전체</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -230,33 +253,33 @@
         <div class="pop-cont">
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex1.png" alt="">
-                <div class="nums" data-count="13000000">
+                <div class="nums" data-count="13000000" data-dealy="300">
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex2.png" alt="">
-                <div class="nums" data-count="13000000">
+                <div class="nums" data-count="38450000"  data-dealy="1000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
-            </div>
+            </div>./images/home-icon3.png
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex3.png" alt="">
-                <div class="nums" data-count="13000000">
+                <div class="nums" data-count="650000" data-dealy="1500">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex4.png" alt="">
-                <div class="nums" data-count="13000000">
+                <div class="nums" data-count="500000" data-dealy="2000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex5.png" alt="">
-                <div class="nums" data-count="13000000">
+                <div class="nums" data-count="150000" data-dealy="2500">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
@@ -269,62 +292,65 @@
         </div>
         <button class="pop-close" onclick="drPopupClose('.popup', 'element')"></button>
     </div>
-
     <div class="dim"></div>
+
+
     <script src="./res/ibk-com.js"></script>
     <script>
+    // 상단 알림센터 배너 
+    var elements = document.querySelectorAll('.modalbox');
+    document.querySelector('.modalbox > button').addEventListener('click', function(){
+        elements.forEach(function(element) {
+            element.classList.add('on');
+        });
+        this.style.display = 'none';
+        document.querySelector('.modalbox-wrap').style.height = '517px';
+        document.querySelector('.modalbox-wrap > button').classList.add('on');
+    })
 
-        // 상단 알림센터 배너 
-        var elements = document.querySelectorAll('.modalbox');
-        document.querySelector('.modalbox > button').addEventListener('click', function(){
-            elements.forEach(function(element) {
-                element.classList.add('on');
+    document.querySelector('.modalbox-wrap > button').addEventListener('click', function(){
+        elements.forEach(function(element) {
+            element.classList.remove('on');
+        });
+        this.classList.remove('on')
+        document.querySelector('.modalbox-wrap').style.height = '157px';
+        document.querySelector('.modalbox > button').style.display = 'block';
+    })
+
+    // 버튼 클릭시 닫힘 
+    function collapseElement(element, duration) {
+        element.style.transition = 'all ' + (duration / 1000) + 's'; // transition 설정
+        element.style.height = '0'
+        element.style.opacity = '0'; // 높이를 0으로 설정
+
+    }
+    //숫자 카운트 애니메이션
+        function count() {
+        $('.nums').each(function() {
+        const   $this = $(this),
+                countTo = $this.attr('data-count'),
+                countDelay = $this.attr('data-dealy'),
+                delaySeconds = parseInt(countDelay) || 0; //변수에서 얻은 값을 정수로 변환하고, 이 변환이 실패할 경우 또는 값이 없을 경우 0을 반환
+                setTimeout(function() {
+                    $({
+                        countNum: $this.text()
+                    }).animate({
+                        countNum: countTo
+                    }, {
+                        duration: 1500,
+                        easing: 'linear',
+                        step: function() {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function() {
+                            $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
+                            // 3자리 마다 콤마 표시 적용
+                        }
+                    });
+                }, delaySeconds); 
             });
-            this.style.display = 'none';
-            document.querySelector('.modalbox-wrap').style.height = '517px';
-            document.querySelector('.modalbox-wrap > button').classList.add('on');
-        })
-
-        document.querySelector('.modalbox-wrap > button').addEventListener('click', function(){
-            elements.forEach(function(element) {
-                element.classList.remove('on');
-            });
-            this.classList.remove('on')
-            document.querySelector('.modalbox-wrap').style.height = '157px';
-            document.querySelector('.modalbox > button').style.display = 'block';
-        })
-
-        // 버튼 클릭시 닫힘 
-        function collapseElement(element, duration) {
-            element.style.transition = 'all ' + (duration / 1000) + 's'; // transition 설정
-            element.style.height = '0'
-            element.style.opacity = '0'; // 높이를 0으로 설정
-
-        }
-        //숫자 카운트 애니메이션
-        function count(){
-            $('.nums').each(function () {
-                const $this = $(this),
-                    countTo = $this.attr('data-count');
-
-                $({
-                    countNum: $this.text()
-                }).animate({
-                    countNum: countTo
-                }, {
-                    duration: 1500,
-                    easing: 'linear',
-                    step: function () {
-                        $this.text(Math.floor(this.countNum));
-                    },
-                    complete: function () {
-                        $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
-                        //3자리 마다 콤마 표시 적용
-                    }
-                });
-            });
-        }
-        count();
+    }
+    count();
     </script>
 </body>
 </html>

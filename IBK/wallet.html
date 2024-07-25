@@ -8,6 +8,8 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
+        .wallet-box{position: relative;}
+        .wallet-box a{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
         .accordion{margin: 12px 0; background-color: #215C9C; border-radius: 12px; padding: 16px 10px 17px; color: #fff;}
         .accordion h2{display: flex;align-items: center;justify-content: space-between;font-size: 16px; font-weight: 700; margin-left:10px;letter-spacing: -0.16px;}
         .accordion .folding-btn{display: inline-block; width: 16px; height: 16px; background: url(./images/wallet/icon.png) no-repeat; background-size: contain; margin-right: 10px;}
@@ -20,12 +22,9 @@
 </head>
 <body>
     <div class="container">
-        <div class="alram-box">
-            <a href="#none">
-                <img src="./images/home-icon1.png" alt="">
-            </a>
-            <img src="./images/home-icon2.png" alt="">
-            <img src="./images/home-icon3.png" alt="">
+        <div class="wallet-box">
+            <img src="./images/wallet/wallet-tit.png" alt="">
+            <a href="./index.html"></a>
         </div>
         <div class="page-wrap">
             <img src="./images/wallet/tit1.png" alt="">
@@ -69,19 +68,6 @@
             </div>
         </div>
 
-
-        <nav>
-            <div>
-                <img src="./images/navigation-bar-wallet.png" alt="" >
-            </div>
-            <ul>
-                <li><a id="home"></a>1</li>
-                <li><a href=""></a>2</li>
-                <li><a href=""></a>3</li>
-                <li><a href="./wallet.html"></a>4</li>
-                <li><a href="./menu.html"> </a>5</li>
-            </ul>
-        </nav>
     </div>
     <script src="./res/ibk-com.js"></script>
     <script>
@@ -92,6 +78,7 @@
             if ($(this).hasClass('on')) {
                 $(this).removeClass('on');
                 $(this).closest('.folding-panel-sub').find('img').show();
+                
             } else {
                 $(this).addClass('on');
                 $(this).closest('.folding-panel-sub').find('img').hide();
