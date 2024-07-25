@@ -158,22 +158,13 @@
                 <button></button>
             </div>
 
-            <a href="#none" class="home-cardlist interaction on" onclick="drPopupOpen('.pop1', 'element');count();">
+            <a href="#none" class="home-cardlist interaction on" onclick="drPopupOpen('.pop1');count()">
                 <img src="./images/home/home-cardlist.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </a>
             <img src="./images/home/home-btn3.png" alt="" style="margin-top: 20px; margin-bottom: 40px;">
-            <!-- <div class="click">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-            </div>
-            <style>
-                .click{position: absolute;}
-            </style> -->
         </div>
         <div class="page-wrap type2">
 
@@ -264,7 +255,7 @@
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
-            </div>./images/home-icon3.png
+            </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex3.png" alt="">
                 <div class="nums" data-count="650000" data-dealy="1500">
@@ -290,7 +281,7 @@
         <div class="mgt12">
             <img src="./images/home/home-pop-ex7.png" alt="">
         </div>
-        <button class="pop-close" onclick="drPopupClose('.popup', 'element')"></button>
+        <button class="pop-close reset-btn" onclick="drPopupClose('.popup', 'element');$('.banklist-box .nums').text('0');"></button>
     </div>
     <div class="dim"></div>
 
@@ -326,31 +317,32 @@
     }
     //숫자 카운트 애니메이션
         function count() {
-        $('.nums').each(function() {
-        const   $this = $(this),
-                countTo = $this.attr('data-count'),
-                countDelay = $this.attr('data-dealy'),
-                delaySeconds = parseInt(countDelay) || 0; //변수에서 얻은 값을 정수로 변환하고, 이 변환이 실패할 경우 또는 값이 없을 경우 0을 반환
-                setTimeout(function() {
-                    $({
-                        countNum: $this.text()
-                    }).animate({
-                        countNum: countTo
-                    }, {
-                        duration: 1500,
-                        easing: 'linear',
-                        step: function() {
-                            $this.text(Math.floor(this.countNum));
-                        },
-                        complete: function() {
-                            $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
-                            // 3자리 마다 콤마 표시 적용
-                        }
-                    });
-                }, delaySeconds); 
-            });
-    }
-    count();
+            $('.nums').each(function() {
+            const   $this = $(this),
+                    countTo = $this.attr('data-count');
+                    countDelay = $this.attr('data-dealy'),
+                    delaySeconds = parseInt(countDelay) || 0; //변수에서 얻은 값을 정수로 변환하고, 이 변환이 실패할 경우 또는 값이 없을 경우 0을 반환
+                    setTimeout(function() {
+                        $({
+                            countNum: $this.text()
+                        }).animate({
+                            countNum: countTo
+                        }, {
+                            duration: 1500,
+                            easing: 'linear',
+                            step: function() {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function() {
+                                $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
+                                // 3자리 마다 콤마 표시 적용
+                            }
+                        });
+                    }, delaySeconds); 
+  
+                });
+        }
+        count();
     </script>
 </body>
 </html>

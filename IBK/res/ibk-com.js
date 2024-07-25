@@ -47,7 +47,7 @@ function drPopupOpen(popName){
 }
 
 //팝업 닫기
-function drPopupClose(pop, element){
+function drPopupClose(pop){
     $('body').css('overflow','auto');
     $(pop).closest('.popup').css('display','none');
     $('.dim').css('display','none');
