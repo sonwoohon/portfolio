@@ -8,39 +8,102 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
-        .accordion{margin: 12px 0; background-color: #215C9C; border-radius: 12px; padding: 16px 10px 17px; color: #fff;}
-        .accordion h2{display: flex;align-items: center;justify-content: space-between;font-size: 16px; font-weight: 700; margin-left:10px;letter-spacing: -0.16px;}
-        .accordion .folding-btn{display: inline-block; width: 16px; height: 16px; background: url(./images/wallet/icon.png) no-repeat; background-size: contain; margin-right: 10px;}
-
-        .folding-panel{padding: 25px 0;}
-        .folding-panel div{ background: var(--gradient-gr-1, linear-gradient(92deg, #EBF5FF 38.68%, #DCEEFF 100%));font-size: 14px; border-radius: 12px;color: #333;font-weight: 700;line-height: 17px; margin-bottom: 5px;}
-        .folding-panel div:last-child {margin-bottom: 0;}
-        .folding-panel div > a{display: block;padding: 17px 10px;}
+        .container .page-wrap{padding: 20px 20px 45px;}
+        .financial-box{position: relative;margin: -16px -20px 0;}
+        .financial-box a{position: absolute; top: 10px; left: 15px; width:35px; height: 35px;}
+        .financial-tab-wrap{display: flex;justify-content: space-between;align-items: center;margin-top: 22px; margin-bottom: 34px;}
+        .financial-tab-wrap .txt{color: #787878; font-size: 15px;}
+        .financial-tab-wrap .txt span{color: #1D74E8; font-weight: 700;}
+        .financial-tab-wrap ul{display: flex;}
+        .financial-tab-wrap ul li:nth-child(1){ margin-right: 10px;}
+        .financial-tab-wrap ul li a{display: block; color: #D8D8D8; font-size: 14px;}
+        .financial-tab-wrap ul li.active a{color: #333;}
+        .financial-tab-wrap ul li a::before{ content: ""; display: inline-block; width: 20px; height: 20px; vertical-align: sub; margin-right: 4px;}
+        .financial-tab-wrap ul li a.bangsa::before{content: "";background: url(./images/financial/bangsa-icon.png) no-repeat;}
+        .financial-tab-wrap ul li.active a.bangsa::before{content: ""; background: url(./images/financial/bangsa-on-icon.png) no-repeat;}
+        .financial-tab-wrap ul li a.list::before{content: "";background: url(./images/financial/list-icon.png) no-repeat;}
+        .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;}
+        .financial-accordion {padding: 16px 12px; background-color: #e5e8ec; border-radius: 12px; margin-bottom: 12px;}
+        .financial-accordion h2{display: flex; align-items: center;font-size: 16px; font-weight: 700; line-height: 20px;}
+        .financial-accordion h2 span{margin-left: 4px; font-weight: 400;}
+        .financial-accordion h2 a{position: relative; font-weight: 400; color: #787878; margin-left: auto; margin-right: 30px;}
+        .financial-accordion h2 a::after{content: ""; position: absolute; right: -20px;top: 50%;transform: translateY(-50%)rotate(180deg);; width: 14px; height: 14px; background: url(./images/financial/icon-up.png) no-repeat;}
+        .financial-accordion h2 a.open::after{transform: translateY(-50%);}
+        .financial-accordion h2 a span{color: #1D74E8; font-weight: 700;}
+        .financial-accordion h2::before{content: ""; display: inline-block; width: 28px; height: 28px; margin-right: 8px;}
+        .financial-accordion h2.children::before{ background: url(./images/financial/children.png) no-repeat;}
+        .financial-accordion h2.mother::before{ background: url(./images/financial/mother.png) no-repeat;}
+        .financial-accordion h2.profile::before{ background: url(./images/financial/profile.png) no-repeat;}
+        .invite-btn{display: flex;height: 52px;padding: 18px 0px;justify-content: center;align-items: center; border-radius: 10px; background-color: #E8F4FF; font-weight: 700; color: #004F9D;}
     </style>
 </head>
 <body>
     <div class="container">
 
-        <div class="page-wrap" style="font-size: 20px;">
-            금융 관계도 페이지
-        </div>
-
-
-        <nav>
-            <div>
-                <img src="./images/navigation-bar-wallet.png" alt="" >
+        <div class="page-wrap">
+            <div class="financial-box">
+                <img src="./images/financial/financial-tit.png" alt="">
+                <a href="./index.html"></a>
+                <img src="./images/financial/banner.png" alt="">
             </div>
-            <ul>
-                <li><a id="home"></a>1</li>
-                <li><a href=""></a>2</li>
-                <li><a href=""></a>3</li>
-                <li><a href="./wallet.html"></a>4</li>
-                <li><a href="./menu.html"> </a>5</li>
-            </ul>
-        </nav>
+            <div class="financial-tab-wrap">
+                <div class="txt">나와 연결된 인원 : <span>6명</span></div>
+                <ul class="ui-tab">
+                    <li><a href="#tab1" class="bangsa">방사형</a></li>
+                    <li class="active"><a href="#tab2" class="list">리스트형</a></li>
+                </ul>
+            </div>
+            <div id="tab1" class="tab-panel">
+                방사형
+            </div>
+            <div id="tab2" class="tab-panel active">
+                <div class="accordion financial-accordion">
+                    <h2 class="mother">아내<span>성춘향</span><a href="#none" class="folding-btn" role="button">연결 통장<span>4</span></a></h2>
+                    <div class="folding-panel">
+                    </div>
+                </div>
+                <div class="accordion financial-accordion">
+                    <h2 class="children">자녀<span>기미래</span><a href="#none" class="folding-btn open" role="button">연결 통장<span>2</span></a></h2>
+                    <div class="folding-panel">
+                        <div class="mgt15">
+                            <img src="./images/financial/txt2.png" alt="">
+                        </div>
+                        <div class="mgt15">
+                            <img src="./images/financial/txt3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion financial-accordion">
+                    <h2 class="profile">누나<span>기사랑</span><a href="#none" class="folding-btn" role="button">연결 통장<span>2</span></a></h2>
+                    <div class="folding-panel">
+                       
+                    </div>
+                </div>
+                <div class="accordion financial-accordion">
+                    <h2 class="profile">어머니<span>홍수정</span><a href="#none" class="folding-btn" role="button">연결 통장<span>2</span></a></h2>
+                    <div class="folding-panel">
+                       
+                    </div>
+                </div>
+                <div class="accordion financial-accordion">
+                    <h2 class="profile">아버지<span>기운센</span><a href="#none" class="folding-btn" role="button">연결 통장<span>2</span></a></h2>
+                    <div class="folding-panel">
+                       
+                    </div>
+                </div>
+                <div class="accordion financial-accordion">
+                    <h2 class="profile">매형<span>변학도</span><a href="#none" class="folding-btn" role="button">연결 통장<span>0</span></a></h2>
+                    <div class="folding-panel">
+                       
+                    </div>
+                </div>
+                <a href="#none" class="invite-btn">초대하기</a>
+            </div>
+        </div>
     </div>
     <script src="./res/ibk-com.js"></script>
     <script>
+        
     </script>
 </body>
 </html>
