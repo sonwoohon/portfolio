@@ -26,7 +26,7 @@
         .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;}
 
         /* 리스트형 */
-        .financial-accordion {padding: 16px 12px; background-color: #e5e8ec; border-radius: 12px; margin-bottom: 12px;}
+        .financial-accordion {padding: 16px 12px; background-color: #F5F5F5; border-radius: 12px; margin-bottom: 12px;}
         .financial-accordion h2{display: flex; align-items: center;font-size: 16px; font-weight: 700; line-height: 20px;}
         .financial-accordion h2 span{margin-left: 4px; font-weight: 400;}
         .financial-accordion h2 a{position: relative; font-weight: 400; color: #787878; margin-left: auto; margin-right: 30px;}
@@ -44,24 +44,27 @@
         .wrap {max-width: 375px;height: 400px;margin: 0 auto;}
         .hidden {overflow: hidden;width: 100%;height: 400px;position: relative;}
         .move-wrap {position: absolute;width: 100%;height: 400px;overflow: hidden; /* overflow-x, overflow-y 제거하고 한번에 설정 */top: 50%;left: 50%;transform: translate(-50%, -50%);}
-        .move-wrap {}
+        .move-wrap {transition: all 0.7s ease;}
         .move-box {position: absolute;width: 100%;height: 100%;border-radius: 50%;display: flex;justify-content: center;align-items: center;background: url(./images/financial/bangsa-bg.png) no-repeat;top: 0; /* 초기에는 화면의 맨 위에 위치 */left: 0; /* 초기에는 화면의 맨 왼쪽에 위치 */transition: top 0.4s ease, left 0.4s ease; /* top, left 속성에 대해 부드러운 전환 효과 */}
-        .num {position: absolute;width: 30px;height: 30px;border-radius: 50%;background: red;cursor: pointer;transition: transform 0.3s ease; /* transform 속성에 대한 부드러운 전환 효과 */}
-        .num.this{width: 50px;height: 50px;}
+        .num {position: absolute;width: 50px;height: 50px;border-radius: 50%;background: red;cursor: pointer;transition: transform 0.3s ease; /* transform 속성에 대한 부드러운 전환 효과 */}
         .num a {display: inline-block;width: 100%;height: 100%;}
-        .num.num1 {top: 25%; left: 40%; }
-        .num.num2 { top: 40%; left: 30%; }
-        .num.num3 { top: 54%; left: 43%;  background: url(./images/financial/me.png) no-repeat;}
-        .num.num4 { top: 32%; left: 58%; width: 50px; height: 50px;background: url(./images/financial/wife.png) no-repeat; background-size: contain;}
-        .num.num5 { top: 83%; left: 70%; }
+        .num.num1 {top: 20%; left: 27%; background: url(./images/financial/father.png) no-repeat center / contain;}
+        .num.num2 {top: 45%;left: 15%;width: 70px;height: 70px; background: url(./images/financial/invitation.png) no-repeat center / contain;}/* 초대하기 */
+        .num.num3 {top: 54%; left: 43%;  background: url(./images/financial/me.png) no-repeat;}
+        .num.num4 {top: 32%; left: 58%; background: url(./images/financial/wife.png) no-repeat center / contain}
+        .num.num4.sec{top: 45px; left: 260px; width: 30px; height: 30px; background: url(./images/financial/user.png) no-repeat center / contain}
+        .num.num5 {top: 80%; left: 68%; background: url(./images/financial/brother.png) no-repeat center / contain}
+        .num.num6 {top: 54%; left: 79%; background: url(./images/financial/mather1.png) no-repeat center / contain}
+        .num.num7 {top: 70%; left: 24%; background: url(./images/financial/son1.png) no-repeat center / contain}
+        .num.num8 {top: 81%; left: 38%; background: url(./images/financial/son2.png) no-repeat center / contain}
         .sub-box{opacity: 0;transition: 1s ease;}
-        /* .line{position: absolute;width: 30px;height: 1px;background: red;}
-        .line.line1{top:13px;left:37px;transform:rotate(360deg);}
-        .line.line2{top:54px;left:0px;transform:rotate(90deg);} */
+        .line{position: absolute;width: 30px;height: 1px;background: #ECF2F8;}
+        .line.line2{top:44px;left:44px;transform:rotate(22deg);}
+        .line.line3{top:59px;left:28px;transform:rotate(63deg);}
     
-        .sub-num{position:absolute;width:20px;height:20px;background:red;border-radius:50%;}
-        .sub-num.sub-num1{top:80px;left:5px;}
-        .sub-num.sub-num2{top: 4px;left: 80px;}
+        .sub-num{position:absolute;width:20px;height:20px;background: url(./images/financial/user.png) no-repeat center / contain;border-radius:50%;}
+        .sub-num.sub-num2{top:70px;left:45px;}
+        .sub-num.sub-num3{top: 44px;left: 70px;}
     </style>
 </head>
 <body>
@@ -89,16 +92,20 @@
                                 <div class="num num2"><a href="#none"></a></div>
                                 <div class="num num3 this"><a href="#none"></a></div>
                                 <div class="num num4"><a href="#none"></a></div>
+                                <div class="num num4 sec"><a href="#none"></a></div>
                                 <div class="num num5" >
                                     <a href="#none">
                                         <div class="sub-box">
-                                            <span class="line line1"></span>
                                             <span class="line line2"></span>
-                                            <div class="sub-num sub-num1"></div>
+                                            <span class="line line3"></span>
                                             <div class="sub-num sub-num2"></div>
+                                            <div class="sub-num sub-num3"></div>
                                         </div>
                                     </a>
                                 </div>
+                                <div class="num num6"><a href="#none"></a></div>
+                                <div class="num num7"><a href="#none"></a></div>
+                                <div class="num num8"><a href="#none"></a></div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +166,7 @@
                 element.addEventListener('click', function(event) {
                     event.preventDefault();
         
-                    // 모든 num 요소에서 active 클래스를 제거.
+                    // 모든 num 요소 원래 사이즈
                     numElements.forEach(function(num) {
                         num.style.transform = 'scale(1)';
                     });
@@ -167,19 +174,33 @@
                     // 클릭된 num 요소의 위치를 move-box의 정중앙으로 이동.
                     var rect = moveBox.getBoundingClientRect();
                     var targetRect = this.getBoundingClientRect();
-                    console.log(rect);
-                    console.log(targetRect);
                     var moveX = rect.left + rect.width / 2 - (targetRect.left + targetRect.width / 2);
                     var moveY = rect.top + rect.height / 2 - (targetRect.top + targetRect.height / 2);
-                    console.log(moveX);
-                    console.log(moveY);
-        
+
                     moveBox.style.top = moveY + 'px';
                     moveBox.style.left = moveX + 'px';
-        
-                    this.style.transform = 'scale(2)';
-                    if(this.classList.contains('this')){
+                    console.log(rect)
+                    this.style.transform = 'scale(1.5)';
+                    setTimeout( function(){
+                        moveBox.style.transform = 'scale(1.4)'; 
+                        moveBox.style.transition = '.8s';
+                    },300)
+
+                    document.querySelector('.sub-box').style.opacity = '1';   
+                    if(this.classList.contains('this') ){ // 나 클릭시 
                         this.style.transform = 'scale(1)';
+                            setTimeout( function(){
+                                moveBox.style.transform = 'scale(1)';
+                                moveBox.style.transition = '0.3s';
+                        },350)
+                        
+                    }
+                    if(this.classList.contains('num2') ){ // 초대하기 클릭시 
+                        this.style.transform = 'scale(1)';  
+                    }
+                    if(this.classList.contains('num7') || this.classList.contains('num8') ){
+                        this.style.transform = 'scale(1.3)';
+                        
                     }
                     if(this.classList.contains('num5')){
                         document.querySelector('.sub-box').style.opacity = '1';   
