@@ -24,6 +24,7 @@
         .financial-tab-wrap ul li.active a.bangsa::before{content: ""; background: url(./images/financial/bangsa-on-icon.png) no-repeat;}
         .financial-tab-wrap ul li a.list::before{content: "";background: url(./images/financial/list-icon.png) no-repeat;}
         .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;}
+        .finance-btn{display: flex;padding: 18px 0px;justify-content: center;align-items: center; background-color: #1D74E8; border-radius: 10px; color: #fff; font-size: 17px; font-weight: 700;line-height: 21px; margin-top: 90px;}
 
         /* 리스트형 */
         .financial-accordion {padding: 16px 12px; background-color: #F5F5F5; border-radius: 12px; margin-bottom: 12px;}
@@ -62,7 +63,6 @@
         .line{position: absolute;width: 30px;height: 1px;background: #ECF2F8;}
         .line.line2{top:50px;left:45px;transform:rotate(22deg);}
         .line.line3{top:65px;left:28px;transform:rotate(63deg);}
-    
         .sub-num{position:absolute;width:20px;height:20px;background: url(./images/financial/user.png) no-repeat center / contain;border-radius:50%;}
         .sub-num.sub-num2{top:70px;left:45px;}
         .sub-num.sub-num3{top: 44px;left: 70px;}
@@ -157,12 +157,13 @@
                 </div>
                 <a href="#none" class="invite-btn">초대하기</a>
             </div>
+            <a href="#noen" class="finance-btn">내 금융 관계도 설정하기</a>
         </div>
     </div>
     <div class="pop1">
         <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
         <img src="./images/financial/pop1.png" alt="">
-        <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
+        <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3')"></a>
     </div>
     <style>
         .pop1{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh; transition: all .7s ease;}

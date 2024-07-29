@@ -34,7 +34,7 @@ input[type="checkbox"], input[type="radio"]{box-sizing:border-box; padding:0; }
 input{line-height:normal; }
 textarea {-webkit-backface-visibility:hidden;backface-visibility:hidden;background-color:transparent;border:0;word-break:keep-all;word-wrap:break-word}
 
-html{font-size:62.5%;  -webkit-text-size-adjust:100%;;-webkit-overflow-scrolling: touch;}
+html{font-size:62.5%;  -webkit-text-size-adjust:100%;;-webkit-overflow-scrolling: touch; scrollbar-width: none;}
 body{font-size:1.6rem; font-family: 'Pretendard', sans-serif; line-height:1.5;-webkit-font-smoothing:antialiased;word-wrap: break-word;word-break: keep-all;-webkit-overflow-scrolling: touch;letter-spacing:-0.75px;background:#000;color: #333;}
 body *{font-family: 'Pretendard', sans-serif;}
 
@@ -119,3 +119,13 @@ nav ul li a i.allmenu.on{ background: url(../images/nav-allmenu-on.png);}
 .interaction.on{animation: interaction 1s ease-in-out ;opacity: 1; top: 0;}
 .tab-panel{display: none;}
 .tab-panel.active{display: block;}
+
+
+.scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll {
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+  }
