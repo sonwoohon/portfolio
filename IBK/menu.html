@@ -7,14 +7,17 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
+        .container .page-wrap{padding: 20px 20px 0;}
         /* 요약 */
         .collection-wrap{position: relative;display: flex;justify-content: center;}
         .collection-wrap .menu-tab-wrap{display: flex;justify-content: center;align-items: center;height: 32px; background: #F7F7F7;border-radius: 20px;}
         .collection-wrap .search{position:absolute; width:24px; height:24px; top: 50%; right: 0; transform: translateY(-50%); background: url(./images/menu/search.png)no-repeat ; background-size: cover;}
+        .collection-wrap .back{position:absolute; width:24px; height:24px; top: 50%; left: 0; transform: translateY(-50%); background: url(./images/menu/back.png)no-repeat ; background-size: cover;}
+        
         .collection-wrap .menu-tab-wrap a {display: block; color: #9F9F9F; padding: 6px 16px; border-radius:20px;}
         .collection-wrap .menu-tab-wrap div.active a{background-color: #114287; color: #fff; font-weight: 700; transition: all 0.7s;}
         .gray-box-wrap{position: relative; padding: 8px 20px; border-radius: 12px; background-color: #F7F7F7; margin-top: 18px;}
-        .tab-panel.summary{margin-top:40px;}
+        .tab-panel.summary{margin-top:40px; padding-bottom: 95px;}
         .tab-panel.summary .gray-box-wrap > .box{display: flex; justify-content: space-between;align-items: center; border-bottom: 1px solid #E5E8EC; padding: 12px 0;}
         .tab-panel.summary .gray-box-wrap > .box:last-child{border-bottom: 0;}
         .tab-panel.summary .gray-box-wrap .box span{font-size: 15px; font-weight: 500; line-height: 20px;}
@@ -22,12 +25,11 @@
         .tab-panel.summary .gray-box-wrap .box i.star.on{background: url(./images/menu/star-on.png) no-repeat;}
         .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png); background-size: contain; margin-left: 8px; margin-right: auto;}
     
-        
         /* 전체 */
-        .depth {display: flex; height: 740px; margin: 15px -20px 0; height: 580px;}
+        .depth {display: flex; max-height: 740px; margin: 15px -20px 0;}
         .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
-        .depth-1 ul{display: flex;height: 767px; flex-direction: column;}
-        .depth-1 ul li{padding: 14px 30px; white-space: nowrap;}
+        .depth-1 ul{display: flex; flex-direction: column;}
+        .depth-1 ul li{padding: 14px 20px; white-space: nowrap;}
         .depth-1 ul li a{display: inline-block; color: #fff; opacity: 0.6;}
         .depth-1 ul li a.on{color: #fff; font-weight: 700; opacity: 1;}
         .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png); vertical-align: sub; margin-right: 4px;}
@@ -41,11 +43,11 @@
         .depth-1 ul li:nth-of-type(9) a::before{background: url(./images/menu/icon-8.png);}
         .depth-1 ul li:nth-of-type(10) a::before{background: url(./images/menu/icon-9.png);}
         .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-10.png);}
-        .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px;}
+        .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px; scrollbar-width: none;}
         .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
         .depth-2 ul > li{    border-bottom: 1px solid #F7F7F7;}
-        .depth-2 ul li a{position: relative; display:block; padding: 20px 0;}
-        .depth-2 ul li a.on{ color: #1D74E8; font-weight: 700;}
+        .depth-2 ul li a{position: relative; display:block; padding: 20px 0; font-weight: 700;}
+        .depth-2 ul li a.on{ color: #1D74E8;}
         .depth-2 .accordion > a::after{content: ""; position: absolute; width: 14px; height: 14px; background: url(./images/menu/icon-up.png);top:50%;right:0;transform: translateY(-50%);}
         .depth-2 .accordion > a.open::after{transform: translateY(-50%) rotate(180deg);}
         .depth-3.folding-panel{display: none;}
@@ -57,6 +59,7 @@
     <div class="container">
         <div class="page-wrap">
             <div class="collection-wrap">
+                <a href="./index.html" class="back"></a>
                 <div class="menu-tab-wrap ui-tab">
                     <div class="active">
                         <a href="#tab1">요약</a>
@@ -299,7 +302,7 @@
             </div>
         </div>
     </div>
-    <nav>
+   <!--  <nav>
         <ul>
             <li>
                 <a id="home" href="./index.html">
@@ -331,7 +334,7 @@
                 </a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 
 
     <script src="./res/ibk-com.js"></script>
@@ -388,11 +391,9 @@
             if( $(".depth-2").offset().top >= $(".depth-2 .panel").eq(6).offset().top ){ 
                 
                 $(this).siblings(".depth-1").find("li > a").removeClass("on").eq(0).addClass("on")
-                console.log("1 오케 dhzp 오케 시바꺼")
             }
         }) */
                
-        $()
 
 
 

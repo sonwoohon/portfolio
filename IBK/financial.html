@@ -24,6 +24,7 @@
         .financial-tab-wrap ul li.active a.bangsa::before{content: ""; background: url(./images/financial/bangsa-on-icon.png) no-repeat;}
         .financial-tab-wrap ul li a.list::before{content: "";background: url(./images/financial/list-icon.png) no-repeat;}
         .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;}
+        .finance-btn{display: flex;padding: 18px 0px;justify-content: center;align-items: center; background-color: #1D74E8; border-radius: 10px; color: #fff; font-size: 17px; font-weight: 700;line-height: 21px; margin-top: 90px;}
 
         /* 리스트형 */
         .financial-accordion {padding: 16px 12px; background-color: #F5F5F5; border-radius: 12px; margin-bottom: 12px;}
@@ -47,7 +48,8 @@
         .move-wrap {transition: all 0.7s ease;}
         .move-box {position: absolute;width: 100%;height: 100%;border-radius: 50%;display: flex;justify-content: center;align-items: center;background: url(./images/financial/bangsa-bg.png) no-repeat;top: 0; /* 초기에는 화면의 맨 위에 위치 */left: 0; /* 초기에는 화면의 맨 왼쪽에 위치 */transition: top 0.4s ease, left 0.4s ease; /* top, left 속성에 대해 부드러운 전환 효과 */}
         .num {position: absolute;width: 50px;height: 50px;border-radius: 50%;background: red;cursor: pointer;transition: transform 0.3s ease; /* transform 속성에 대한 부드러운 전환 효과 */}
-        .num a {display: inline-block;width: 100%;height: 100%;}
+        .num a {position: relative; display: inline-block;width: 100%;height: 100%;}
+        .num span{ display: block;font-size: 14px;font-weight: 500;text-align: center;margin-top: -5px;}
         .num.num1 {top: 20%; left: 27%; background: url(./images/financial/father.png) no-repeat center / contain;}
         .num.num2 {top: 45%;left: 15%;width: 70px;height: 70px; background: url(./images/financial/invitation.png) no-repeat center / contain;}/* 초대하기 */
         .num.num3 {top: 54%; left: 43%;  background: url(./images/financial/me.png) no-repeat;}
@@ -59,9 +61,8 @@
         .num.num8 {top: 81%; left: 38%; background: url(./images/financial/son2.png) no-repeat center / contain}
         .sub-box{opacity: 0;transition: 1s ease;}
         .line{position: absolute;width: 30px;height: 1px;background: #ECF2F8;}
-        .line.line2{top:44px;left:44px;transform:rotate(22deg);}
-        .line.line3{top:59px;left:28px;transform:rotate(63deg);}
-    
+        .line.line2{top:50px;left:45px;transform:rotate(22deg);}
+        .line.line3{top:65px;left:28px;transform:rotate(63deg);}
         .sub-num{position:absolute;width:20px;height:20px;background: url(./images/financial/user.png) no-repeat center / contain;border-radius:50%;}
         .sub-num.sub-num2{top:70px;left:45px;}
         .sub-num.sub-num3{top: 44px;left: 70px;}
@@ -88,13 +89,13 @@
                     <div class="hidden">
                         <div class="move-wrap"><!-- 배경 밀리는부분 -->
                             <div class="move-box">
-                                <div class="num num1"><a href="#none"></a></div>
+                                <div class="num num1"><a href="#none"></a><span>아버지</span></div>
                                 <div class="num num2"><a href="#none"></a></div>
                                 <div class="num num3 this"><a href="#none"></a></div>
-                                <div class="num num4"><a href="#none"></a></div>
-                                <div class="num num4 sec"><a href="#none"></a></div>
+                                <div class="num num4"><a href="#none"></a><span>아내</span></div>
+                                <div class="num num4 sec"><a href="#none"></a><span>지인</span></div>
                                 <div class="num num5" >
-                                    <a href="#none">
+                                    <a href="#none" onclick="$('.pop1').addClass('on')">
                                         <div class="sub-box">
                                             <span class="line line2"></span>
                                             <span class="line line3"></span>
@@ -102,10 +103,12 @@
                                             <div class="sub-num sub-num3"></div>
                                         </div>
                                     </a>
+                                    <span>매형</span>
                                 </div>
-                                <div class="num num6"><a href="#none"></a></div>
-                                <div class="num num7"><a href="#none"></a></div>
-                                <div class="num num8"><a href="#none"></a></div>
+                                <div class="num num6"><a href="#none"></a><span>어머니</span></div>
+                                <div class="num num7"><a href="#none"></a><span>자녀</span></div>
+                                <div class="num num8"><a href="#none"></a><span>자녀</span></div>
+
                             </div>
                         </div>
                     </div>
@@ -154,8 +157,23 @@
                 </div>
                 <a href="#none" class="invite-btn">초대하기</a>
             </div>
+            <a href="#noen" class="finance-btn">내 금융 관계도 설정하기</a>
         </div>
     </div>
+    <div class="pop1">
+        <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
+        <img src="./images/financial/pop1.png" alt="">
+        <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3')"></a>
+    </div>
+    <style>
+        .pop1{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh; transition: all .7s ease;}
+        .pop1.on{bottom:0}
+        .pop1.off{bottom:-100%}
+        .pop1 *{position: absolute;}
+        .pop1 a:nth-of-type(1){width:40px;height:40px;bottom: 362px; right: 12px;z-index: 10;} 
+        .pop1 a:nth-of-type(2){width: 100%;height: 57px;bottom: 45px; z-index: 10;}
+        .pop1 img{bottom: 0;}
+    </style>
     <script src="./res/ibk-com.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
