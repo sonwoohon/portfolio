@@ -89,6 +89,12 @@ function accordion() {
 accordion();
 
 // 리렌더링 
-document.getElementById('home').addEventListener('click', function() {
-    window.location.href = 'index.html';
+document.addEventListener('DOMContentLoaded', function() {
+    const homeElement = document.getElementById('home');
+    if (homeElement) {
+        homeElement.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        })
+    } 
+
 });

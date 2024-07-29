@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="page-wrap">
+
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a id="home" href="">
+                        <i aria-label="홈 탭" class="home"></i>
+                        <span class="on">홈</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i aria-label="상품 탭" class="goods"></i>
+                        <span>상품</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./ai.html">
+                        <i aria-label="AI 탭" class="ai on"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i aria-label="라운지 탭" class="lounge"></i>
+                        <span>라운지</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./menu.html">
+                        <i aria-label="전체보기 탭" class="allmenu"></i>
+                        <span>전체</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <script src="./res/ibk-com.js"></script>
+    <script>
+    // 상단 알림센터 배너 
+    var elements = document.querySelectorAll('.modalbox');
+    document.querySelector('.modalbox > button').addEventListener('click', function(){
+        elements.forEach(function(element) {
+            element.classList.add('on');
+        });
+        this.style.display = 'none';
+        document.querySelector('.modalbox-wrap').style.height = '517px';
+        document.querySelector('.modalbox-wrap > button').classList.add('on');
+    })
+
+    document.querySelector('.modalbox-wrap > button').addEventListener('click', function(){
+        elements.forEach(function(element) {
+            element.classList.remove('on');
+        });
+        this.classList.remove('on')
+        document.querySelector('.modalbox-wrap').style.height = '157px';
+        document.querySelector('.modalbox > button').style.display = 'block';
+    })
+
+    // 버튼 클릭시 닫힘 
+    function collapseElement(element, duration) {
+        element.style.transition = 'all ' + (duration / 1000) + 's'; // transition 설정
+        element.style.height = '0'
+        element.style.opacity = '0'; // 높이를 0으로 설정
+
+    }
+    //숫자 카운트 애니메이션
+        function count() {
+            $('.nums').each(function() {
+            const   $this = $(this),
+                    countTo = $this.attr('data-count');
+                    countDelay = $this.attr('data-dealy'),
+                    delaySeconds = parseInt(countDelay) || 0; //변수에서 얻은 값을 정수로 변환하고, 이 변환이 실패할 경우 또는 값이 없을 경우 0을 반환
+                    setTimeout(function() {
+                        $({
+                            countNum: $this.text()
+                        }).animate({
+                            countNum: countTo
+                        }, {
+                            duration: 1500,
+                            easing: 'linear',
+                            step: function() {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function() {
+                                $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
+                                // 3자리 마다 콤마 표시 적용
+                            }
+                        });
+                    }, delaySeconds); 
+  
+                });
+        }
+        count();
+    </script>
+</body>
+</html>
