@@ -109,7 +109,7 @@ nav ul li a i.home.on{ background: url(../images/nav-home-on.png);  }
 nav ul li a i.goods{ background: url(../images/nav-goods.png);} 
 nav ul li a i.goods.on{ } 
 nav ul li a i.ai{ width: 52px; height: 52px; background: url(../images/nav-ai.png); margin-top: -4px;} 
-nav ul li a i.ai.on{ } 
+nav ul li a i.ai.on{ background: url(../images/nav-ai-on.png);} 
 nav ul li a i.lounge{ background: url(../images/nav-lounge.png);} 
 nav ul li a i.lounge.on{ background: url(../images/nav-lounge-on.png);} 
 nav ul li a i.allmenu{ background: url(../images/nav-allmenu.png);} 
