@@ -114,6 +114,8 @@ nav ul li a i.lounge{ background: url(../images/nav-lounge.png);}
 nav ul li a i.lounge.on{ background: url(../images/nav-lounge-on.png);} 
 nav ul li a i.allmenu{ background: url(../images/nav-allmenu.png);} 
 nav ul li a i.allmenu.on{ background: url(../images/nav-allmenu-on.png);}
+nav ul li a i.assets{background: url(../images/nav-assets.png);} 
+nav ul li a i.assets.on{background: url(../images/);}
 /* animation, 탭 */
 .interaction{position: relative; top: 50px; opacity: 0; display: block; transition: all .6s ease-in-out;}
 .interaction.on{animation: interaction 1s ease-in-out ;opacity: 1; top: 0;}
