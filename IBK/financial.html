@@ -95,7 +95,7 @@
 
         .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;}
         .pop3 img{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-        .pop3 a{position: absolute;width: 135px;height: 52px;bottom: 164px;left: 52px;}
+        .pop3 a{position: absolute;width: 135px;height: 52px;bottom: 30%;left: 13%;}
     </style>
 </head>
 <body>
@@ -294,6 +294,12 @@
                     }
                     if(this.classList.contains('num2') ){ // 초대하기 클릭시 
                         this.style.transform = 'scale(1)';  
+                    }
+                    if(this.classList.contains('num5') ){ // 초대하기 클릭시 
+                        setTimeout( function(){
+                            moveBox.style.top = -334 + 'px';
+                            moveBox.style.left = -131 + 'px';
+                    },300)
                     }
                     if(this.classList.contains('num7') || this.classList.contains('num8') ){
                         this.style.transform = 'scale(1.3)';
