@@ -269,7 +269,7 @@
                         num.style.transform = 'scale(1)';
                     });
         
-                    // 클릭된 num 요소의 위치를 move-box의 정중앙으로 이동.
+                    // 클릭된 num 요소의 위치를 move-box의 정중앙으로 이동
                     var rect = moveBox.getBoundingClientRect();
                     var targetRect = this.getBoundingClientRect();
                     var moveX = rect.left + rect.width / 2 - (targetRect.left + targetRect.width / 2);
@@ -295,7 +295,7 @@
                     if(this.classList.contains('num2') ){ // 초대하기 클릭시 
                         this.style.transform = 'scale(1)';  
                     }
-                    if(this.classList.contains('num5') ){ // 초대하기 클릭시 
+                    if(this.classList.contains('num5') ){ // 매형 클릭시 
                         setTimeout( function(){
                             moveBox.style.top = -334 + 'px';
                             moveBox.style.left = -131 + 'px';

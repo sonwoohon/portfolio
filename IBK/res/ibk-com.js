@@ -1,23 +1,34 @@
+
 /* header 넣기 */
 document.addEventListener('DOMContentLoaded', function() {
-    // 새로운 header 요소를 생성
-    var header = document.createElement('header');
+    const header = document.createElement('header');
+    const img = document.createElement('img');
+    const container = document.querySelector('.container');
     
-    // header 요소에 이미지를 추가
-    var img = document.createElement('img');
-    img.src = './images/header.png'; // 이미지 경로 설정
-    img.alt = '';
-    header.appendChild(img);
-
-    var container = document.querySelector('.container');
-    
-    // container의 첫 번째 자식 요소로 header 요소를 추가
     if (container) {
+        if (container.classList.contains('type')) {
+            img.src = './images/header-white.png'; // type 클래스가 있으면 이 경로 사용
+        } else {
+            img.src = './images/header.png';
+        }
+        
+        img.alt = '';
+        header.appendChild(img);
+        
+        // container의 첫 번째 자식 요소로 header 요소를 추가
         container.insertBefore(header, container.firstChild);
     } else {
         console.error('Container element with class "container" not found.');
     }
+
+    const homeElement = document.getElementById('home'); 
+    if (homeElement) {
+        homeElement.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        })
+    } 
 });
+
 
 // 탭버튼
 function jqTab() {
@@ -88,13 +99,3 @@ function accordion() {
 }
 accordion();
 
-// 리렌더링 
-document.addEventListener('DOMContentLoaded', function() {
-    const homeElement = document.getElementById('home');
-    if (homeElement) {
-        homeElement.addEventListener('click', function() {
-            window.location.href = 'index.html';
-        })
-    } 
-
-});
