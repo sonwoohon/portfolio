@@ -90,7 +90,7 @@
                         <div class="move-wrap"><!-- 배경 밀리는부분 -->
                             <div class="move-box">
                                 <div class="num num1"><a href="#none"></a><span>아버지</span></div>
-                                <div class="num num2"><a href="#none"></a></div>
+                                <div class="num num2"><a href="#none" onclick="$('.pop2').addClass('on')"></a></div>
                                 <div class="num num3 this"><a href="#none"></a></div>
                                 <div class="num num4"><a href="#none"></a><span>아내</span></div>
                                 <div class="num num4 sec"><a href="#none"></a><span>지인</span></div>
@@ -160,19 +160,96 @@
             <a href="#noen" class="finance-btn">내 금융 관계도 설정하기</a>
         </div>
     </div>
-    <div class="pop1">
+    <div class="pop pop1">
         <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
         <img src="./images/financial/pop1.png" alt="">
         <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3')"></a>
     </div>
+    <div class="pop pop2">
+        <article>
+            <div class="header">
+                <input type="checkbox">
+                <i aria-label="체크"></i>
+                <h2>기업은행 계좌보유 : <strong>17명</strong></h2>
+                <a href="#none" class="close-btn" onclick="$('.pop2').removeClass('on')"></a>
+            </div>
+            <div class="content">
+                <div class="non-members">
+                    <label for="check1">
+                        <img src="./images/financial/user.png" alt="">
+                        용산부모님
+                        <input type="checkbox" id="check1">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="member">
+                    <label for="check2">
+                        <img src="./images/financial/ibk.png" alt="">
+                        진영이 언니
+                        <input type="checkbox" id="check2">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="member">
+                    <label for="check3">
+                        <img src="./images/financial/ibk.png" alt="">
+                        둘째 큰아버지
+                        <input type="checkbox" id="check3">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="non-members">
+                    <label for="check4">
+                        <img src="./images/financial/user.png" alt="">
+                        신사업부서 이창호대리님
+                        <input type="checkbox" id="check4">
+                        <i></i>
+                    </label>
+                </div>
+                <div class="member">
+                    <label for="check5">
+                        <img src="./images/financial/ibk.png" alt="">
+                        내친구 이명화
+                        <input type="checkbox" id="check5">
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+            <div class="footer">
+                <button>초대장 보내기</button>
+            </div>
+        </article>
+    </div>
     <style>
-        .pop1{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh; transition: all .7s ease;}
-        .pop1.on{bottom:0}
-        .pop1.off{bottom:-100%}
+        .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh; transition: all .7s ease;}
+        .pop.on{bottom:0}
+        .pop.off{bottom:-100%}
         .pop1 *{position: absolute;}
         .pop1 a:nth-of-type(1){width:40px;height:40px;bottom: 362px; right: 12px;z-index: 10;} 
         .pop1 a:nth-of-type(2){width: 100%;height: 57px;bottom: 45px; z-index: 10;}
         .pop1 img{bottom: 0;}
+        
+        .pop2{}
+        .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
+        .pop2 article .header{position: relative; display: flex;align-items: center; margin-bottom: 20px;}
+        .pop2 article .header input{width: 20px; height: 20px;appearance: none; position: absolute; z-index: 1;}
+        .pop2 article .header input[type="checkbox"] + i{width: 20px; height: 20px; position: absolute;top: 50%; left: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain;}
+        .pop2 article .header input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
+        .pop2 article .header h2{color: #787878; margin-left: 24px;}
+        .pop2 article .header strong{font-size: 15px;color: #1D74E8;}
+        .pop2 article .header a{width: 24px;height: 24px;background-color: red;margin-left: auto; background: url(./images/financial/close-icon.png) no-repeat;}
+        .pop2 article .content{}
+        .pop2 article .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
+        .pop2 article .content > div:last-of-type{border-bottom: 0;}
+        .pop2 article .content > div img{width: 28px;}
+        .pop2 article .content > div label{}
+        .pop2 article .content > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
+        .pop2 article .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain;}
+        .pop2 article .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
+        .pop2 article .footer{margin-top: 35px;}
+        .pop2 article .footer button{display: flex; width: 100%;padding: 18px 0px;justify-content: center;align-items: center;color: #fff; background-color: #1D74E8; border-radius: 10px;}
+
+
     </style>
     <script src="./res/ibk-com.js"></script>
     <script>
@@ -215,6 +292,7 @@
                     }
                     if(this.classList.contains('num2') ){ // 초대하기 클릭시 
                         this.style.transform = 'scale(1)';  
+                        
                     }
                     if(this.classList.contains('num7') || this.classList.contains('num8') ){
                         this.style.transform = 'scale(1.3)';
