@@ -67,11 +67,17 @@
         .tab_contents .bottom_conts.type1{padding:40px 20px;}
         .tab_contents .bottom_conts.type2{padding-bottom:150px}
         .tab_contents .bottom_conts.type3{padding:40px 20px 150px;}
+        .tab_contents .bottom_conts.type2 > .type2{padding:0 20px}
 
         .swiper.store{position:absolute;left:0;right:0;bottom:172px;margin: 0 auto;width:290px;height:50px;}
-        .swiper.store .swiper-wrapper{position:absolute;left:-25px;display:flex;flex-direction:row;width:290px;height:auto;}
+        .swiper.store .swiper-wrapper{display:flex;flex-direction:row;width:290px;height:auto;margin:0 25px;-webkit-transition-timing-function:linear;-o-transition-timing-function:linear;transition-timing-function:linear;}
         .swiper.store .swiper-slide{width:50px;height:50px;}
+        .swiper.store .swiper-slide:first-child{margin-left:-50px;}
         .swiper.store .swiper-slide + .swiper-slide{margin-left:8px;}
+
+        .swiper.job{margin-left:20px;margin-top:16px}
+        .swiper.job .swiper-slide{width:287px;height:365px;}
+        .swiper.job .swiper-slide:first-child{margin-left:0;}
     </style>
 </head>
 <body>
@@ -105,7 +111,7 @@
             </ul>
             <div class="tab_contents">
                 <!-- 패밀리 라운지 -->
-                <div id="tab-1" class="cont">
+                <div id="tab-1" class="cont active">
                     <div class="top_conts">
                         <img src="./images/lounge/visual_family.png" alt="">
                     </div>
@@ -121,21 +127,19 @@
                 </div>
                 <!-- // 패밀리 라운지 -->
                 <!-- 아이원 틴즈 라운지 -->
-                <div id="tab-2" class="cont active">
+                <div id="tab-2" class="cont">
                     <div class="top_conts">
                         <img src="./images/lounge/visual_teens.png" alt="">
-                        <div>
-                            <div class="swiper store">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
-                                    <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
-                                </div>
+                        <div class="swiper store">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
                             </div>
                         </div>
                     </div>
@@ -190,8 +194,15 @@
                         <img src="./images/lounge/seni_cont3.png" alt="">
                         <img src="./images/lounge/seni_cont4.png" alt="">
                     </div>
-                    <div class="bottom_conts type3">
-                        <img src="./images/lounge/seni_cont5.png" alt="">
+                    <div class="bottom_conts type2">
+                        <img class="type2" src="./images/lounge/seni_cont5.png" alt="">
+                        <div class="swiper job">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./images/lounge/senior_job1.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/senior_job2.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/senior_job3.png" alt=""></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- // 시니어 라운지 -->
@@ -260,13 +271,25 @@
                 });
             });
 
+            const swiperStore = new Swiper('.store', {
+                freeMode: true,
+                loop: true,
+                slidesPerView: 'auto',
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false
+                },
+                speed:3000,
+            });
+            const swiperJob = new Swiper('.job', {
+                slidesPerView: 'auto',
+                spaceBetween: 12,
+                freeMode: true,
+                autoplay: true,
+                speed: 400,
+                loop: true,
+            });
         }
-        const swiperStore = new Swiper('.store', {
-            slidesPerView: 'auto',
-            freeMode: true,
-            autoplay: true,
-            loop: true,
-        });
     </script>
 </body>
 </html>
