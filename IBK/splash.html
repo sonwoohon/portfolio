@@ -7,13 +7,21 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
-        .splash-wrap{position: relative; height: 100vh;}
+        .splash-wrap{position: relative; height: 812px; overflow: hidden;}
         .splash-wrap > div{position: absolute; top: 0; left: 0; height: 100%;}
-        .splash-wrap .splash-play1{animation: splash-play1 1.5s ease-in-out ;}
+        .splash-wrap .splash-play1{animation: splash-play1 1.5s ease-in-out forwards;}
+        .splash-wrap .splash-play2{animation: splash-play2 1.3s 0.8s ease-in-out forwards; z-index: 5; opacity: 0; transition: all 1s ease-in-out;}
+        .splash-wrap .arrow-btn{ position: absolute;z-index: 5;width: 24px;bottom: 104px;left: 50%;transform: translateX(-50%);opacity: 0; animation: splash-play2 1.3s 0.8s ease-in-out forwards;}
+        .splash-wrap .start-btn{ position: absolute;z-index: 5;width: 335px;bottom: 30px;left: 50%;transform: translateX(-50%);opacity: 0; animation: splash-play2 1.3s 0.8s ease-in-out forwards;}
         @keyframes splash-play1{
             0%{opacity: 1;}
             50%{opacity: 1;}
             100%{ opacity: 0;}
+        }
+        @keyframes splash-play2{
+            0%{opacity: 0;}
+            50%{opacity: 0;}
+            100%{ opacity: 1;}
         }
     </style>
 </head>
@@ -24,9 +32,26 @@
                 <img src="./images/splash/play1.png" alt="">
             </div>
             <div class="splash-play2">
-                
+                <img src="./images/splash/play2.png" alt="">
             </div>
-        </div>
+            <div class="splash-play3">
+                <img src="./images/splash/play3.png" alt="">
+            </div>
+
+            <button class="arrow-btn">
+                <img src="./images/splash/icon.png" alt="">
+            </button>
+            <button class="start-btn" onclick="play();">
+                <img src="./images/splash/btn.png" alt="">
+            </button>
+        </div>    
     </div>
+
+    <script>
+        const play2 = document.querySelector('.splash-play2')
+        const play =  () => {
+            play2.style.top = '-100%';
+        }
+    </script>
 </body>
 </html>
