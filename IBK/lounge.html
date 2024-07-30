@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./res/ibk-com.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>라운지</title>
     <style>
         .container .page-wrap {padding: 20px 20px 0px;}
-
 
         .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
         .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
@@ -61,11 +61,17 @@
         .tab_menu .menu_list li.active .tab_btn{color:#FFFFFF;background-color:#1D74E8;}
         .tab_contents .cont{display:none;}
         .tab_contents .cont.active{display:block;}
+        .tab_contents .top_conts{position:relative;}
         .tab_contents .bottom_conts{background:#F4F4F4;}
         .tab_contents .bottom_conts img + img{margin-top:40px;}
         .tab_contents .bottom_conts.type1{padding:40px 20px;}
         .tab_contents .bottom_conts.type2{padding-bottom:150px}
         .tab_contents .bottom_conts.type3{padding:40px 20px 150px;}
+
+        .swiper.store{position:absolute;left:0;right:0;bottom:172px;margin: 0 auto;width:290px;height:50px;}
+        .swiper.store .swiper-wrapper{position:absolute;left:-25px;display:flex;flex-direction:row;width:290px;height:auto;}
+        .swiper.store .swiper-slide{width:50px;height:50px;}
+        .swiper.store .swiper-slide + .swiper-slide{margin-left:8px;}
     </style>
 </head>
 <body>
@@ -99,7 +105,7 @@
             </ul>
             <div class="tab_contents">
                 <!-- 패밀리 라운지 -->
-                <div id="tab-1" class="cont active">
+                <div id="tab-1" class="cont">
                     <div class="top_conts">
                         <img src="./images/lounge/visual_family.png" alt="">
                     </div>
@@ -115,9 +121,23 @@
                 </div>
                 <!-- // 패밀리 라운지 -->
                 <!-- 아이원 틴즈 라운지 -->
-                <div id="tab-2" class="cont">
+                <div id="tab-2" class="cont active">
                     <div class="top_conts">
                         <img src="./images/lounge/visual_teens.png" alt="">
+                        <div>
+                            <div class="swiper store">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="bottom_conts type1">
                         <img src="./images/lounge/teen_cont1.png" alt="">
@@ -140,6 +160,9 @@
                         <img src="./images/lounge/work_cont2.png" alt="">
                         <img src="./images/lounge/work_cont3.png" alt="">
                         <img src="./images/lounge/work_cont4.png" alt="">
+                    </div>
+                    <div class="bottom_conts type2">
+                        <img src="./images/lounge/work_cont5.png" alt="">
                     </div>
                 </div>
                 <!-- // 직장인 라운지 -->
@@ -236,7 +259,14 @@
                 tabContent[index].classList.add("active");
                 });
             });
+
         }
+        const swiperStore = new Swiper('.store', {
+            slidesPerView: 'auto',
+            freeMode: true,
+            autoplay: true,
+            loop: true,
+        });
     </script>
 </body>
 </html>
