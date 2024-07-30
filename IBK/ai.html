@@ -107,6 +107,26 @@
                 });
         }
         count();
+        window.onload = () => {
+        // 상단 탭 메뉴
+        const tabMenu = document.querySelectorAll(".tab_menu ul li");
+        const tabContent = document.querySelectorAll(".tab_contents .cont");
+
+        tabMenu.forEach((item, index) => {
+            item.addEventListener("click", (e) => {
+                e.preventDefault(); // a
+                tabContent.forEach((content) => {
+                    content.classList.remove("active");
+                });
+                tabMenu.forEach((content) => {
+                    content.classList.remove("active");
+                });
+
+                tabMenu[index].classList.add("active");
+                tabContent[index].classList.add("active");
+                });
+            });
+        }   
     </script>
 </body>
 </html>
