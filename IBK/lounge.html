@@ -10,8 +10,8 @@
     <title>라운지</title>
     <style>
         /* 라운지 css */
-        .tab_menu{position:relative;width:100%;cursor:grab;}
-        .tab_menu .menu_list{position:relative;display:block;white-space:nowrap;padding:20px;box-sizing:border-box;overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+        /* .tab_menu{position:relative;width:100%;cursor:grab;}
+        .tab_menu .menu_list{position:relative;display:block;white-space:nowrap;padding:20px;box-sizing:border-box;font-size:0;overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
         .tab_menu .menu_list::-webkit-scrollbar{display:none;}
         .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
         .tab_menu .menu_list li + li{margin-left:8px;}
@@ -25,7 +25,31 @@
         .tab_contents .bottom_conts.type1{padding:40px 20px;}
         .tab_contents .bottom_conts.type2{padding-bottom:150px}
         .tab_contents .bottom_conts.type3{padding:40px 20px 150px;}
-        .tab_contents .bottom_conts.type2 > .type2{padding:0 20px}
+        .tab_contents .bottom_conts.type2 > .type2{padding:0 20px} */
+        /* .tab_menu{position:relative;width:100%;cursor:grab;}
+        .tab_menu .menu_list{position:relative;display:block;white-space:nowrap;padding:20px;box-sizing:border-box;font-size:0;overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
+        .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
+        .tab_menu .menu_list li + li{margin-left:8px;}
+        .tab_menu .menu_list .tab_btn{display:inline-block;padding:10px 20px;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
+        .tab_menu .menu_list li.active .tab_btn{color:#FFFFFF;background-color:#1D74E8;} */
+        
+        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;    padding: 20px;}
+        .swiper.tab-btn::-webkit-scrollbar{display:none;}
+        .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
+        .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
+        .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
+        .swiper.tab-btn .swiper-slide + .swiper-slide{margin-left:8px;}
+        .tab-contents .tab-content{display:none;}
+        .tab-contents .tab-content.active{display:block;}
+        .tab-contents .top_conts{position:relative;}
+        .tab-contents .bottom_conts{background:#F4F4F4;}
+        .tab-contents .bottom_conts img + img{margin-top:40px;}
+        .tab-contents .bottom_conts.type1{padding:40px 20px;}
+        .tab-contents .bottom_conts.type2{padding-bottom:150px}
+        .tab-contents .bottom_conts.type3{padding:40px 20px 150px;}
+        .tab-contents .bottom_conts.type2 > .type2{padding:0 20px}
+        
+
         .swiper.store{position:absolute;left:0;right:0;bottom:172px;margin:0 auto;width:290px;height:50px;}
         .swiper.store .swiper-wrapper{display:flex;flex-direction:row;width:290px;height:auto;margin:0 25px;-webkit-transition-timing-function:linear;-o-transition-timing-function:linear;transition-timing-function:linear;}
         .swiper.store .swiper-slide{width:50px;height:50px;}
@@ -46,122 +70,101 @@
             <img src="./images/home-icon3.png" alt="">
             <a href="./wallet.html" class="wallet"></a>
         </div>
-        
-        <div class="tab_menu">
-            <ul class="menu_list">
-                <li class="active">
-                    <a href="#tab-1" class="tab_btn">패밀리</a>
-                </li>
-                <li>
-                    <a href="#tab-2" class="tab_btn">아이원 틴즈</a>
-                </li>
-                <li>
-                    <a href="#tab-3" class="tab_btn">직장인</a>
-                </li>
-                <li>
-                    <a href="#tab-4" class="tab_btn">군인</a>
-                </li>
-                <li>
-                    <a href="#tab-5" class="tab_btn">60+</a>
-                </li>
-            </ul>
-            <div class="tab_contents">
-                <!-- 패밀리 라운지 -->
-                <div id="tab-1" class="cont active">
-                    <div class="top_conts">
-                        <img src="./images/lounge/visual_family.png" alt="">
-                    </div>
-                    <div class="bottom_conts type1">
-                        <img src="./images/lounge/fam_cont1.png" alt="">
-                        <img src="./images/lounge/fam_cont2.png" alt="">
-                        <img src="./images/lounge/fam_cont3.png" alt="">
-                        <img src="./images/lounge/fam_cont4.png" alt="">
-                    </div>
-                    <div class="bottom_conts type2">
-                        <img src="./images/lounge/fam_cont5.png" alt="">
-                    </div>
+        <div class="swiper tab-btn">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide active" data-target="tab1">패밀리</div>
+                <div class="swiper-slide" data-target="tab2">아이원 틴즈</div>
+                <div class="swiper-slide" data-target="tab3">직장인</div>
+                <div class="swiper-slide" data-target="tab4">군인</div>
+                <div class="swiper-slide" data-target="tab5">60+</div>
+            </div>
+        </div>
+        <div class="tab-contents">
+            <div id="tab1" class="tab-content active">
+                <div class="top_conts">
+                    <img src="./images/lounge/visual_family.png" alt="">
                 </div>
-                <!-- // 패밀리 라운지 -->
-                <!-- 아이원 틴즈 라운지 -->
-                <div id="tab-2" class="cont">
-                    <div class="top_conts">
-                        <img src="./images/lounge/visual_teens.png" alt="">
-                        <div class="swiper store">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom_conts type1">
-                        <img src="./images/lounge/teen_cont1.png" alt="">
-                        <img src="./images/lounge/teen_cont2.png" alt="">
-                        <img src="./images/lounge/teen_cont3.png" alt="">
-                        <img src="./images/lounge/teen_cont4.png" alt="">
-                    </div>
-                    <div class="bottom_conts type2">
-                        <img src="./images/lounge/teen_cont5.png" alt="">
-                    </div>
+                <div class="bottom_conts type1">
+                    <img src="./images/lounge/fam_cont1.png" alt="">
+                    <img src="./images/lounge/fam_cont2.png" alt="">
+                    <img src="./images/lounge/fam_cont3.png" alt="">
+                    <img src="./images/lounge/fam_cont4.png" alt="">
                 </div>
-                <!-- // 아이원 틴즈 라운지 -->
-                <!-- 직장인 라운지 -->
-                <div id="tab-3" class="cont">
-                    <div class="top_conts">
-                        <img src="./images/lounge/visual_worker.png" alt="">
-                    </div>
-                    <div class="bottom_conts type1">
-                        <img src="./images/lounge/work_cont1.png" alt="">
-                        <img src="./images/lounge/work_cont2.png" alt="">
-                        <img src="./images/lounge/work_cont3.png" alt="">
-                        <img src="./images/lounge/work_cont4.png" alt="">
-                    </div>
-                    <div class="bottom_conts type2">
-                        <img src="./images/lounge/work_cont5.png" alt="">
-                    </div>
+                <div class="bottom_conts type2">
+                    <img src="./images/lounge/fam_cont5.png" alt="">
                 </div>
-                <!-- // 직장인 라운지 -->
-                <!-- 군인 라운지 -->
-                <div id="tab-4" class="cont">
-                    <div class="top_conts">
-                        <img src="./images/lounge/visual_military.png" alt="">
-                    </div>
-                    <div class="bottom_conts type3">
-                        <img src="./images/lounge/mil_cont1.png" alt="">
-                        <img src="./images/lounge/mil_cont2.png" alt="">
-                        <img src="./images/lounge/mil_cont3.png" alt="">
-                        <img src="./images/lounge/mil_cont4.png" alt="">
-                    </div>
-                </div>
-                <!-- // 군인 라운지 -->
-                <!-- 시니어 라운지 -->
-                <div id="tab-5" class="cont">
-                    <div class="top_conts">
-                        <img src="./images/lounge/visual_senior.png" alt="">
-                    </div>
-                    <div class="bottom_conts type1">
-                        <img src="./images/lounge/seni_cont1.png" alt="">
-                        <img src="./images/lounge/seni_cont2.png" alt="">
-                        <img src="./images/lounge/seni_cont3.png" alt="">
-                        <img src="./images/lounge/seni_cont4.png" alt="">
-                    </div>
-                    <div class="bottom_conts type2">
-                        <img class="type2" src="./images/lounge/seni_cont5.png" alt="">
-                        <div class="swiper job">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="./images/lounge/senior_job1.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/senior_job2.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./images/lounge/senior_job3.png" alt=""></div>
-                            </div>
+            </div>
+            <div id="tab2" class="tab-content">
+                <div class="top_conts">
+                    <img src="./images/lounge/visual_teens.png" alt="">
+                    <div class="swiper store">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
                         </div>
                     </div>
                 </div>
-                <!-- // 시니어 라운지 -->
+                <div class="bottom_conts type1">
+                    <img src="./images/lounge/teen_cont1.png" alt="">
+                    <img src="./images/lounge/teen_cont2.png" alt="">
+                    <img src="./images/lounge/teen_cont3.png" alt="">
+                    <img src="./images/lounge/teen_cont4.png" alt="">
+                </div>
+                <div class="bottom_conts type2">
+                    <img src="./images/lounge/teen_cont5.png" alt="">
+                </div>
+            </div>
+            <div id="tab3" class="tab-content">
+                <div class="top_conts">
+                    <img src="./images/lounge/visual_worker.png" alt="">
+                </div>
+                <div class="bottom_conts type1">
+                    <img src="./images/lounge/work_cont1.png" alt="">
+                    <img src="./images/lounge/work_cont2.png" alt="">
+                    <img src="./images/lounge/work_cont3.png" alt="">
+                    <img src="./images/lounge/work_cont4.png" alt="">
+                </div>
+                <div class="bottom_conts type2">
+                    <img src="./images/lounge/work_cont5.png" alt="">
+                </div>
+            </div>
+            <div id="tab4" class="tab-content">
+                <div class="top_conts">
+                    <img src="./images/lounge/visual_military.png" alt="">
+                </div>
+                <div class="bottom_conts type3">
+                    <img src="./images/lounge/mil_cont1.png" alt="">
+                    <img src="./images/lounge/mil_cont2.png" alt="">
+                    <img src="./images/lounge/mil_cont3.png" alt="">
+                    <img src="./images/lounge/mil_cont4.png" alt="">
+                </div>
+            </div>
+            <div id="tab5" class="tab-content">
+                <div class="top_conts">
+                    <img src="./images/lounge/visual_senior.png" alt="">
+                </div>
+                <div class="bottom_conts type1">
+                    <img src="./images/lounge/seni_cont1.png" alt="">
+                    <img src="./images/lounge/seni_cont2.png" alt="">
+                    <img src="./images/lounge/seni_cont3.png" alt="">
+                    <img src="./images/lounge/seni_cont4.png" alt="">
+                </div>
+                <div class="bottom_conts type2">
+                    <img class="type2" src="./images/lounge/seni_cont5.png" alt="">
+                    <div class="swiper job">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./images/lounge/senior_job1.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/senior_job2.png" alt=""></div>
+                            <div class="swiper-slide"><img src="./images/lounge/senior_job3.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <nav>
@@ -200,54 +203,31 @@
     </div>
 
     <script src="./res/ibk-com.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-    window.onload = () => {
-        // 상단 탭 메뉴
-        const tabMenu = document.querySelectorAll(".tab_menu ul li");
-        const tabContent = document.querySelectorAll(".tab_contents .cont");
-        const slider = document.querySelector('.menu_list');
+        // 라운지 탭 메뉴
+        const swiperTab = new Swiper('.tab-btn', {
+            slidesPerView: 'auto',
+            freeMode: true,
+            grabCursor: true,
+        });
+        document.querySelectorAll('.swiper-slide').forEach(slide => {
+            slide.addEventListener('click', () => {
+                const target = slide.getAttribute('data-target');
 
-        tabMenu.forEach((item, index) => {
-            item.addEventListener("click", (e) => {
-                e.preventDefault(); // a
-                tabContent.forEach((content) => {
-                    content.classList.remove("active");
-                });
-                tabMenu.forEach((content) => {
-                    content.classList.remove("active");
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
                 });
 
-                tabMenu[index].classList.add("active");
-                tabContent[index].classList.add("active");
+                document.getElementById(target).classList.add('active');
+
+                document.querySelectorAll('.swiper-slide').forEach(slide => {
+                    slide.classList.remove('active');
                 });
+
+                slide.classList.add('active');
+            });
         });
-
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        slider.addEventListener('mousedown', e => {
-            isDown = true;
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        slider.addEventListener('mousemove', e => {
-            if (!isDown) return; 
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = x - startX;
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
         // 스와이퍼: 가맹점
         const swiperStore = new Swiper('.store', {
             freeMode: true,
@@ -268,7 +248,6 @@
             speed: 300,
             loop: true,
         });
-    }
     </script>
 </body>
 </html>
