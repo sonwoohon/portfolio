@@ -203,7 +203,6 @@
     </div>
 
     <script src="./res/ibk-com.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         // 라운지 탭 메뉴
         const swiperTab = new Swiper('.tab-btn', {
@@ -211,33 +210,41 @@
             freeMode: true,
             grabCursor: true,
         });
+        // Function to refresh or update content
+
         document.querySelectorAll('.swiper-slide').forEach(slide => {
             slide.addEventListener('click', () => {
-                const target = slide.getAttribute('data-target');
+                const targetId = slide.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
 
+                // Remove 'active' class from all tab contents and slides
                 document.querySelectorAll('.tab-content').forEach(content => {
                     content.classList.remove('active');
                 });
-
-                document.getElementById(target).classList.add('active');
-
-                document.querySelectorAll('.swiper-slide').forEach(slide => {
-                    slide.classList.remove('active');
+                document.querySelectorAll('.swiper-slide').forEach(s => {
+                    s.classList.remove('active');
                 });
 
                 slide.classList.add('active');
+                targetContent.classList.add('active');
+
+                refreshContent(targetContent);
             });
         });
         // 스와이퍼: 가맹점
         const swiperStore = new Swiper('.store', {
+            observer: true,
+            observeParents: true,
             freeMode: true,
             loop: true,
+            loopFillGroupWithBlank: true,
             slidesPerView: 'auto',
             autoplay: {
-                delay: 0,
+                delay: 1,
                 disableOnInteraction: false
             },
             speed:3000,
+            
         });
         // 스와이퍼: 직장
         const swiperJob = new Swiper('.job', {
@@ -247,7 +254,9 @@
             autoplay: true,
             speed: 300,
             loop: true,
+            observer: true,
+            observeParents: true,
         });
     </script>
 </body>
-</html>
+</html>›
