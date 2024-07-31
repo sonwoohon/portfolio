@@ -7,8 +7,6 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>금융관계도</title>
     <style>
-        .container .page-wrap{padding: 20px 20px 45px;}
-
         .financial-box{position: relative;margin: -16px -20px 0;}
         .financial-box a{position: absolute; top: 10px; left: 15px; width:35px; height: 35px;}
         .financial-tab-wrap{display: flex;justify-content: space-between;align-items: center;margin-top: 22px; margin-bottom: 34px;}
@@ -19,12 +17,12 @@
         .financial-tab-wrap ul li a{display: block; color: #D8D8D8; font-size: 14px;}
         .financial-tab-wrap ul li.active a{color: #333;}
         .financial-tab-wrap ul li a::before{ content: ""; display: inline-block; width: 20px; height: 20px; vertical-align: sub; margin-right: 4px;}
-        .financial-tab-wrap ul li a.bangsa::before{content: "";background: url(./images/financial/bangsa-icon.png) no-repeat;}
-        .financial-tab-wrap ul li.active a.bangsa::before{content: ""; background: url(./images/financial/bangsa-on-icon.png) no-repeat;}
-        .financial-tab-wrap ul li a.list::before{content: "";background: url(./images/financial/list-icon.png) no-repeat;}
-        .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;}
-        .finance-btn{display: flex;padding: 18px 0px;justify-content: center;align-items: center; background-color: #1D74E8; border-radius: 10px; color: #fff; font-size: 17px; font-weight: 700;line-height: 21px; margin-top: 90px;}
-
+        .financial-tab-wrap ul li a.bangsa::before{content: "";background: url(./images/financial/bangsa-icon.png) no-repeat; background-size: 100% auto;}
+        .financial-tab-wrap ul li.active a.bangsa::before{content: ""; background: url(./images/financial/bangsa-on-icon.png) no-repeat;  background-size: 100% auto;}
+        .financial-tab-wrap ul li a.list::before{content: "";background: url(./images/financial/list-icon.png) no-repeat;background-size: 100% auto;}
+        .financial-tab-wrap ul li.active a.list::before{content: ""; background: url(./images/financial/list-icon-on.png) no-repeat;background-size: 100% auto;}
+        /* .finance-btn{display: flex;padding: 18px 0px;justify-content: center;align-items: center; background-color: #1D74E8; border-radius: 10px; color: #fff; font-size: 17px; font-weight: 700;line-height: 21px; margin-top: 90px;} */
+        .finance-btn{position: fixed;bottom: 0;width: 375px;}
         /* 리스트형 */
         .financial-accordion {padding: 16px 12px; background-color: #F5F5F5; border-radius: 12px; margin-bottom: 12px;}
         .financial-accordion h2{display: flex; align-items: center;font-size: 16px; font-weight: 700; line-height: 20px;}
@@ -35,7 +33,7 @@
         .financial-accordion h2 a span{color: #1D74E8; font-weight: 700;}
         .financial-accordion h2::before{content: ""; display: inline-block; width: 28px; height: 28px; margin-right: 8px;}
         .financial-accordion h2.children::before{ background: url(./images/financial/children.png) no-repeat;}
-        .financial-accordion h2.mother::before{ background: url(./images/financial/mother.png) no-repeat;}
+        .financial-accordion h2.mother::before{ background: url(./images/financial/mother.png) no-repeat center / contain;}
         .financial-accordion h2.profile::before{ background: url(./images/financial/profile.png) no-repeat;}
         .invite-btn{display: flex;height: 52px;padding: 18px 0px;justify-content: center;align-items: center; border-radius: 10px; background-color: #E8F4FF; font-weight: 700; color: #004F9D;}
         
@@ -82,7 +80,7 @@
         .pop2 article .header input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
         .pop2 article .header h2{color: #787878; margin-left: 24px;}
         .pop2 article .header strong{font-size: 15px;color: #1D74E8;}
-        .pop2 article .header a{width: 24px;height: 24px;background-color: red;margin-left: auto; background: url(./images/financial/close-icon.png) no-repeat;}
+        .pop2 article .header a{width: 24px;height: 24px;margin-left: auto; background: url(./images/financial/close-icon.png) no-repeat; background-size: 100% auto;}
         .pop2 article .content{min-height: 264px;}
         .pop2 article .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
         .pop2 article .content > div:last-of-type{border-bottom: 0;}
@@ -187,8 +185,10 @@
                 </div>
                 <a href="#none" class="invite-btn" onclick="$('.pop2').addClass('on').fadeIn(300);">초대하기</a>
             </div>
-            <a href="#noen" class="finance-btn">내 금융 관계도 설정하기</a>
         </div>
+        <a href="#noen" class="finance-btn">
+            <img src="./images/financial/bottom_btn.png" alt="">
+        </a>
     </div>
     <div class="pop pop1">
         <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
@@ -259,7 +259,7 @@
     document.addEventListener('DOMContentLoaded', function() {
             var numElements = document.querySelectorAll('.num');
             var moveBox = document.querySelector('.move-box');
-        
+            const end = document.querySelector('html').scrollHeight;
             numElements.forEach(function(element) {
                 element.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -275,7 +275,7 @@
                     var targetRect = this.getBoundingClientRect();
                     var moveX = rect.left + rect.width / 2 - (targetRect.left + targetRect.width / 2);
                     var moveY = rect.top + rect.height / 2 - (targetRect.top + targetRect.height / 2);
-
+                    window.scrollTo({ top: end, behavior: 'smooth' }); // 클릭시 HTML 최하단으로 이동 
                     moveBox.style.top = moveY + 'px';
                     moveBox.style.left = moveX + 'px';
                     this.style.transform = 'scale(1.5)';
