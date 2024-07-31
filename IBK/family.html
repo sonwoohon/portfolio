@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title>패밀리통장</title>
+    <style>
+        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
+        .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
+        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
+        
+        /* 패일리통장 css */
+        .main_visual{position:relative;padding:36px 0 58px;width:100%;}
+        .swiper.family{display:block;position:absolute;left:0;right:0;top:209px;width:375px;height:209px;margin:0 auto;}
+        .swiper.family .swiper-wrapper{}
+        .swiper.family .swiper-slide{width:197px;height:209px;}
+
+        .fam_conts .box_cont{width:100%;height:auto;padding:40px 20px;background:#F5F9FF}
+        .fam_conts .box_cont div + div{margin-top:20px;}
+        .fam_conts .box_cont.type2{background:#F4F4F4}
+        .fam_conts .box_cont.type3{padding:40px 20px 229px;background:#FFFFFF}
+        .btn_box{position:fixed;bottom:0;display:flex;width:375px;height:auto;padding:18px 20px 45px;background:rgba(255, 255, 255, 0.80);backdrop-filter: blur(3.450000047683716px);}
+        .btn_box button{display:flex;justify-content:center;align-items:center;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing:-0.17px;color:#FFF;background:#1D74E8;}
+        .btn_box button.btn_calc{position:relative;width:118px}
+        .btn_box button.btn_calc::before{content:"";position:absolute;bottom:65px;width:68px;height:27px;background:url("./images/family/toatst_msg.png") no-repeat 0 0 / 100%;animation:bounce 2s ease infinite;;}
+        .btn_box button.btn_bank{width:205px}
+        .btn_box button + button{margin-left:12px}
+        @keyframes bounce {
+            70% { transform:translateY(0%); }
+            80% { transform:translateY(-15%); }
+            90% { transform:translateY(0%); }
+            95% { transform:translateY(-7%); }
+            97% { transform:translateY(0%); }
+            99% { transform:translateY(-3%); }
+            100% { transform:translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alram-box">
+            <a href="#none">
+                <img src="./images/home-icon1.png" alt="">
+            </a>
+            <img src="./images/home-icon2.png" alt="">
+            <img src="./images/home-icon3.png" alt="">
+            <a href="./wallet.html" class="wallet"></a>
+        </div>
+        <div class="main_visual">
+            <img src="./images/family/main_visual.png" alt="">
+            <div class="swiper family">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./images/family/fam_type1.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./images/family/fam_type2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./images/family/fam_type3.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="fam_conts">
+            <div class="box_cont">
+                <div>
+                    <img src="./images/family/fam_cont1.png" alt="">
+                </div>
+                <div>
+                    <img src="./images/family/fam_cont2.png" alt="">
+                </div>
+                <div>
+                    <img src="./images/family/fam_cont3.png" alt="">
+                </div>
+                <div>
+                    <img src="./images/family/fam_cont4.png" alt="">
+                </div>
+                <div>
+                    <img src="./images/family/fam_cont5.png" alt="">
+                </div>
+            </div>
+            <div class="box_cont type2">
+                <div>
+                    <img src="./images/family/fam_cont6.png" alt="">
+                </div>
+            </div>
+            <div class="box_cont type3">
+                <img src="./images/family/accor_list.png" alt="">
+            </div>
+        </div>
+        <div class="btn_box">
+            <button type="button" id="modal_calc" class="btn_calc">이자 계산기</button>
+            <button type="button" class="btn_bank">계좌 만들기</button>
+        </div>
+    </div>
+    <div class="popup pop1">
+        <div class="popupimg">
+            <img src="./images/home/home-pop.png" alt="">
+            <img src="./images/home/home-pop-icon.png" alt="">
+        </div>
+        <div class="pop-cont">
+            <div class="banklist-box">
+                <img src="./images/home/home-pop-ex1.png" alt="">
+                <div class="nums" data-count="13000000" data-dealy="300">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+                <a href="./financial.html" class="move"></a>
+            </div>
+            <div class="banklist-box">
+                <img src="./images/home/home-pop-ex2.png" alt="">
+                <div class="nums" data-count="38450000"  data-dealy="1000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+                <a href="./financial.html" class="move"></a>
+            </div>
+            <div class="banklist-box">
+                <img src="./images/home/home-pop-ex3.png" alt="">
+                <div class="nums" data-count="650000" data-dealy="1500">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+            </div>
+            <div class="banklist-box">
+                <img src="./images/home/home-pop-ex4.png" alt="">
+                <div class="nums" data-count="500000" data-dealy="2000">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+            </div>
+            <div class="banklist-box">
+                <img src="./images/home/home-pop-ex5.png" alt="">
+                <div class="nums" data-count="150000" data-dealy="2500">
+                    <span>0</span><span id="num-unit"></span>
+                </div>
+            </div>
+            <div class="banklist-box">
+                <img src="./images/home/home-pop-ex6.png" alt="">
+            </div>
+        </div>
+        <div class="mgt12">
+            <img src="./images/home/home-pop-ex7.png" alt="">
+        </div>
+        <button class="pop-close reset-btn" onclick="drPopupClose('.popup', 'element');$('.banklist-box .nums').text('0');"></button>
+    </div>
+    <div class="dim"></div>
+
+
+    <script src="./res/ibk-com.js"></script>
+    <script>
+    window.onload = () => {
+        const swiperFam = new Swiper('.family', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: true,
+            speed: 300,
+            loop: true,
+        });
+    }
+    </script>
+</body>
+</html>
