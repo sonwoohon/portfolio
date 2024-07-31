@@ -12,10 +12,74 @@
         .aiset-box{position: relative;}
         .aiset-box a{position: absolute; top: 10px; left: 15px; width:35px; height: 35px;}
         .img-wrap {position:relative;}
-        .img-wrap.motion {margin:0 20px}
+        .img-wrap.motion {margin:0 20px;}
         .img-wrap.slider {margin:24px 20px 0}
-
-      
+        .motion .one {position:absolute;top:29%;left:18%;z-index:5;padding:5px;box-sizing:border-box;animation-name:motion6;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-direction:normal;animation-iteration-count: infinite;}
+        .slide_wrap {position:absolute;z-index:5;width:100%}
+        .slide_wrap ul {position:relative;padding:0 20px}
+        .slide_wrap li.line1 {margin-top:54px; }
+        .slide_wrap li.line2 {margin-top:69px}
+        .slide_wrap li.line3 {margin-top:69px}
+        .slide_wrap li.line4 {margin-top:69px}
+        .slide_wrap li.line5 {margin-top:69px}
+        .slide_wrap li .bar {position:relative;display:flex;width:100%;height:8px;background:rgba(0,0,0,.2);border-radius:5px}
+        .slide_wrap li .bar .progress {position:absolute;top:0;left:0;display:inline-block;height:8px;background:#1EDCB3;border-radius:5px;z-index:5}
+        .slide_wrap li .bar .pointer {position:absolute;right:0;display:inline-block;margin-top:-18px;margin-right:-28px;z-index:10;}
+        .slide_wrap .line1 .progress {animation-name: motion1;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:80%}
+        .slide_wrap .line2 .progress {animation-name: motion2;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:38%}
+        .slide_wrap .line3 .progress {animation-name: motion3;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:63%}
+        .slide_wrap .line4 .progress {animation-name: motion4;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:18%}
+        .slide_wrap .line5 .progress {animation-name: motion5;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:41%}
+        @keyframes motion1 {
+            0% {width:80%;}
+            30% {width:90%;}
+            40% {width:90%;}
+            60% {width:70%;}
+            70% {width:70%;}
+            100% {width:80%;}
+            
+        }
+        @keyframes motion2 {
+            0% {width:38%;}
+            30% {width:68%;}
+            40% {width:68%;}
+            60% {width:50%;}
+            70% {width:50%;}
+            100% {width:38%;}
+        }
+        @keyframes motion3 {
+            0% {width:63%;}
+            30% {width:30%;}
+            40% {width:30%;}
+            60% {width:52%;}
+            70% {width:52%;}
+            100% {width:63%;}
+        }
+        @keyframes motion4 {
+            0% {width:18%;}
+            30% {width:42%;}
+            40% {width:42%;}
+            60% {width:70%;}
+            70% {width:70%;}
+            100% {width:18%;}
+        }
+        @keyframes motion5 {
+            0% {width:41%;}
+            30% {width:20%;}
+            40% {width:20%;}
+            60% {width:60%;}
+            70% {width:60%;}
+            100% {width:41%;}
+        }
+        @keyframes motion6 {
+            0% {top:29%;left:18%;}
+            30% {top:15%;left:68%;}
+            40% {top:15%;left:68%;}
+            60% {top:65%;left:50%;}
+            70% {top:65%;left:50%;}
+            100% {top:29%;left:18%;}
+        }
+    
       
     </style>
 </head>
@@ -31,9 +95,133 @@
                 <img src="./images/ai/ai-set-img1.jpg" alt=""> 
             </div>
             <div class="img-wrap motion">
+                <div class="one">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <g filter="url(#filter0_f_143_5412)">
+                        <circle cx="22" cy="22" r="14" fill="white" fill-opacity="0.5"/>
+                        </g>
+                        <circle cx="22" cy="22" r="9" fill="white"/>
+                        <defs>
+                        <filter id="filter0_f_143_5412" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_143_5412"/>
+                        </filter>
+                        </defs>
+                    </svg>
+                </div>
                 <img src="./images/ai/ai-set-img2.png" alt=""> 
             </div>
             <div class="img-wrap slider">
+                <div class="slide_wrap">
+                    <ul>
+                        <li class="line1">
+                            <div class="bar">
+                                <span class="progress pgl">
+                                    <span class="pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                                        <g filter="url(#filter0_f_3_9023)">
+                                        <circle cx="22" cy="22" r="14" transform="rotate(90 22 22)" fill="white" fill-opacity="0.5"/>
+                                        </g>
+                                        <circle cx="22" cy="22" r="9" transform="rotate(90 22 22)" fill="white"/>
+                                        <defs>
+                                        <filter id="filter0_f_3_9023" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                        <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_3_9023"/>
+                                        </filter>
+                                        </defs>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="line2">
+                            <div class="bar">
+                                <span class="progress pg2">
+                                    <span class="pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                                        <g filter="url(#filter0_f_3_9023)">
+                                        <circle cx="22" cy="22" r="14" transform="rotate(90 22 22)" fill="white" fill-opacity="0.5"/>
+                                        </g>
+                                        <circle cx="22" cy="22" r="9" transform="rotate(90 22 22)" fill="white"/>
+                                        <defs>
+                                        <filter id="filter0_f_3_9023" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                        <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_3_9023"/>
+                                        </filter>
+                                        </defs>
+                                        </svg>
+                                    </span>
+                                </span> 
+                            </div>
+                        </li>
+                        <li class="line3">
+                            <div class="bar">
+                                <span class="progress pg3">
+                                    <span class="pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                                        <g filter="url(#filter0_f_3_9023)">
+                                        <circle cx="22" cy="22" r="14" transform="rotate(90 22 22)" fill="white" fill-opacity="0.5"/>
+                                        </g>
+                                        <circle cx="22" cy="22" r="9" transform="rotate(90 22 22)" fill="white"/>
+                                        <defs>
+                                        <filter id="filter0_f_3_9023" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                        <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_3_9023"/>
+                                        </filter>
+                                        </defs>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="line4">
+                            <div class="bar">
+                                <span class="progress pg4">
+                                    <span class="pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                                        <g filter="url(#filter0_f_3_9023)">
+                                        <circle cx="22" cy="22" r="14" transform="rotate(90 22 22)" fill="white" fill-opacity="0.5"/>
+                                        </g>
+                                        <circle cx="22" cy="22" r="9" transform="rotate(90 22 22)" fill="white"/>
+                                        <defs>
+                                        <filter id="filter0_f_3_9023" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                        <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_3_9023"/>
+                                        </filter>
+                                        </defs>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="line5">
+                            <div class="bar">
+                                <span class="progress pg5">
+                                    <span class="pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                                        <g filter="url(#filter0_f_3_9023)">
+                                        <circle cx="22" cy="22" r="14" transform="rotate(90 22 22)" fill="white" fill-opacity="0.5"/>
+                                        </g>
+                                        <circle cx="22" cy="22" r="9" transform="rotate(90 22 22)" fill="white"/>
+                                        <defs>
+                                        <filter id="filter0_f_3_9023" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                        <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_3_9023"/>
+                                        </filter>
+                                        </defs>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 <img src="./images/ai/ai-set-img3.png" alt=""> 
             </div>
             <div class="img-wrap">
