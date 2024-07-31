@@ -9,21 +9,26 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>패밀리통장</title>
     <style>
-        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
-        .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
+        .container{position:relative;}
+        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index:1; display: none;}
+        .popup{position:fixed;bottom: 0;left:0;right:0;width:375px;height:100%;margin:0 auto;border-radius:20px 20px 0 0;background:#FFF;overflow-y: scroll; scrollbar-width: none;display:none;}
         .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
-        
+        .pop_calc{max-height:651px;padding:56px 20px 0;background:#FFF;z-index:2;}
+        .pop_calc .pop_cont{height:100%;}
+        .pop_calc .pop_cont img:nth-child(1){width:335px;height:202px}
+        .pop_calc .pop_cont img:nth-child(2){width:335px;height:183px;}
+        .pop_calc .pop_cont img + img{margin-top:24px;}
+
         /* 패일리통장 css */
         .main_visual{position:relative;padding:36px 0 58px;width:100%;}
         .swiper.family{display:block;position:absolute;left:0;right:0;top:209px;width:375px;height:209px;margin:0 auto;}
-        .swiper.family .swiper-wrapper{}
-        .swiper.family .swiper-slide{width:197px;height:209px;}
+        .swiper.family .swiper-slide, .swiper.family .swiper-slide img{width:197px;height:209px;}
 
         .fam_conts .box_cont{width:100%;height:auto;padding:40px 20px;background:#F5F9FF}
         .fam_conts .box_cont div + div{margin-top:20px;}
-        .fam_conts .box_cont.type2{background:#F4F4F4}
+        .fam_conts .box_cont.type2{position:relative;background:#F4F4F4}
         .fam_conts .box_cont.type3{padding:40px 20px 229px;background:#FFFFFF}
-        .btn_box{position:fixed;bottom:0;display:flex;width:375px;height:auto;padding:18px 20px 45px;background:rgba(255, 255, 255, 0.80);backdrop-filter: blur(3.450000047683716px);}
+        .btn_box{position:fixed;bottom:0;display:flex;width:375px;height:auto;padding:18px 20px 45px;background:rgba(255, 255, 255, 0.80);backdrop-filter: blur(3.450000047683716px);z-index:10;}
         .btn_box button{display:flex;justify-content:center;align-items:center;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing:-0.17px;color:#FFF;background:#1D74E8;}
         .btn_box button.btn_calc{position:relative;width:118px}
         .btn_box button.btn_calc::before{content:"";position:absolute;bottom:65px;width:68px;height:27px;background:url("./images/family/toatst_msg.png") no-repeat 0 0 / 100%;animation:bounce 2s ease infinite;;}
@@ -37,6 +42,14 @@
             97% { transform:translateY(0%); }
             99% { transform:translateY(-3%); }
             100% { transform:translateY(0); }
+        }
+        .alarm{position:absolute;top:70px;right:41px;width:85px;height:73px;animation: hithere 1.5s ease infinite;}
+        @keyframes hithere {
+            30% { transform: scale(1.2); }
+            40%, 60% { transform: rotate(-20deg) scale(1.2); }
+            50% { transform: rotate(20deg) scale(1.2); }
+            70% { transform: rotate(0deg) scale(1.2); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -54,6 +67,9 @@
             <img src="./images/family/main_visual.png" alt="">
             <div class="swiper family">
                 <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./images/family/fam_type1.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./images/family/fam_type2.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./images/family/fam_type3.png" alt=""></div>
                     <div class="swiper-slide"><img src="./images/family/fam_type1.png" alt=""></div>
                     <div class="swiper-slide"><img src="./images/family/fam_type2.png" alt=""></div>
                     <div class="swiper-slide"><img src="./images/family/fam_type3.png" alt=""></div>
@@ -80,6 +96,7 @@
             </div>
             <div class="box_cont type2">
                 <div>
+                    <img class="alarm" src="./images/family/alarm.png" alt="">
                     <img src="./images/family/fam_cont6.png" alt="">
                 </div>
             </div>
@@ -88,63 +105,23 @@
             </div>
         </div>
         <div class="btn_box">
-            <button type="button" id="modal_calc" class="btn_calc">이자 계산기</button>
-            <button type="button" class="btn_bank">계좌 만들기</button>
+            <button type="button" id="open_calc" class="btn_calc">이자 계산기</button>
+            <button type="button" id="" class="btn_bank">계좌 만들기</button>
         </div>
     </div>
-    <div class="popup pop1">
-        <div class="popupimg">
-            <img src="./images/home/home-pop.png" alt="">
-            <img src="./images/home/home-pop-icon.png" alt="">
+    <div id="popup_calc" class="popup pop_calc">
+        <!-- <button id="btn_close" class="pop-close reset-btn" onclick="drPopupClose('.popup', 'element');$('.banklist-box .nums').text('0');"></button> -->
+        <div class="pop_cont">
+            <img src="./images/family/calc_cont1.png" alt="">
+            <img src="./images/family/calc_cont2.png" alt="">
         </div>
-        <div class="pop-cont">
-            <div class="banklist-box">
-                <img src="./images/home/home-pop-ex1.png" alt="">
-                <div class="nums" data-count="13000000" data-dealy="300">
-                    <span>0</span><span id="num-unit"></span>
-                </div>
-                <a href="./financial.html" class="move"></a>
-            </div>
-            <div class="banklist-box">
-                <img src="./images/home/home-pop-ex2.png" alt="">
-                <div class="nums" data-count="38450000"  data-dealy="1000">
-                    <span>0</span><span id="num-unit"></span>
-                </div>
-                <a href="./financial.html" class="move"></a>
-            </div>
-            <div class="banklist-box">
-                <img src="./images/home/home-pop-ex3.png" alt="">
-                <div class="nums" data-count="650000" data-dealy="1500">
-                    <span>0</span><span id="num-unit"></span>
-                </div>
-            </div>
-            <div class="banklist-box">
-                <img src="./images/home/home-pop-ex4.png" alt="">
-                <div class="nums" data-count="500000" data-dealy="2000">
-                    <span>0</span><span id="num-unit"></span>
-                </div>
-            </div>
-            <div class="banklist-box">
-                <img src="./images/home/home-pop-ex5.png" alt="">
-                <div class="nums" data-count="150000" data-dealy="2500">
-                    <span>0</span><span id="num-unit"></span>
-                </div>
-            </div>
-            <div class="banklist-box">
-                <img src="./images/home/home-pop-ex6.png" alt="">
-            </div>
-        </div>
-        <div class="mgt12">
-            <img src="./images/home/home-pop-ex7.png" alt="">
-        </div>
-        <button class="pop-close reset-btn" onclick="drPopupClose('.popup', 'element');$('.banklist-box .nums').text('0');"></button>
     </div>
-    <div class="dim"></div>
+    <div id="bg_dim" class="dim"></div>
 
 
     <script src="./res/ibk-com.js"></script>
     <script>
-    window.onload = () => {
+        // 상단 패밀리 스와이퍼 
         const swiperFam = new Swiper('.family', {
             slidesPerView: 'auto',
             spaceBetween: 30,
@@ -152,8 +129,60 @@
             autoplay: true,
             speed: 300,
             loop: true,
+            touchStartPreventDefault: false,
+            allowTouchMove: true,
         });
-    }
+
+        const modalPopup = document.getElementById('popup_calc');
+        const dimBg = document.getElementById('bg_dim');
+        const openPopupBtn = document.getElementById('open_calc');
+        const closePopupBtn = document.getElementById('btn_close');
+
+        // Function to open the modal
+        function openModal() {
+            dimBg.style.display = 'block';
+            modalPopup.style.display = 'block';
+            setTimeout(() => {
+                modalPopup.style.transform = 'translateY(0)';
+            }, 10); // Small delay to allow CSS transition to apply
+
+            // Push a new history state when the modal opens
+            history.pushState({ modal: true }, '', '#modal');
+        }
+
+        function closeModal() {
+            modalPopup.style.transform = 'translateY(100%)';
+            setTimeout(() => {
+                dimBg.style.display = 'none';
+                modalPopup.style.display = 'none';
+            }, 300); // Match the duration of the CSS transition
+
+            // Replace the history state when the modal closes
+            history.replaceState({}, '', location.pathname);
+        }
+
+        // Toggle modal visibility
+        function toggleModal() {
+            if (modalPopup.style.display === 'block') {
+                closeModal();
+            } else {
+                openModal();
+            }
+        }
+
+        // Handle the browser's back/forward buttons
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.modalPopup) {
+                openModal();
+            } else {
+                closeModal();
+            }
+        });
+
+        openPopupBtn.addEventListener('click', toggleModal);
+        closePopupBtn.addEventListener('click', closeModal);
+
     </script>
 </body>
 </html>
+

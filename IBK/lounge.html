@@ -9,50 +9,8 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>라운지</title>
     <style>
-        .container .page-wrap {padding: 20px 20px 0px;}
-
-        .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
-        .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
-        .modalbox-wrap .modalbox:nth-of-type(1){z-index: 10;}
-        .modalbox-wrap .modalbox:nth-of-type(2){z-index: 9; background-color: #DFEFFF; top: 52px; transform:scale(0.98);}
-        .modalbox-wrap .modalbox:nth-of-type(3){z-index: 8; background-color: #ECF5FF; top: 58px; transform:scale(0.95);}
-        .modalbox-wrap .modalbox:nth-of-type(4){z-index: 7;}
-        .modalbox-wrap .modalbox:nth-of-type(5){z-index: 6;}
-        .modalbox-wrap .modalbox.on{background-color: #E6F3FF !important; opacity: 1 !important; transition: 0.5s; left: 0; transform: unset;}  
-        .modalbox-wrap .modalbox.on:nth-of-type(2){top: 90px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(3){top: 180px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(4){top: 270px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(5){top: 360px;}
-        .modalbox-wrap .modalbox .modalbox_cont > div{display:flex;align-items:center;justify-content:flex-start;}
-        .modalbox-wrap .modalbox .modalbox_cont .img{width: 41px;}
-        .modalbox-wrap .modalbox .modalbox_cont .txt{font-size: 15px; margin-left: 12px;}
-        .modalbox-wrap .modalbox .modalbox_cont strong{display: inline-block; margin-top: 3px; color: #0F53A8; font-weight: 700;}
-        .modalbox-wrap > button{position: absolute; top: 0px; width: 100%; background-color: #F5F5F5; padding: 12px 10px;transition: 0.5s; opacity: 0; cursor: pointer;}
-        .modalbox-wrap > button.on{display: block; position: absolute; height: 40px; top: 450px; opacity: 1; background: url(./images/home/home-btn2.png) no-repeat;}
-        .modalbox-wrap .modalbox > button{width: 100%; color: #5E8FC0; border-top: 1px solid #C8E3FF; font-size: 12px; font-weight: 500; margin-top: 11px; padding-top: 11px; background: transparent;cursor: pointer; transition: 0.5s;}
-        .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/home/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
-        .nums{font-size: 26px; font-weight: 700; color: #fff;}
-        .nums .one{font-size: 16px; font-weight: 500;}
-        .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;    transition-delay: 2s;}
-        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
-        .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
-        .popup .pop-cont{position: relative; text-align: center;}
-        .popup .popupimg{display: flex; justify-content: space-between; align-items: center;margin-bottom: 30px;}
-        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
-        .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s forwards;}
-        .banklist-box:nth-of-type(1){z-index: 10;}
-        .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
-        .banklist-box:nth-of-type(3){z-index: 8;  transform: translateY(-385px);}
-        .banklist-box:nth-of-type(4){z-index: 7;  transform: translateY(-543px);}
-        .banklist-box:nth-of-type(5){z-index: 6;  transform: translateY(-702px);}
-        .banklist-box:nth-of-type(6){z-index: 5;  transform: translateY(-861px);}
-        .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
-        .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
-        @keyframes banklist{to{transform: unset; margin-top: 12px;}}
-        .wallet{position: absolute;top: 0px;right: 60px;width: 40px;height: 32px;}
-
         /* 라운지 css */
-        .tab_menu{position:relative;width:100%;}
+        .tab_menu{position:relative;width:100%;cursor:grab;}
         .tab_menu .menu_list{position:relative;display:block;white-space:nowrap;padding:20px;box-sizing:border-box;overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
         .tab_menu .menu_list::-webkit-scrollbar{display:none;}
         .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
@@ -209,50 +167,45 @@
         <nav>
             <ul>
                 <li>
-                    <a id="home" href="">
+                    <a id="home" href="./index.html">
                         <i aria-label="홈 탭" class="home"></i>
                         <span>홈</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./">
                         <i aria-label="자산 탭" class="assets"></i>
                         <span>자산</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./ai.html">
                         <i aria-label="AI 탭" class="ai"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./">
                         <i aria-label="상품 탭" class="goods"></i>
                         <span>상품</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./lounge.html">
                         <i aria-label="라운지 탭" class="lounge on"></i>
                         <span class="on">라운지</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="./menu.html">
-                        <i aria-label="전체보기 탭" class="allmenu"></i>
-                        <span>전체</span>
-                    </a>
-                </li> -->
             </ul>
         </nav>
     </div>
 
     <script src="./res/ibk-com.js"></script>
     <script>
-        window.onload = () => {
+    window.onload = () => {
         // 상단 탭 메뉴
         const tabMenu = document.querySelectorAll(".tab_menu ul li");
         const tabContent = document.querySelectorAll(".tab_contents .cont");
+        const slider = document.querySelector('.menu_list');
 
         tabMenu.forEach((item, index) => {
             item.addEventListener("click", (e) => {
@@ -267,27 +220,55 @@
                 tabMenu[index].classList.add("active");
                 tabContent[index].classList.add("active");
                 });
-            });
+        });
 
-            const swiperStore = new Swiper('.store', {
-                freeMode: true,
-                loop: true,
-                slidesPerView: 'auto',
-                autoplay: {
-                    delay: 0,
-                    disableOnInteraction: false
-                },
-                speed:3000,
-            });
-            const swiperJob = new Swiper('.job', {
-                slidesPerView: 'auto',
-                spaceBetween: 12,
-                freeMode: true,
-                autoplay: true,
-                speed: 300,
-                loop: true,
-            });
-        }
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', e => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('mousemove', e => {
+            if (!isDown) return; 
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = x - startX;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // 스와이퍼: 가맹점
+        const swiperStore = new Swiper('.store', {
+            freeMode: true,
+            loop: true,
+            slidesPerView: 'auto',
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false
+            },
+            speed:3000,
+        });
+        // 스와이퍼: 직장
+        const swiperJob = new Swiper('.job', {
+            slidesPerView: 'auto',
+            spaceBetween: 12,
+            freeMode: true,
+            autoplay: true,
+            speed: 300,
+            loop: true,
+        });
+    }
     </script>
 </body>
 </html>
