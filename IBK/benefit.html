@@ -12,8 +12,11 @@
         .aiset-box{position: relative;}
         .aiset-box a{position: absolute; top: 10px; left: 15px; width:35px; height: 35px;}
         .img-wrap {position:relative;}
+        .img-wrap .num-box {position:absolute;left:20px;top:9%;font-size:33px;font-weight:700;line-height:39px;color:#1D74E8;}
         .img-wrap.motion {margin:0 20px}
         .img-wrap.slider {margin:24px 20px 0}
+        .nums .one {background:url(./images/benefit/ico-arr.png) no-repeat center 67%;background-size:28px 28px;padding-right:39px;}
+        
 
       
       
@@ -27,7 +30,10 @@
                 <img src="./images/benefit/benefit-tit.jpg" alt="">
                 <a href="index.html"></a>
             </div>
-            <div class="img-wrap num">
+            <div class="img-wrap">
+                <div class="num-box">
+                    <div class="nums" data-count="23450" data-dealy="300">23,450<span class="one">P </span></div>
+                </div>
                 <img src="./images/benefit/benefit-img1.jpg" alt=""> 
             </div>
             <div class="img-wrap">
@@ -41,7 +47,34 @@
     
     <script src="./res/ibk-com.js"></script>
     <script>
-   
+        //숫자 카운트 애니메이션
+        function count() {
+            $('.nums').each(function() {
+            const   $this = $(this),
+                    countTo = $this.attr('data-count');
+                    countDelay = $this.attr('data-dealy'),
+                    delaySeconds = parseInt(countDelay) || 0; //변수에서 얻은 값을 정수로 변환하고, 이 변환이 실패할 경우 또는 값이 없을 경우 0을 반환
+                    setTimeout(function() {
+                        $({
+                            countNum: $this.text()
+                        }).animate({
+                            countNum: countTo
+                        }, {
+                            duration: 1500,
+                            easing: 'linear',
+                            step: function() {
+                                $this.text(Math.floor(this.countNum));
+                            },
+                            complete: function() {
+                                $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">P</span>');
+                                // 3자리 마다 콤마 표시 적용
+                            }
+                        });
+                    }, delaySeconds); 
+
+                });
+        }
+        count();
     </script>
 </body>
 </html>
