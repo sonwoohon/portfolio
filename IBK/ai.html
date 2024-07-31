@@ -10,9 +10,12 @@
     <style>
         .container.ai {background:linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%), #114287;}
         .container.ai .page-wrap {padding:0 0 124px 0;}
-        .img-wrap.set {position:relative;}
-        .img-wrap.set a {position:absolute;top:6%;right:4%;width:10%;height:22%;z-index:1;border:1px solid red}
-       
+        .img-wrap {position:relative;}
+        .img-wrap.set a {position:absolute;top:6%;right:4%;width:10%;height:22%;z-index:1;}
+        .checkbox {position:absolute;top:7%;right:40px;width: 28px; height: 28px;}
+        .checkbox input{width: 28px; height: 28px;appearance: none; position: absolute; z-index: 1;}
+        .checkbox input[type="checkbox"] + i{width: 28px; height: 28px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/ai/checkbox_off.png) no-repeat;background-size: contain; cursor: pointer;}
+        .checkbox input[type="checkbox"]:checked  + i{ background: url(./images/ai/checkbox_on.png);background-size: contain;}
 
         .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
         .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
@@ -65,8 +68,6 @@
         .ai .tab_contents .cont.active{display:block;}
         .ai .tab_contents .top_conts img {margin-top:-6px}
         .ai .tab_btn.last {position:absolute;top:0;right:20px;display:inline-block;width:108px;height:44px;padding:12px 0;border-radius:12px;font-size:15px;font-weight:400;line-height:20px;color:rgba(255,255,255,.8);background:rgba(255, 255, 255, 0.20);text-align:center;z-index:10}
-        /* .ai .accordion {margin:0 20px;padding:16px 12px;background: rgba(255, 255, 255, 0.20);box-sizing:border-box;border-radius:12px;}
-        .ai .accordion a {color:#fff;font-size:16px;font-weight:400;line-height:20px;} */
         .ai .accordion {position:relative;}
         .ai .accordion .folding-btn.open + .folding-panel {margin-top:-58px}
         .ai .accordion .folding-panel {display:none}
@@ -76,6 +77,7 @@
         .mike a .icon {display:inline-block;width:24px;height:24px}
         .mike.on .txt {display:none}
         .mike.on {width:60px;height:60px;left:100%}
+        
         
     </style>
 </head>
@@ -111,6 +113,12 @@
                 <div class="tab_btn last"><img src="./images/ai/ico-plus.png" alt="" class="ico-plus"></div>
             </div>
             <div class="img-wrap">
+                <div class="checkbox">
+                    <label for="check1">
+                        <input type="checkbox" id="check1">
+                        <i></i>
+                    </label>
+                </div>
                 <img src="./images/ai/ai-img2.jpg" alt="">
                 <img src="./images/ai/ai-img3.jpg" alt=""> 
             </div>
