@@ -16,17 +16,18 @@
         
         .collection-wrap .menu-tab-wrap a {display: block; color: #9F9F9F; padding: 6px 16px; border-radius:20px;}
         .collection-wrap .menu-tab-wrap div.active a{background-color: #114287; color: #fff; font-weight: 700; transition: all 0.7s;}
+        .collection-wrap + div{    margin: 30px -20px 0; border-bottom: 1px solid #E5E8EC;}
         .gray-box-wrap{position: relative; padding: 8px 20px; border-radius: 12px; background-color: #F7F7F7; margin-top: 18px;}
         .tab-panel.summary{margin-top:40px; padding-bottom: 95px;}
         .tab-panel.summary .gray-box-wrap > .box{display: flex; justify-content: space-between;align-items: center; border-bottom: 1px solid #E5E8EC; padding: 12px 0;}
         .tab-panel.summary .gray-box-wrap > .box:last-child{border-bottom: 0;}
         .tab-panel.summary .gray-box-wrap .box span{font-size: 15px; font-weight: 500; line-height: 20px;}
-        .tab-panel.summary .gray-box-wrap .box i.star{width: 20px; height: 20px; background: url(./images/menu/star.png) no-repeat; cursor: pointer;}
-        .tab-panel.summary .gray-box-wrap .box i.star.on{background: url(./images/menu/star-on.png) no-repeat;}
-        .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png); background-size: contain; margin-left: 8px; margin-right: auto;}
+        .tab-panel.summary .gray-box-wrap .box i.star{width: 20px; height: 20px; background: url(./images/menu/star.png) no-repeat center / contain; cursor: pointer;}
+        .tab-panel.summary .gray-box-wrap .box i.star.on{background: url(./images/menu/star-on.png) no-repeat center / contain;}
+        .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png) no-repeat center / contain; margin-left: 8px; margin-right: auto;}
     
         /* 전체 */
-        .depth {display: flex; max-height: 740px; margin: 15px -20px 0;}
+        .depth {display: flex; max-height: 740px; margin: 0 -20px;}
         .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
         .depth-1 ul{display: flex; flex-direction: column;}
         .depth-1 ul li{padding: 14px 20px; white-space: nowrap;}
@@ -70,11 +71,11 @@
                 </div>
                 <a href="./menu-search.html" class="search"></a>
             </div>
-            <div class="mgt30 t-center">
+            <div class="t-center">
                 <img src="./images/menu/group1.png" alt="">
             </div>
             <div id="tab1" class="tab-panel summary active">
-                <img src="./images/menu/tit1.png" alt="">
+                <img src="./images/menu/tit1.png" alt="" style="width: 135px;">
                 <div class="gray-box-wrap">
                     <div class="box">
                         <span>계좌이체</span>
@@ -94,7 +95,7 @@
                     </div>
                 </div>
 
-                <img src="./images/menu/tit2.png" alt="" class="mgt50">
+                <img src="./images/menu/tit2.png" alt="" class="mgt50" style="width: 153px;">
                 <div class="gray-box-wrap">
                     <div class="box">
                         <span>청년도약계좌</span>
@@ -302,41 +303,6 @@
             </div>
         </div>
     </div>
-   <!--  <nav>
-        <ul>
-            <li>
-                <a id="home" href="./index.html">
-                    <i aria-label="홈 탭" class="home"></i>
-                    <span>홈</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i aria-label="상품 탭" class="goods"></i>
-                    <span>상품</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i aria-label="AI 탭" class="ai"></i>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i aria-label="라운지 탭" class="lounge"></i>
-                    <span>라운지</span>
-                </a>
-            </li>
-            <li>
-                <a href="./menu.html">
-                    <i aria-label="전체보기 탭" class="allmenu on"></i>
-                    <span class="on">전체</span>
-                </a>
-            </li>
-        </ul>
-    </nav> -->
-
-
     <script src="./res/ibk-com.js"></script>
     <script>
         // 즐겨찾기 on/off
@@ -355,12 +321,11 @@
         e.preventDefault();
         
         const $idx = $(this).closest('li').index();
-        const $parent = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx);
-        const $parentTop = $parent.offset().top;
+        const $panel = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx);
+        const $panelTop = $panel.offset().top;
 
-        // 스크롤 위치를 클릭 시 동적으로 가져오기
         const currentScrollTop = $('.depth-2').scrollTop();
-        const targetScrollTop = $parentTop - $('.depth-2').offset().top + currentScrollTop;
+        const targetScrollTop = $panelTop - $('.depth-2').offset().top + currentScrollTop;
 
         $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
 
@@ -368,36 +333,23 @@
         console.log($idx);
     });
 
+    var $menu     = $('.depth-1 a'),
+        $contents = $('.panel');
 
-        $('.depth-2 a').click(function (e) {
-            e.preventDefault();
-            $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on')
+    $(".depth-2").scroll(function(){
+        var scltop = $('.depth-2').scrollTop();
+        $.each($contents, function(idx, item){
+            var $target   = $contents.eq(idx),
+                i         = $target.index(),
+                targetTop = $target.offset().top;
 
-        });
-
-        /* $(".depth-2").on('scroll', function(){ 
-
-            const index = $(this).find(".panel").index(); // 이거 안댐 
-            const $idx2 = $('.depth-2 .panel').eq(1).scrollTop().top
-
-            $(".depth-2 .panel").each( function(index){
-                    if( $(".depth-2").offset().top >= $(".depth-2 .panel").eq(index).offset().top ){ 
-                    
-                    $(this).closest('.depth-2').siblings(".depth-1").find("li > a").removeClass("on").eq(index).addClass("on")
-
-                        console.log(index)
-                }
-            })
-            if( $(".depth-2").offset().top >= $(".depth-2 .panel").eq(6).offset().top ){ 
-                
-                $(this).siblings(".depth-1").find("li > a").removeClass("on").eq(0).addClass("on")
+            if (targetTop <= scltop) {
+                $menu.removeClass('on');
+                $menu.eq(idx).addClass('on');
             }
-        }) */
-               
+        })
 
-
-
-
+    });
     </script>
 </body>
 </html>
