@@ -121,7 +121,7 @@
                     <div class="depth-1">
                         <ul>
                             <li><a href="#none">조회</a></li>
-                            <li><a href="#none" class="on">이체</a></li>
+                            <li><a href="#none" >이체</a></li>
                             <li><a href="#none">공과금</a></li>
                             <li><a href="#none">뱅킹</a></li>
                             <li><a href="#none">카드</a></li>
@@ -297,6 +297,9 @@
                             <li><a href="#none">마지막</a></li>
                             <li><a href="#none">마지막</a></li>
                             <li><a href="#none">마지막</a></li>
+                            <li><a href="#none">마지막</a></li>
+                            <li><a href="#none">마지막</a></li>
+                            <li><a href="#none">마지막</a></li>
                         </ul>
                     </div>
                 </div>    
@@ -317,6 +320,21 @@
             })
         });
 
+        $(".depth-2").on('scroll', function(){ 
+            setTimeout(() => {
+                const index = $(this).find(".panel").index();
+                const $idx2 = $('.depth-2 .panel').eq(1).scrollTop().top
+
+                $(".depth-2 .panel").each( function(index){
+                        if( Math.floor($(".depth-2").offset().top) >= Math.floor($(".depth-2 .panel").eq(index).offset().top -20) ){ 
+                        $(this).closest('.depth-2').siblings(".depth-1").find("li > a").removeClass("on").eq(index).stop().addClass("on")
+                    }else{
+                        $(this).closest('.depth-2').siblings(".depth-1").find("li").eq(index).find("a").stop().removeClass("on")
+                    }
+                    /* consoe.log(index, '메뉴') */
+                })
+            }, 500);
+        })
         $('.depth-1 a').click(function (e) {
         e.preventDefault();
         
@@ -325,31 +343,14 @@
         const $panelTop = $panel.offset().top;
 
         const currentScrollTop = $('.depth-2').scrollTop();
-        const targetScrollTop = $panelTop - $('.depth-2').offset().top + currentScrollTop;
+        const targetScrollTop = $panelTop - ($('.depth-2').offset().top) + currentScrollTop;
 
         $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
 
         $('.depth-2').stop().animate({ scrollTop: targetScrollTop }, 500);
-        console.log($idx);
+        console.log($idx, "버튼");
     });
 
-    var $menu     = $('.depth-1 a'),
-        $contents = $('.panel');
-
-    $(".depth-2").scroll(function(){
-        var scltop = $('.depth-2').scrollTop();
-        $.each($contents, function(idx, item){
-            var $target   = $contents.eq(idx),
-                i         = $target.index(),
-                targetTop = $target.offset().top;
-
-            if (targetTop <= scltop) {
-                $menu.removeClass('on');
-                $menu.eq(idx).addClass('on');
-            }
-        })
-
-    });
     </script>
 </body>
 </html>
