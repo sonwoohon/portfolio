@@ -46,12 +46,12 @@
         .move-wrap {position: absolute;width: 100%;height: 400px;overflow: hidden; /* overflow-x, overflow-y 제거하고 한번에 설정 */top: 50%;left: 50%;transform: translate(-50%, -50%);}
         .move-wrap {transition: all 0.7s ease;}
         .move-box {position: absolute;width: 100%;height: 100%;border-radius: 50%;display: flex;justify-content: center;align-items: center;background: url(./images/financial/bangsa-bg.png) no-repeat;top: 0; /* 초기에는 화면의 맨 위에 위치 */left: 0; /* 초기에는 화면의 맨 왼쪽에 위치 */transition: top 0.4s ease, left 0.4s ease; /* top, left 속성에 대해 부드러운 전환 효과 */}
-        .num {position: absolute;width: 50px;height: 50px;border-radius: 50%;background: red;cursor: pointer;transition: transform 0.3s ease; /* transform 속성에 대한 부드러운 전환 효과 */}
+        .num {position: absolute;width: 50px;height: 50px;border-radius: 50%;cursor: pointer;transition: transform 0.3s ease; /* transform 속성에 대한 부드러운 전환 효과 */}
         .num a {position: relative; display: inline-block;width: 100%;height: 100%;}
-        .num span{ display: block;font-size: 14px;font-weight: 500;text-align: center;margin-top: -5px;}
+        .num span{ display: block;font-size: 14px;font-weight: 500;text-align: center;margin-top: -5px; white-space: nowrap;}
         .num.num1 {top: 20%; left: 27%; background: url(./images/financial/father.png) no-repeat center / contain;}
         .num.num2 {top: 45%;left: 15%;width: 70px;height: 70px; background: url(./images/financial/invitation.png) no-repeat center / contain;}/* 초대하기 */
-        .num.num3 {top: 54%; left: 43%;  background: url(./images/financial/me.png) no-repeat;}
+        .num.num3 {top: 54%; left: 43%;  background: url(./images/financial/me.png) no-repeat; box-sizing: content-box;}
         .num.num4 {top: 32%; left: 58%; background: url(./images/financial/wife.png) no-repeat center / contain}
         .num.num4.sec{top: 45px; left: 260px; width: 30px; height: 30px; background: url(./images/financial/user.png) no-repeat center / contain}
         .num.num5 {top: 80%; left: 68%; background: url(./images/financial/brother.png) no-repeat center / contain}
@@ -200,7 +200,7 @@
             <div class="header">
                 <input type="checkbox">
                 <i aria-label="체크"></i>
-                <h2>기업은행 계좌보유 : <strong>17명</strong></h2>
+                <h2>기업은행 계좌보유 : <strong><span class="count">17</span>명</strong></h2>
                 <a href="#none" class="close-btn" onclick="$('.pop2').removeClass('on');$('.num3').click();"></a>
             </div>
             <div class="content">
@@ -267,6 +267,7 @@
                     // 모든 num 요소 원래 사이즈
                     numElements.forEach(function(num) {
                         num.style.transform = 'scale(1)';
+                        num.style.border = '0';
                     });
         
                     // 클릭된 num 요소의 위치를 move-box의 정중앙으로 이동
@@ -278,6 +279,8 @@
                     moveBox.style.top = moveY + 'px';
                     moveBox.style.left = moveX + 'px';
                     this.style.transform = 'scale(1.5)';
+
+                    this.style.border = '3px solid rgb(58, 146, 233)';
                     setTimeout( function(){
                         moveBox.style.transform = 'scale(1.4)'; 
                         moveBox.style.transition = '.8s';
@@ -316,13 +319,31 @@
 
         //초대장 체크박스 
         $(".header input").on('change', function() {
+            var count = $(".content .member input[type='checkbox']:checked").length;
             if(this.checked) {
                 $(".content .non-members").hide();
                 $(".content .member input").prop("checked", true)
-
+               
             } else {
                 $(".content .non-members").show();
+                $(".content .member input").prop("checked", false)
+
             }
+            count = $(".content .member input[type='checkbox']:checked").length;
+            $(".count").text(count);
+
+        });
+
+        // 계좌보유시 체크 카운팅
+        function updateCheckedCount() {
+            const checkboxes = document.querySelectorAll('.content .member input[type="checkbox"]');
+            const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+            document.querySelector('.count').textContent = checkedCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCheckedCount);
+        document.querySelectorAll('.content .member input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', updateCheckedCount);
         });
     </script>
 </body>
