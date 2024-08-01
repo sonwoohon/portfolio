@@ -17,46 +17,6 @@
         .checkbox input[type="checkbox"] + i{width: 28px; height: 28px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/ai/checkbox_off.png) no-repeat;background-size: contain; cursor: pointer;}
         .checkbox input[type="checkbox"]:checked  + i{ background: url(./images/ai/checkbox_on.png);background-size: contain;}
 
-        .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
-        .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
-        .modalbox-wrap .modalbox:nth-of-type(1){z-index: 10;}
-        .modalbox-wrap .modalbox:nth-of-type(2){z-index: 9; background-color: #DFEFFF; top: 52px; transform:scale(0.98);}
-        .modalbox-wrap .modalbox:nth-of-type(3){z-index: 8; background-color: #ECF5FF; top: 58px; transform:scale(0.95);}
-        .modalbox-wrap .modalbox:nth-of-type(4){z-index: 7;}
-        .modalbox-wrap .modalbox:nth-of-type(5){z-index: 6;}
-        .modalbox-wrap .modalbox.on{background-color: #E6F3FF !important; opacity: 1 !important; transition: 0.5s; left: 0; transform: unset;}  
-        .modalbox-wrap .modalbox.on:nth-of-type(2){top: 90px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(3){top: 180px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(4){top: 270px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(5){top: 360px;}
-        .modalbox-wrap .modalbox .modalbox_cont > div{display:flex;align-items:center;justify-content:flex-start;}
-        .modalbox-wrap .modalbox .modalbox_cont .img{width: 41px;}
-        .modalbox-wrap .modalbox .modalbox_cont .txt{font-size: 15px; margin-left: 12px;}
-        .modalbox-wrap .modalbox .modalbox_cont strong{display: inline-block; margin-top: 3px; color: #0F53A8; font-weight: 700;}
-        .modalbox-wrap > button{position: absolute; top: 0px; width: 100%; background-color: #F5F5F5; padding: 12px 10px;transition: 0.5s; opacity: 0; cursor: pointer;}
-        .modalbox-wrap > button.on{display: block; position: absolute; height: 40px; top: 450px; opacity: 1; background: url(./images/home/home-btn2.png) no-repeat;}
-        .modalbox-wrap .modalbox > button{width: 100%; color: #5E8FC0; border-top: 1px solid #C8E3FF; font-size: 12px; font-weight: 500; margin-top: 11px; padding-top: 11px; background: transparent;cursor: pointer; transition: 0.5s;}
-        .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/home/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
-        .nums{font-size: 26px; font-weight: 700; color: #fff;}
-        .nums .one{font-size: 16px; font-weight: 500;}
-        .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;    transition-delay: 2s;}
-        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
-        .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
-        .popup .pop-cont{position: relative; text-align: center;}
-        .popup .popupimg{display: flex; justify-content: space-between; align-items: center;margin-bottom: 30px;}
-        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
-        .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s forwards;}
-        .banklist-box:nth-of-type(1){z-index: 10;}
-        .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
-        .banklist-box:nth-of-type(3){z-index: 8;  transform: translateY(-385px);}
-        .banklist-box:nth-of-type(4){z-index: 7;  transform: translateY(-543px);}
-        .banklist-box:nth-of-type(5){z-index: 6;  transform: translateY(-702px);}
-        .banklist-box:nth-of-type(6){z-index: 5;  transform: translateY(-861px);}
-        .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
-        .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
-        @keyframes banklist{to{transform: unset; margin-top: 12px;}}
-        .wallet{position: absolute;top: 0px;right: 60px;width: 40px;height: 32px;}
-
         .tab_menu{position:relative;width:100%;padding:0 20px}
         .ai .tab_menu .menu_list{position:absolute;display:block;white-space:nowrap;left:20px;box-sizing:border-box;z-index:5}
         .ai .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
@@ -77,6 +37,38 @@
         .mike a .icon {display:inline-block;width:24px;height:24px}
         .mike.on .txt {display:none}
         .mike.on {width:60px;height:60px;left:100%}
+
+         /* 팝업 */
+        .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh; transition: all .7s ease;z-index:100;background:rgba(0,0,0,.65)}
+        .pop.on{bottom:0;}
+        .pop.off{bottom:-100%}
+        .pop1 a:nth-of-type(1){width:40px;height:40px;bottom: 362px; right: 12px;z-index: 10;} 
+        .pop1 a:nth-of-type(2){width: 100%;height: 57px;bottom: 45px; z-index: 10;}
+        .pop1 img{bottom: 0;}
+        .pop .section {display:flex;align-items: flex-end;}
+        
+        .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
+        .pop2 article .header{position: relative; display: flex;align-items: center; margin-bottom: 20px;}
+        .pop2 article .header input{width: 20px; height: 20px;appearance: none; position: absolute; z-index: 1;cursor: pointer;}
+        .pop2 article .header input[type="checkbox"] + i{width: 20px; height: 20px; position: absolute;top: 50%; left: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; }
+        .pop2 article .header input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
+        .pop2 article .header h2{color: #787878; margin-left: 24px;}
+        .pop2 article .header strong{font-size: 15px;color: #1D74E8;}
+        .pop2 article .header a{width: 24px;height: 24px;margin-left: auto; background: url(./images/financial/close-icon.png) no-repeat; background-size: 100% auto;}
+        .pop2 article .content{min-height: 264px;}
+        .pop2 article .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
+        .pop2 article .content > div:last-of-type{border-bottom: 0;}
+        .pop2 article .content > div img{width: 28px;}
+        .pop2 article .content > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
+        .pop2 article .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
+        .pop2 article .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
+        .pop2 article .footer{margin-top: 35px;}
+        .pop2 article .footer button{display: flex; width: 100%;padding: 18px 0px;justify-content: center;align-items: center;color: #fff; background-color: #1D74E8; border-radius: 10px;}
+
+        .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;}
+        .pop3 img{position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%); padding: 0 20px;}
+        .pop3 a{position: absolute;width: 135px;height: 52px;bottom: 30%;left: 13%;}
+
         
         
     </style>
@@ -133,7 +125,7 @@
             </div>
         </div>
         <div class="mike">
-            <a href=""><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
+            <a href="#none" onclick="$('.pop1').addClass('on')"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
         </div>
         <nav>
             <ul>
@@ -155,7 +147,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./lounge.html">
                         <i aria-label="라운지 탭" class="lounge"></i>
                         <span>라운지</span>
                     </a>
@@ -169,8 +161,20 @@
             </ul>
         </nav>
     </div>
-
-
+    <div class="pop pop1 on" style="display:block" >
+        <div class="section sec1">
+            <img src="./images/ai/ai-key.jpg" alt="">
+        </div>
+        <!-- <div class="section2">
+            <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
+            <img src="./images/financial/pop1.png" alt="">
+            <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3')"></a>
+        </div> -->
+    </div>
+    <div class="pop3">
+        <img src="./images/financial/bn.png" alt="">
+        <a href="#none" onclick="$('.pop3').fadeOut(300);$('.pop2').removeClass('on');$('.num3').click();"></a>
+    </div>
 
     <script src="./res/ibk-com.js"></script>
     <script>
@@ -182,34 +186,7 @@
         element.style.opacity = '0'; // 높이를 0으로 설정
 
     }
-    //숫자 카운트 애니메이션
-    function count() {
-        $('.nums').each(function() {
-        const   $this = $(this),
-                countTo = $this.attr('data-count');
-                countDelay = $this.attr('data-dealy'),
-                delaySeconds = parseInt(countDelay) || 0; //변수에서 얻은 값을 정수로 변환하고, 이 변환이 실패할 경우 또는 값이 없을 경우 0을 반환
-                setTimeout(function() {
-                    $({
-                        countNum: $this.text()
-                    }).animate({
-                        countNum: countTo
-                    }, {
-                        duration: 1500,
-                        easing: 'linear',
-                        step: function() {
-                            $this.text(Math.floor(this.countNum));
-                        },
-                        complete: function() {
-                            $this.text(this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')).append('<span class="one">원</span>');
-                            // 3자리 마다 콤마 표시 적용
-                        }
-                    });
-                }, delaySeconds); 
-
-            });
-    }
-    count();
+    
     window.onload = () => {
         // 상단 탭 메뉴
         const tabMenu = document.querySelectorAll(".tab_menu ul li");
