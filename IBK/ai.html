@@ -39,14 +39,15 @@
         .mike.on {width:60px;height:60px;left:100%}
 
          /* 팝업 */
-        .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh; transition: all .7s ease;z-index:100;background:rgba(0,0,0,.65)}
-        .pop.on{bottom:0;}
+        .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh;z-index:100;background:rgba(0,0,0,.65);}
+        .pop.on{bottom:0;display:flex !important; align-items: flex-end;}
         .pop.off{bottom:-100%}
         .pop1 a:nth-of-type(1){width:40px;height:40px;bottom: 362px; right: 12px;z-index: 10;} 
         .pop1 a:nth-of-type(2){width: 100%;height: 57px;bottom: 45px; z-index: 10;}
         .pop1 img{bottom: 0;}
-        .pop .section {display:flex;align-items: flex-end;}
-        
+        /* .pop .section {display:flex;;} */
+        .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg,  #EBF5FF 38.68%, #DCEEFF 100%);max-height: 100%;padding:20px 20px 0}
+        .pop.on article {transform: translateY(0);transition: all 0.5s ease;}
         .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
         .pop2 article .header{position: relative; display: flex;align-items: center; margin-bottom: 20px;}
         .pop2 article .header input{width: 20px; height: 20px;appearance: none; position: absolute; z-index: 1;cursor: pointer;}
@@ -69,7 +70,24 @@
         .pop3 img{position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%); padding: 0 20px;}
         .pop3 a{position: absolute;width: 135px;height: 52px;bottom: 30%;left: 13%;}
 
+        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px;box-sizing:border-box;letter-spacing:0}
+        .swiper.tab-btn::-webkit-scrollbar{display:none;}
+        .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
+        .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
+        .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
         
+        .pop .section {}
+         /* typing */
+      .typing-txt {display:none;}
+
+.typing {
+  display:block;
+  height:20px; padding-bottom:20px;
+  animation-duration:0.5s;
+  animation-iteration-count: infinite;
+  animation-delay:1s;
+  color:blue;
+}
         
     </style>
 </head>
@@ -162,9 +180,23 @@
         </nav>
     </div>
     <div class="pop pop1 on" style="display:block" >
-        <div class="section sec1">
-            <img src="./images/ai/ai-key.jpg" alt="">
-        </div>
+        <article>
+            <div class="section sec1">
+                <div class="swiper tab-btn">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide active" data-target="tab1">패밀리</div>
+                        <div class="swiper-slide" data-target="tab2">아이원 틴즈</div>
+                        <div class="swiper-slide" data-target="tab3">직장인</div>
+                        <div class="swiper-slide" data-target="tab4">군인</div>
+                        <div class="swiper-slide" data-target="tab5">60+</div>
+                    </div>
+                </div>
+                <div class="typing-txt">텍스트가 들어가는 영역입니다.</div>
+    <div class="typing"></div>
+
+                <img src="./images/ai/ai-key.jpg" alt="">
+            </div>
+        </article>
         <!-- <div class="section2">
             <a href="#none" onclick="$('.pop1').removeClass('on');$('.num3').click();"></a>
             <img src="./images/financial/pop1.png" alt="">
@@ -227,6 +259,68 @@
         });
     }
     mikebt();
+    var popUI = function(){
+        if($('.pop').hasClass('on')){
+            $('body').css('overflow','hidden');
+
+        } else {
+            $('body').css();
+        }
+    }
+    popUI();
+
+    const swiperTab = new Swiper('.tab-btn', {
+            slidesPerView: 'auto',
+            freeMode: true,
+            grabCursor: true,
+            spaceBetween: 8,
+        });
+        document.querySelectorAll('.swiper-slide').forEach(slide => {
+            slide.addEventListener('click', () => {
+                const targetId = slide.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+
+                // Remove 'active' class from all tab contents and slides
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.querySelectorAll('.swiper-slide').forEach(s => {
+                    s.classList.remove('active');
+                });
+
+                slide.classList.add('active');
+                targetContent.classList.add('active');
+
+                refreshContent(targetContent);
+            });
+        });
+
+    function typingTxt() {
+        var typingBool = false;
+        var typingIdx = 0;
+        var typingTxt = $(".typing-txt").text(); // 타이핑될 텍스트를 가져온다
+        typingTxt = typingTxt.split(""); // 한글자씩 자른다.
+        if (typingBool == false) {
+          // 타이핑이 진행되지 않았다면
+          typingBool = true;
+
+          var tyInt = setInterval(typing, 100); // 반복동작
+        }
+
+        function typing() {
+          if (typingIdx < typingTxt.length) {
+            // 타이핑될 텍스트 길이만큼 반복
+            $(".typing").append(typingTxt[typingIdx]); // 한글자씩 이어준다.
+            typingIdx++;
+          } else {
+            clearInterval(tyInt); //끝나면 반복종료
+          }
+        }
+      
+    }
+    typingTxt() 
+    </script>
+  
     </script>
 </body>
 </html>
