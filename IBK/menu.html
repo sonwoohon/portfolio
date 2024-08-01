@@ -27,7 +27,7 @@
         .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png) no-repeat center / contain; margin-left: 8px; margin-right: auto;}
     
         /* 전체 */
-        .depth {display: flex; max-height: 740px; margin: 0 -20px;}
+        .depth {display: flex; max-height:  770px; margin: 0 -20px;}
         .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
         .depth-1 ul{display: flex; flex-direction: column;}
         .depth-1 ul li{padding: 14px 20px; white-space: nowrap;}
@@ -66,7 +66,7 @@
                         <a href="#tab1">요약</a>
                     </div>
                     <div>
-                        <a href="#tab2">전체</a>
+                        <a href="#tab2" onclick="$('.depth-2').animate({ scrollTop: 780 }, 500);">전체</a>
                     </div>
                 </div>
                 <a href="./menu-search.html" class="search"></a>
@@ -135,6 +135,18 @@
                     </div>
                     <div class="depth-2">
                         <ul class="panel">
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                            <li><a href="#none">조회</a></li>
+                        </ul>
+                        <ul class="panel">
                             <li><a href="#none">이체</a></li>
                             <li><a href="#none">지연이체</a></li>
                             <li><a href="#none">공과금</a></li>
@@ -177,18 +189,6 @@
                             <li><a href="#none">이체관리</a></li>
                             <li><a href="#none">ATM출금</a></li>
                             <li><a href="#none">오픈뱅킹</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
                         </ul>
                         <ul class="panel">
                             <li><a href="#none">공과금</a></li>
@@ -319,7 +319,7 @@
                 }
             })
         });
-
+        // 해당영역과 동일한 index에 "on" 추가 
         $(".depth-2").on('scroll', function(){ 
             setTimeout(() => {
                 const index = $(this).find(".panel").index();
@@ -331,26 +331,22 @@
                     }else{
                         $(this).closest('.depth-2').siblings(".depth-1").find("li").eq(index).find("a").stop().removeClass("on")
                     }
-                    /* consoe.log(index, '메뉴') */
                 })
             }, 500);
         })
+        // 전체메뉴 선택영역으로 스크롤 
         $('.depth-1 a').click(function (e) {
-        e.preventDefault();
+            e.preventDefault();
+            const $idx = $(this).closest('li').index();
+            const $panel = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx);
+            const $panelTop = $panel.offset().top;
+            const currentScrollTop = $('.depth-2').scrollTop();
+            const targetScrollTop = $panelTop - ($('.depth-2').offset().top) + currentScrollTop;
+
+            $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
+            $('.depth-2').stop().animate({ scrollTop: targetScrollTop }, 500);
+        });
         
-        const $idx = $(this).closest('li').index();
-        const $panel = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx);
-        const $panelTop = $panel.offset().top;
-
-        const currentScrollTop = $('.depth-2').scrollTop();
-        const targetScrollTop = $panelTop - ($('.depth-2').offset().top) + currentScrollTop;
-
-        $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
-
-        $('.depth-2').stop().animate({ scrollTop: targetScrollTop }, 500);
-        console.log($idx, "버튼");
-    });
-
     </script>
 </body>
 </html>
