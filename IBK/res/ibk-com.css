@@ -84,8 +84,8 @@ body *{font-family: 'Pretendard', sans-serif;}
 .alram-box img:nth-child(1){width: 28px; height: 28px;}
 .alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation:  alramBanner1 0.5s cubic-bezier(0.1, 0.5, 0.22, 1) forwards,alramBanner2 .7s 0.3s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
 .alram-box img:nth-child(3){width: 72px; height: 28px; margin-left: auto;}
-.wallet{position: absolute;top: 0px;right: 60px;width: 40px;height: 32px;}
-.allmenu{position: absolute;top: 0px;right: 15px;width: 40px;height: 32px;}
+.wallet{position: absolute;top: 15px;right: 60px;width: 40px;height: 32px;}
+.allmenu{position: absolute;top: 15px;right: 15px;width: 40px;height: 32px;}
 @keyframes banner{0%{opacity: 0;}100%{opacity: 1;}}
 @keyframes alramBanner1{
     0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(355deg)}
