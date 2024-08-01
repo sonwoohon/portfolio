@@ -10,35 +10,11 @@
     <title>라운지</title>
     <style>
         /* 라운지 css */
-        /* .tab_menu{position:relative;width:100%;cursor:grab;}
-        .tab_menu .menu_list{position:relative;display:block;white-space:nowrap;padding:20px;box-sizing:border-box;font-size:0;overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
-        .tab_menu .menu_list::-webkit-scrollbar{display:none;}
-        .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
-        .tab_menu .menu_list li + li{margin-left:8px;}
-        .tab_menu .menu_list .tab_btn{display:inline-block;padding:10px 20px;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
-        .tab_menu .menu_list li.active .tab_btn{color:#FFFFFF;background-color:#1D74E8;}
-        .tab_contents .cont{display:none;}
-        .tab_contents .cont.active{display:block;}
-        .tab_contents .top_conts{position:relative;}
-        .tab_contents .bottom_conts{background:#F4F4F4;}
-        .tab_contents .bottom_conts img + img{margin-top:40px;}
-        .tab_contents .bottom_conts.type1{padding:40px 20px;}
-        .tab_contents .bottom_conts.type2{padding-bottom:150px}
-        .tab_contents .bottom_conts.type3{padding:40px 20px 150px;}
-        .tab_contents .bottom_conts.type2 > .type2{padding:0 20px} */
-        /* .tab_menu{position:relative;width:100%;cursor:grab;}
-        .tab_menu .menu_list{position:relative;display:block;white-space:nowrap;padding:20px;box-sizing:border-box;font-size:0;overflow-x:scroll;overflow-y:hidden;-webkit-overflow-scrolling:touch;}
-        .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
-        .tab_menu .menu_list li + li{margin-left:8px;}
-        .tab_menu .menu_list .tab_btn{display:inline-block;padding:10px 20px;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
-        .tab_menu .menu_list li.active .tab_btn{color:#FFFFFF;background-color:#1D74E8;} */
-        
         .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px;box-sizing:border-box;letter-spacing:0}
         .swiper.tab-btn::-webkit-scrollbar{display:none;}
         .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
         .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
         .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
-        /* .swiper.tab-btn .swiper-slide + .swiper-slide{margin-left:8px;} */
         .tab-contents .tab-content{display:none;}
         .tab-contents .tab-content.active{display:block;}
         .tab-contents .top_conts{position:relative;}
@@ -48,10 +24,9 @@
         .tab-contents .bottom_conts.type2{padding-bottom:150px}
         .tab-contents .bottom_conts.type3{padding:40px 20px 150px;}
         .tab-contents .bottom_conts.type2 > .type2{padding:0 20px}
-        
 
         .swiper.store{position:absolute;left:0;right:0;bottom:172px;margin:0 auto;width:290px;height:50px;}
-        .swiper.store .swiper-wrapper{display:flex;flex-direction:row;width:290px;height:auto;margin:0 25px;-webkit-transition-timing-function:linear;-o-transition-timing-function:linear;transition-timing-function:linear;}
+        .swiper.store .swiper-wrapper{display:flex;flex-direction:row;width:290px;height:auto;margin:0 25px;-webkit-transition-timing-function:linear!important;-o-transition-timing-function:linear!important;transition-timing-function:linear!important;}
         .swiper.store .swiper-slide{width:50px;height:50px;}
         .swiper.store .swiper-slide:first-child{margin-left:-50px;}
         .swiper.store .swiper-slide + .swiper-slide{margin-left:8px;}
@@ -275,6 +250,7 @@
             loop: true,
             slidesPerView: 'auto',
             autoplay: {
+                enabled: true,
                 delay: 0,
                 disableOnInteraction: false,
             },
