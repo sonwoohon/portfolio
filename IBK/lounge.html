@@ -33,12 +33,12 @@
         .tab_menu .menu_list .tab_btn{display:inline-block;padding:10px 20px;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
         .tab_menu .menu_list li.active .tab_btn{color:#FFFFFF;background-color:#1D74E8;} */
         
-        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;    padding: 20px;}
+        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px;box-sizing:border-box;letter-spacing:0}
         .swiper.tab-btn::-webkit-scrollbar{display:none;}
         .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
-        .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
+        .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
         .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
-        .swiper.tab-btn .swiper-slide + .swiper-slide{margin-left:8px;}
+        /* .swiper.tab-btn .swiper-slide + .swiper-slide{margin-left:8px;} */
         .tab-contents .tab-content{display:none;}
         .tab-contents .tab-content.active{display:block;}
         .tab-contents .top_conts{position:relative;}
@@ -61,7 +61,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div id="wrap" class="container">
         <div class="alram-box">
             <a href="#none">
                 <img src="./images/home-icon1.png" alt="">
@@ -79,7 +79,7 @@
                 <div class="swiper-slide" data-target="tab5">60+</div>
             </div>
         </div>
-        <div class="tab-contents">
+        <div id="tab-contents" class="tab-contents">
             <div id="tab1" class="tab-content active">
                 <div class="top_conts">
                     <img src="./images/lounge/visual_family.png" alt="">
@@ -204,49 +204,83 @@
 
     <script src="./res/ibk-com.js"></script>
     <script>
-        // 라운지 탭 메뉴
+        // Swiper - 라운지 탭 메뉴 
         const swiperTab = new Swiper('.tab-btn', {
             slidesPerView: 'auto',
             freeMode: true,
             grabCursor: true,
+            spaceBetween: 8,
         });
-        // Function to refresh or update content
+
+        // document.querySelectorAll('.swiper-slide').forEach(slide => {
+        //     slide.addEventListener('click', () => {
+        //         const targetId = slide.getAttribute('data-target');
+        //         const targetContent = document.getElementById(targetId);
+
+        //         // Remove 'active' class from all tab contents and slides
+        //         document.querySelectorAll('.tab-content').forEach(content => {
+        //             content.classList.remove('active');
+        //         });
+        //         document.querySelectorAll('.swiper-slide').forEach(s => {
+        //             s.classList.remove('active');
+        //         });
+
+        //         slide.classList.add('active');
+        //         targetContent.classList.add('active');
+
+        //         refreshContent(targetContent);
+        //     });
+        // });
+
+        function setActiveTab(targetId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.swiper-slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            const activeSlide = document.querySelector(`.swiper-slide[data-target="${targetId}"]`);
+            const activeContent = document.getElementById(targetId);
+
+            if (activeSlide && activeContent) {
+                activeSlide.classList.add('active');
+                activeContent.classList.add('active');
+
+                // Move to the active slide
+                const activeIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
+                swiperTab.slideTo(activeIndex, 0);
+            }
+        }
 
         document.querySelectorAll('.swiper-slide').forEach(slide => {
             slide.addEventListener('click', () => {
                 const targetId = slide.getAttribute('data-target');
-                const targetContent = document.getElementById(targetId);
-
-                // Remove 'active' class from all tab contents and slides
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.querySelectorAll('.swiper-slide').forEach(s => {
-                    s.classList.remove('active');
-                });
-
-                slide.classList.add('active');
-                targetContent.classList.add('active');
-
-                refreshContent(targetContent);
+                localStorage.setItem('activeTab', targetId);
+                setActiveTab(targetId);
             });
         });
-        // 스와이퍼: 가맹점
+
+        // On page load, restore the active tab from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedActiveTab = localStorage.getItem('activeTab') || 'tab1';
+            setActiveTab(savedActiveTab);
+        });
+
+        // Swiper - 가맹점
         const swiperStore = new Swiper('.store', {
             observer: true,
             observeParents: true,
             freeMode: true,
             loop: true,
-            loopFillGroupWithBlank: true,
             slidesPerView: 'auto',
             autoplay: {
-                delay: 1,
-                disableOnInteraction: false
+                delay: 0,
+                disableOnInteraction: false,
             },
             speed:3000,
-            
         });
-        // 스와이퍼: 직장
+        // Swiper - 직장 
         const swiperJob = new Swiper('.job', {
             slidesPerView: 'auto',
             spaceBetween: 12,
