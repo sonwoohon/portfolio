@@ -8,6 +8,7 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>Document</title>
     <style>
+        .container .page-wrap{padding: 20px 20px 90px;}
         .wallet-box{position: relative;}
         .wallet-box a{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
         .accordion{margin: 12px 0; background-color: #215C9C; border-radius: 12px; padding: 16px 10px 17px; color: #fff;}
@@ -54,18 +55,18 @@
                 <img src="./images/wallet/tit3.png" alt="">
             </div>
 
-            <div class="mgt30 interaction">
+            <div class="mgt30">
                 <img src="./images/wallet/group1.png" alt="">
             </div>
-            <div class="mgt45 interaction">
+            <div class="mgt45">
                 <img src="./images/wallet/tit4.png" alt="">
             </div>
-            <div class="mgt15 interaction">
+            <div class="mgt15">
                 <img src="./images/wallet/tit5.png" alt="">
             </div>
-            <div class="mgt60 interaction">
+            <!-- <div class="mgt60">
                 <img src="./images/wallet/group2.png" alt="">
-            </div>
+            </div> -->
         </div>
 
     </div>
@@ -86,9 +87,15 @@
             });
         }
         accordionSub();
-        // 홈버튼 리 렌더링 
-        document.getElementById('home').addEventListener('click', function() {
-            window.location.href = 'index.html';
+
+
+        $('.folding-btn').on('click', function (e) {
+            e.preventDefault();
+            if ($(this).hasClass('open')) {
+                $(this).closest('.accordion').css("background","#215C9C");
+            } else {
+                $(this).closest('.accordion').css("background","#4686CB");
+            }
         });
     </script>
 </body>

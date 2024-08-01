@@ -15,12 +15,12 @@
         .banner button{position: absolute; top: 24px; right: 20px; width: 20px; height: 20px; background: url(./images/home/home-close.png) no-repeat; background-size: cover; }
         .banner a{position: absolute;width: 295px; bottom: 24px;height: 44px;left: 20px;}
         .banner > img{position: absolute; opacity: 0; animation:banner 1s ease-out forwards;}
-        .banner > img:nth-of-type(1){top: 168px; left: 110px; z-index: 5;animation-delay: 1s; } 
-        .banner > img:nth-of-type(2){top: 230px; left: 120px; animation-delay: .8s;}
-        .banner > img:nth-of-type(3){top: 157px; left: 56px;animation-delay: 1.2s; }
-        .banner > img:nth-of-type(4){top: 114px; left: 96px;animation-delay: 1.4s; }
-        .banner > img:nth-of-type(5){top: 119px; left: 171px;animation-delay: 1.6s; }
-
+        .banner > img:nth-of-type(1){width: 95px; top: 168px; left: 110px; z-index: 5;animation-delay: 1s; } 
+        .banner > img:nth-of-type(2){width: 89px; top: 230px; left: 120px; animation-delay: .8s;}
+        .banner > img:nth-of-type(3){width: 51px; top: 157px; left: 56px;animation-delay: 1.2s; }
+        .banner > img:nth-of-type(4){width: 78px; top: 114px; left: 96px;animation-delay: 1.4s; }
+        .banner > img:nth-of-type(5){width: 66px; top: 119px; left: 171px;animation-delay: 1.6s; }
+        .banner > img:nth-of-type(6){width: 63px; top: 154px; left: 224px;animation-delay: 1.8s;}
         .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
         .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
         .modalbox-wrap .modalbox:nth-of-type(1){z-index: 10;}
@@ -59,6 +59,7 @@
         .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
+        .update{display: inline-block; width: 20px; vertical-align: middle; margin-top: 7px;}
     </style>
 </head>
 <body>
@@ -83,7 +84,7 @@
                 <img src="./images/home/home-children2.png" alt="">
                 <button onclick="collapseElement(this.parentNode, 300)"></button>
                 <a href="./financial.html" role="button">
-                    <img src="./images/home/home-btn1.png" alt="">
+                    <img src="./images/home/home-btn1.png" alt="" wid>
                 </a>
             </div>
 
@@ -157,48 +158,68 @@
                 <button></button>
             </div>
 
-            <a href="#none" class="home-cardlist interaction on" onclick="drPopupOpen('.pop1');count()">
+            <a href="#none" class="home-cardlist interaction on" onclick="$('.banklist-box .nums').text('0');drPopupOpen('.pop1');count();">
                 <img src="./images/home/home-cardlist.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </a>
-            <img src="./images/home/home-btn3.png" alt="" style="margin-top: 20px; margin-bottom: 40px;">
+            <img src="./images/home/home-btn3.png" class="interaction" alt="" style="margin-top: 20px; margin-bottom: 40px;">
+
+            <div class="interaction mgb40">
+                <img src="./images/home/home-ex.png" alt="" >
+            </div>
         </div>
         <div class="page-wrap type2">
 
             <div class="interaction">
                 <img src="./images/home/home-txt1.png" alt="">
-                <img src="./images/home/home-txt2.png" alt="" class="mgt5">
+                <img src="./images/home/home-txt2.png" alt="" class="mgt10" style="width: 186px;">
+                <a href="#none" class="update"><img src="./images/home/home-update.png" alt=""></a>
             </div>
-            <div class="mgt40 interaction">
-                <img src="./images/home/home-ex1.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex2.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex4.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex7.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex3.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <a href="./financial.html">
-                    <img src="./images/home/home-ex5.png" alt="" class="mgb15">
-                </a>
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex6.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex8.png" alt="" class="mgb15">
-            </div>
-            <div class="interaction">
-                <img src="./images/home/home-ex9.png" alt=""> 
+            <div class="update-wrap">
+                <d iv class="mgt40 interaction">
+                    <img src="./images/home/home-ex1.png" alt="" class="mgb15">
+                </d>
+                <div class="interaction">
+                    <img src="./images/home/home-ex2.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <img src="./images/home/home-ex4.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <img src="./images/home/home-ex3.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <a href="./financial.html">
+                        <img src="./images/home/home-ex5.png" alt="" class="mgb15">
+                    </a>
+                </div>
+
+                <div class="interaction">
+                    <img src="./images/home/home-ex10.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <img src="./images/home/home-ex11.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <img src="./images/home/home-ex7.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <img src="./images/home/home-ex12.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction">
+                    <img src="./images/home/home-ex13.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction" style="display: none;">
+                    <img src="./images/home/home-ex6.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction" style="display: none;">
+                    <img src="./images/home/home-ex8.png" alt="" class="mgb15">
+                </div>
+                <div class="interaction" style="display: none;">
+                    <img src="./images/home/home-ex9.png" alt=""> 
+                </div>
             </div>
         </div>
         <nav>
@@ -237,8 +258,8 @@
     </div>
     <div class="popup pop1">
         <div class="popupimg">
-            <img src="./images/home/home-pop.png" alt="">
-            <img src="./images/home/home-pop-icon.png" alt="">
+            <img src="./images/home/home-pop.png" alt="" style="width: 231px;">
+            <img src="./images/home/home-pop-icon.png" alt="" style="width: 24px;">
         </div>
         <div class="pop-cont">
             <div class="banklist-box">
@@ -250,26 +271,26 @@
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex2.png" alt="">
-                <div class="nums" data-count="38450000"  data-dealy="1000">
+                <div class="nums" data-count="38450000"  data-dealy="600">
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex3.png" alt="">
-                <div class="nums" data-count="650000" data-dealy="1500">
+                <div class="nums" data-count="650000" data-dealy="1100">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex4.png" alt="">
-                <div class="nums" data-count="500000" data-dealy="2000">
+                <div class="nums" data-count="500000" data-dealy="1600">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex5.png" alt="">
-                <div class="nums" data-count="150000" data-dealy="2500">
+                <div class="nums" data-count="150000" data-dealy="2000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
             </div>
@@ -327,7 +348,7 @@
                         }).animate({
                             countNum: countTo
                         }, {
-                            duration: 1500,
+                            duration: 1000,
                             easing: 'linear',
                             step: function() {
                                 $this.text(Math.floor(this.countNum));
@@ -341,8 +362,9 @@
   
                 });
         }
-        count();
-        //
+        count(); 
+        //update 
+    
     </script>
 </body>
 </html>
