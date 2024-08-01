@@ -15,18 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         img.alt = '';
         header.appendChild(img);
         
-        // container의 첫 번째 자식 요소로 header 요소를 추가
+    // container의 첫 번째 자식 요소로 header 요소를 추가
         container.insertBefore(header, container.firstChild);
     } else {
         console.error('Container element with class "container" not found.');
     }
-
-    const homeElement = document.getElementById('home'); 
-    if (homeElement) {
-        homeElement.addEventListener('click', function() {
-            window.location.href = 'index.html';
-        })
-    } 
 });
 
 
