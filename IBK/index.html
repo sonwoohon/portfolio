@@ -59,7 +59,6 @@
         .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
-        .wallet{position: absolute;top: 0px;right: 60px;width: 40px;height: 32px;}
     </style>
 </head>
 <body>
@@ -71,9 +70,9 @@
             <img src="./images/home-icon2.png" alt="">
             <img src="./images/home-icon3.png" alt="">
             <a href="./wallet.html" class="wallet"></a>
+            <a href="./menu.html" class="allmenu"></a>
         </div>
         <div class="page-wrap">
-
             <div class="banner">
                 <p>내 가족의 금융 정보를<br>같이 공유 하시겠어요?</p>
                 <img src="./images/home/home-bank-book.png" alt="">
@@ -207,7 +206,18 @@
                 <li>
                     <a id="home" href="">
                         <i aria-label="홈 탭" class="home on"></i>
-                        <span class="on">홈</span>
+                        <span>홈</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i aria-label="자산 탭" class="assets"></i>
+                        <span>자산</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./ai.html">
+                        <i aria-label="AI 탭" class="ai"></i>
                     </a>
                 </li>
                 <li>
@@ -217,20 +227,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./ai.html">
-                        <i aria-label="AI 탭" class="ai"></i>
-                    </a>
-                </li>
-                <li>
                     <a href="./lounge.html">
                         <i aria-label="라운지 탭" class="lounge"></i>
                         <span>라운지</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./menu.html">
-                        <i aria-label="전체보기 탭" class="allmenu"></i>
-                        <span>전체</span>
                     </a>
                 </li>
             </ul>

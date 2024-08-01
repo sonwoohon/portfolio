@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('font.css');
+ 
 /* reset */
 *, :after, :before {background-repeat:no-repeat;box-sizing:border-box}
 :root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;cursor:default;line-height:1.5;overflow-wrap:break-word;tab-size:4}
@@ -85,6 +85,8 @@ body *{font-family: 'Pretendard', sans-serif;}
 .alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation:  alramBanner1 0.5s cubic-bezier(0.1, 0.5, 0.22, 1) forwards,alramBanner2 .7s 0.3s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
 .alram-box img:nth-child(3){width: 72px; height: 28px; margin-left: auto;}
 .banner > img:nth-of-type(6){top: 154px; left: 224px;animation-delay: 1.8s; } 
+.wallet{position: absolute;top: 0px;right: 60px;width: 40px;height: 32px;}
+.allmenu{position: absolute;top: 0px;right: 15px;width: 40px;height: 32px;}
 @keyframes banner{0%{opacity: 0;}100%{opacity: 1;}}
 @keyframes alramBanner1{
     0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(355deg)}
@@ -100,22 +102,21 @@ nav{ position: fixed;bottom: 0;width: 376px; height: 90px; left: 50%;transform: 
 nav ul {position: absolute;bottom: 0;display: flex;justify-content: space-around;height: 90px;width: 100%;align-items: flex-start; padding-top: 13px;}
 nav ul li {width: 75px;text-align: center; }
 nav ul li a{display: flex;width: 100%;height: 100%;flex-direction: column;align-items: center;}
-nav ul li a i {display: inline-block;width: 24px; height: 24px;}
+nav ul li a i {display: block;width: 24px; height: 24px; background-size: 100% auto;}
 nav ul li a span{color: #D8D8D8; font-size: 11px; font-weight: 500; margin-top: 4px;}
-nav ul li a span.on{color: #333;}
-nav ul li a i{display: block;}
-nav ul li a i.home{ background: url(../images/nav-home.png);} 
-nav ul li a i.home.on{ background: url(../images/nav-home-on.png);  } 
-nav ul li a i.goods{ background: url(../images/nav-goods.png);} 
-nav ul li a i.goods.on{ } 
-nav ul li a i.ai{ width: 52px; height: 52px; background: url(../images/nav-ai.png); margin-top: -4px;} 
-nav ul li a i.ai.on{ background: url(../images/nav-ai-on.png);} 
-nav ul li a i.lounge{ background: url(../images/nav-lounge.png);} 
-nav ul li a i.lounge.on{ background: url(../images/nav-lounge-on.png);} 
-nav ul li a i.allmenu{ background: url(../images/nav-allmenu.png);} 
-nav ul li a i.allmenu.on{ background: url(../images/nav-allmenu-on.png);}
-nav ul li a i.assets{background: url(../images/nav-assets.png);} 
-nav ul li a i.assets.on{background: url(../images/);}
+nav ul li a i.on + span{color: #333;}
+nav ul li a i.home{ background: url(../images/nav-home.png) no-repeat center / contain;} 
+nav ul li a i.home.on{ background: url(../images/nav-home-on.png) no-repeat center / contain;  } 
+nav ul li a i.goods{ background: url(../images/nav-goods.png) no-repeat center / contain;} 
+nav ul li a i.goods.on{ background: url(../images/nav-goods-on.png) no-repeat center / contain;} 
+nav ul li a i.ai{ width: 52px; height: 52px; background: url(../images/nav-ai.png) no-repeat center / contain; margin-top: -4px;} 
+nav ul li a i.ai.on{ background: url(../images/nav-ai-on.png) no-repeat center / contain;} 
+nav ul li a i.lounge{ background: url(../images/nav-lounge.png) no-repeat center / contain;} 
+nav ul li a i.lounge.on{ background: url(../images/nav-lounge-on.png) no-repeat center / contain;} 
+/* nav ul li a i.allmenu{ background: url(../images/nav-allmenu.png) no-repeat center / contain;} 
+nav ul li a i.allmenu.on{ background: url(../images/nav-allmenu-on.png) no-repeat center / contain;} */
+nav ul li a i.assets{background: url(../images/nav-assets.png) no-repeat center / contain;} 
+nav ul li a i.assets.on{background: url(../images/nav-assets-on.png) no-repeat center / contain;}
 /* animation, 탭 */
 .interaction{position: relative; top: 50px; opacity: 0; display: block; transition: all .6s ease-in-out;}
 .interaction.on{animation: interaction 1s ease-in-out ;opacity: 1; top: 0;}
