@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./res/ibk-com.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>패밀리통장</title>
     <style>
@@ -13,6 +13,7 @@
         .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index:1; display: none;}
         .popup{position:fixed;bottom: 0;left:0;right:0;width:375px;height:100%;margin:0 auto;border-radius:20px 20px 0 0;background:#FFF;overflow-y: scroll; scrollbar-width: none;display:none;}
         .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
+        /* 핍업 - 이자계산기 */
         .pop_calc{max-height:651px;padding:56px 20px 0;background:#FFF;z-index:2;}
         .pop_calc .pop_cont{height:100%;}
         .pop_calc .pop_cont img:nth-child(1){width:335px;height:202px}
@@ -21,9 +22,8 @@
 
         /* 패일리통장 css */
         .main_visual{position:relative;padding:36px 0 58px;width:100%;}
-        .swiper.family{display:block;position:absolute;left:0;right:0;top:209px;width:375px;height:209px;margin:0 auto;}
-        .swiper.family .swiper-slide, .swiper.family .swiper-slide img{width:197px;height:209px;}
-
+        .main_visual .swiper.family{display:block;position:absolute;left:0;right:0;top:209px;width:375px;height:209px;margin:0 auto;}
+        .main_visual .swiper.family .swiper-slide, .swiper.family .swiper-slide img{width:197px;height:209px;}
         .fam_conts .box_cont{width:100%;height:auto;padding:40px 20px;background:#F5F9FF}
         .fam_conts .box_cont div + div{margin-top:20px;}
         .fam_conts .box_cont.type2{position:relative;background:#F4F4F4}

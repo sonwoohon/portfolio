@@ -3,40 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./res/ibk-com.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./res/jquery-3.6.4.min.js"></script>
     <title>라운지</title>
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
     <style>
-        /* 라운지 css */
-        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px;box-sizing:border-box;letter-spacing:0}
+        .main_visual{position:relative;width:100%;}
+        .image_cont{background:#F4F4F4;}
+        .image_cont img + img{margin-top:40px;}
+        .image_cont.type1{padding:40px 20px;}
+        .image_cont.type2{padding-bottom:150px}
+        .image_cont.type3{padding:40px 20px 150px;}
+        .image_cont.type2 > .type2{padding:0 20px}
+        /* Swiper - 탭 메뉴  */
+        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px;box-sizing:border-box;letter-spacing:0;font-size:0;}
         .swiper.tab-btn::-webkit-scrollbar{display:none;}
         .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
         .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
         .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
         .tab-contents .tab-content{display:none;}
         .tab-contents .tab-content.active{display:block;}
-        .tab-contents .top_conts{position:relative;}
-        .tab-contents .bottom_conts{background:#F4F4F4;}
-        .tab-contents .bottom_conts img + img{margin-top:40px;}
-        .tab-contents .bottom_conts.type1{padding:40px 20px;}
-        .tab-contents .bottom_conts.type2{padding-bottom:150px}
-        .tab-contents .bottom_conts.type3{padding:40px 20px 150px;}
-        .tab-contents .bottom_conts.type2 > .type2{padding:0 20px}
-
+        /* Swiper - 가맹점  */
         .swiper.store{position:absolute;left:0;right:0;bottom:172px;margin:0 auto;width:290px;height:50px;}
         .swiper.store .swiper-wrapper{display:flex;flex-direction:row;width:290px;height:auto;margin:0 25px;-webkit-transition-timing-function:linear!important;-o-transition-timing-function:linear!important;transition-timing-function:linear!important;}
         .swiper.store .swiper-slide{width:50px;height:50px;}
         .swiper.store .swiper-slide:first-child{margin-left:-50px;}
         .swiper.store .swiper-slide + .swiper-slide{margin-left:8px;}
+        /* Swiper - 직장  */
         .swiper.job{margin-left:20px;margin-top:16px}
         .swiper.job .swiper-slide{width:287px;height:365px;}
         .swiper.job .swiper-slide:first-child{margin-left:0;}
     </style>
 </head>
 <body>
-    <div id="wrap" class="container">
+    <div class="container lounge">
+        <!-- 상단 메뉴 -->
         <div class="alram-box">
             <a href="#none">
                 <img src="./images/home-icon1.png" alt="">
@@ -45,103 +47,109 @@
             <img src="./images/home-icon3.png" alt="">
             <a href="./wallet.html" class="wallet"></a>
         </div>
-        <div class="swiper tab-btn">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide active" data-target="tab1">패밀리</div>
-                <div class="swiper-slide" data-target="tab2">아이원 틴즈</div>
-                <div class="swiper-slide" data-target="tab3">직장인</div>
-                <div class="swiper-slide" data-target="tab4">군인</div>
-                <div class="swiper-slide" data-target="tab5">60+</div>
-            </div>
-        </div>
-        <div id="tab-contents" class="tab-contents">
-            <div id="tab1" class="tab-content active">
-                <div class="top_conts">
-                    <img src="./images/lounge/visual_family.png" alt="">
-                </div>
-                <div class="bottom_conts type1">
-                    <img src="./images/lounge/fam_cont1.png" alt="">
-                    <img src="./images/lounge/fam_cont2.png" alt="">
-                    <img src="./images/lounge/fam_cont3.png" alt="">
-                    <img src="./images/lounge/fam_cont4.png" alt="">
-                </div>
-                <div class="bottom_conts type2">
-                    <img src="./images/lounge/fam_cont5.png" alt="">
+        <!-- // 상단 메뉴 -->
+        <!-- 컨텐츠 -->
+        <div class="contents">
+            <div class="swiper tab-btn">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide active" data-target="tab1">패밀리</div>
+                    <div class="swiper-slide" data-target="tab2">아이온 틴즈</div>
+                    <div class="swiper-slide" data-target="tab3">직장인</div>
+                    <div class="swiper-slide" data-target="tab4">군인</div>
+                    <div class="swiper-slide" data-target="tab5">60+</div>
                 </div>
             </div>
-            <div id="tab2" class="tab-content">
-                <div class="top_conts">
-                    <img src="./images/lounge/visual_teens.png" alt="">
-                    <div class="swiper store">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
+            <div id="tab-contents" class="tab-contents">
+                <div id="tab1" class="tab-content active">
+                    <div class="main_visual">
+                        <img src="./images/lounge/visual_family.png" alt="">
+                    </div>
+                    <div class="image_cont type1">
+                        <img src="./images/lounge/fam_cont1.png" alt="">
+                        <img src="./images/lounge/fam_cont2.png" alt="">
+                        <img src="./images/lounge/fam_cont3.png" alt="">
+                        <img src="./images/lounge/fam_cont4.png" alt="">
+                    </div>
+                    <div class="image_cont type2">
+                        <img src="./images/lounge/fam_cont5.png" alt="">
+                    </div>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <div class="main_visual">
+                        <img src="./images/lounge/visual_teens.png" alt="">
+                        <div class="swiper store">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_cu.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_711.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_gs25.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_daiso.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_fourcuts.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_kyobo.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/logo_ypbooks.png" alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image_cont type1">
+                        <img src="./images/lounge/teen_cont1.png" alt="">
+                        <img src="./images/lounge/teen_cont2.png" alt="">
+                        <img src="./images/lounge/teen_cont3.png" alt="">
+                        <img src="./images/lounge/teen_cont4.png" alt="">
+                    </div>
+                    <div class="image_cont type2">
+                        <img src="./images/lounge/teen_cont5.png" alt="">
+                    </div>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <div class="main_visual">
+                        <img src="./images/lounge/visual_worker.png" alt="">
+                    </div>
+                    <div class="image_cont type1">
+                        <img src="./images/lounge/work_cont1.png" alt="">
+                        <img src="./images/lounge/work_cont2.png" alt="">
+                        <img src="./images/lounge/work_cont3.png" alt="">
+                        <img src="./images/lounge/work_cont4.png" alt="">
+                    </div>
+                    <div class="image_cont type2">
+                        <img src="./images/lounge/work_cont5.png" alt="">
+                    </div>
+                </div>
+                <div id="tab4" class="tab-content">
+                    <div class="main_visual">
+                        <img src="./images/lounge/visual_military.png" alt="">
+                    </div>
+                    <div class="image_cont type3">
+                        <img src="./images/lounge/mil_cont1.png" alt="">
+                        <img src="./images/lounge/mil_cont2.png" alt="">
+                        <img src="./images/lounge/mil_cont3.png" alt="">
+                        <img src="./images/lounge/mil_cont4.png" alt="">
+                    </div>
+                </div>
+                <div id="tab5" class="tab-content">
+                    <div class="main_visual">
+                        <img src="./images/lounge/visual_senior.png" alt="">
+                    </div>
+                    <div class="image_cont type1">
+                        <img src="./images/lounge/seni_cont1.png" alt="">
+                        <img src="./images/lounge/seni_cont2.png" alt="">
+                        <img src="./images/lounge/seni_cont3.png" alt="">
+                        <img src="./images/lounge/seni_cont4.png" alt="">
+                    </div>
+                    <div class="image_cont type2">
+                        <img class="type2" src="./images/lounge/seni_cont5.png" alt="">
+                        <div class="swiper job">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./images/lounge/senior_job1.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/senior_job2.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./images/lounge/senior_job3.png" alt=""></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="bottom_conts type1">
-                    <img src="./images/lounge/teen_cont1.png" alt="">
-                    <img src="./images/lounge/teen_cont2.png" alt="">
-                    <img src="./images/lounge/teen_cont3.png" alt="">
-                    <img src="./images/lounge/teen_cont4.png" alt="">
-                </div>
-                <div class="bottom_conts type2">
-                    <img src="./images/lounge/teen_cont5.png" alt="">
-                </div>
-            </div>
-            <div id="tab3" class="tab-content">
-                <div class="top_conts">
-                    <img src="./images/lounge/visual_worker.png" alt="">
-                </div>
-                <div class="bottom_conts type1">
-                    <img src="./images/lounge/work_cont1.png" alt="">
-                    <img src="./images/lounge/work_cont2.png" alt="">
-                    <img src="./images/lounge/work_cont3.png" alt="">
-                    <img src="./images/lounge/work_cont4.png" alt="">
-                </div>
-                <div class="bottom_conts type2">
-                    <img src="./images/lounge/work_cont5.png" alt="">
-                </div>
-            </div>
-            <div id="tab4" class="tab-content">
-                <div class="top_conts">
-                    <img src="./images/lounge/visual_military.png" alt="">
-                </div>
-                <div class="bottom_conts type3">
-                    <img src="./images/lounge/mil_cont1.png" alt="">
-                    <img src="./images/lounge/mil_cont2.png" alt="">
-                    <img src="./images/lounge/mil_cont3.png" alt="">
-                    <img src="./images/lounge/mil_cont4.png" alt="">
-                </div>
-            </div>
-            <div id="tab5" class="tab-content">
-                <div class="top_conts">
-                    <img src="./images/lounge/visual_senior.png" alt="">
-                </div>
-                <div class="bottom_conts type1">
-                    <img src="./images/lounge/seni_cont1.png" alt="">
-                    <img src="./images/lounge/seni_cont2.png" alt="">
-                    <img src="./images/lounge/seni_cont3.png" alt="">
-                    <img src="./images/lounge/seni_cont4.png" alt="">
-                </div>
-                <div class="bottom_conts type2">
-                    <img class="type2" src="./images/lounge/seni_cont5.png" alt="">
-                    <div class="swiper job">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="./images/lounge/senior_job1.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/senior_job2.png" alt=""></div>
-                            <div class="swiper-slide"><img src="./images/lounge/senior_job3.png" alt=""></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+        <!-- // 컨텐츠 -->
+        <!-- 하단 메뉴 -->
         <nav>
             <ul>
                 <li>
@@ -162,7 +170,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./">
+                    <a href="./product.html">
                         <i aria-label="상품 탭" class="goods"></i>
                         <span>상품</span>
                     </a>
@@ -175,6 +183,7 @@
                 </li>
             </ul>
         </nav>
+        <!-- // 하단 메뉴 -->
     </div>
 
     <script src="./res/ibk-com.js"></script>
@@ -185,62 +194,62 @@
             freeMode: true,
             grabCursor: true,
             spaceBetween: 8,
-        });
-
-        // document.querySelectorAll('.swiper-slide').forEach(slide => {
-        //     slide.addEventListener('click', () => {
-        //         const targetId = slide.getAttribute('data-target');
-        //         const targetContent = document.getElementById(targetId);
-
-        //         // Remove 'active' class from all tab contents and slides
-        //         document.querySelectorAll('.tab-content').forEach(content => {
-        //             content.classList.remove('active');
-        //         });
-        //         document.querySelectorAll('.swiper-slide').forEach(s => {
-        //             s.classList.remove('active');
-        //         });
-
-        //         slide.classList.add('active');
-        //         targetContent.classList.add('active');
-
-        //         refreshContent(targetContent);
-        //     });
-        // });
-
-        function setActiveTab(targetId) {
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.querySelectorAll('.swiper-slide').forEach(slide => {
-                slide.classList.remove('active');
-            });
-
-            const activeSlide = document.querySelector(`.swiper-slide[data-target="${targetId}"]`);
-            const activeContent = document.getElementById(targetId);
-
-            if (activeSlide && activeContent) {
-                activeSlide.classList.add('active');
-                activeContent.classList.add('active');
-
-                // Move to the active slide
-                const activeIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
-                swiperTab.slideTo(activeIndex, 0);
-            }
-        }
+        }); 
 
         document.querySelectorAll('.swiper-slide').forEach(slide => {
             slide.addEventListener('click', () => {
                 const targetId = slide.getAttribute('data-target');
-                localStorage.setItem('activeTab', targetId);
-                setActiveTab(targetId);
+                const targetContent = document.getElementById(targetId);
+
+                // Remove 'active' class from all tab contents and slides
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.querySelectorAll('.swiper-slide').forEach(s => {
+                    s.classList.remove('active');
+                });
+
+                slide.classList.add('active');
+                targetContent.classList.add('active');
+
+                refreshContent(targetContent);
             });
         });
 
-        // On page load, restore the active tab from localStorage
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedActiveTab = localStorage.getItem('activeTab') || 'tab1';
-            setActiveTab(savedActiveTab);
-        });
+        // function setActiveTab(targetId) {
+        //     document.querySelectorAll('.tab-content').forEach(content => {
+        //         content.classList.remove('active');
+        //     });
+        //     document.querySelectorAll('.swiper-slide').forEach(slide => {
+        //         slide.classList.remove('active');
+        //     });
+
+        //     const activeSlide = document.querySelector(`.swiper-slide[data-target="${targetId}"]`);
+        //     const activeContent = document.getElementById(targetId);
+
+        //     if (activeSlide && activeContent) {
+        //         activeSlide.classList.add('active');
+        //         activeContent.classList.add('active');
+
+        //         // Move to the active slide
+        //         const activeIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
+        //         swiperTab.slideTo(activeIndex, 0);
+        //     }
+        // }
+
+        // document.querySelectorAll('.swiper-slide').forEach(slide => {
+        //     slide.addEventListener('click', () => {
+        //         const targetId = slide.getAttribute('data-target');
+        //         localStorage.setItem('activeTab', targetId);
+        //         setActiveTab(targetId);
+        //     });
+        // });
+
+        // // On page load, restore the active tab from localStorage
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const savedActiveTab = localStorage.getItem('activeTab') || 'tab1';
+        //     setActiveTab(savedActiveTab);
+        // });
 
         // Swiper - 가맹점
         const swiperStore = new Swiper('.store', {
