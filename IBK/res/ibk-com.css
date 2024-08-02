@@ -1,4 +1,6 @@
 @charset "utf-8";
+
+@import url('font.css');
  
 /* reset */
 *, :after, :before {background-repeat:no-repeat;box-sizing:border-box}

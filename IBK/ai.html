@@ -13,7 +13,7 @@
         .container.ai .page-wrap {padding:0 0 124px 0;}
         .img-wrap {position:relative;}
         .img-wrap.set a {position:absolute;top:6%;right:4%;width:10%;height:22%;z-index:1;}
-        .checkbox {position:absolute;top:7.2%;right:40px;width: 28px; height: 28px;}
+        .checkbox {position:absolute;top:10.3%;right:40px;width: 28px; height: 28px;}
         .checkbox input{width: 28px; height: 28px;appearance: none; position: absolute; z-index: 1;}
         .checkbox input[type="checkbox"] + i{width: 28px; height: 28px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/ai/checkbox_off.png) no-repeat;background-size: contain; cursor: pointer;}
         .checkbox input[type="checkbox"]:checked  + i{ background: url(./images/ai/checkbox_on.png);background-size: contain;}
@@ -29,10 +29,22 @@
         .ai .tab_contents .cont.active{display:block;}
         .ai .tab_contents .top_conts img {margin-top:-6px}
         .ai .tab_btn.last {position:absolute;top:0;right:20px;display:inline-block;width:108px;height:44px;padding:12px 0;border-radius:12px;font-size:15px;font-weight:400;line-height:20px;color:rgba(255,255,255,.8);background:rgba(255, 255, 255, 0.20);text-align:center;z-index:10}
+        .ai .tab_menu.type2 {position:relative;padding:0;overflow:hidden}
+        .ai .tab_menu.type2 .tab_contents {position:relative}
+        .ai .tab_menu.type2 .tab_contents .cont {margin:0}
+        .ai .tab_menu.type2 .menu_list li {position:absolute;width:auto;z-index:10}
+        .ai .tab_menu.type2 .menu_list li:first-child {top:27px;right:80px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list li.active:first-child {top:27px;right:80px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list li:nth-child(2) {top:96px;right:40px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list li.active:nth-child(2) {top:74px;right:40px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list .tab_btn {width:100%}
+        .ai .tab_menu.type2 .menu_list {left:auto;width:100%}
         .ai .accordion {position:relative;}
         .ai .accordion .folding-btn.open + .folding-panel {margin-top:-58px}
         .ai .accordion .folding-panel {display:none}
-        .ai .accordion .folding-panel .close {position:absolute;top:2%;right:6%;width:10%;height:12%;border:1px solid red;z-index:5}
+        .ai .accordion .folding-panel .close {position:absolute;top:2%;right:6%;width:10%;height:12%;z-index:5}
+        .ai .accordion.type2 {position:relative; margin:0 20px;border-radius:12px;height:52px;padding: 16px 12px;background: rgba(255, 255, 255, 0.20);color:#fff}
+        .ai .accordion.type2 a {font-size:16px;font-weight: 400;line-height: 20px;}
         .mike {position:sticky;bottom:124px;left:0;margin-left:20px;margin-right:20px}
         .mike a {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background: rgba(29, 116, 232, 0.50);border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .mike a .icon {display:inline-block;width:24px;height:24px}
@@ -153,8 +165,33 @@
                 <img src="./images/ai/ai-img2.jpg" alt="">
                 <img src="./images/ai/ai-img3.jpg" alt=""> 
             </div>
+            <div class="img-wrap">
+                <div class="tab_menu type2">
+                    <ul class="menu_list">
+                        <li class="active"><a href="#tab2-1" class="tab_btn"></a></li>
+                        <li><a href="#tab2-2" class="tab_btn"></a></li>
+                    </ul>
+                    <div class="tab_contents">
+                        <div id="tab2-1" class="cont active">
+                            <img src="./images/ai/ai-img3-1.jpg" alt="">
+                        </div>
+                        <div id="tab2-2" class="cont">
+                            <img src="./images/ai/ai-img3-2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+               
+                
+            </div>
+            <div class="img-wrap"> <img src="./images/ai/ai-img7.jpg" alt=""></div>
+            <div class="accordion type2">
+                <a href="#none" class="folding-btn">환전 이벤트 [~9/30]</a>
+                <div class="folding-panel">
+                   <div><img src="./images/ai/ai-img6.jpg" alt=""></div> 
+                </div>    
+            </div>
             <div class="accordion">
-                <a href="#none" class="folding-btn"><img src="./images/ai/ai-img5.jpg" alt=""></a>
+                <a href="#none" class="folding-btn"><img src="./images/ai/ai-img5.png" alt=""></a>
                 <div class="folding-panel">
                    <div><img src="./images/ai/ai-img6.jpg" alt=""></div> 
                 </div>    
