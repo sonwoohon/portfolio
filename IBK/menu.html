@@ -342,8 +342,10 @@
             const $panelTop = $panel.offset().top;
             const currentScrollTop = $('.depth-2').scrollTop();
             const targetScrollTop = $panelTop - ($('.depth-2').offset().top) + currentScrollTop;
-
-            $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
+            setTimeout( function(){
+                $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
+            },500)
+            
             $('.depth-2').stop().animate({ scrollTop: targetScrollTop }, 500);
         });
         
