@@ -196,7 +196,7 @@
             spaceBetween: 8,
         }); 
 
-        document.querySelectorAll('.swiper-slide').forEach(slide => {
+        document.querySelectorAll('.swiper-slide').forEach((slide, index) => { // 스와이퍼 탭 클릭했을때 화면 안쪽으로 오도록 하는 부분  index 매개변수 추가
             slide.addEventListener('click', () => {
                 const targetId = slide.getAttribute('data-target');
                 const targetContent = document.getElementById(targetId);
@@ -212,44 +212,13 @@
                 slide.classList.add('active');
                 targetContent.classList.add('active');
 
+                swiperTab.slideTo(index); // 스와이퍼 탭 클릭했을때 화면 안쪽으로 오도록 하는 부분
+
+                swiperStore.autoplay.start();
+
                 refreshContent(targetContent);
             });
         });
-
-        // function setActiveTab(targetId) {
-        //     document.querySelectorAll('.tab-content').forEach(content => {
-        //         content.classList.remove('active');
-        //     });
-        //     document.querySelectorAll('.swiper-slide').forEach(slide => {
-        //         slide.classList.remove('active');
-        //     });
-
-        //     const activeSlide = document.querySelector(`.swiper-slide[data-target="${targetId}"]`);
-        //     const activeContent = document.getElementById(targetId);
-
-        //     if (activeSlide && activeContent) {
-        //         activeSlide.classList.add('active');
-        //         activeContent.classList.add('active');
-
-        //         // Move to the active slide
-        //         const activeIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
-        //         swiperTab.slideTo(activeIndex, 0);
-        //     }
-        // }
-
-        // document.querySelectorAll('.swiper-slide').forEach(slide => {
-        //     slide.addEventListener('click', () => {
-        //         const targetId = slide.getAttribute('data-target');
-        //         localStorage.setItem('activeTab', targetId);
-        //         setActiveTab(targetId);
-        //     });
-        // });
-
-        // // On page load, restore the active tab from localStorage
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     const savedActiveTab = localStorage.getItem('activeTab') || 'tab1';
-        //     setActiveTab(savedActiveTab);
-        // });
 
         // Swiper - 가맹점
         const swiperStore = new Swiper('.store', {
