@@ -196,7 +196,7 @@
             spaceBetween: 8,
         }); 
 
-        document.querySelectorAll('.swiper-slide').forEach((slide, index) => { // 스와이퍼 탭 클릭했을때 화면 안쪽으로 오도록 하는 부분  index 매개변수 추가
+        document.querySelectorAll('.swiper-slide').forEach((slide, index) => { 
             slide.addEventListener('click', () => {
                 const targetId = slide.getAttribute('data-target');
                 const targetContent = document.getElementById(targetId);
@@ -212,7 +212,7 @@
                 slide.classList.add('active');
                 targetContent.classList.add('active');
 
-                swiperTab.slideTo(index); // 스와이퍼 탭 클릭했을때 화면 안쪽으로 오도록 하는 부분
+                swiperTab.slideTo(index); 
 
                 swiperStore.autoplay.start();
 
