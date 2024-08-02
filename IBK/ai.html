@@ -40,10 +40,9 @@
         .mike.on {width:60px;height:60px;left:100%}
          /* 팝업 */
         .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh;z-index:100;background:rgba(0,0,0,.65);}
+        /* .pop1.on{bottom:0;display:flex !important; align-items: flex-end;} */
         .pop.on{bottom:0;display:flex !important; align-items: flex-end;}
         .pop.off{bottom:-100%}
-        /* .pop1 a:nth-of-type(1){width:40px;height:40px;bottom: 362px; right: 12px;z-index: 10;} 
-        .pop1 a:nth-of-type(2){width: 100%;height: 57px;bottom: 45px; z-index: 10;} */
         .pop .img {margin:20px -20px 0}
         .pop .mike2 {display:block;margin-top:24px}
         .pop .mike2 {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background:#5765FF;border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
@@ -59,7 +58,6 @@
         }
         .pop .list {display:none;}
         .pop .list li img{border-radius:12px}
-        .pop .list li {}
         .pop .list li + li {margin-top:12px}
         .pop .list.on {display:block;}
         .pop .list.on li {transform: translateY(0);}
@@ -81,7 +79,7 @@
         }
         .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg,  #EBF5FF 38.68%, #DCEEFF 100%);width:100%;max-height: 100%;padding:20px 20px 0;box-sizing:border-box}
         .pop.on article {transform: translateY(0);transition: all 0.5s ease;}
-        .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
+        /* .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
         .pop2 article .header{position: relative; display: flex;align-items: center; margin-bottom: 20px;}
         .pop2 article .header input{width: 20px; height: 20px;appearance: none; position: absolute; z-index: 1;cursor: pointer;}
         .pop2 article .header input[type="checkbox"] + i{width: 20px; height: 20px; position: absolute;top: 50%; left: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; }
@@ -97,7 +95,7 @@
         .pop2 article .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
         .pop2 article .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
         .pop2 article .footer{margin-top: 35px;}
-        .pop2 article .footer button{display: flex; width: 100%;padding: 18px 0px;justify-content: center;align-items: center;color: #fff; background-color: #1D74E8; border-radius: 10px;}
+        .pop2 article .footer button{display: flex; width: 100%;padding: 18px 0px;justify-content: center;align-items: center;color: #fff; background-color: #1D74E8; border-radius: 10px;} */
 
         .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;}
         .pop3 img{position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%); padding: 0 20px;}
@@ -166,7 +164,7 @@
             </div>
         </div>
         <div class="mike">
-            <a href="pop1" class="pop-open"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
+            <a href="#pop1" class="pop-open"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
         </div>
         <nav>
             <ul>
@@ -202,7 +200,41 @@
             </ul>
         </nav>
     </div>
-    <div class="pop" style="" >
+    <div class="pop" id="pop1" style="" >
+        <article> 
+            <div class="section sec1">
+                <div class="swiper tab-btn">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">외화환전</div>
+                        <div class="swiper-slide">적금 200,000원 이체</div>
+                        <div class="swiper-slide">자동이체</div>
+                        <div class="swiper-slide">공과금 납부</div>
+                    </div>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li class="img1"><img src="./images/ai/ai-list1.jpg" alt=""></li>
+                        <li class="img2"><img src="./images/ai/ai-list2.jpg" alt=""></li>
+                        <li class="img3"><img src="./images/ai/ai-list3.jpg" alt=""></li>
+                        <li class="img4"><img src="./images/ai/ai-list4.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <div class="mike2">
+                    <a href="#" class="txt" id="startTyping">
+                        <span class="placeholder">궁금한 것이 있나요?</span>
+                        <span class="typing"></span>
+                    </a>
+                    <div>
+                        <a haref="#pop2" class="icon pop-open2"><img src="./images/ai/ico-mike.png" alt=""></a>
+                        <span class="arr"></span>
+                    </div>
+                </div>
+                <div class="img"><img src="./images/ai/ai-key.jpg" alt=""></div>
+                
+            </div>
+        </article>
+    </div>
+    <div class="pop" id="pop2"style="" >
         <article> 
             <div class="section sec1">
                 <div class="swiper tab-btn">
@@ -232,7 +264,6 @@
                     </div>
                 </div>
                 <div class="img"><img src="./images/ai/ai-key.jpg" alt=""></div>
-                
             </div>
         </article>
     </div>
@@ -290,7 +321,15 @@
         $(document).on('click','.pop-open',function(e) {
             $this = $(this);
             e.preventDefault();
-            $('.pop').addClass('on');
+            $('#pop1').addClass('on');
+            $('#pop2').removeClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-open2',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('#pop1').removeClass('on');
+            $('#pop2').addClass('on');
             $('body').css('overflow','hidden');
         });
         $(document).on('click','.pop-close',function(e) {
