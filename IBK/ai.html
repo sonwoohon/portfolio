@@ -57,15 +57,27 @@
         @keyframes blink-caret {
             from, to { border-color:transparent;}
         }
-        .pop .list {display:none;opacity:0;transform:translateY(100%);transition:all 1s ease-in-out}
+        .pop .list {display:none;}
         .pop .list li img{border-radius:12px}
-        .pop .list li {opacity: 0;animation: fadeIn 1s forwards;}
+        .pop .list li {}
         .pop .list li + li {margin-top:12px}
-        .pop .list.on {display:block;opacity:1;transform: translateY(0);transition:all 1s ease-in-out}
+        .pop .list.on {display:block;}
+        .pop .list.on li {transform: translateY(0);}
+        .pop .list li.img1 {animation: fadeIn 1s forwards;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img2 {animation: fadeIn 1s forwards;animation-delay:.5s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img3 {animation: fadeIn 1s forwards;animation-delay:1s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img4 {animation: fadeIn 1s forwards;animation-delay:1.5s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img5 {animation: fadeIn 1s forwards;animation-delay:2s;transform: translateY(100%);opacity: 0;}
+        .pop .list.on li.img1 {transform: translateY(0);}
+        .pop .list.on li.img2 {transform: translateY(0);}
+        .pop .list.on li.img3 {transform: translateY(0);}
+        .pop .list.on li.img4 {transform: translateY(0);}
+        .pop .list.on li.img5 {transform: translateY(0);}
         @keyframes fadeIn {
-            to {
-                opacity: 1;
+            from {
+                opacity: 0;
             }
+            to {opacity: 1;}
         }
         .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg,  #EBF5FF 38.68%, #DCEEFF 100%);width:100%;max-height: 100%;padding:20px 20px 0;box-sizing:border-box}
         .pop.on article {transform: translateY(0);transition: all 0.5s ease;}
@@ -154,7 +166,7 @@
             </div>
         </div>
         <div class="mike">
-            <a href="#none" class="on popop" onclick="$('.pop').addClass('on')"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
+            <a href="pop1" class="pop-open"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
         </div>
         <nav>
             <ul>
@@ -190,7 +202,7 @@
             </ul>
         </nav>
     </div>
-    <!-- <div class="pop" style="" >
+    <div class="pop" style="" >
         <article> 
             <div class="section sec1">
                 <div class="swiper tab-btn">
@@ -203,10 +215,10 @@
                 </div>
                 <div class="list">
                     <ul>
-                        <li><img src="./images/ai/ai-list1.jpg" alt=""></li>
-                        <li><img src="./images/ai/ai-list2.jpg" alt=""></li>
-                        <li><img src="./images/ai/ai-list3.jpg" alt=""></li>
-                        <li><img src="./images/ai/ai-list4.jpg" alt=""></li>
+                        <li class="img1"><img src="./images/ai/ai-list1.jpg" alt=""></li>
+                        <li class="img2"><img src="./images/ai/ai-list2.jpg" alt=""></li>
+                        <li class="img3"><img src="./images/ai/ai-list3.jpg" alt=""></li>
+                        <li class="img4"><img src="./images/ai/ai-list4.jpg" alt=""></li>
                     </ul>
                 </div>
                 <div class="mike2">
@@ -223,8 +235,8 @@
                 
             </div>
         </article>
-    </div> -->
-    <!-- <div class="pop3">
+    </div>
+    <!-- <div class="pop3"> onclick="$('.pop').addClass('on')"
         <img src="./images/financial/bn.png" alt="">
         <a href="#none" onclick="$('.pop3').fadeOut(300);$('.pop2').removeClass('on');$('.num3').click();"></a>
     </div> -->
@@ -273,19 +285,24 @@
         });
     }
     mikebt();
-    var popUI = function(){
-        // if($('.pop').hasClass('on')){
-        //     $('body').css('overflow','hidden');
 
-        // } else {
-        //     $('body').css();
-        // }
-        
+    var popUI = function(){
+        $(document).on('click','.pop-open',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('.pop').addClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-close',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('.pop').removeClass('on');
+            $('body').css();
+        });
         $(document).on('click','.mike2 > .txt',function(e) {
             $this = $(this);
             e.preventDefault();
             $(this).find('.placeholder').css('display','none');
-            // $(this).find('.typing-txt').addClass('on');
             $(this).find('.typing').addClass('on');
             $(this).parents('.mike2').addClass('on')
 	    });
@@ -314,8 +331,8 @@
                     i++;
                     setTimeout(typing, speed);
             } else {
-                // $('.swiper').css('display', 'none') 
-                // $('.list').addClass('on')
+                $('.swiper').css('display', 'none') 
+                $('.list').addClass('on')
             }
         }
         typing(); // 타이핑 효과 시작

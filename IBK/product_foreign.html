@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 - 외환</title>
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <style>
+        .wallet-box{position: relative;}
+        .wallet-box a{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
+        .inner{padding:24px 20px 78px 20px;background:#F4F4F4;}
+        .tab-content img + img{margin-top:48px}
+        /* Swiper - 탭 메뉴  */
+        /* .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px;box-sizing:border-box;letter-spacing:0}
+        .swiper.tab-btn::-webkit-scrollbar{display:none;}
+        .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;} */
+        .swiper.tab-btn{position:relative;width:100%;padding:20px;box-sizing:border-box;letter-spacing:0;font-size:0;display:flex;white-space:nowrap;box-sizing:border-box;overflow-x:auto;scroll-behavior:smooth;}
+        .swiper.tab-btn::-webkit-scrollbar{display:none;}
+        .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
+        .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
+        .tab-contents .tab-content{display:none;}
+        .tab-contents .tab-content.active{display:block;}
+    </style>
+</head>
+<body>
+    <div id="wrap" class="container">
+        <!-- 상단 메뉴 -->
+        <div class="wallet-box">
+            <img src="./images/product/wallet-tit.png" alt="">
+            <a href="./product.html"></a>
+        </div>
+        <!-- // 상단 메뉴 -->
+        <!-- 컨텐츠 -->
+        <div class="contents">
+            <div class="swiper tab-btn">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-target="">입출금</div>
+                    <div class="swiper-slide" data-target="tab2">예적금 청약</div>
+                    <div class="swiper-slide" data-target="none">중금채</div>
+                    <div class="swiper-slide" data-target="tab4">대출</div>
+                    <div class="swiper-slide" data-target="tab5">카드</div>
+                    <div class="swiper-slide" data-target="tab6">펀드</div>
+                    <div class="swiper-slide" data-target="tab7">보험</div>
+                    <div class="swiper-slide" data-target="tab8">퇴직연금</div>
+                    <div class="swiper-slide" data-target="tab9">ISA</div>
+                    <div class="swiper-slide active" data-target="tab10">외환</div>
+                </div>
+            </div>
+            <div id="tab-contents" class="tab-contents">
+                <div id="tab1" class="tab-content"></div>
+                <div id="tab2" class="tab-content">
+                    <div class="inner">
+                        <img src="./images/product/savings_cont01.png" alt="">
+                        <img src="./images/product/savings_cont02.png" alt="">
+                    </div>
+                </div>
+                <div id="tab3" class="tab-content"></div>
+                <div id="tab4" class="tab-content"></div>
+                <div id="tab5" class="tab-content"></div>
+                <div id="tab6" class="tab-content"></div>
+                <div id="tab7" class="tab-content"></div>
+                <div id="tab8" class="tab-content"></div>
+                <div id="tab9" class="tab-content"></div>
+                <div id="tab10" class="tab-content active">
+                    <div class="inner">
+                        <img src="./images/product/foreign_cont01.png" alt="">
+                        <img src="./images/product/foreign_cont02.png" alt="">
+                        <img src="./images/product/foreign_cont03.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // 컨텐츠 -->
+    </div>
+
+    <script src="./res/ibk-com.js"></script>
+    <script>
+        // Swiper - 라운지 탭 메뉴 
+        const swiperTab = new Swiper('.tab-btn', {
+            slidesPerView: 'auto',
+            freeMode: true,
+            grabCursor: true,
+            spaceBetween: 8,
+        }); 
+        document.querySelectorAll('.swiper-slide').forEach((slide, index) => { // 스와이퍼 탭 클릭했을때 화면 안쪽으로 오도록 하는 부분  index 매개변수 추가
+            slide.addEventListener('click', () => {
+                const targetId = slide.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+
+                // Remove 'active' class from all tab contents and slides
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.querySelectorAll('.swiper-slide').forEach(s => {
+                    s.classList.remove('active');
+                });
+
+                slide.classList.add('active');
+                targetContent.classList.add('active');
+
+                swiperTab.slideTo(index); // 스와이퍼 탭 클릭했을때 화면 안쪽으로 오도록 하는 부분
+
+                swiperStore.autoplay.start();
+
+                refreshContent(targetContent);
+            });
+        });
+
+        
+        // function setActiveTab(targetId) {
+        //     document.querySelectorAll('.tab-content').forEach(content => {
+        //         content.classList.remove('active');
+        //     });
+        //     document.querySelectorAll('.swiper-slide').forEach(slide => {
+        //         slide.classList.remove('active');
+        //     });
+
+        //     const activeSlide = document.querySelector(`.swiper-slide[data-target="${targetId}"]`);
+        //     const activeContent = document.getElementById(targetId);
+
+        //     if (activeSlide && activeContent) {
+        //         activeSlide.classList.add('active');
+        //         activeContent.classList.add('active');
+
+        //         const activeIndex = Array.from(activeSlide.parentElement.children).indexOf(activeSlide);
+        //         swiperTab.slideTo(activeIndex, 0);
+        //     }
+        // }
+
+        // document.querySelectorAll('.swiper-slide').forEach(slide => {
+        //     slide.addEventListener('click', () => {
+        //         const targetId = slide.getAttribute('data-target');
+        //         localStorage.setItem('activeTab', targetId);
+        //         setActiveTab(targetId);
+        //     });
+        // });
+
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const savedActiveTab = localStorage.getItem('activeTab') || 'tab1';
+        //     setActiveTab(savedActiveTab);
+        // });
+    </script>
+</body>
+</html>

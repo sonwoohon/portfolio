@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 - 메인</title>
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <style>
+        .main_visual{position:relative;width:100%;}
+        .inner{padding:40px 20px 160px 20px;background:#F2F7FD;}
+        .image_cont img + img{margin-top:40px;}
+        /* 전체상품 메뉴 */
+        .product_menu span{display:block;font-size:21px;font-weight:700;line-height:29px;letter-spacing:-0.21px;}
+        .product_menu span + ul{margin-top:16px;}
+        .product_menu ul{display:flex;flex-direction:column;justify-content:center;gap:20px;width:336px;font-size:0;}
+        .product_menu li a img{width:56px;}
+        .product_menu li a + a{margin-left:14px;}
+        .product_menu + .image_cont{margin-top:40px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 상단 메뉴 -->
+        <div class="alram-box">
+            <a href="#none">
+                <img src="./images/home-icon1.png" alt="">
+            </a>
+            <img src="./images/home-icon2.png" alt="">
+            <img src="./images/home-icon3.png" alt="">
+            <a href="./wallet.html" class="wallet"></a>
+        </div>
+        <!-- // 상단 메뉴 -->
+        <!-- 컨텐츠 -->
+        <div class="contents">
+            <div class="main_visual">
+                <img src="./images/product/main_visual.png" alt="">
+            </div>
+            <div class="inner">
+                <div class="product_menu">
+                    <span>전체상품</span>
+                    <ul>
+                        <li>
+                            <a href="#none"><img src="./images/product/menu01.png" alt=""></a>
+                            <a href="./product_savings.html"><img src="./images/product/menu02.png" alt=""></a>
+                            <a href="#none"><img src="./images/product/menu03.png" alt=""></a>
+                            <a href="#none"><img src="./images/product/menu04.png" alt=""></a>
+                            <a href="#none"><img src="./images/product/menu05.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#none"><img src="./images/product/menu06.png" alt=""></a>
+                            <a href="#none"><img src="./images/product/menu07.png" alt=""></a>
+                            <a href="#none"><img src="./images/product/menu08.png" alt=""></a>
+                            <a href="#none"><img src="./images/product/menu09.png" alt=""></a>
+                            <a href="./product_foreign.html"><img src="./images/product/menu10.png" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="image_cont">
+                    <img src="./images/product/product_cont01.png" alt="">
+                    <img src="./images/product/product_cont02.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- // 컨텐츠 -->
+    </div>
+    <!-- 하단 메뉴 -->
+    <nav>
+        <ul>
+            <li>
+                <a id="home" href="./index.html">
+                    <i aria-label="홈 탭" class="home"></i>
+                    <span>홈</span>
+                </a>
+            </li>
+            <li>
+                <a href="./">
+                    <i aria-label="자산 탭" class="assets"></i>
+                    <span>자산</span>
+                </a>
+            </li>
+            <li>
+                <a href="./ai.html">
+                    <i aria-label="AI 탭" class="ai"></i>
+                </a>
+            </li>
+            <li>
+                <a href="./product.html">
+                    <i aria-label="상품 탭" class="goods on"></i>
+                    <span class="on">상품</span>
+                </a>
+            </li>
+            <li>
+                <a href="./lounge.html">
+                    <i aria-label="라운지 탭" class="lounge"></i>
+                    <span>라운지</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- // 하단 메뉴 -->
+    <script src="./res/ibk-com.js"></script>
+    <script></script>
+</body>
+</html>
+
