@@ -15,12 +15,12 @@
         .banner button{position: absolute; top: 24px; right: 20px; width: 20px; height: 20px; background: url(./images/home/home-close.png) no-repeat; background-size: cover; }
         .banner a{position: absolute;width: 295px; bottom: 24px;height: 44px;left: 20px;}
         .banner > img{position: absolute; opacity: 0; animation:banner 1s ease-out forwards;}
-        .banner > img:nth-of-type(1){width: 95px; top: 168px; left: 110px; z-index: 5;animation-delay: 1s; } 
-        .banner > img:nth-of-type(2){width: 89px; top: 230px; left: 120px; animation-delay: .8s;}
-        .banner > img:nth-of-type(3){width: 51px; top: 157px; left: 56px;animation-delay: 1.2s; }
-        .banner > img:nth-of-type(4){width: 78px; top: 114px; left: 96px;animation-delay: 1.4s; }
-        .banner > img:nth-of-type(5){width: 66px; top: 119px; left: 171px;animation-delay: 1.6s; }
-        .banner > img:nth-of-type(6){width: 63px; top: 154px; left: 224px;animation-delay: 1.8s;}
+        .banner > img:nth-of-type(1){width: 95px; top: 168px; left: 110px; z-index: 5;animation-delay: .7s; } 
+        .banner > img:nth-of-type(2){width: 89px; top: 230px; left: 120px; animation-delay: .5s;}
+        .banner > img:nth-of-type(3){width: 51px; top: 157px; left: 56px;animation-delay: .9s; }
+        .banner > img:nth-of-type(4){width: 78px; top: 114px; left: 96px;animation-delay: 1.1s; }
+        .banner > img:nth-of-type(5){width: 66px; top: 119px; left: 171px;animation-delay: 1.3s; }
+        .banner > img:nth-of-type(6){width: 63px; top: 154px; left: 224px;animation-delay: 1.5s;}
         .modalbox-wrap{position: relative;margin-top: 23px; height: 157px; overflow: hidden; transition: 0.3s;}
         .modalbox-wrap .modalbox{position: absolute; top: 0; width: 100%;box-sizing: border-box; background-color:#EFF7FF;border-radius:12px; padding: 16px 15px 16px 20px;transition: 0.5s;}
         .modalbox-wrap .modalbox:nth-of-type(1){z-index: 10;}
@@ -348,7 +348,7 @@
                         }).animate({
                             countNum: countTo
                         }, {
-                            duration: 1000,
+                            duration: 500,
                             easing: 'linear',
                             step: function() {
                                 $this.text(Math.floor(this.countNum));
