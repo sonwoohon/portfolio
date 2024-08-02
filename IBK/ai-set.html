@@ -25,33 +25,36 @@
         .slide_wrap li .bar {position:relative;display:flex;width:100%;height:8px;background:rgba(0,0,0,.2);border-radius:5px}
         .slide_wrap li .bar .progress {position:absolute;top:0;left:0;display:inline-block;height:8px;background:#1EDCB3;border-radius:5px;z-index:5}
         .slide_wrap li .bar .pointer {position:absolute;right:0;display:inline-block;margin-top:-18px;margin-right:-28px;z-index:10;}
-        .slide_wrap .line1 .progress {animation-name: motion1;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:80%}
+        .slide_wrap .line1 .progress {animation-name: motion1;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:75%}
         .slide_wrap .line2 .progress {animation-name: motion2;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:38%}
         .slide_wrap .line3 .progress {animation-name: motion3;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:63%}
         .slide_wrap .line4 .progress {animation-name: motion4;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:18%}
         .slide_wrap .line5 .progress {animation-name: motion5;animation-duration:10s;animation-delay:1s;animation-timing-function:linear;animation-fill-mode:forwards;animation-iteration-count: infinite;animation-direction:normal;width:41%}
         @keyframes motion1 {
-            0% {width:80%;}
-            30% {width:90%;}
-            40% {width:90%;}
-            60% {width:70%;}
-            70% {width:70%;}
-            100% {width:80%;}
+            0% {width:75%;}
+            30% {width:40%;}
+            40% {width:40%;}
+            60% {width:90%;}
+            70% {width:90%;}
+            95% {width:75%;}
+            100% {width:75%;}
         }
         @keyframes motion2 {
             0% {width:38%;}
-            30% {width:68%;}
-            40% {width:68%;}
+            30% {width:88%;}
+            40% {width:88%;}
             60% {width:50%;}
             70% {width:50%;}
+            95% {width:38%;}
             100% {width:38%;}
         }
         @keyframes motion3 {
             0% {width:63%;}
             30% {width:30%;}
             40% {width:30%;}
-            60% {width:52%;}
-            70% {width:52%;}
+            60% {width:82%;}
+            70% {width:82%;}
+            95% {width:63%;}
             100% {width:63%;}
         }
         @keyframes motion4 {
@@ -60,6 +63,7 @@
             40% {width:42%;}
             60% {width:70%;}
             70% {width:70%;}
+            95% {width:18%;}
             100% {width:18%;}
         }
         @keyframes motion5 {
@@ -68,6 +72,7 @@
             40% {width:20%;}
             60% {width:60%;}
             70% {width:60%;}
+            95% {width:41%;}
             100% {width:41%;}
         }
         @keyframes motion6 {
@@ -76,6 +81,7 @@
             40% {top:15%;left:68%;}
             60% {top:65%;left:50%;}
             70% {top:65%;left:50%;}
+            95% {top:29%;left:18%;}
             100% {top:29%;left:18%;}
         }
     </style>
