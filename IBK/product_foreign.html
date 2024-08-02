@@ -108,7 +108,9 @@
                 refreshContent(targetContent);
             });
         });
-
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.swiper-wrapper').style.transform = 'translate3d(-539.359px, 0px, 0px)';
+        })
         
         // function setActiveTab(targetId) {
         //     document.querySelectorAll('.tab-content').forEach(content => {
