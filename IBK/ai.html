@@ -39,12 +39,14 @@
         .ai .tab_menu.type2 .menu_list li.active:nth-child(2) {top:74px;right:40px;height:69px;width:65px;}
         .ai .tab_menu.type2 .menu_list .tab_btn {width:100%}
         .ai .tab_menu.type2 .menu_list {left:auto;width:100%}
-        .ai .accordion {position:relative;}
+        .ai .accordion {position:relative; margin:0 20px;border-radius:12px;height:58px;background: rgba(255, 255, 255, 0.20);color:#fff;box-sizing: border-box;}
+        .ai .accordion a {position:relative;display:block;font-size:16px;font-weight: 200;line-height:58px;letter-spacing:0;padding:0 12px;width:100%;box-sizing: border-box;}
+        .ai .accordion a span {position:absolute;right:12px;top:50%;transform: translateY(-50%);width:14px;height:14px}
         .ai .accordion .folding-btn.open + .folding-panel {margin-top:-58px}
-        .ai .accordion .folding-panel {display:none}
+        .ai .accordion .folding-panel {display:none;}
         .ai .accordion .folding-panel .close {position:absolute;top:2%;right:6%;width:10%;height:12%;z-index:5}
-        .ai .accordion.type2 {position:relative; margin:0 20px;border-radius:12px;height:52px;padding: 16px 12px;background: rgba(255, 255, 255, 0.20);color:#fff}
-        .ai .accordion.type2 a {font-size:16px;font-weight: 400;line-height: 20px;}
+        .ai .accordion.on {height:100%}
+        .ai .accordion.on a {z-index:-1;opacity:0}
         .mike {position:sticky;bottom:124px;left:0;margin-left:20px;margin-right:20px}
         .mike a {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background: rgba(29, 116, 232, 0.50);border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .mike a .icon {display:inline-block;width:24px;height:24px}
@@ -61,7 +63,7 @@
         .pop .mike2 .icon {display:inline-block;width:24px;height:24px;vertical-align:middle;cursor:pointer}
         .pop .mike2 .arr {display:inline-block;width:36px;height:36px;background:url(./images/ai/aiup-off.png) no-repeat;background-sizE:36px 36px;vertical-align:middle;margin-left:12px}
         .pop .mike2.on .arr {width:36px;height:36px;background:url(./images/ai/aiup-on.png) no-repeat;background-sizE:36px 36px;vertical-align:middle;margin-left:12px;}
-        .pop .mike2 .placeholder {vertical-align:center;line-height:60px}
+        .pop .mike2 .placeholder {vertical-align:center;line-height:60px;color:rgba(255,255,255,.7)}
         .typing-txt {display:none;color:transparent}
         .typing {display:none;animation-duration:0.5s;animation-iteration-count:infinite;}
         .typing.on {display:block;white-space:nowrap;animation:blink-caret 0.7s step-end infinite;}
@@ -84,30 +86,13 @@
         .pop .list.on li.img4 {transform: translateY(0);}
         .pop .list.on li.img5 {transform: translateY(0);}
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+            from {opacity: 0;}
             to {opacity: 1;}
         }
         .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg,  #EBF5FF 38.68%, #DCEEFF 100%);width:100%;max-height: 100%;padding:20px 20px 0;box-sizing:border-box}
         .pop.on article {transform: translateY(0);transition: all 0.5s ease;}
-        /* .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
-        .pop2 article .header{position: relative; display: flex;align-items: center; margin-bottom: 20px;}
-        .pop2 article .header input{width: 20px; height: 20px;appearance: none; position: absolute; z-index: 1;cursor: pointer;}
-        .pop2 article .header input[type="checkbox"] + i{width: 20px; height: 20px; position: absolute;top: 50%; left: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; }
-        .pop2 article .header input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
-        .pop2 article .header h2{color: #787878; margin-left: 24px;}
-        .pop2 article .header strong{font-size: 15px;color: #1D74E8;}
-        .pop2 article .header a{width: 24px;height: 24px;margin-left: auto; background: url(./images/financial/close-icon.png) no-repeat; background-size: 100% auto;}
-        .pop2 article .content{min-height: 264px;}
-        .pop2 article .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
-        .pop2 article .content > div:last-of-type{border-bottom: 0;}
-        .pop2 article .content > div img{width: 28px;}
-        .pop2 article .content > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
-        .pop2 article .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
-        .pop2 article .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
-        .pop2 article .footer{margin-top: 35px;}
-        .pop2 article .footer button{display: flex; width: 100%;padding: 18px 0px;justify-content: center;align-items: center;color: #fff; background-color: #1D74E8; border-radius: 10px;} */
+        #pop2 article {transform:none}
+        
 
         .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;}
         .pop3 img{position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%); padding: 0 20px;}
@@ -180,22 +165,20 @@
                         </div>
                     </div>
                 </div>
-               
-                
             </div>
             <div class="img-wrap"> <img src="./images/ai/ai-img7.jpg" alt=""></div>
-            <div class="accordion type2">
-                <a href="#none" class="folding-btn">환전 이벤트 [~9/30]</a>
-                <div class="folding-panel">
-                   <div><img src="./images/ai/ai-img6.jpg" alt=""></div> 
-                </div>    
-            </div>
             <div class="accordion">
-                <a href="#none" class="folding-btn"><img src="./images/ai/ai-img5.png" alt=""></a>
+                <a href="#none" class="folding-btn">환전 이벤트 [~9/30]<span><img src="./images/ai/ai-acco-arr.png" alt=""></span></a>
+                <div class="folding-panel">
+                   <div><img src="./images/ai/ai-img6.png" alt=""></div> 
+                </div>    
+            </div>
+            <!-- <div class="accordion">
+                <a href="#none" class="folding-btn"><img src="./images/ai/ai-img5.jpg" alt=""></a>
                 <div class="folding-panel">
                    <div><img src="./images/ai/ai-img6.jpg" alt=""></div> 
                 </div>    
-            </div>
+            </div> -->
             <div class="img-wrap">
                 <img src="./images/ai/ai-img4.jpg" alt=""> 
             </div>
