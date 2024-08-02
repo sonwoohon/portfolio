@@ -154,18 +154,18 @@
             </div>
         </div>
         <div class="mike">
-            <a href="#none" class="on"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
+            <a href="#none" class="on popop" onclick="$('.pop').addClass('on')"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a id="home" href="">
+                    <a id="home" href="./index.html">
                         <i aria-label="홈 탭" class="home"></i>
                         <span>홈</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./">
                         <i aria-label="자산 탭" class="assets"></i>
                         <span>자산</span>
                     </a>
@@ -176,7 +176,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./product.html">
                         <i aria-label="상품 탭" class="goods"></i>
                         <span>상품</span>
                     </a>
@@ -184,14 +184,14 @@
                 <li>
                     <a href="./lounge.html">
                         <i aria-label="라운지 탭" class="lounge"></i>
-                        <span>라운지</span>
+                        <span class="on">라운지</span>
                     </a>
                 </li>
             </ul>
         </nav>
     </div>
     <!-- <div class="pop" style="" >
-        <article>  onclick="$('.pop').addClass('on')"
+        <article> 
             <div class="section sec1">
                 <div class="swiper tab-btn">
                     <div class="swiper-wrapper">
@@ -223,8 +223,8 @@
                 
             </div>
         </article>
-    </div>
-    <div class="pop3">
+    </div> -->
+    <!-- <div class="pop3">
         <img src="./images/financial/bn.png" alt="">
         <a href="#none" onclick="$('.pop3').fadeOut(300);$('.pop2').removeClass('on');$('.num3').click();"></a>
     </div> -->
@@ -232,14 +232,7 @@
     <script src="./res/ibk-com.js"></script>
     <script>
 
-    // 버튼 클릭시 닫힘 
-    function collapseElement(element, duration) {
-        element.style.transition = 'all ' + (duration / 1000) + 's'; // transition 설정
-        element.style.height = '0'
-        element.style.opacity = '0'; // 높이를 0으로 설정
-
-    }
-    
+ 
     window.onload = () => {
         // 상단 탭 메뉴
         const tabMenu = document.querySelectorAll(".tab_menu ul li");
@@ -287,14 +280,15 @@
         // } else {
         //     $('body').css();
         // }
-        // $(document).on('click','.mike2 > .txt',function(e) {
-        //     $this = $(this);
-        //     e.preventDefault();
-        //     $(this).find('.placeholder').css('display','none');
-        //     // $(this).find('.typing-txt').addClass('on');
-        //     $(this).find('.typing').addClass('on');
-        //     $(this).parents('.mike2').addClass('on')
-	    // });
+        
+        $(document).on('click','.mike2 > .txt',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $(this).find('.placeholder').css('display','none');
+            // $(this).find('.typing-txt').addClass('on');
+            $(this).find('.typing').addClass('on');
+            $(this).parents('.mike2').addClass('on')
+	    });
         
 
     }
