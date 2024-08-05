@@ -13,7 +13,7 @@
         .container.ai .page-wrap {padding:0 0 124px 0;}
         .img-wrap {position:relative;}
         .img-wrap.set a {position:absolute;top:6%;right:4%;width:10%;height:22%;z-index:1;}
-        .checkbox {position:absolute;top:7.2%;right:40px;width: 28px; height: 28px;}
+        .checkbox {position:absolute;top:10.3%;right:40px;width: 28px; height: 28px;}
         .checkbox input{width: 28px; height: 28px;appearance: none; position: absolute; z-index: 1;}
         .checkbox input[type="checkbox"] + i{width: 28px; height: 28px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/ai/checkbox_off.png) no-repeat;background-size: contain; cursor: pointer;}
         .checkbox input[type="checkbox"]:checked  + i{ background: url(./images/ai/checkbox_on.png);background-size: contain;}
@@ -29,10 +29,27 @@
         .ai .tab_contents .cont.active{display:block;}
         .ai .tab_contents .top_conts img {margin-top:-6px}
         .ai .tab_btn.last {position:absolute;top:0;right:20px;display:inline-block;width:108px;height:44px;padding:12px 0;border-radius:12px;font-size:15px;font-weight:400;line-height:20px;color:rgba(255,255,255,.8);background:rgba(255, 255, 255, 0.20);text-align:center;z-index:10}
-        .ai .accordion {position:relative;}
-        .ai .accordion .folding-btn.open + .folding-panel {margin-top:-58px}
-        .ai .accordion .folding-panel {display:none}
-        .ai .accordion .folding-panel .close {position:absolute;top:2%;right:6%;width:10%;height:12%;border:1px solid red;z-index:5}
+        .ai .tab_menu.type2 {position:relative;padding:0;overflow:hidden}
+        .ai .tab_menu.type2 .tab_contents {position:relative}
+        .ai .tab_menu.type2 .tab_contents .cont {margin:0}
+        .ai .tab_menu.type2 .menu_list li {position:absolute;width:auto;z-index:10}
+        .ai .tab_menu.type2 .menu_list li:first-child {top:27px;right:80px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list li.active:first-child {top:27px;right:80px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list li:nth-child(2) {top:96px;right:40px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list li.active:nth-child(2) {top:74px;right:40px;height:69px;width:65px;}
+        .ai .tab_menu.type2 .menu_list .tab_btn {width:100%}
+        .ai .tab_menu.type2 .menu_list {left:auto;width:100%}
+        .ai .accordion {position:relative; margin:0 20px;border-radius:12px;height:58px;background: rgba(255, 255, 255, 0.20);color:#fff;box-sizing: border-box;}
+        .ai .accordion a {position:relative;display:block;font-size:16px;font-weight: 200;line-height:58px;letter-spacing:0;padding:0 12px;width:100%;box-sizing: border-box;}
+        .ai .accordion a span {position:absolute;right:12px;top:50%;transform: translateY(-50%);width:14px;height:14px}
+        /* .ai .accordion .folding-btn.open + .folding-panel {margin-top:-58px} */
+        .ai .accordion .folding-panel {display:none;}
+        .ai .accordion .folding-panel div {opacity:0}
+        .ai .accordion .folding-panel .close {position:absolute;top:2%;right:6%;width:10%;height:12%;z-index:5}
+        .ai .accordion.on {height:100%}
+        .ai .accordion.on a {display:none;z-index:-1;opacity:0}
+        .ai .accordion.on .folding-panel {position:relative;}
+        .ai .accordion.on .folding-panel div {opacity:1}
         .mike {position:sticky;bottom:124px;left:0;margin-left:20px;margin-right:20px}
         .mike a {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background: rgba(29, 116, 232, 0.50);border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .mike a .icon {display:inline-block;width:24px;height:24px}
@@ -40,17 +57,16 @@
         .mike.on {width:60px;height:60px;left:100%}
          /* 팝업 */
         .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh;z-index:100;background:rgba(0,0,0,.65);}
+        /* .pop1.on{bottom:0;display:flex !important; align-items: flex-end;} */
         .pop.on{bottom:0;display:flex !important; align-items: flex-end;}
         .pop.off{bottom:-100%}
-        /* .pop1 a:nth-of-type(1){width:40px;height:40px;bottom: 362px; right: 12px;z-index: 10;} 
-        .pop1 a:nth-of-type(2){width: 100%;height: 57px;bottom: 45px; z-index: 10;} */
         .pop .img {margin:20px -20px 0}
         .pop .mike2 {display:block;margin-top:24px}
         .pop .mike2 {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background:#5765FF;border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .pop .mike2 .icon {display:inline-block;width:24px;height:24px;vertical-align:middle;cursor:pointer}
         .pop .mike2 .arr {display:inline-block;width:36px;height:36px;background:url(./images/ai/aiup-off.png) no-repeat;background-sizE:36px 36px;vertical-align:middle;margin-left:12px}
         .pop .mike2.on .arr {width:36px;height:36px;background:url(./images/ai/aiup-on.png) no-repeat;background-sizE:36px 36px;vertical-align:middle;margin-left:12px;}
-        .pop .mike2 .placeholder {vertical-align:center;line-height:60px}
+        .pop .mike2 .placeholder {vertical-align:center;line-height:60px;color:rgba(255,255,255,.7)}
         .typing-txt {display:none;color:transparent}
         .typing {display:none;animation-duration:0.5s;animation-iteration-count:infinite;}
         .typing.on {display:block;white-space:nowrap;animation:blink-caret 0.7s step-end infinite;}
@@ -59,7 +75,6 @@
         }
         .pop .list {display:none;}
         .pop .list li img{border-radius:12px}
-        .pop .list li {}
         .pop .list li + li {margin-top:12px}
         .pop .list.on {display:block;}
         .pop .list.on li {transform: translateY(0);}
@@ -74,30 +89,13 @@
         .pop .list.on li.img4 {transform: translateY(0);}
         .pop .list.on li.img5 {transform: translateY(0);}
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+            from {opacity: 0;}
             to {opacity: 1;}
         }
         .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg,  #EBF5FF 38.68%, #DCEEFF 100%);width:100%;max-height: 100%;padding:20px 20px 0;box-sizing:border-box}
         .pop.on article {transform: translateY(0);transition: all 0.5s ease;}
-        .pop2 article{position: absolute;width: 100%;bottom: 0;  background: #FFF;border-radius: 20px 20px 0px 0px;box-shadow: 0px -4px 8.3px 0px rgba(0, 0, 0, 0.12); padding: 25px 20px 46px;}
-        .pop2 article .header{position: relative; display: flex;align-items: center; margin-bottom: 20px;}
-        .pop2 article .header input{width: 20px; height: 20px;appearance: none; position: absolute; z-index: 1;cursor: pointer;}
-        .pop2 article .header input[type="checkbox"] + i{width: 20px; height: 20px; position: absolute;top: 50%; left: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; }
-        .pop2 article .header input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
-        .pop2 article .header h2{color: #787878; margin-left: 24px;}
-        .pop2 article .header strong{font-size: 15px;color: #1D74E8;}
-        .pop2 article .header a{width: 24px;height: 24px;margin-left: auto; background: url(./images/financial/close-icon.png) no-repeat; background-size: 100% auto;}
-        .pop2 article .content{min-height: 264px;}
-        .pop2 article .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
-        .pop2 article .content > div:last-of-type{border-bottom: 0;}
-        .pop2 article .content > div img{width: 28px;}
-        .pop2 article .content > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
-        .pop2 article .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
-        .pop2 article .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
-        .pop2 article .footer{margin-top: 35px;}
-        .pop2 article .footer button{display: flex; width: 100%;padding: 18px 0px;justify-content: center;align-items: center;color: #fff; background-color: #1D74E8; border-radius: 10px;}
+        #pop2 article {transform:none}
+        
 
         .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;}
         .pop3 img{position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%); padding: 0 20px;}
@@ -155,18 +153,41 @@
                 <img src="./images/ai/ai-img2.jpg" alt="">
                 <img src="./images/ai/ai-img3.jpg" alt=""> 
             </div>
+            <div class="img-wrap">
+                <div class="tab_menu type2">
+                    <ul class="menu_list">
+                        <li class="active"><a href="#tab2-1" class="tab_btn"></a></li>
+                        <li><a href="#tab2-2" class="tab_btn"></a></li>
+                    </ul>
+                    <div class="tab_contents">
+                        <div id="tab2-1" class="cont active">
+                            <img src="./images/ai/ai-img3-1.jpg" alt="">
+                        </div>
+                        <div id="tab2-2" class="cont">
+                            <img src="./images/ai/ai-img3-2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-wrap"> <img src="./images/ai/ai-img7.jpg" alt=""></div>
             <div class="accordion">
+                <a href="#none" class="folding-btn">환전 이벤트 [~9/30]<span><img src="./images/ai/ai-acco-arr.png" alt=""></span></a>
+                <div class="folding-panel">
+                   <div><img src="./images/ai/ai-img6.png" alt=""></div> 
+                </div>    
+            </div>
+            <!-- <div class="accordion">
                 <a href="#none" class="folding-btn"><img src="./images/ai/ai-img5.jpg" alt=""></a>
                 <div class="folding-panel">
                    <div><img src="./images/ai/ai-img6.jpg" alt=""></div> 
                 </div>    
-            </div>
+            </div> -->
             <div class="img-wrap">
                 <img src="./images/ai/ai-img4.jpg" alt=""> 
             </div>
         </div>
         <div class="mike">
-            <a href="pop1" class="pop-open"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
+            <a href="#pop1" class="pop-open"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
         </div>
         <nav>
             <ul>
@@ -202,7 +223,7 @@
             </ul>
         </nav>
     </div>
-    <div class="pop" style="" >
+    <div class="pop" id="pop1" style="" >
         <article> 
             <div class="section sec1">
                 <div class="swiper tab-btn">
@@ -227,13 +248,18 @@
                         <span class="typing"></span>
                     </a>
                     <div>
-                        <a haref="#" class="icon"><img src="./images/ai/ico-mike.png" alt=""></a>
+                        <a haref="#pop2" class="icon pop-open2"><img src="./images/ai/ico-mike.png" alt=""></a>
                         <span class="arr"></span>
                     </div>
                 </div>
                 <div class="img"><img src="./images/ai/ai-key.jpg" alt=""></div>
                 
             </div>
+        </article>
+    </div>
+    <div class="pop" id="pop2"style="" >
+        <article> 
+            
         </article>
     </div>
     <!-- <div class="pop3"> onclick="$('.pop').addClass('on')"
@@ -290,7 +316,15 @@
         $(document).on('click','.pop-open',function(e) {
             $this = $(this);
             e.preventDefault();
-            $('.pop').addClass('on');
+            $('#pop1').addClass('on');
+            $('#pop2').removeClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-open2',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('#pop1').removeClass('on');
+            $('#pop2').addClass('on');
             $('body').css('overflow','hidden');
         });
         $(document).on('click','.pop-close',function(e) {
