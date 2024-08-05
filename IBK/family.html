@@ -10,8 +10,11 @@
     <title>패밀리통장</title>
     <style> 
         .family-box{position: relative;}
-        .family-box a.btn_back{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
-        .family-box a.fam_select{position:absolute;top:50%;right:109px;width:100px;height:32px;transform:translateY(-50%);}
+        .family-box .btn_back{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
+        .family-box .fam_select{position:absolute;top:50%;right:109px;height:32px;transform:translateY(-50%);}
+        .family-box .fam_select .sel_fam01{width:100px}
+        .family-box .fam_select .sel_fam02{width:132px}
+        .family-box .fam_select .off {display:none;}
         .container{position:relative;}
         /* 팝업 */
         body.pop_open{overflow:hidden}
@@ -26,14 +29,17 @@
         .pop_wrap .btn_close{position:absolute;top:50%;right:20px;width:24px;height:24px;transform:translateY(0);background:url("./images/family/icon_close.svg") no-repeat 0 0 / 100%;font-size:0;color:transparent;z-index:10;overflow:hidden}
         /* 팝업 - 같이하기 */
         .pop_fam .pop_head .pop_tit{font-size:19px;font-weight:700;line-height:28px;letter-spacing: -0.19px;color:#333333;}
-        .pop_fam .selected_fam{display:block;height:50px;background:#ddd;}
-        .pop_fam .selected_fam + div{margin-top:24px;}
-        .pop_fam .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
-        .pop_fam .content > div:last-of-type{border-bottom: 0;}
-        .pop_fam .content > div img{height:28px;}
-        .pop_fam .content > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
-        .pop_fam .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
-        .pop_fam .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
+        .pop_fam .pop_cont .selected_fam{display:block;font-size:0;}
+        .pop_fam .pop_cont .selected_fam + div{margin-top:24px;}
+        .pop_fam .pop_cont .selected_fam .prof_img {display:inline-block;}
+        .pop_fam .pop_cont .selected_fam .prof_img > img{width:50px;height:50px;}
+        .pop_fam .pop_cont .selected_fam .prof_img + .prof_img {margin-left:-5px;}
+        .pop_fam .pop_cont .fam_list > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
+        .pop_fam .pop_cont .fam_list > div:last-of-type{border-bottom: 0;}
+        .pop_fam .pop_cont .fam_list > div img{height:28px;}
+        .pop_fam .pop_cont .fam_list > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
+        .pop_fam .pop_cont .fam_list > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
+        .pop_fam .pop_cont .fam_list > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
         /* 팝업 - 이자계산기 */
         .pop_calc{z-index:1;}
         .pop_calc .pop_head{height:56px;}
@@ -55,17 +61,17 @@
         .fam_conts .box_cont .img_cont{position:absolute;}
         .fam_conts .box_cont .img_cont
         .animate{opacity:0;}
-        .animate.active{opacity:0;animation:fade-in 1s ease-in;animation-fill-mode:forwards;animation-duration: 1s;}
+        .animate.active{opacity:0;animation:fade-in 1s ease-in;animation-fill-mode:forwards;animation-duration:1s;}
         .fam_conts .box_cont .img01_1{bottom:67px;right:119px;width:70px;height:60px;}
-        .fam_conts .box_cont .img01_2{bottom:38px;left:94px;width:87px;height:82px;animation-delay:1.1s;}
+        .fam_conts .box_cont .img01_2{bottom:38px;left:94px;width:87px;height:82px;animation-delay:1s;}
         .fam_conts .box_cont .img02_1{bottom:16px;left:111px;width:85px;height:100px;}
-        .fam_conts .box_cont .img02_2{bottom:106px;left:62px;width:60px;height:37px;animation-delay:1.1s;}
-        .fam_conts .box_cont .img02_3{bottom:108px;right:95px;width:50px;height:48px;animation-delay:1.3s;}
+        .fam_conts .box_cont .img02_2{bottom:106px;left:62px;width:60px;height:37px;animation-delay:1s;}
+        .fam_conts .box_cont .img02_3{bottom:108px;right:95px;width:50px;height:48px;animation-delay:1.1s;}
         .fam_conts .box_cont .img03_1{bottom:25px;left:124px;width:82px;height:68px;}
-        .fam_conts .box_cont .img03_2{bottom:99px;left:41px;width:254px;height:59px;animation-delay:1.1s;}
+        .fam_conts .box_cont .img03_2{bottom:99px;left:41px;width:254px;height:59px;animation-delay:1s;}
         .fam_conts .box_cont .img04{bottom:34px;left:104px;width:143px;height:122px;}
         .fam_conts .box_cont .img05_1{bottom:64px;right:86px;width:90px;height:56px;}
-        .fam_conts .box_cont .img05_2{bottom:32px;left:110px;width:80px;height:122px;animation-delay:1.1s;}
+        .fam_conts .box_cont .img05_2{bottom:32px;left:110px;width:80px;height:122px;animation-delay:1s;}
         @keyframes fade-in {
             from {opacity:0;}
             to {opacity:1;}
@@ -100,7 +106,10 @@
         <div class="family-box">
             <img src="./images/family/fam-box.png" alt="">
             <a href="./index.html" class="btn_back"></a>
-            <a href="#popupFam" class="fam_select j_pop_open"><img src="./images/family/select_fam01.png"></img></a>
+            <a href="#popupFam" class="fam_select j_pop_open">
+                <img class="sel_fam01" src="./images/family/select_fam01.png"></img>
+                <img class="sel_fam02 off" src="./images/family/select_fam02.png"></img>
+            </a>
         </div>
         <div class="main_visual">
             <img src="./images/family/main_visual.png" alt="">
@@ -163,49 +172,51 @@
         <article class="popup">
             <div class="pop_head">
                 <h1 class="pop_tit">같이하기 추가</h1>
-                <a href="#" class="btn_close j_pop_close" role="button"></a>
+                <a href="#" class="btn_close j_pop_close close_famlist" role="button"></a>
             </div>
             <div class="pop_cont">
                 <div class="selected_fam"></div>
-                <div>
-                    <label for="check1">
-                        <img src="./images/family/fam_option01.png" alt="" style="width:119px;">
-                        <input type="checkbox" id="check1" disabled>
-                        <i></i>
-                    </label>
-                </div>
-                <div>
-                    <label for="check2">
-                        <img src="./images/family/fam_option02.png" alt="" style="width:106px;">
-                        <input type="checkbox" id="check2">
-                        <i></i>
-                    </label>
-                </div>
-                <div>
-                    <label for="check3">
-                        <img src="./images/family/fam_option03.png" alt="" style="width:119px;">
-                        <input type="checkbox" id="check3">
-                        <i></i>
-                    </label>
-                </div>
-                <div>
-                    <label for="check4">
-                        <img src="./images/family/fam_option04.png" alt="" style="width:184px;">
-                        <input type="checkbox" id="check4" disabled>
-                        <i></i>
-                    </label>
-                </div>
-                <div>
-                    <label for="check5">
-                        <img src="./images/family/fam_option05.png" alt="" style="width:119px;">
-                        <input type="checkbox" id="check5">
-                        <i></i>
-                    </label>
+                <div class="fam_list">
+                    <div>
+                        <label for="check1">
+                            <img src="./images/family/fam_option01.png" alt="" style="width:119px;">
+                            <input type="checkbox" id="check1" disabled>
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="check2">
+                            <img src="./images/family/fam_option02.png" alt="" style="width:106px;">
+                            <input type="checkbox" id="check2">
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="check3">
+                            <img src="./images/family/fam_option03.png" alt="" style="width:119px;">
+                            <input type="checkbox" id="check3">
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="check4">
+                            <img src="./images/family/fam_option04.png" alt="" style="width:184px;">
+                            <input type="checkbox" id="check4" disabled>
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="check5">
+                            <img src="./images/family/fam_option05.png" alt="" style="width:119px;">
+                            <input type="checkbox" id="check5">
+                            <i></i>
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="pop_btn">
                 <!-- <a href="#" class="j_pop_close">취소</a> -->
-                <a href="#" class="btn j_pop_close">확인</a>
+                <a href="#" class="btn j_pop_close close_famlist">확인</a>
             </div> 
         </article>
     </div>
@@ -277,6 +288,12 @@
                     popMotion.popClose($pop);
                     $("a[href='#" + $id + "']").focus();
                 });
+                $(document).on('click', '.close_famlist', function(e) {
+                    e.preventDefault();
+                    $(this).closest('body').find('.sel_fam01').addClass('off');
+                    $(this).closest('body').find('.sel_fam02').removeClass('off');
+                    
+                });
 
                 $(document).on('click', '.j_openandclose', function(e) {
                     e.preventDefault();
@@ -314,6 +331,37 @@
                 $('body').removeClass('pop_open');
             }
         };
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const famList = document.querySelector('.fam_list');
+        const selectedFam = document.querySelector('.selected_fam');
+
+        famList.addEventListener('change', (event) => {
+            if (event.target.type === 'checkbox') {
+                const checkbox = event.target;
+                const label = checkbox.closest('label');
+                const imgSrc = label.querySelector('img').src;
+                const imgFilename = imgSrc.substring(imgSrc.lastIndexOf('/') + 1, imgSrc.lastIndexOf('.'));
+                const imgExt = imgSrc.substring(imgSrc.lastIndexOf('.'));
+                const newImgSrc = imgSrc.replace(imgFilename, imgFilename + '-1');
+
+                if (checkbox.checked) {
+                    const newProfImg = document.createElement('div');
+                    newProfImg.classList.add('prof_img');
+                    newProfImg.innerHTML = `<img src="${newImgSrc}" >`;
+                    newProfImg.dataset.checkboxId = checkbox.id; // store checkbox id to find it later
+                    selectedFam.appendChild(newProfImg);
+                } else {
+                    const profImgs = selectedFam.querySelectorAll('.prof_img');
+                    profImgs.forEach(profImg => {
+                        if (profImg.querySelector('img').src === newImgSrc) {
+                            selectedFam.removeChild(profImg);
+                        }
+                    });
+                }
+            }
+        });
+    });
     </script>
 </body>
 </html>
