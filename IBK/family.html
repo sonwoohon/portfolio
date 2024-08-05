@@ -8,60 +8,99 @@
     <script src="./res/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>패밀리통장</title>
-    <style>
+    <style> 
+        .family-box{position: relative;}
+        .family-box a.btn_back{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
+        .family-box a.fam_select{position:absolute;top:50%;right:109px;width:100px;height:32px;transform:translateY(-50%);}
         .container{position:relative;}
-        .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index:1; display: none;}
-        .popup{position:fixed;bottom: 0;left:0;right:0;width:375px;height:100%;margin:0 auto;border-radius:20px 20px 0 0;background:#FFF;overflow-y: scroll; scrollbar-width: none;display:none;}
-        .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
-        /* 핍업 - 이자계산기 */
-        .pop_calc{max-height:651px;padding:56px 20px 0;background:#FFF;z-index:2;}
+        /* 팝업 */
+        body.pop_open{overflow:hidden}
+        .pop_wrap.is_visible{display:flex}
+        .pop_wrap{display:none;justify-content:center;align-items:center;align-items:flex-end;position:fixed;top:0;left:0;bottom:0;right:0;z-index:50;background:rgba(0,0,0,0.65);transform:translateZ(0);transition:all .3s ease}
+        .pop_wrap .popup{display:flex;flex-direction:column;overflow:hidden;position:relative;width:375px;max-height:100%;border-radius:20px 20px 0 0;background:#fff;transition:all .3s ease;box-sizing:border-box;opacity:0;transform:translateY(100%)}
+        .pop_wrap.is_active .popup{transform:translateY(0);opacity:1;display: block;}
+        .pop_wrap .pop_head{position:relative;display:flex;justify-content:space-between;padding:20px 20px 0 20px}
+        .pop_wrap .pop_cont{flex:1 1 auto;overflow:hidden auto;padding:24px 20px 0 20px}
+        .pop_wrap .pop_btn{display:flex;width:100%;padding:24px 20px 47px;}
+        .pop_wrap .pop_btn .btn{display:flex;justify-content:center;align-items:center;width:375px;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing: -0.17px;color:#FFF;background:#1D74E8;}
+        .pop_wrap .btn_close{position:absolute;top:50%;right:20px;width:24px;height:24px;transform:translateY(0);background:url("./images/family/icon_close.svg") no-repeat 0 0 / 100%;font-size:0;color:transparent;z-index:10;overflow:hidden}
+        /* 팝업 - 같이하기 */
+        .pop_fam .pop_head .pop_tit{font-size:19px;font-weight:700;line-height:28px;letter-spacing: -0.19px;color:#333333;}
+        .pop_fam .selected_fam{display:block;height:50px;background:#ddd;}
+        .pop_fam .selected_fam + div{margin-top:24px;}
+        .pop_fam .content > div{ position: relative; padding: 12px 0; border-bottom: 1px solid #F7F7F7;}
+        .pop_fam .content > div:last-of-type{border-bottom: 0;}
+        .pop_fam .content > div img{height:28px;}
+        .pop_fam .content > div input{width: 24px; height: 24px;appearance: none; position: absolute; z-index: 1;}
+        .pop_fam .content > div input[type="checkbox"] + i{width: 24px; height: 24px; position: absolute;top: 50%; right: 0; transform: translateY(-50%); background: url(./images/financial/btn.png) no-repeat;background-size: contain; cursor: pointer;}
+        .pop_fam .content > div input[type="checkbox"]:checked  + i{ background: url(./images/financial/btn-on.png);background-size: contain;}
+        /* 팝업 - 이자계산기 */
+        .pop_calc{z-index:1;}
+        .pop_calc .pop_head{height:56px;}
+        .pop_calc .pop_cont{padding:0 20px 188px 20px;}
         .pop_calc .pop_cont{height:100%;}
         .pop_calc .pop_cont img:nth-child(1){width:335px;height:202px}
         .pop_calc .pop_cont img:nth-child(2){width:335px;height:183px;}
         .pop_calc .pop_cont img + img{margin-top:24px;}
-
-        /* 패일리통장 css */
+        .pop_calc .btn_close{top:20px;}
+        /* 패일리통장 */
         .main_visual{position:relative;padding:36px 0 58px;width:100%;}
         .main_visual .swiper.family{display:block;position:absolute;left:0;right:0;top:209px;width:375px;height:209px;margin:0 auto;}
         .main_visual .swiper.family .swiper-slide, .swiper.family .swiper-slide img{width:197px;height:209px;}
         .fam_conts .box_cont{width:100%;height:auto;padding:40px 20px;background:#F5F9FF}
-        .fam_conts .box_cont div + div{margin-top:20px;}
         .fam_conts .box_cont.type2{position:relative;background:#F4F4F4}
         .fam_conts .box_cont.type3{padding:40px 20px 229px;background:#FFFFFF}
-        .btn_box{position:fixed;bottom:0;display:flex;width:375px;height:auto;padding:18px 20px 45px;background:rgba(255, 255, 255, 0.80);backdrop-filter: blur(3.450000047683716px);z-index:10;}
-        .btn_box button{display:flex;justify-content:center;align-items:center;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing:-0.17px;color:#FFF;background:#1D74E8;}
-        .btn_box button.btn_calc{position:relative;width:118px}
-        .btn_box button.btn_calc::before{content:"";position:absolute;bottom:65px;width:68px;height:27px;background:url("./images/family/toatst_msg.png") no-repeat 0 0 / 100%;animation:bounce 2s ease infinite;;}
-        .btn_box button.btn_bank{width:205px}
-        .btn_box button + button{margin-left:12px}
-        @keyframes bounce {
-            70% { transform:translateY(0%); }
-            80% { transform:translateY(-15%); }
-            90% { transform:translateY(0%); }
-            95% { transform:translateY(-7%); }
-            97% { transform:translateY(0%); }
-            99% { transform:translateY(-3%); }
-            100% { transform:translateY(0); }
+        .fam_conts .box_cont div + div{margin-top:20px;}
+        .fam_conts .box_cont div{position:relative;}
+        .fam_conts .box_cont .img_cont{position:absolute;}
+        .fam_conts .box_cont .img_cont
+        .animate{opacity:0;}
+        .animate.active{opacity:0;animation:fade-in 1s ease-in;animation-fill-mode:forwards;animation-duration: 1s;}
+        .fam_conts .box_cont .img01_1{bottom:67px;right:119px;width:70px;height:60px;}
+        .fam_conts .box_cont .img01_2{bottom:38px;left:94px;width:87px;height:82px;animation-delay:1.1s;}
+        .fam_conts .box_cont .img02_1{bottom:16px;left:111px;width:85px;height:100px;}
+        .fam_conts .box_cont .img02_2{bottom:106px;left:62px;width:60px;height:37px;animation-delay:1.1s;}
+        .fam_conts .box_cont .img02_3{bottom:108px;right:95px;width:50px;height:48px;animation-delay:1.3s;}
+        .fam_conts .box_cont .img03_1{bottom:25px;left:124px;width:82px;height:68px;}
+        .fam_conts .box_cont .img03_2{bottom:99px;left:41px;width:254px;height:59px;animation-delay:1.1s;}
+        .fam_conts .box_cont .img04{bottom:34px;left:104px;width:143px;height:122px;}
+        .fam_conts .box_cont .img05_1{bottom:64px;right:86px;width:90px;height:56px;}
+        .fam_conts .box_cont .img05_2{bottom:32px;left:110px;width:80px;height:122px;animation-delay:1.1s;}
+        @keyframes fade-in {
+            from {opacity:0;}
+            to {opacity:1;}
         }
-        .alarm{position:absolute;top:70px;right:41px;width:85px;height:73px;animation: hithere 1.5s ease infinite;}
+        .btn_box{position:fixed;bottom:0;display:flex;width:375px;height:auto;padding:18px 20px 45px;background:rgba(255, 255, 255, 0.80);backdrop-filter: blur(3.450000047683716px);z-index:10;}
+        .btn_box a{display:flex;justify-content:center;align-items:center;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing:-0.17px;color:#FFF;background:#1D74E8;}
+        .btn_box .btn:first-child{position:relative;width:118px}
+        .btn_box .btn:first-child::before{content:"";position:absolute;bottom:65px;width:68px;height:27px;background:url("./images/family/toatst_msg.png") no-repeat 0 0 / 100%;animation:bounce 2s ease infinite;;}
+        .btn_box .btn:nth-child(2){width:205px}
+        .btn_box a + a{margin-left:12px}
+        @keyframes bounce {
+            70% {transform:translateY(0%);}
+            80% {transform:translateY(-15%);}
+            90% {transform:translateY(0%);}
+            95% {transform:translateY(-7%);}
+            97% {transform:translateY(0%);}
+            99% {transform:translateY(-3%);}
+            100% {transform:translateY(0);}
+        }
+        .alarm{position:absolute;top:30px;right:21px;width:85px;height:73px;animation: hithere 1.5s ease infinite;}
         @keyframes hithere {
-            30% { transform: scale(1.2); }
-            40%, 60% { transform: rotate(-20deg) scale(1.2); }
-            50% { transform: rotate(20deg) scale(1.2); }
-            70% { transform: rotate(0deg) scale(1.2); }
-            100% { transform: scale(1); }
+            30% {transform: scale(1.2);}
+            40%, 60% {transform: rotate(-20deg) scale(1.1);}
+            50% {transform: rotate(20deg) scale(1.1);}
+            70% {transform: rotate(0deg) scale(1.1);}
+            100% {transform: scale(1);}
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="alram-box">
-            <a href="#none">
-                <img src="./images/home-icon1.png" alt="">
-            </a>
-            <img src="./images/home-icon2.png" alt="">
-            <img src="./images/home-icon3.png" alt="">
-            <a href="./wallet.html" class="wallet"></a>
+        <div class="family-box">
+            <img src="./images/family/fam-box.png" alt="">
+            <a href="./index.html" class="btn_back"></a>
+            <a href="#popupFam" class="fam_select j_pop_open"><img src="./images/family/select_fam01.png"></img></a>
         </div>
         <div class="main_visual">
             <img src="./images/family/main_visual.png" alt="">
@@ -80,18 +119,28 @@
             <div class="box_cont">
                 <div>
                     <img src="./images/family/fam_cont1.png" alt="">
+                    <img class="img_cont animate img01_1" src="./images/family/cont_img01-1.png" alt="">
+                    <img class="img_cont animate img01_2" src="./images/family/cont_img01-2.png" alt="">
                 </div>
                 <div>
                     <img src="./images/family/fam_cont2.png" alt="">
+                    <img class="img_cont animate img02_1" src="./images/family/cont_img02-1.png" alt="">
+                    <img class="img_cont animate img02_2" src="./images/family/cont_img02-2.png" alt="">
+                    <img class="img_cont animate img02_3" src="./images/family/cont_img02-3.png" alt="">
                 </div>
                 <div>
                     <img src="./images/family/fam_cont3.png" alt="">
+                    <img class="img_cont animate img03_1" src="./images/family/cont_img03-1.png" alt="">
+                    <img class="img_cont animate img03_2" src="./images/family/cont_img03-2.png" alt="">
                 </div>
                 <div>
                     <img src="./images/family/fam_cont4.png" alt="">
+                    <img class="img_cont animate img04" src="./images/family/cont_img04.png" alt="">
                 </div>
                 <div>
                     <img src="./images/family/fam_cont5.png" alt="">
+                    <img class="img_cont animate img05_1" src="./images/family/cont_img05-1.png" alt="">
+                    <img class="img_cont animate img05_2" src="./images/family/cont_img05-2.png" alt="">
                 </div>
             </div>
             <div class="box_cont type2">
@@ -105,23 +154,76 @@
             </div>
         </div>
         <div class="btn_box">
-            <button type="button" id="open_calc" class="btn_calc">이자 계산기</button>
-            <button type="button" id="" class="btn_bank">계좌 만들기</button>
+            <a href="#popupCalc" class="btn j_openandclose">이자 계산기</a>
+            <a href="#none" class="btn">계좌 만들기</a>
         </div>
     </div>
-    <div id="popup_calc" class="popup pop_calc">
-        <!-- <button id="btn_close" class="pop-close reset-btn" onclick="drPopupClose('.popup', 'element');$('.banklist-box .nums').text('0');"></button> -->
-        <div class="pop_cont">
-            <img src="./images/family/calc_cont1.png" alt="">
-            <img src="./images/family/calc_cont2.png" alt="">
-        </div>
+    <!-- popup -->
+    <div id="popupFam" class="pop_wrap pop_fam" aria-hidden="true">
+        <article class="popup">
+            <div class="pop_head">
+                <h1 class="pop_tit">같이하기 추가</h1>
+                <a href="#" class="btn_close j_pop_close" role="button"></a>
+            </div>
+            <div class="pop_cont">
+                <div class="selected_fam"></div>
+                <div>
+                    <label for="check1">
+                        <img src="./images/family/fam_option01.png" alt="" style="width:119px;">
+                        <input type="checkbox" id="check1" disabled>
+                        <i></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="check2">
+                        <img src="./images/family/fam_option02.png" alt="" style="width:106px;">
+                        <input type="checkbox" id="check2">
+                        <i></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="check3">
+                        <img src="./images/family/fam_option03.png" alt="" style="width:119px;">
+                        <input type="checkbox" id="check3">
+                        <i></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="check4">
+                        <img src="./images/family/fam_option04.png" alt="" style="width:184px;">
+                        <input type="checkbox" id="check4" disabled>
+                        <i></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="check5">
+                        <img src="./images/family/fam_option05.png" alt="" style="width:119px;">
+                        <input type="checkbox" id="check5">
+                        <i></i>
+                    </label>
+                </div>
+            </div>
+            <div class="pop_btn">
+                <!-- <a href="#" class="j_pop_close">취소</a> -->
+                <a href="#" class="btn j_pop_close">확인</a>
+            </div> 
+        </article>
     </div>
-    <div id="bg_dim" class="dim"></div>
-
-
+    <div id="popupCalc" class="pop_wrap pop_calc" aria-hidden="true">
+        <article class="popup">
+            <div class="pop_head">
+                <a href="#" class="btn_close j_pop_close" role="button"></a>
+            </div>
+            <div class="pop_cont">
+                <img src="./images/family/calc_cont01.png" alt="">
+                <img src="./images/family/calc_cont02.png" alt="">
+            </div>
+        </article>
+    </div>
+    <!-- // popup -->
     <script src="./res/ibk-com.js"></script>
     <script>
-        // 상단 패밀리 스와이퍼 
+        // swiper - 패밀리 
         const swiperFam = new Swiper('.family', {
             slidesPerView: 'auto',
             spaceBetween: 30,
@@ -133,55 +235,85 @@
             allowTouchMove: true,
         });
 
-        const modalPopup = document.getElementById('popup_calc');
-        const dimBg = document.getElementById('bg_dim');
-        const openPopupBtn = document.getElementById('open_calc');
-        const closePopupBtn = document.getElementById('btn_close');
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate');
 
-        // Function to open the modal
-        function openModal() {
-            dimBg.style.display = 'block';
-            modalPopup.style.display = 'block';
-            setTimeout(() => {
-                modalPopup.style.transform = 'translateY(0)';
-            }, 10); // Small delay to allow CSS transition to apply
+            const handleScroll = () => {
+                animatedElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+                });
+            };
 
-            // Push a new history state when the modal opens
-            history.pushState({ modal: true }, '', '#modal');
-        }
-
-        function closeModal() {
-            modalPopup.style.transform = 'translateY(100%)';
-            setTimeout(() => {
-                dimBg.style.display = 'none';
-                modalPopup.style.display = 'none';
-            }, 300); // Match the duration of the CSS transition
-
-            // Replace the history state when the modal closes
-            history.replaceState({}, '', location.pathname);
-        }
-
-        // Toggle modal visibility
-        function toggleModal() {
-            if (modalPopup.style.display === 'block') {
-                closeModal();
-            } else {
-                openModal();
-            }
-        }
-
-        // Handle the browser's back/forward buttons
-        window.addEventListener('popstate', (event) => {
-            if (event.state && event.state.modalPopup) {
-                openModal();
-            } else {
-                closeModal();
-            }
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); 
         });
 
-        openPopupBtn.addEventListener('click', toggleModal);
-        closePopupBtn.addEventListener('click', closeModal);
+        $(function(){
+            popMotion.init();
+        });
 
+        let $popSpeed = 150;
+        const popMotion = {
+            init: () => {
+                if ($('.pop_wrap').hasClass('is_active')) popMotion.popOpen($('.pop_wrap.is_active'));
+                else $('.pop_wrap').attr('aria-hidden', 'true');
+
+                $(document).on('click', '.j_pop_open', function(e) {
+                    e.preventDefault();
+                    let $pop = $(this).attr('href');
+                    popMotion.popOpen($pop);
+                });
+
+                $(document).on('click', '.j_pop_close', function(e) {
+                    e.preventDefault();
+                    let $pop = $(this).closest('.pop_wrap'),
+                        $id = $pop.attr('id');
+
+                    popMotion.popClose($pop);
+                    $("a[href='#" + $id + "']").focus();
+                });
+
+                $(document).on('click', '.j_openandclose', function(e) {
+                    e.preventDefault();
+                    let $pop = $($(this).attr('href'));
+                    if ($pop.hasClass('is_visible')) {
+                        popMotion.popClose($pop);
+                    } else {
+                        popMotion.popOpen($pop);
+                    }
+                });
+            },
+            popOpen: tar => {
+                let $tar = $(tar);
+                $tar.addClass('is_visible').attr('aria-hidden', 'false');
+                $tar.find('.popup').attr('tabindex', 0).focus().find('.pop_cont').attr('tabindex', 0);
+                setTimeout(function() {
+                    $tar.addClass('is_active');
+                }, $popSpeed);
+                $('#wrap').attr('aria-hidden', 'true');
+                $('body').addClass('pop_open');
+                if ($('.btm_fixed').length > 0) {
+                    let btnH = $('.btm_fixed').outerHeight(true);
+                    console.log($tar.find('.pop_cont').css('padding-bottom', btnH + 14));
+                }
+            },
+            popClose: tar => {
+                let $tar = $(tar),
+                    $id = $tar.attr('id');
+                $tar.removeClass('is_active').attr('aria-hidden', 'true').find('.pop_cont').scrollTop(0);
+                $('.pop_wrap.is_visible .popup').attr('tabindex', '0').focus();
+                setTimeout(function() {
+                    $tar.removeClass('is_visible');
+                }, $popSpeed);
+                $('#wrap').attr('aria-hidden', 'false');
+                $('body').removeClass('pop_open');
+            }
+        };
     </script>
 </body>
 </html>
