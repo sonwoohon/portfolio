@@ -68,7 +68,7 @@
                         <a href="#tab1">요약</a>
                     </div>
                     <div>
-                        <a href="#tab2" onclick="$('.depth-2').animate({ scrollTop: 450 }, 500);">전체</a>
+                        <a href="#tab2" onclick="$('.depth-2').animate({ scrollTop: 600 }, 300);">전체</a>
                     </div>
                 </div>
                 <a href="./menu-search.html" class="search"></a>
@@ -146,9 +146,13 @@
                                     </ul>
                                 </div>    
                             </li>
-                            <li><a href="#none">거래내역조회</a></li>
-                            <li><a href="#none">이체결과조회</a></li>
-                            <li><a href="#none">해지결과조회</a></li>
+                            <li><a href="#none">개인신용정보마케팅활용동의</a></li> 
+                            <li><a href="#none">본인확인서 등록</a></li>
+                            <li><a href="#none">알림설정</a></li>
+                            <li><a href="#none">기가지니 음성 서비스</a></li>
+                            <li><a href="#none">보이는 ARS</a></li>
+                            <li><a href="#none">캐시삭제</a></li>
+                            <li><a href="#none">스마트뱅킹해지</a></li>
                         </ul>
                         <ul class="panel">
                             <li><a href="#none">이체</a></li>
@@ -468,36 +472,47 @@
                 }
             })
         });
-        // 해당영역과 동일한 index에 "on" 추가 
-        $(".depth-2").on('scroll', function(){ 
-            setTimeout(() => {
-                const index = $(this).find(".panel").index();
-                const $idx2 = $('.depth-2 .panel').eq(1).scrollTop().top
 
-                $(".depth-2 .panel").each( function(index){
-                        if( Math.floor($(".depth-2").offset().top) >= Math.floor($(".depth-2 .panel").eq(index).offset().top -20) ){ 
-                        $(this).closest('.depth-2').siblings(".depth-1").find("li > a").removeClass("on").eq(index).stop().addClass("on")
-                    }else{
-                        $(this).closest('.depth-2').siblings(".depth-1").find("li").eq(index).find("a").stop().removeClass("on")
+        // 스크롤시 선택영역 index에 클래스 "on" 추가 
+        $(".depth-2").on('scroll', function() {
+            setTimeout(() => {
+                const $depth2 = $(this);
+                const $scrollTop = $depth2.scrollTop();
+                const $scrollHeight = $depth2[0].scrollHeight;
+                const $innerHeight = $depth2.innerHeight();
+                const $isAtBottom = ($scrollTop + $innerHeight >= $scrollHeight - 1);
+                const $panels = $depth2.find(".panel");
+
+                $panels.each(function(index) {
+                    const $panel = $(this);
+                    if (Math.floor($depth2.offset().top) >= Math.floor($panel.offset().top - 20)) {
+                        $depth2.closest('.depth-2').siblings(".depth-1").find("li > a").removeClass("on").eq(index).stop().addClass("on");
+                    } else if ($isAtBottom) {
+                        $depth2.closest('.depth-2').siblings(".depth-1").find("li > a").removeClass("on");
+                        $depth2.closest('.depth-2').siblings(".depth-1").find("li > a").last().addClass("on");
+                    } else {
+                        $depth2.closest('.depth-2').siblings(".depth-1").find("li > a").eq(index).stop().removeClass("on");
                     }
-                })
+                });
             }, 500);
-        })
-        // 전체메뉴 선택영역으로 스크롤 
+        });
+
+        // 1뎁스 클릭 시 2뎁스 선택영역으로 스크롤 
         $('.depth-1 a').click(function (e) {
             e.preventDefault();
             const $idx = $(this).closest('li').index();
             const $panel = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx);
             const $panelTop = $panel.offset().top;
-            const currentScrollTop = $('.depth-2').scrollTop();
-            const targetScrollTop = $panelTop - ($('.depth-2').offset().top) + currentScrollTop;
+            const $currentScrollTop = $('.depth-2').scrollTop();
+            const $targetScrollTop = $panelTop - ($('.depth-2').offset().top) + $currentScrollTop;
             setTimeout( function(){
                 $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
             },500)
             
-            $('.depth-2').stop().animate({ scrollTop: targetScrollTop }, 500);
+            $('.depth-2').stop().animate({ scrollTop: $targetScrollTop }, 500);
         });
         
+        // 2뎁스 클릭 시 선택영역 표시
         $('.depth-2 a').click(function (e) {
             e.preventDefault();
             $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on')
