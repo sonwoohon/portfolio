@@ -7,6 +7,7 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>전체메뉴</title>
     <style>
+        .container{overflow:hidden;}
         .container .page-wrap{padding: 20px 20px 0;}
         /* 요약 */
         .collection-wrap{position: relative;display: flex;justify-content: center;}
@@ -26,7 +27,7 @@
         .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png) no-repeat center / contain; margin-left: 8px; margin-right: auto;}
     
         /* 전체 */
-        .depth {display: flex; max-height:  770px; margin: 0 -20px;}
+        .depth {display: flex;height:100vh;margin: 0 -20px;}
         .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
         .depth-1 ul{display: flex; flex-direction: column;}
         .depth-1 ul li{padding: 16px 20px; white-space: nowrap; line-height: 20px;}
