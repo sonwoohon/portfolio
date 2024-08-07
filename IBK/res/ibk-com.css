@@ -79,7 +79,7 @@ body *{font-family: 'Pretendard', sans-serif;}
 .container{max-width:375px;margin:0 auto;min-height:100vh;position:relative;background-color:#fff;}
 /* .container header{height:44px;background:url(../images/header.png) 0 center no-repeat;background-size:auto 100%;} */
 .container .page-wrap{padding:20px 20px 150px;}
-.container .page-wrap.type2{padding:40px 20px 150px; background-color: #F4F4F4;}
+.container .page-wrap.type2{padding:40px 20px 150px; background-color: #633030;}
 
 /* 상단 알림 */
 .alram-box{position: relative;display: flex; justify-content: space-between; padding: 16px 20px;align-items: center;} 
@@ -111,7 +111,7 @@ nav ul li a i.home.on{ background: url(../images/nav-home-on.png) no-repeat cent
 nav ul li a i.goods{ background: url(../images/nav-goods.png) no-repeat center / contain;} 
 nav ul li a i.goods.on{ background: url(../images/nav-goods-on.png) no-repeat center / contain;} 
 nav ul li a i.ai{ width: 52px; height: 52px; background: url(../images/nav-ai.png) no-repeat center / contain; margin-top: -4px;} 
-nav ul li a i.ai.on{ background: url(../images/nav-ai-on.png) no-repeat center / contain;} 
+nav ul li a i.ai.on{ background: url(../images/nav-ai-on.gif) no-repeat center / contain;} 
 nav ul li a i.lounge{ background: url(../images/nav-lounge.png) no-repeat center / contain;} 
 nav ul li a i.lounge.on{ background: url(../images/nav-lounge-on.png) no-repeat center / contain;} 
 /* nav ul li a i.allmenu{ background: url(../images/nav-allmenu.png) no-repeat center / contain;} 
