@@ -47,15 +47,15 @@
         .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-10.png) no-repeat center / contain;}
         .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px; scrollbar-width: none;}
         .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
-        .depth-2 ul > li{    border-bottom: 1px solid #F7F7F7;}
-        .depth-2 ul li a{position: relative; display:block; padding: 20px 0; font-weight: 700;}
+        .depth-2 ul > li{    }
+        .depth-2 ul li a{position: relative; display:block; padding: 20px 0; font-weight: 700; border-bottom: 1px solid #F7F7F7;}
         .depth-2 ul li a.on{ color: #1D74E8;}
         .depth-2 .accordion > a::after{content: ""; position: absolute; width: 14px; height: 14px; background: url(./images/menu/icon-up.png);top:50%;right:0;transform: translateY(-50%) rotate(180deg);}
         .depth-2 .accordion > a.open::after{transform: translateY(-50%);}
         .depth-3.folding-panel{display: none;}
         .depth-3.folding-panel.open{display: block;}
         .depth-3 ul li{ border-bottom: 0;}
-        .depth-3 ul li a { padding: 10px 0;}
+        .depth-3 ul li a { padding: 10px 0; border-bottom:0}
     </style>
 </head>
 <body>
