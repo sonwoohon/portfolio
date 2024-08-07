@@ -59,23 +59,28 @@ function drPopupClose(pop){
 }
 
 // 애니메이션 show hide 
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('scroll', function() {
-        var mainAnimates = document.querySelectorAll('.interaction');
-        var windowHeight = window.innerHeight;
-        mainAnimates.forEach(function(mainAnimate) {
-            var contentOffset = mainAnimate.offsetTop +150;
-            var scrollPosition = window.scrollY;    
-            if (scrollPosition + windowHeight >= contentOffset) {
-                mainAnimate.classList.add('on');
-            } 
-            else {
-                mainAnimate.classList.remove('on');
-            }
-        });
-        
-    });
-});
+$(function(){
+	var options = {threhold: 1}
+	var io = new IntersectionObserver((entries,observer) => {
+		entries.forEach(entry => {
+		// 관찰 대상이 viewport 안에 들어온 경우  클래스를 추가
+			if (entry.isIntersecting) {
+				entry.target.classList.add('on');
+			}
+			// 그 외의 경우 ' 클래스 제거
+			else {
+				entry.target.classList.remove('on');
+			}
+		});
+	},options);
+
+	// 관찰할 대상을 선언하고, 해당 속성을 관찰시킨다.
+	var boxElList = document.querySelectorAll('.interaction');
+	boxElList.forEach((el) => {
+		io.observe(el);
+	});
+
+})
 
 // 아코디언
 function accordion() {
