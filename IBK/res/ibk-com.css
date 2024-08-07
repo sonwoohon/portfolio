@@ -124,6 +124,10 @@ nav ul li a i.assets.on{background: url(../images/nav-assets-on.png) no-repeat c
 .tab-panel{display: none;}
 .tab-panel.active{display: block;}
 
+/* 토글 탭 */
+.toggle-tab{display: flex;justify-content: center;align-items: center;background: #F7F7F7;border-radius: 20px;}        
+.toggle-tab a {display: block; color: #9F9F9F; padding: 7.5px 17.5px; border-radius:20px; font-size: 14px; font-weight: 700; line-height: 17px; transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);}
+.toggle-tab div.active a{background-color: #114287; color: #fff;}
 
 .scroll::-webkit-scrollbar {display: none;}
 .scroll {-ms-overflow-style: none; /* 인터넷 익스플로러 */scrollbar-width: none; /* 파이어폭스 */}

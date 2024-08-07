@@ -13,9 +13,6 @@
         .collection-wrap{position: relative;display: flex;justify-content: center;}
         .collection-wrap .back{position:absolute; width:24px; height:24px; top: 50%; left: 0; transform: translateY(-50%); background: url(./images/menu/back.png)no-repeat ; background-size: cover;}
         .collection-wrap .search{position:absolute; width:24px; height:24px; top: 50%; right: 0; transform: translateY(-50%); background: url(./images/menu/search.png)no-repeat ; background-size: cover;}
-        .collection-wrap .menu-tab-wrap{display: flex;justify-content: center;align-items: center;height: 32px; background: #F7F7F7;border-radius: 20px;}        
-        .collection-wrap .menu-tab-wrap a {display: block; color: #9F9F9F; padding: 4px 15.5px; border-radius:20px; font-weight: 700; transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);}
-        .collection-wrap .menu-tab-wrap div.active a{background-color: #114287; color: #fff;}
         .collection-wrap + div{    margin: 30px -20px 0; border-bottom: 1px solid #E5E8EC;}
         .gray-box-wrap{position: relative; padding: 8px 20px; border-radius: 12px; background-color: #F7F7F7; margin-top: 18px;}
         .tab-panel.summary{margin-top:40px; padding-bottom: 95px;}
@@ -27,7 +24,7 @@
         .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png) no-repeat center / contain; margin-left: 8px; margin-right: auto;}
     
         /* 전체 */
-        .depth {display: flex;height:100vh;margin: 0 -20px;}
+        .depth {display: flex;height:100vh;margin: 0 -20px;}  
         .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
         .depth-1 ul{display: flex; flex-direction: column;}
         .depth-1 ul li{padding: 16px 20px; white-space: nowrap; line-height: 20px;}
@@ -47,7 +44,6 @@
         .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-10.png) no-repeat center / contain;}
         .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px; scrollbar-width: none;}
         .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
-        .depth-2 ul > li{    }
         .depth-2 ul li a{position: relative; display:block; padding: 20px 0; font-weight: 700; border-bottom: 1px solid #F7F7F7;}
         .depth-2 ul li a.on{ color: #1D74E8;}
         .depth-2 .accordion > a::after{content: ""; position: absolute; width: 14px; height: 14px; background: url(./images/menu/icon-up.png);top:50%;right:0;transform: translateY(-50%) rotate(180deg);}
@@ -63,7 +59,7 @@
         <div class="page-wrap">
             <div class="collection-wrap">
                 <a href="./index.html" class="back"></a>
-                <div class="menu-tab-wrap ui-tab">
+                <div class="toggle-tab ui-tab">
                     <div class="active">
                         <a href="#tab1">요약</a>
                     </div>
