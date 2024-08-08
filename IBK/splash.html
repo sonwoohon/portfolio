@@ -7,20 +7,26 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title>스플래시</title>
     <style>
-        .container{background-color: #000;}
-        .splash-wrap{position: relative; height: 812px; top: 70px; overflow: hidden;}
-        .splash-wrap > div{position: absolute; top: 0; left: 0; height: 100%;}
-        .splash-wrap .splash-play1{animation: splash-play1 1.5s ease-in-out forwards; z-index: 5;}
-        .splash-wrap .splash-play2{animation: splash-play2 1.3s 0.8s ease-in-out forwards; z-index: 4; opacity: 0; transition: all 1s ease-in-out;}
+        .splash-wrap{position: relative;overflow: hidden;height: 100vh;}
+        .splash-wrap > div{position: absolute; top: 0; left: 0; height: 100vh; overflow: hidden;}
+        .splash-wrap .splash-play1{position: relative; animation: splash-play1 1.5s ease-in-out forwards; z-index: 5; background-color: #fff;}
+        .splash-wrap .splash-play1 img:last-child{width: 100px; position: absolute;bottom: 50px;left: 50%;transform: translateX(-50%); }
+        
+        .splash-wrap .splash-play2{/* animation: splash-play2 1.3s 0.8s ease-in-out forwards; */ z-index: 4;/*  opacity: 0;  */ transition: all 1s ease-in-out;}
+        .play2-txt1, .play2-txt2, .play2-logo{position: absolute; left: 50%; transform: translateX(-50%);}
+        .play2-txt1{width: 275px; top: 162px;}
+        .play2-txt2{width: 156px; top: 199px;}
+        .play2-logo{width: 117px; top: 273px;}
         .splash-wrap .splash-play3{z-index: 3; }
         .splash-wrap .splash-play3 .family {position: absolute; top: 116px; opacity: 0;}
         .splash-wrap .splash-play3 .family.on{opacity: 0; animation: splash-play3 .7s ease-in-out forwards; animation: splash-play3 1s .7s ease-in-out forwards; transition: all 1s ease-in-out;}
         .vector{position: absolute;top: 60px;left: 110px; opacity: 0;}
         .vector.on{animation: splash-play3-vector 1s 0.5s forwards;}
+        .splash-wrap .splash-play4 { z-index: 2;}
         .splash-wrap .splash-play4 .robot{position: absolute; top: 95px; opacity: 0;}
         .splash-wrap .splash-play4 .robot.on{transition: .3s; opacity: 1;}
-        .splash-wrap .arrow-btn{ position: absolute;z-index: 4;width: 24px;bottom: 104px;left: 50%;transform: translateX(-50%);opacity: 0; animation: splash-play2 1.3s 0.8s ease-in-out forwards; transition: all 1s ease-in-out;}
-        .splash-wrap .start-btn{ position: absolute;z-index: 5;width: 335px;bottom: 30px;left: 50%;margin-top: 40px;transform: translateX(-50%);opacity: 0; animation: splash-play2 1.3s 0.8s ease-in-out forwards; transition: all 1s ease-in-out;}
+        .splash-wrap .arrow-btn{ position: absolute;z-index: 4;width: 24px;bottom: 104px;left: 50%;transform: translateX(-50%);opacity: 0; animation: splash-play2 1.3s 0.2s ease-in-out forwards; transition: all 1s ease-in-out;}
+        .splash-wrap .start-btn{ position: absolute;z-index: 5;width: 335px;bottom: 30px;left: 50%;margin-top: 40px;transform: translateX(-50%);opacity: 0; animation: splash-play2 1.3s 0.2s ease-in-out forwards; transition: all 1s ease-in-out;}
         .splash-wrap .start-btn2{position: absolute;z-index: 5;width: 335px;bottom: -100px;left: 50%;transform: translateX(-50%);opacity: 1; transition: all 1s ease-in-out;}
         
         @keyframes splash-play1{
@@ -47,13 +53,17 @@
     <div class="container">
         <div class="splash-wrap">
             <div class="splash-play1">
-                <img src="./images/splash/play1.png" alt="">
+                <img src="./images/splash/play1-1.png" alt="">
+                <img src="./images/splash/play1-2.png" alt="" style="width: 100px;">
             </div>
             <div class="splash-play2">
                 <img src="./images/splash/play2.png" alt="">
+                <img src="./images/splash/play2-txt1.png" alt="" class="play2-txt1">
+                <img src="./images/splash/play2-txt2.png" alt="" class="play2-txt2">
+                <img src="./images/splash/play2-logo.png" alt="" class="play2-logo">
             </div>
             <div class="splash-play3">
-                <img src="./images/splash/play3.png" alt="">
+                <img src="./images/splash/play3.png" alt="" style="height: 100vh;">
                 <img src="./images/splash/vector.png" class="vector" alt="" >
                 <div class="family">
                     <img src="./images/splash/txt.png" alt="">
@@ -61,7 +71,7 @@
                 </div>
             </div>
             <div class="splash-play4">
-                <img src="./images/splash/play3.png" alt="">
+                <img src="./images/splash/play3.png" alt="" style="height: 100vh;">
                 <div class="robot">
                     <img src="./images/splash/txt2.png" alt="">
                     <img src="./images/splash/img2.png" alt="">
@@ -95,6 +105,7 @@
             family.classList.add('on');
             vector.classList.add('on');
             arrow.style.zIndex = '5';
+
         };
         const playArrow =  () => {
             splashPlay3.style.transition = 'all 1s ease-in-out';
