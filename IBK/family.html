@@ -52,6 +52,9 @@
         /* 패일리통장 */
         .main_visual{position:relative;padding:36px 0 58px;width:100%;}
         .main_visual .swiper.family{display:block;position:absolute;left:0;right:0;top:209px;width:375px;height:209px;margin:0 auto;}
+        .main_visual .swiper.family .swiper-slide{opacity:0.25}
+        .main_visual .swiper.family .swiper-container{overflow: visible;}
+        .main_visual .swiper.family .swiper-slide-active{opacity: 1;}
         .main_visual .swiper.family .swiper-slide, .swiper.family .swiper-slide img{width:197px;height:209px;}
         .fam_conts .box_cont{width:100%;height:auto;padding:40px 20px;background:#F5F9FF}
         .fam_conts .box_cont.type2{position:relative;background:#F4F4F4}
@@ -235,6 +238,7 @@
         // swiper - 패밀리 
         const swiperFam = new Swiper('.family', {
             slidesPerView: 'auto',
+            watchSlidesVisibility: true,
             spaceBetween: 30,
             centeredSlides: true,
             autoplay: true,
@@ -331,34 +335,34 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-        const famList = document.querySelector('.fam_list');
-        const selectedFam = document.querySelector('.selected_fam');
+            const famList = document.querySelector('.fam_list');
+            const selectedFam = document.querySelector('.selected_fam');
 
-        famList.addEventListener('change', (event) => {
-            if (event.target.type === 'checkbox') {
-                const checkbox = event.target;
-                const label = checkbox.closest('label');
-                const imgSrc = label.querySelector('img').src;
-                const imgFilename = imgSrc.substring(imgSrc.lastIndexOf('/') + 1, imgSrc.lastIndexOf('.'));
-                const imgExt = imgSrc.substring(imgSrc.lastIndexOf('.'));
-                const newImgSrc = imgSrc.replace(imgFilename, imgFilename + '-1');
+            famList.addEventListener('change', (event) => {
+                if (event.target.type === 'checkbox') {
+                    const checkbox = event.target;
+                    const label = checkbox.closest('label');
+                    const imgSrc = label.querySelector('img').src;
+                    const imgFilename = imgSrc.substring(imgSrc.lastIndexOf('/') + 1, imgSrc.lastIndexOf('.'));
+                    const imgExt = imgSrc.substring(imgSrc.lastIndexOf('.'));
+                    const newImgSrc = imgSrc.replace(imgFilename, imgFilename + '-1');
 
-                if (checkbox.checked) {
-                    const newProfImg = document.createElement('div');
-                    newProfImg.classList.add('prof_img');
-                    newProfImg.innerHTML = `<img src="${newImgSrc}" >`;
-                    newProfImg.dataset.checkboxId = checkbox.id; // store checkbox id to find it later
-                    selectedFam.appendChild(newProfImg);
-                } else {
-                    const profImgs = selectedFam.querySelectorAll('.prof_img');
-                    profImgs.forEach(profImg => {
-                        if (profImg.querySelector('img').src === newImgSrc) {
-                            selectedFam.removeChild(profImg);
-                        }
-                    });
+                    if (checkbox.checked) {
+                        const newProfImg = document.createElement('div');
+                        newProfImg.classList.add('prof_img');
+                        newProfImg.innerHTML = `<img src="${newImgSrc}" >`;
+                        newProfImg.dataset.checkboxId = checkbox.id; // store checkbox id to find it later
+                        selectedFam.appendChild(newProfImg);
+                    } else {
+                        const profImgs = selectedFam.querySelectorAll('.prof_img');
+                        profImgs.forEach(profImg => {
+                            if (profImg.querySelector('img').src === newImgSrc) {
+                                selectedFam.removeChild(profImg);
+                            }
+                        });
+                    }
                 }
-            }
-        });
+            });
     });
     </script>
 </body>
