@@ -60,6 +60,7 @@
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
         .update{display: inline-block; width: 20px; vertical-align: middle; margin-top: 7px;}
+        .transfer{position: absolute;width: 82px;height: 38px;right: 19px;top: 90px; z-index: 2;}
     </style>
 </head>
 <body>
@@ -158,12 +159,13 @@
                 <button></button>
             </div>
 
-            <a href="#none" class="home-cardlist interaction on" onclick="$('.banklist-box .nums').text('0');drPopupOpen('.pop1');count();">
+            <button class="home-cardlist interaction on" onclick="$('.banklist-box .nums').text('0');drPopupOpen('.pop1');count();">
                 <img src="./images/home/home-cardlist.png" alt="">
                 <div class="nums" data-count="13000000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
-            </a>
+                <a href="./transfer.html" class="transfer"></a>
+            </button>
             <img src="./images/home/home-btn3.png" class="interaction" alt="" style="margin-top: 20px; margin-bottom: 40px;">
 
             <div class="interaction mgb40">
