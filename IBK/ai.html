@@ -101,7 +101,7 @@
         .pop-txt {display:block;text-align:center;padding:140px 89px 0 89px;animation:fadeimg 1.3s forwards;}
         .pop-txt img {width:100%}
         .txt2 {position:absolute;text-align:center;top:160px;left:0;height:39px;width:100%;transition:all .4s;}
-        .txt2.on {display:block;top:364px;transition:all .4s;}
+        .txt2.on {display:block;top:364px;transition:all .4s;overflow:hidden;height:46px;}
         .txt2.on .typing2 {font-size:16px;font-weight:700;line-height:20px;}
         .typing2 {position:relative;white-space:nowrap;animation-name:blink-caret2;font-size:33px;font-weight:700;line-height:39px;text-align:center;color:#3B41ED}
         @keyframes blink-caret2 {
@@ -148,7 +148,7 @@
         #pop3.on .press li:nth-child(5) {animation-delay:1.6s;background:#5765FF}
         #pop3.on .press li:nth-child(6) {animation-delay:2s;background:#5765FF}
         @keyframes slideIn {
-            from {opacity: 0; }
+            from {opacity: 1; }
             to {opacity: 1; }
         }
         #pop3.on .pop4-bt {position:absolute;top:236px;left:20px;right:20px;height:54px;}
@@ -483,7 +483,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         function typingTxt2() {
             const content = "내가 최근에 이체했던";
-            const additionalContent = " 홍수정에게<br> 같은 금액으로 이체해줘";
+            const additionalContent = " 홍수정에게<br> 같은 금액으로 이체해줘<br>";
             const text = document.querySelector('.typing2');
             const container = document.querySelector('.txt2');
             let i = 0;
@@ -499,24 +499,25 @@
                     i = 0;  // 인덱스 리셋
                     container.classList.add('on'); 
                     $('#pop2 .list').addClass('on');
-                    setTimeout(() => {
-                        typingAdditional();
-                    }, 2200);  // 1초 후 새로운 내용 추가 시작
+                    setTimeout(typingAdditional, 2200);
                 }
             }
 
             function typingAdditional() {
                 if (i < additionalContent.length) {
                     if (additionalContent.charAt(i) === '<') {
-                        text.innerHTML += additionalContent.slice(i, i + 4);
-                        i += 4;
+                        const tagEnd = additionalContent.indexOf('>', i);
+                        if (tagEnd !== -1) {
+                            text.innerHTML += additionalContent.slice(i, tagEnd + 1);
+                            i = tagEnd + 1;
+                        }
                     } else {
                         text.innerHTML += additionalContent.charAt(i);
                         i++;
                     }
                     setTimeout(typingAdditional, speed);
                 } else {
-                    $('#pop2 .list').addClass('on2');; // 타이핑 애니메이션이 끝난 후 클래스 추가
+                    $('#pop2 .list').addClass('on2'); // 타이핑이 끝나면 클래스 추가
                 }
             }
             typing2();  // 타이핑 애니메이션 시작
