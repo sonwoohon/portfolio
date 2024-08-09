@@ -57,10 +57,13 @@
         .mike.on {width:60px;height:60px;left:100%}
          /* 팝업 */
         .pop{position: fixed; bottom: -100%; left: 50%; transform: translateX(-50%); width: 375px; height: 100vh;z-index:100;background:rgba(0,0,0,.65);}
-        /* .pop1.on{bottom:0;display:flex !important; align-items: flex-end;} */
         .pop.on{bottom:0;display:flex !important; align-items: flex-end;}
         .pop.off{bottom:-100%}
         .pop .img {margin:20px -20px 0}
+        .pop .swiper.tab-btn{position:relative;cursor:pointer;box-sizing:border-box;letter-spacing:0;margin:0 -20px}
+        .pop .swiper.tab-btn::-webkit-scrollbar{display:none;}
+        .pop .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
+        .pop .swiper.tab-btn .swiper-slide{width:auto;padding:8px 12px;box-sizing:border-box;border-radius:15px;font-size:13px;font-weight:500;line-height:15px;color:#3B41ED;background-color:#fff;}
         .pop .mike2 {display:block;margin-top:24px}
         .pop .mike2 {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background:#5765FF;border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .pop .mike2 .icon {display:inline-block;width:24px;height:24px;vertical-align:middle;cursor:pointer}
@@ -79,10 +82,10 @@
         .pop .list.on {display:block;}
         .pop .list.on li {transform: translateY(0);}
         .pop .list li.img1 {animation: fadeIn 1s forwards;transform: translateY(100%);opacity: 0;}
-        .pop .list li.img2 {animation: fadeIn 1s forwards;animation-delay:.5s;transform: translateY(100%);opacity: 0;}
-        .pop .list li.img3 {animation: fadeIn 1s forwards;animation-delay:1s;transform: translateY(100%);opacity: 0;}
-        .pop .list li.img4 {animation: fadeIn 1s forwards;animation-delay:1.5s;transform: translateY(100%);opacity: 0;}
-        .pop .list li.img5 {animation: fadeIn 1s forwards;animation-delay:2s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img2 {animation: fadeIn 1s forwards;animation-delay:.7s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img3 {animation: fadeIn 1s forwards;animation-delay:1.2s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img4 {animation: fadeIn 1s forwards;animation-delay:1.7s;transform: translateY(100%);opacity: 0;}
+        .pop .list li.img5 {animation: fadeIn 1s forwards;animation-delay:2.2s;transform: translateY(100%);opacity: 0;}
         .pop .list.on li.img1 {transform: translateY(0);}
         .pop .list.on li.img2 {transform: translateY(0);}
         .pop .list.on li.img3 {transform: translateY(0);}
@@ -92,24 +95,65 @@
             from {opacity: 0;}
             to {opacity: 1;}
         }
-        .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg,  #EBF5FF 38.68%, #DCEEFF 100%);width:100%;max-height: 100%;padding:20px 20px 0;box-sizing:border-box}
+        .pop article {transform: translateY(100%);transition: all 0.5s ease;border-radius:12px 12px 0px 0px;background:linear-gradient(92deg, #EBF5FF 38.68%, #DCEEFF 100%);width:100%;max-height: 100%;padding:20px 20px 0;box-sizing:border-box}
         .pop.on article {transform: translateY(0);transition: all 0.5s ease;}
-        #pop2 article {transform:none}
-        
-
-        .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;}
-        .pop3 img{position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%); padding: 0 20px;}
-        .pop3 a{position: absolute;width: 135px;height: 52px;bottom: 30%;left: 13%;}
-
-        .pop .swiper.tab-btn{position:relative;cursor:pointer;box-sizing:border-box;letter-spacing:0;margin:0 -20px}
-        .pop .swiper.tab-btn::-webkit-scrollbar{display:none;}
-        .pop .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
-        .pop .swiper.tab-btn .swiper-slide{width:auto;padding:8px 12px;box-sizing:border-box;border-radius:15px;font-size:13px;font-weight:500;line-height:15px;color:#3B41ED;background-color:#fff;}
-
-      
-
-
-        
+        #pop2 article {position:relative;transform:none;height:598px}
+        .pop-txt {display:block;text-align:center;padding:140px 89px 0 89px;animation:fadeimg 1.3s forwards;}
+        .pop-txt img {width:100%}
+        .txt2 {position:absolute;text-align:center;top:160px;left:0;height:39px;width:100%;transition:all .4s;}
+        .txt2.on {display:block;top:364px;transition:all .4s;}
+        .txt2.on .typing2 {font-size:16px;font-weight:700;line-height:20px;}
+        .typing2 {position:relative;white-space:nowrap;animation-name:blink-caret2;font-size:33px;font-weight:700;line-height:39px;text-align:center;color:#3B41ED}
+        @keyframes blink-caret2 {
+            0% {border-color:transparent}
+            10% {border-color:transparent}
+            100% {border-color:transparent}
+        }
+        .txt2.on + .list {display:block;}
+        #pop2 .list.on li.img1 {transform: translateY(0);}
+        #pop2 .list.on li.img2 {transform: translateY(0);}
+        #pop2 .list.on li.img3 {transform: translateY(0);}
+        #pop2 .list.on li.img4 {transform: translateY(0);}
+        #pop2 .list.on li.img5 {transform: translateY(0);}
+        #pop2 .list {position:absolute;top:56px;left:20px;right:20px;height:39px;} 
+        #pop2 .list.on.on2 li.img1,
+        #pop2 .list.on.on2 li.img3,
+        #pop2 .list.on.on2 li.img4 {display:none}
+        #pop2 .list.on.on2 {top:272px;animation-delay:1.2s;}
+        #pop2 .sound {position:absolute;transform:translateX(-50%);left:50%;bottom:24px;width:160px;height:160px;}
+        #pop2 .sound .round {display:flex;border-radius:50%;width:100%;height:100%}
+        #pop2 .sound .round1 {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);display:block;width:85px;height:85px;border-radius:50%;z-index:5}
+        #pop2 .sound .round1 img {width:100%;}
+        #pop2 .sound .round2 {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);display:block;border-radius:50%;z-index:4;background:linear-gradient(113deg, #5765FF37.75%, #1D74E879.29%);animation: scale1 1s linear infinite;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);}
+        #pop2 .sound .round3 {position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);display:block;width:131px;height:131px;border-radius:50%;z-index:3;background:linear-gradient(113deg, #5765FF37.75%, #1D74E879.29%);animation: scale2 1s linear infinite;backdrop-filter:blur(5px);}
+        @keyframes scale1 {
+            0% {width:101px;height:101px;opacity:.2}
+            100% {width:131px;height:131px;opacity:.1;}
+        }
+        @keyframes scale2 {
+            0% {width:131px;height:131px;opacity:.15}
+            100% {width:160px;height:160px;opacity:0;}
+        }
+        .pop-close {position:absolute;top:20px;right:20px;width:24px;height:24px}
+        /* .pop3{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 375px;height: 100vh;background: rgba(0, 0, 0, 0.65); display: none;} */
+        #pop3 article {position:relative;transform:none;height:598px;padding:0}
+        #pop3.on .press {position:absolute;top:144px;left:77px;}
+        #pop3.on .press ul {width:220px;height:20px;}
+        #pop3.on .press ul li {float:left;width:20px;height:20px;border-radius:50%;opacity: 0;animation:slideIn 2s .5s forwards;}
+        #pop3.on .press ul li + li {margin-left:20px}        
+        #pop3.on .press li:nth-child(1) {animation-delay:.1s;background:#5765FF}
+        #pop3.on .press li:nth-child(2) {animation-delay:.4s;background:#5765FF}
+        #pop3.on .press li:nth-child(3) {animation-delay:.8s;background:#5765FF}
+        #pop3.on .press li:nth-child(4) {animation-delay:1.2s;background:#5765FF}
+        #pop3.on .press li:nth-child(5) {animation-delay:1.6s;background:#5765FF}
+        #pop3.on .press li:nth-child(6) {animation-delay:2s;background:#5765FF}
+        @keyframes slideIn {
+            from {opacity: 0; }
+            to {opacity: 1; }
+        }
+        #pop3.on .pop4-bt {position:absolute;top:236px;left:20px;right:20px;height:54px;}
+        #pop4.on{ align-items:center;padding:0 28px}
+        #pop4.on .pop-close {position:absolute;top:79%;right:20px;left:20px;width:auto;height:58px;}
     </style>
 </head>
 <body>
@@ -117,7 +161,7 @@
        
         <div class="page-wrap ai">
             <div class="img-wrap set">
-                <a href="ai-set.html"></a>
+                <!-- <a href="ai-set.html"></a> -->
                 <img src="./images/ai/ai-img1.jpg" alt=""> 
             </div>
             <div class="tab_menu">
@@ -176,12 +220,6 @@
                    <div><img src="./images/ai/ai-img6.png" alt=""></div> 
                 </div>    
             </div>
-            <!-- <div class="accordion">
-                <a href="#none" class="folding-btn"><img src="./images/ai/ai-img5.jpg" alt=""></a>
-                <div class="folding-panel">
-                   <div><img src="./images/ai/ai-img6.jpg" alt=""></div> 
-                </div>    
-            </div> -->
             <div class="img-wrap">
                 <img src="./images/ai/ai-img4.jpg" alt=""> 
             </div>
@@ -223,7 +261,7 @@
             </ul>
         </nav>
     </div>
-    <div class="pop" id="pop1" style="" >
+    <div class="pop" id="pop1">
         <article> 
             <div class="section sec1">
                 <div class="swiper tab-btn">
@@ -253,19 +291,60 @@
                     </div>
                 </div>
                 <div class="img"><img src="./images/ai/ai-key.jpg" alt=""></div>
-                
             </div>
         </article>
     </div>
-    <div class="pop" id="pop2"style="" >
-        <article> 
-            
+
+    <div class="pop" id="pop2">
+        <article>  
+            <div class="pop-txt"><img src="./images/ai/ai-txt.png" alt=""></div>
+            <div class="txt2">
+                <span class="typing2"></span>
+            </div>
+            <div class="list">
+                <ul>
+                    <li class="img1"><img src="./images/ai/ai-list1.jpg" alt=""></li>
+                    <li class="img2"><a href="#pop3" class="pop-open3"><img src="./images/ai/ai-list2.jpg" alt=""></a></li>
+                    <li class="img3"><img src="./images/ai/ai-list3.jpg" alt=""></li>
+                    <li class="img4"><img src="./images/ai/ai-list4.jpg" alt=""></li>
+                </ul>
+            </div>
+            <div class="sound">
+                <a href="#" class="round" id="sBtn">
+                    <span class="round1"><img src="./images/ai/ai_sound.png" alt=""></span>
+                    <span class="round2"></span>
+                    <span class="round3"></span>
+                </a>
+            </div>
+            <a href="#" class="pop-close"><img src="./images/ai/icon_close.png" alt=""></a>
         </article>
     </div>
-    <!-- <div class="pop3"> onclick="$('.pop').addClass('on')"
-        <img src="./images/financial/bn.png" alt="">
-        <a href="#none" onclick="$('.pop3').fadeOut(300);$('.pop2').removeClass('on');$('.num3').click();"></a>
-    </div> -->
+
+    <div class="pop" id="pop3">
+        <article>  
+            <div class="img-wrap">
+                <div class="press">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <a href="#pop4" class="pop-open4 pop4-bt"></a>
+                <img src="./images/ai/ai-pop-pass.png" alt="">
+            </div> 
+            <a href="#" class="pop-close"><img src="./images/ai/icon_close.png" alt=""></a>
+        </article>
+    </div>
+    <div class="pop" id="pop4">
+        <div class="img-wrap">
+            <img src="./images/ai/ai-pop-finish.png" alt="">
+            <a href="#" class="pop-close"></a>
+        </div>
+    </div>
 
     <script src="./res/ibk-com.js"></script>
     <script>
@@ -318,6 +397,8 @@
             e.preventDefault();
             $('#pop1').addClass('on');
             $('#pop2').removeClass('on');
+            $('#pop3').removeClass('on');
+            $('#pop4').removeClass('on');
             $('body').css('overflow','hidden');
         });
         $(document).on('click','.pop-open2',function(e) {
@@ -325,6 +406,27 @@
             e.preventDefault();
             $('#pop1').removeClass('on');
             $('#pop2').addClass('on');
+            $('#pop3').removeClass('on');
+            $('#pop4').removeClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-open3',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('#pop1').removeClass('on');
+            $('#pop2').removeClass('on');
+            $('#pop3').addClass('on');
+            $('#pop4').removeClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-open4',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            console.log('aaa');
+            $('#pop1').removeClass('on');
+            $('#pop2').removeClass('on');
+            $('#pop3').removeClass('on');
+            $('#pop4').addClass('on');
             $('body').css('overflow','hidden');
         });
         $(document).on('click','.pop-close',function(e) {
@@ -340,10 +442,9 @@
             $(this).find('.typing').addClass('on');
             $(this).parents('.mike2').addClass('on')
 	    });
-        
-
     }
     popUI();
+
     const swiperTab = new Swiper('.tab-btn', {
         slidesPerView: 'auto',
         freeMode: true,
@@ -352,8 +453,8 @@
         slidesOffsetBefore: 20
        
     });
-    
-   function typingTxt() {
+
+    function typingTxt() {
         const content = "내가 최근에 이체했던";
         const text = document.querySelector(".typing");
         let i = 0;
@@ -366,19 +467,66 @@
                     setTimeout(typing, speed);
             } else {
                 $('.swiper').css('display', 'none') 
-                $('.list').addClass('on')
+                $('#pop1 .list').addClass('on')
             }
         }
         typing(); // 타이핑 효과 시작
     }
-    $('#startTyping').on('click', function(event) {
-        event.preventDefault(); // 기본 링크 동작 방지
+    $('#startTyping').on('click', function(e) {
+        e.preventDefault(); // 기본 링크 동작 방지
         const $text = $('.typing');
         if ($text.text() === "") { // 텍스트가 비어있을 때만 타이핑 효과 시작
             typingTxt();
         }
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+        function typingTxt2() {
+            const content = "내가 최근에 이체했던";
+            const additionalContent = " 홍수정에게<br> 같은 금액으로 이체해줘";
+            const text = document.querySelector('.typing2');
+            const container = document.querySelector('.txt2');
+            let i = 0;
+            const speed = 80;
+
+            function typing2() {
+                if (i < content.length) {
+                    text.innerHTML += content.charAt(i);
+                    i++;
+                    setTimeout(typing2, speed);
+                    $('.pop-txt').css('display','none')
+                } else {
+                    i = 0;  // 인덱스 리셋
+                    container.classList.add('on'); 
+                    $('#pop2 .list').addClass('on');
+                    setTimeout(() => {
+                        typingAdditional();
+                    }, 2200);  // 1초 후 새로운 내용 추가 시작
+                }
+            }
+
+            function typingAdditional() {
+                if (i < additionalContent.length) {
+                    if (additionalContent.charAt(i) === '<') {
+                        text.innerHTML += additionalContent.slice(i, i + 4);
+                        i += 4;
+                    } else {
+                        text.innerHTML += additionalContent.charAt(i);
+                        i++;
+                    }
+                    setTimeout(typingAdditional, speed);
+                } else {
+                    $('#pop2 .list').addClass('on2');; // 타이핑 애니메이션이 끝난 후 클래스 추가
+                }
+            }
+            typing2();  // 타이핑 애니메이션 시작
+        }
+
+        const sBtn = document.getElementById('sBtn');
+        sBtn.addEventListener('click', typingTxt2);
+    }); 
+
+   
     
     </script>
   
