@@ -82,16 +82,17 @@ body *{font-family: 'Pretendard', sans-serif;}
 .container .page-wrap.type2{padding:40px 20px 150px; background-color: #F4F4F4;}
 
 /* 상단 알림 */
-.alram-box{position: relative;display: flex; justify-content: space-between; padding: 16px 20px;align-items: center;} 
-.alram-box img:nth-child(1){width: 28px; height: 28px;}
-.alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: left; animation:  alramBanner1 0.5s cubic-bezier(0.1, 0.5, 0.22, 1) forwards,alramBanner2 .7s 0.3s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
-.alram-box img:nth-child(3){width: 72px; height: 28px; margin-left: auto;}
-.wallet{position: absolute;top: 15px;right: 60px;width: 40px;height: 32px;}
-.allmenu{position: absolute;top: 15px;right: 15px;width: 40px;height: 32px;}
+.alram-box{position: relative;display: flex; justify-content: space-between; padding: 16px 20px 10px;align-items: center;} 
+.alram-box .toggle-tab a{font-size: 12px; padding: 6px 10px; line-height: 100%;}
+.alram-box img:nth-child(2){width: 130px;height: 24px; transform-origin: right; margin-right:-13px;animation:alramBanner1 0.5s cubic-bezier(0.1, 0.5, 0.22, 1) forwards,alramBanner2 .7s 0.3s cubic-bezier(0.1, 0.5, 0.22, 1) infinite; opacity: 0;}
+.alram-box img:nth-child(3){width: 104px; height: 28px;}
+.alram-box .benefit{position: absolute;top: 15px;right: 95px;width: 31px;height: 32px;}
+.alram-box .wallet{position: absolute;top: 15px;right: 56px;width: 31px;height: 32px;}
+.alram-box .allmenu{position: absolute;top: 15px;right: 16px;width: 31px;height: 32px;}
 @keyframes banner{0%{opacity: 0;}100%{opacity: 1;}}
 @keyframes alramBanner1{
-    0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(355deg)}
-    100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(361deg);transition: 0.5s;}
+    0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(6deg)}
+    100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(0deg);transition: 0.5s;}
 }
 @keyframes alramBanner2{
     0%, 100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}
@@ -126,8 +127,47 @@ nav ul li a i.assets.on{background: url(../images/nav-assets-on.png) no-repeat c
 
 /* 토글 탭 */
 .toggle-tab{display: flex;justify-content: center;align-items: center;background: #F7F7F7;border-radius: 20px;}        
-.toggle-tab a {display: block; color: #9F9F9F; padding: 7.5px 17.5px; border-radius:20px; font-size: 14px; font-weight: 700; line-height: 17px; transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);}
+.toggle-tab a {display: block; color: #9F9F9F; padding: 7.5px 17.5px; border-radius:20px; font-size: 14px; font-weight: 700; letter-spacing: -0.12px; line-height: 17px; transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);}
 .toggle-tab div.active a{background-color: #114287; color: #fff;}
 
 .scroll::-webkit-scrollbar {display: none;}
 .scroll {-ms-overflow-style: none; /* 인터넷 익스플로러 */scrollbar-width: none; /* 파이어폭스 */}
+
+
+/* 로딩 */
+.center-lo{display: none; width:50%;margin: 0 auto;text-align: center;position: absolute;top: 150px;left: 50%;transform: translate(-50%, -50%);z-index: 100;}
+.center-lo.on{display: block;}
+.dot{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 50%;
+  
+    animation: loding 1s 0s linear infinite;
+  }
+  
+  .dot:nth-child(1){
+    background-color: red;
+    animation-delay: 0s;
+  }
+  .dot:nth-child(2){
+    background-color: orange;
+    animation-delay: 0.2s;
+  }
+  .dot:nth-child(3){
+    background-color: yellowgreen;
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes loding {
+    0%,
+    100%{
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50%{
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }

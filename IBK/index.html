@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="./res/ibk-com.css">
 
     <script src="./res/jquery-3.6.4.min.js"></script>
-    <title>홈</title>
+    <title>홈/기본</title>
     <style>
         .container .page-wrap {padding: 20px 20px 0px;}
-
         .banner{position: relative; height: 334px; background-color: #F38C32; border-radius: 12px; margin-bottom: 23px;}
         .banner p{font-size:20px;font-weight:700;line-height:30px;padding-top:40px;color: #fff; text-align: center;}
         .banner button{position: absolute; top: 24px; right: 20px; width: 20px; height: 20px; background: url(./images/home/home-close.png) no-repeat; background-size: cover; }
@@ -60,17 +59,25 @@
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
         .update{display: inline-block; width: 20px; vertical-align: middle; margin-top: 7px;}
-        .transfer{position: absolute;width: 82px;height: 38px;right: 19px;top: 90px; z-index: 2;}
+        .home-cardlist .transfer{position: absolute;width: 82px;height: 38px;right: 19px;top: 90px; z-index: 2;}
+        .banklist-box .transfer{position: absolute;width: 70px;height: 40px;top: 90px;right: 20px;}
+        .update-wrap{position: relative;}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="alram-box">
-            <a href="./benefit.html">
-                <img src="./images/home-icon1.png" alt="">
-            </a>
+            <div class="toggle-tab ui-tab">
+                <div class="active">
+                    <a href="#tab1">홈</a>
+                </div>
+                <div>
+                    <a href="#tab2">큰글씨</a>
+                </div>
+            </div>
             <img src="./images/home-icon2.png" alt="">
             <img src="./images/home-icon3.png" alt="">
+            <a href="./benefit.html" class="benefit"></a>
             <a href="./wallet.html" class="wallet"></a>
             <a href="./menu.html" class="allmenu"></a>
         </div>
@@ -168,21 +175,29 @@
             </button>
             <img src="./images/home/home-btn3.png" class="interaction" alt="" style="margin-top: 20px; margin-bottom: 40px;">
 
-            <div class="interaction mgb40">
+            <div class="interaction">
                 <img src="./images/home/home-ex.png" alt="" >
+            </div>
+            <div class="interaction mgt20 mgb40">
+                <img src="./images/home/home-ex0.png" alt="" >
             </div>
         </div>
         <div class="page-wrap type2">
 
             <div class="interaction">
-                <img src="./images/home/home-txt1.png" alt="">
+                <img src="./images/home/home-txt1.png" alt="" width="317">
                 <img src="./images/home/home-txt2.png" alt="" class="mgt10" style="width: 186px;">
                 <a href="#none" class="update"><img src="./images/home/home-update.png" alt=""></a>
             </div>
             <div class="update-wrap">
-                <d iv class="mgt40 interaction">
+                <div class="center-lo">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="mgt40 interaction">
                     <img src="./images/home/home-ex1.png" alt="" class="mgb15">
-                </d>
+                </div>
                 <div class="interaction">
                     <img src="./images/home/home-ex2.png" alt="" class="mgb15">
                 </div>
@@ -270,6 +285,7 @@
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
+                <a href="./transfer.html" class="transfer"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex2.png" alt="">
@@ -277,24 +293,28 @@
                     <span>0</span><span id="num-unit"></span>
                 </div>
                 <a href="./financial.html" class="move"></a>
+                <a href="./transfer.html" class="transfer"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex3.png" alt="">
                 <div class="nums" data-count="650000" data-dealy="1100">
                     <span>0</span><span id="num-unit"></span>
                 </div>
+                <a href="./transfer.html" class="transfer"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex4.png" alt="">
                 <div class="nums" data-count="500000" data-dealy="1600">
                     <span>0</span><span id="num-unit"></span>
                 </div>
+                <a href="./transfer.html" class="transfer"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex5.png" alt="">
                 <div class="nums" data-count="150000" data-dealy="2000">
                     <span>0</span><span id="num-unit"></span>
                 </div>
+                <a href="./transfer.html" class="transfer"></a>
             </div>
             <div class="banklist-box">
                 <img src="./images/home/home-pop-ex6.png" alt="">
@@ -339,7 +359,7 @@
 
     }
     //숫자 카운트 애니메이션
-        function count() {
+        function count() { 
             $('.nums').each(function() {
             const   $this = $(this),
                     countTo = $this.attr('data-count');
@@ -366,8 +386,29 @@
                 });
         }
         count(); 
+
         //update 
-        
+        document.querySelector('.update').addEventListener('click', function (e) {
+            e.preventDefault();
+                const updateWraps = document.querySelectorAll('.update-wrap .interaction');
+                const loding = document.querySelector('.center-lo'); 
+                const body = document.querySelector('body');
+
+                setTimeout(function()  {
+                    loding.classList.add('on');
+                    body.style.overflow = 'hidden';
+                }, 500);
+                
+                updateWraps.forEach( function(element) {
+                    element.classList.remove('on');
+                    setTimeout(function()  {
+                        element.classList.add('on');
+                        loding.classList.remove('on');
+                        body.style.overflow = '';
+                    }, 2000);
+                })
+                
+            })
     </script>
 </body>
 </html>
