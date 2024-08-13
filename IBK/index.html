@@ -42,7 +42,7 @@
         .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/home/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
         .nums{font-size: 26px; font-weight: 700; color: #fff;}
         .nums .one{font-size: 16px; font-weight: 500;}
-        .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing: 1px;width: 145px;text-align: right;white-space: nowrap;    transition-delay: 2s;}
+        .home-cardlist .nums{position: absolute;top: 92px;left: 20px;letter-spacing:-0.5px;width: 145px;text-align: right;white-space: nowrap;    transition-delay: 2s;}
         .dim{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.8; z-index: 100; display: none;}
         .popup{position: fixed;top: 0;left: 50%;width: 376px;height: 100%;transform: translateX(-50%);padding: 60px 20px 0px;z-index: 101; overflow-y: scroll; scrollbar-width: none;display: none;}
         .popup .pop-cont{position: relative; text-align: center;}
@@ -50,11 +50,11 @@
         .popup .pop-close{display: block;width: 100%;height: 28px;background: url(./images/home/home-pop-close.png) center no-repeat;background-size: 28px auto;margin: 50px 0 60px;text-align: center;}
         .banklist-box{position: relative; margin-top: 12px;transition:all 0.4s; animation: banklist 1s forwards;}
         .banklist-box:nth-of-type(1){z-index: 10;}
-        .banklist-box:nth-of-type(2){z-index: 9;  transform: translateY(-225px);}
-        .banklist-box:nth-of-type(3){z-index: 8;  transform: translateY(-385px);}
-        .banklist-box:nth-of-type(4){z-index: 7;  transform: translateY(-543px);}
-        .banklist-box:nth-of-type(5){z-index: 6;  transform: translateY(-702px);}
-        .banklist-box:nth-of-type(6){z-index: 5;  transform: translateY(-861px);}
+        .banklist-box:nth-of-type(2){z-index: 9; transform: translateY(-225px);}
+        .banklist-box:nth-of-type(3){z-index: 8; transform: translateY(-385px);}
+        .banklist-box:nth-of-type(4){z-index: 7; transform: translateY(-543px);}
+        .banklist-box:nth-of-type(5){z-index: 6; transform: translateY(-702px);}
+        .banklist-box:nth-of-type(6){z-index: 5; transform: translateY(-861px);}
         .banklist-box .nums{position: absolute;top: 95px;left: 18px; font-size: 24px;}
         .banklist-box .move{position: absolute;width: 100%;height: 40px;left: 0;bottom: 25px;}
         @keyframes banklist{to{transform: unset; margin-top: 12px;}}
@@ -398,7 +398,7 @@
                     loding.classList.add('on');
                     body.style.overflow = 'hidden';
                 }, 500);
-                
+
                 updateWraps.forEach( function(element) {
                     element.classList.remove('on');
                     setTimeout(function()  {
