@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상품 - 예적금 청약</title>
+    <title>상품 - 예적금/청약</title>
     <link rel="stylesheet" href="./res/ibk-com.css">
     <link rel="stylesheet" href="./res/swiper-bundle.min.css">
     <script src="./res/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <style>
+        .container{background:#F4F4F4;}
+        .inner{padding:24px 20px 78px 20px;}
         .wallet-box{position: relative;}
         .wallet-box a{position: absolute;width: 40px;height: 40px;top: 10px;left: 10px;}
-        .inner{padding:24px 20px 78px 20px;background:#F4F4F4;}
-        .tab-content img + img{margin-top:48px}
         /* Swiper - 탭 메뉴  */
-        .swiper.tab-btn{position:relative;width:100%;padding:20px;box-sizing:border-box;letter-spacing:0;font-size:0;display:flex;white-space:nowrap;box-sizing:border-box;overflow-x:auto;scroll-behavior:smooth;}
+        .swiper.tab-btn{position:relative;width:100%;padding:20px;box-sizing:border-box;letter-spacing:0;font-size:0;display:flex;white-space:nowrap;box-sizing:border-box;overflow-x:auto;scroll-behavior:smooth;background:#FFFFFF;}
         .swiper.tab-btn::-webkit-scrollbar{display:none;}
         .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
         .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
         .tab-contents .tab-content{display:none;}
         .tab-contents .tab-content.active{display:block;}
+        .tab-contents .tab-content img + img{margin-top:48px}
     </style>
 </head>
 <body>
