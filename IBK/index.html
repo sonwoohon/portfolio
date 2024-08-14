@@ -27,16 +27,16 @@
         .modalbox-wrap .modalbox:nth-of-type(4){z-index: 7;}
         .modalbox-wrap .modalbox:nth-of-type(5){z-index: 6;}
         .modalbox-wrap .modalbox.on{background-color: #E6F3FF !important; opacity: 1 !important; transition: 0.5s; left: 0; transform: unset;}  
-        .modalbox-wrap .modalbox.on:nth-of-type(2){top: 90px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(3){top: 180px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(4){top: 270px;}
-        .modalbox-wrap .modalbox.on:nth-of-type(5){top: 360px;}
+        .modalbox-wrap .modalbox.on:nth-of-type(2){top: 87px;}
+        .modalbox-wrap .modalbox.on:nth-of-type(3){top: 174px;}
+        .modalbox-wrap .modalbox.on:nth-of-type(4){top: 261px;}
+        .modalbox-wrap .modalbox.on:nth-of-type(5){top: 348px;}
         .modalbox-wrap .modalbox .modalbox_cont > div{display:flex;align-items:center;justify-content:flex-start;}
         .modalbox-wrap .modalbox .modalbox_cont .img{width: 41px;}
         .modalbox-wrap .modalbox .modalbox_cont .txt{font-size: 15px; margin-left: 12px;}
         .modalbox-wrap .modalbox .modalbox_cont strong{display: inline-block;color: #0F53A8; font-weight: 700;}
         .modalbox-wrap > button{position: absolute; top: 0px; width: 100%; background-color: #F5F5F5; padding: 12px 10px;transition: 0.5s; opacity: 0; cursor: pointer;}
-        .modalbox-wrap > button.on{display: block; position: absolute; width: 331px;height: 39px; top: 450px; opacity: 1; background: url(./images/home/home-btn2.png) no-repeat center / contain;}
+        .modalbox-wrap > button.on{display: block; position: absolute; width: 331px;height: 39px; top: 435px; opacity: 1; background: url(./images/home/home-btn2.png) no-repeat center / contain;}
         .modalbox-wrap .modalbox > button{width: 100%; color: #5E8FC0; border-top: 1px solid #C8E3FF; font-size: 12px; font-weight: 500; margin-top: 11px; padding-top: 11px; background: transparent;cursor: pointer; transition: 0.5s;}
         .modalbox-wrap .modalbox > button::after{content:"";display:inline-block;width:14px;height:14px;margin-left:11px;background:url(./images/home/icon.png) no-repeat;background-size:contain;vertical-align:bottom;}
         .nums{font-size: 26px; font-weight: 700; color: #fff;}
@@ -338,7 +338,7 @@
             element.classList.add('on');
         });
         this.style.display = 'none';
-        document.querySelector('.modalbox-wrap').style.height = '517px';
+        document.querySelector('.modalbox-wrap').style.height = '494px';
         document.querySelector('.modalbox-wrap > button').classList.add('on');
     })
 
@@ -347,7 +347,7 @@
             element.classList.remove('on');
         });
         this.classList.remove('on')
-        document.querySelector('.modalbox-wrap').style.height = '157px';
+        document.querySelector('.modalbox-wrap').style.height = '151px';
         document.querySelector('.modalbox > button').style.display = 'block';
     })
 
@@ -357,8 +357,8 @@
         element.style.height = '0'
         element.style.opacity = '0'; // 높이를 0으로 설정
         element.style.marginBottom = '0'
-
     }
+    
     //숫자 카운트 애니메이션
         function count() { 
             $('.nums').each(function() {
