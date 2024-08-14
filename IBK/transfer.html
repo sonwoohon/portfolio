@@ -5,306 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./res/ibk-com.css">
     <script src="./res/jquery-3.6.4.min.js"></script>
-    <title>전체메뉴</title>
+    <title>송금</title>
     <style>
-        .container .page-wrap{padding: 20px 20px 0;}
-        /* 요약 */
-        .collection-wrap{position: relative;display: flex;justify-content: center;}
-        .collection-wrap .menu-tab-wrap{display: flex;justify-content: center;align-items: center;height: 32px; background: #F7F7F7;border-radius: 20px;}
-        .collection-wrap .search{position:absolute; width:24px; height:24px; top: 50%; right: 0; transform: translateY(-50%); background: url(./images/menu/search.png)no-repeat ; background-size: cover;}
-        .collection-wrap .back{position:absolute; width:24px; height:24px; top: 50%; left: 0; transform: translateY(-50%); background: url(./images/menu/back.png)no-repeat ; background-size: cover;}
+        .container .page-wrap{padding:0}
+        .transfer-box {position:relative}
+        .transfer-box a{position:absolute;top:10px;left:15px;width:35px;height:35px;}
+        /* .toggle-tab {margin-top:20px} */
+        .btqr {position:absolute;right:20px;width:64px;height:32px}
+        .btqr img {width:100%}
+        .collection-wrap{position:relative;display: flex;justify-content:flex-start;padding:0 20px;margin-top:20px}
+        .tsearch {position:relative;}
+        .tsearch a {position:absolute;top:21%;left:20px;right:20px;height:38px;}
         
-        .collection-wrap .menu-tab-wrap a {display: block; color: #9F9F9F; padding: 6px 16px; border-radius:20px;}
-        .collection-wrap .menu-tab-wrap div.active a{background-color: #114287; color: #fff; font-weight: 700; transition: all 0.7s;}
-        .collection-wrap + div{    margin: 30px -20px 0; border-bottom: 1px solid #E5E8EC;}
-        .gray-box-wrap{position: relative; padding: 8px 20px; border-radius: 12px; background-color: #F7F7F7; margin-top: 18px;}
-        .tab-panel.summary{margin-top:40px; padding-bottom: 95px;}
-        .tab-panel.summary .gray-box-wrap > .box{display: flex; justify-content: space-between;align-items: center; border-bottom: 1px solid #E5E8EC; padding: 12px 0;}
-        .tab-panel.summary .gray-box-wrap > .box:last-child{border-bottom: 0;}
-        .tab-panel.summary .gray-box-wrap .box span{font-size: 15px; font-weight: 500; line-height: 20px;}
+        .gray-box-wrap{position:absolute;top:44px;width:100%;}
+        .tab-panel.summary{position:relative;margin:0 20px }
+        .tab-panel.summary .gray-box-wrap > .box{position:relative;display: flex;width:100%;justify-content: space-between;align-items: center;height:36px;margin-bottom:24px;}
+        .tab-panel.summary .gray-box-wrap .box a{display:block;height:100%;width:90%;}
+        .tab-panel.summary .gray-box-wrap .box span{display:block;height:100%;width:90%;}
         .tab-panel.summary .gray-box-wrap .box i.star{width: 20px; height: 20px; background: url(./images/menu/star.png) no-repeat center / contain; cursor: pointer;}
         .tab-panel.summary .gray-box-wrap .box i.star.on{background: url(./images/menu/star-on.png) no-repeat center / contain;}
-        .tab-panel.summary .gray-box-wrap .box i.up{width: 47px; height: 22px; background: url(./images/menu/label.png) no-repeat center / contain; margin-left: 8px; margin-right: auto;}
+        
+        .img-wrap {display:block !important;} 
+        .img-wrap.img {margin-top:24px}
+        .img-wrap.img2 a {position:absolute;width:100%;top:-10px;height:52px}
+
+         /* 팝업 */
+        .pop{position:fixed;bottom:-100%;left:50%;transform:translateX(-50%);width:375px;height:100vh;z-index:100;background:rgba(0,0,0,.65);}
+        .pop.on{bottom:0;display:flex !important; align-items: flex-end;}
+        .pop.full.on {display:block !important;background:#fff;}
+        .pop-close {position:absolute;top:20px;right:20px;width:24px;height:24px}
     
-        /* 전체 */
-        .depth {display: flex; max-height:  770px; margin: 0 -20px;}
-        .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
-        .depth-1 ul{display: flex; flex-direction: column;}
-        .depth-1 ul li{padding: 14px 20px; white-space: nowrap;}
-        .depth-1 ul li a{display: inline-block; color: #fff; opacity: 0.6;}
-        .depth-1 ul li a.on{color: #fff; font-weight: 700; opacity: 1;}
-        .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png) no-repeat center / contain; vertical-align: sub; margin-right: 4px;}
-        .depth-1 ul li:nth-of-type(2) a::before{background: url(./images/menu/icon-1.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(3) a::before{background: url(./images/menu/icon-2.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(4) a::before{background: url(./images/menu/icon-3.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(5) a::before{background: url(./images/menu/icon-4.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(6) a::before{background: url(./images/menu/icon-5.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(7) a::before{background: url(./images/menu/icon-6.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(8) a::before{background: url(./images/menu/icon-7.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(9) a::before{background: url(./images/menu/icon-8.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(10) a::before{background: url(./images/menu/icon-9.png) no-repeat center / contain;}
-        .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-10.png) no-repeat center / contain;}
-        .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px; scrollbar-width: none;}
-        .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
-        .depth-2 ul > li{    border-bottom: 1px solid #F7F7F7;}
-        .depth-2 ul li a{position: relative; display:block; padding: 20px 0; font-weight: 700;}
-        .depth-2 ul li a.on{ color: #1D74E8;}
-        .depth-2 .accordion > a::after{content: ""; position: absolute; width: 14px; height: 14px; background: url(./images/menu/icon-up.png);top:50%;right:0;transform: translateY(-50%) rotate(180deg);}
-        .depth-2 .accordion > a.open::after{transform: translateY(-50%);}
-        .depth-3.folding-panel{display: none;}
-        .depth-3.folding-panel.open{display: block;}
-        .depth-3 ul li{ border-bottom: 0;}
+       
     </style>
 </head>
 <body>
     <div class="container">
         <div class="page-wrap">
+            <div class="transfer-box">
+                <img src="./images/transfer/transfer-tit.jpg" alt="">
+                <a href="./index.html"></a>
+            </div>
             <div class="collection-wrap">
-                <a href="./index.html" class="back"></a>
-                <div class="menu-tab-wrap ui-tab">
+                <div class="toggle-tab ui-tab">
                     <div class="active">
-                        <a href="#tab1">요약</a>
+                        <a href="#tab1">계좌</a>
                     </div>
                     <div>
-                        <a href="#tab2" onclick="$('.depth-2').animate({ scrollTop: 780 }, 500);">전체</a>
+                        <a href="#tab2">연락처</a>
                     </div>
                 </div>
-                <a href="./menu-search.html" class="search"></a>
+                <a href="./qr.html" class="btqr"><img src="./images/transfer/transfer-qr.jpg" alt=""></a>
             </div>
-            <div class="t-center">
-                <img src="./images/menu/group1.png" alt="">
+            <div class="tsearch">
+                <a href="#pop1" class="pop-open"></a>
+                <img src="./images/transfer/transfer-search.jpg" alt="">
             </div>
             <div id="tab1" class="tab-panel summary active">
-                <img src="./images/menu/tit1.png" alt="" style="width: 135px;">
                 <div class="gray-box-wrap">
                     <div class="box">
-                        <span>계좌이체</span>
+                        <a href="./transfer2.html"></a>
                         <i class="star on" aria-label="별"></i>
                     </div>
                     <div class="box">
-                        <span>공과금납부</span>
-                        <i class="star" aria-label="별"></i>
-                    </div>
-                    <div class="box">
-                        <span>자동이체</span>
-                        <i class="star" aria-label="별"></i>
-                    </div>
-                    <div class="box">
-                        <span>환전</span>
+                        <span></span>
                         <i class="star" aria-label="별"></i>
                     </div>
                 </div>
-
-                <img src="./images/menu/tit2.png" alt="" class="mgt50" style="width: 153px;">
-                <div class="gray-box-wrap">
-                    <div class="box">
-                        <span>청년도약계좌</span>
-                        <i class="up" aria-label="급상승"></i>
-                    </div>
-                    <div class="box">
-                        <span>신용점수올리기</span>
-                        <i class="up" aria-label="급상승"></i>
-                    </div>
-                    <div class="box">
-                        <span>한도변경</span>
-                    </div>
-                    <div class="box">
-                        <span>포인트 조회/전환</span>
-                    </div>
-                    <div class="box">
-                        <span>예금해지</span>
-                    </div>
-                </div>  
+                <img src="./images/transfer/transfer-img1.png" alt="">
+                <div class="img-wrap img">
+                    <img src="./images/transfer/transfer-img2.jpg" alt="">
+                </div>
             </div>
-            <div id="tab2" class="tab-panel all">
-                <div class="depth">
-                    <div class="depth-1">
-                        <ul>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none" >이체</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">고객센터</a></li>
-                        </ul>
-                    </div>
-                    <div class="depth-2">
-                        <ul class="panel">
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                            <li><a href="#none">조회</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">이체</a></li>
-                            <li><a href="#none">지연이체</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li class="accordion">
-                                <a href="#none" class="on folding-btn open">자동이체</a>
-                                <div class="depth-3 folding-panel open">
-                                    <ul>
-                                        <li><a href="#none">자동이체 신청/변경</a></li>
-                                        <li><a href="#none">자동이체 이력조회</a></li>
-                                    </ul>
-                                </div>    
-                            </li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">톡톡송금</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">자동이체 신청/변경</a></li>
-                                        <li><a href="#none">자동이체 이력조회</a></li>
-                                    </ul>
-                                </div> 
-                            </li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">빠른이체</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">자동이체 신청/변경</a></li>
-                                        <li><a href="#none">자동이체 이력조회</a></li>
-                                    </ul>
-                                </div> 
-                            </li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">메세지송급</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">자동이체 신청/변경</a></li>
-                                        <li><a href="#none">자동이체 이력조회</a></li>
-                                    </ul>
-                                </div> 
-                            </li>
-                            <li><a href="#none">이체관리</a></li>
-                            <li><a href="#none">ATM출금</a></li>
-                            <li><a href="#none">오픈뱅킹</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                            <li><a href="#none">공과금</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">카드</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                            <li><a href="#none">외환</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                            <li><a href="#none">자산관리</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">혜택</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                            <li><a href="#none">생활서비스</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                            <li><a href="#none">마지막</a></li>
-                        </ul>
-                    </div>
-                </div>    
+            <div id="tab2" class="tab-panel summary">
+                <div class="img-wrap img2">
+                    <a href="./transfer2.html"></a>
+                    <img src="./images/transfer/transfer-img3.png" alt="">
+                </div>
             </div>
         </div>
+    </div>
+    <div class="pop full" id="pop1">
+        <img src="./images/transfer/transfer-fimg1.jpg" alt="">
+        <a href="#" class="pop-close"><img src="./images/ai/icon_close.png" alt=""></a>
     </div>
     <script src="./res/ibk-com.js"></script>
     <script>
@@ -319,41 +101,54 @@
                 }
             })
         });
-        // 해당영역과 동일한 index에 "on" 추가 
-        $(".depth-2").on('scroll', function(){ 
-            setTimeout(() => {
-                const index = $(this).find(".panel").index();
-                const $idx2 = $('.depth-2 .panel').eq(1).scrollTop().top
-
-                $(".depth-2 .panel").each( function(index){
-                        if( Math.floor($(".depth-2").offset().top) >= Math.floor($(".depth-2 .panel").eq(index).offset().top -20) ){ 
-                        $(this).closest('.depth-2').siblings(".depth-1").find("li > a").removeClass("on").eq(index).stop().addClass("on")
-                    }else{
-                        $(this).closest('.depth-2').siblings(".depth-1").find("li").eq(index).find("a").stop().removeClass("on")
-                    }
-                })
-            }, 500);
-        })
-        // 전체메뉴 선택영역으로 스크롤 
-        $('.depth-1 a').click(function (e) {
-            e.preventDefault();
-            const $idx = $(this).closest('li').index();
-            const $panel = $(this).closest('.depth-1').siblings('.depth-2').find('.panel').eq($idx);
-            const $panelTop = $panel.offset().top;
-            const currentScrollTop = $('.depth-2').scrollTop();
-            const targetScrollTop = $panelTop - ($('.depth-2').offset().top) + currentScrollTop;
-            setTimeout( function(){
-                $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on');
-            },500)
-            
-            $('.depth-2').stop().animate({ scrollTop: targetScrollTop }, 500);
-        });
         
-        $('.depth-2 a').click(function (e) {
+        var popUI = function(){
+        $(document).on('click','.pop-open',function(e) {
+            $this = $(this);
             e.preventDefault();
-            $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on')
-
+            $('#pop1').addClass('on');
+            $('#pop2').removeClass('on');
+            $('#pop3').removeClass('on');
+            $('#pop4').removeClass('on') ;
+            $('body').css('overflow','hidden');
         });
+        $(document).on('click','.pop-open2',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('#pop1').removeClass('on');
+            $('#pop2').addClass('on');
+            $('#pop3').removeClass('on');
+            $('#pop4').removeClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-open3',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('#pop1').removeClass('on');
+            $('#pop2').removeClass('on');
+            $('#pop3').addClass('on');
+            $('#pop4').removeClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-open4',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            console.log('aaa');
+            $('#pop1').removeClass('on');
+            $('#pop2').removeClass('on');
+            $('#pop3').removeClass('on');
+            $('#pop4').addClass('on');
+            $('body').css('overflow','hidden');
+        });
+        $(document).on('click','.pop-close',function(e) {
+            $this = $(this);
+            e.preventDefault();
+            $('.pop').removeClass('on');
+            $('body').css();
+        });
+    }
+    popUI();
+       
     </script>
 </body>
 </html>
