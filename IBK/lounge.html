@@ -9,7 +9,24 @@
     <script src="./res/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <style>
-        .main_visual{position:relative;width:100%;}
+        .main_visual{overflow:hidden;position:relative;width:100%;}
+        .main_visual .top_img{position:absolute;right:0;animation:roll-in 2s ease;}
+        .tab-content:nth-child(1) .top_img{top:60px;width:190px;height:150px;}
+        .tab-content:nth-child(2) .top_img{top:70px;width:190px;height:130px;}
+        .tab-content:nth-child(3) .top_img{top:60px;width:190px;height:150px;}
+        .tab-content:nth-child(4) .top_img{top:60px;width:207px;height:150px;}
+        .tab-content:nth-child(5) .top_img{top:60px;width:190px;height:150px;}
+        .roll-in{animation: roll-in 1s ease;}
+            @keyframes roll-in {
+            0% {
+                opacity: 0;
+                transform: translateX(50%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
         .image_cont{background:#F4F4F4;}
         .image_cont img + img{margin-top:40px;}
         .image_cont.type1{padding:40px 20px;}
@@ -34,17 +51,25 @@
         .swiper.job{margin-left:20px;margin-top:16px}
         .swiper.job .swiper-slide{width:287px;height:365px;}
         .swiper.job .swiper-slide:first-child{margin-left:0;}
+        .swiper.job + .btn_blue{margin-top:20px;}
+        .btn_blue{display:flex;justify-content:center;align-items:center;margin:0 auto;width:335px;height:44px;padding:18px 0;border-radius:10px;font-size:15px;font-weight:500;line-height:20px;color:#004F9D;background:#DDE9F5;}
     </style>
 </head>
 <body>
     <div class="container lounge">
         <!-- 상단 메뉴 -->
         <div class="alram-box">
-            <a href="./benefit.html">
-                <img src="./images/home-icon1.png" alt="">
-            </a>
+            <div class="toggle-tab ui-tab">
+                <div class="active">
+                    <a href="#tab1">홈</a>
+                </div>
+                <div>
+                    <a href="#tab2">큰글씨</a>
+                </div>
+            </div>
             <img src="./images/home-icon2.png" alt="">
             <img src="./images/home-icon3.png" alt="">
+            <a href="./benefit.html" class="benefit"></a>
             <a href="./wallet.html" class="wallet"></a>
             <a href="./menu.html" class="allmenu"></a>
         </div>
@@ -61,9 +86,11 @@
                 </div>
             </div>
             <div id="tab-contents" class="tab-contents">
+                <!-- 패밀리 라운지 -->
                 <div id="tab1" class="tab-content active">
                     <div class="main_visual">
                         <img src="./images/lounge/visual_family.png" alt="">
+                        <img class="top_img" src="./images/lounge/top_img01.png" alt="">
                     </div>
                     <div class="image_cont type1">
                         <img src="./images/lounge/fam_cont1.png" alt="">
@@ -75,9 +102,11 @@
                         <img src="./images/lounge/fam_cont5.png" alt="">
                     </div>
                 </div>
+                <!-- 틴즈 라운지 -->
                 <div id="tab2" class="tab-content">
                     <div class="main_visual">
                         <img src="./images/lounge/visual_teens.png" alt="">
+                        <img class="top_img" src="./images/lounge/top_img02.png" alt="">
                         <div class="swiper store">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide"><img src="./images/lounge/logo_gongcha.png" alt=""></div>
@@ -101,9 +130,11 @@
                         <img src="./images/lounge/teen_cont5.png" alt="">
                     </div>
                 </div>
+                <!-- 직장인 라운지 -->
                 <div id="tab3" class="tab-content">
                     <div class="main_visual">
                         <img src="./images/lounge/visual_worker.png" alt="">
+                        <img class="top_img" src="./images/lounge/top_img03.png" alt="">
                     </div>
                     <div class="image_cont type1">
                         <img src="./images/lounge/work_cont1.png" alt="">
@@ -115,9 +146,11 @@
                         <img src="./images/lounge/work_cont5.png" alt="">
                     </div>
                 </div>
+                <!-- 군인 라운지 -->
                 <div id="tab4" class="tab-content">
                     <div class="main_visual">
                         <img src="./images/lounge/visual_military.png" alt="">
+                        <img class="top_img" src="./images/lounge/top_img04.png" alt="">
                     </div>
                     <div class="image_cont type3">
                         <img src="./images/lounge/mil_cont1.png" alt="">
@@ -126,9 +159,11 @@
                         <img src="./images/lounge/mil_cont4.png" alt="">
                     </div>
                 </div>
+                <!-- 시니어 라운지 -->
                 <div id="tab5" class="tab-content">
                     <div class="main_visual">
                         <img src="./images/lounge/visual_senior.png" alt="">
+                        <img class="top_img" src="./images/lounge/top_img05.png" alt="">
                     </div>
                     <div class="image_cont type1">
                         <img src="./images/lounge/seni_cont1.png" alt="">
@@ -145,6 +180,7 @@
                                 <div class="swiper-slide"><img src="./images/lounge/senior_job3.png" alt=""></div>
                             </div>
                         </div>
+                        <a href="#none" class="type2 btn_blue" role="button">취업 포털 사이트 i-ONE JOB</a>
                     </div>
                 </div>
             </div>
@@ -160,7 +196,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./">
+                    <a href="./asset.html">
                         <i aria-label="자산 탭" class="assets"></i>
                         <span>자산</span>
                     </a>
@@ -248,4 +284,4 @@
         });
     </script>
 </body>
-</html>›
+</html>

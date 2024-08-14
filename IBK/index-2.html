@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./res/ibk-com.css">
     <script src="./res/jquery-3.6.4.min.js"></script>
-    <title>홈/기본</title>
+    <title>홈/추천화면</title>
     <style>
         .container .page-wrap {padding: 20px 20px 0px;}
         .banner{position: relative; height: 334px; background-color: #F38C32; border-radius: 12px; margin-bottom: 23px;}
@@ -66,7 +66,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="./index-2.html" class="index-move"></a>
+        <a href="./index.html" class="index-move"></a>
         <div class="alram-box">
             <div class="toggle-tab ui-tab">
                 <div class="active">
@@ -83,7 +83,7 @@
             <a href="./menu.html" class="allmenu"></a>
         </div>
         <div class="page-wrap">
-            <!-- <div class="banner">
+            <div class="banner">
                 <p>내 가족의 금융 정보를<br>같이 공유 하시겠어요?</p>
                 <img src="./images/home/home-bank-book.png" alt="">
                 <img src="./images/home/home-shadow1.png" alt="">
@@ -95,7 +95,7 @@
                 <a href="./financial.html" role="button">
                     <img src="./images/home/home-btn1.png" alt="">
                 </a>
-            </div> -->
+            </div>
 
             <div class="modalbox-wrap">
                 <div class="modalbox">
@@ -197,13 +197,12 @@
                     <span class="dot"></span>
                 </div>
                 <div class="mgt40 interaction">
-                    <img src="./images/home/home-ex1.png" alt="" class="mgb15">
+                    <a href="./family.html">
+                        <img src="./images/home/home-ex14.png" alt="" class="mgb15">
+                    </a>
                 </div>
                 <div class="interaction">
-                    <img src="./images/home/home-ex2.png" alt="" class="mgb15">
-                </div>
-                <div class="interaction">
-                    <img src="./images/home/home-ex4.png" alt="" class="mgb15">
+                    <img src="./images/home/home-ex15.png" alt="" class="mgb15">
                 </div>
                 <div class="interaction">
                     <img src="./images/home/home-ex3.png" alt="" class="mgb15">
@@ -213,29 +212,13 @@
                         <img src="./images/home/home-ex5.png" alt="" class="mgb15">
                     </a>
                 </div>
-
                 <div class="interaction">
-                    <img src="./images/home/home-ex10.png" alt="" class="mgb15">
-                </div>
-                <div class="interaction">
-                    <img src="./images/home/home-ex11.png" alt="" class="mgb15">
-                </div>
-                <div class="interaction">
-                    <img src="./images/home/home-ex7.png" alt="" class="mgb15">
-                </div>
-                <div class="interaction">
-                    <img src="./images/home/home-ex12.png" alt="" class="mgb15">
-                </div>
-                <div class="interaction">
-                    <img src="./images/home/home-ex13.png" alt="" class="mgb15">
-                </div>
-                <div class="interaction" style="display: none;">
                     <img src="./images/home/home-ex6.png" alt="" class="mgb15">
                 </div>
-                <div class="interaction" style="display: none;">
+                <div class="interaction">
                     <img src="./images/home/home-ex8.png" alt="" class="mgb15">
                 </div>
-                <div class="interaction" style="display: none;">
+                <div class="interaction">
                     <img src="./images/home/home-ex9.png" alt=""> 
                 </div>
             </div>
@@ -401,7 +384,7 @@
                 body.style.overflow = 'hidden';
             }, 500);
 
-            updateWraps.forEach( function(element) {
+            updateWraps.forEach( function(element) { 
                 element.classList.remove('on');
                 setTimeout(function()  {
                     element.classList.add('on');
