@@ -103,51 +103,51 @@
         });
         
         var popUI = function(){
-        $(document).on('click','.pop-open',function(e) {
-            $this = $(this);
-            e.preventDefault();
-            $('#pop1').addClass('on');
-            $('#pop2').removeClass('on');
-            $('#pop3').removeClass('on');
-            $('#pop4').removeClass('on') ;
-            $('body').css('overflow','hidden');
-        });
-        $(document).on('click','.pop-open2',function(e) {
-            $this = $(this);
-            e.preventDefault();
-            $('#pop1').removeClass('on');
-            $('#pop2').addClass('on');
-            $('#pop3').removeClass('on');
-            $('#pop4').removeClass('on');
-            $('body').css('overflow','hidden');
-        });
-        $(document).on('click','.pop-open3',function(e) {
-            $this = $(this);
-            e.preventDefault();
-            $('#pop1').removeClass('on');
-            $('#pop2').removeClass('on');
-            $('#pop3').addClass('on');
-            $('#pop4').removeClass('on');
-            $('body').css('overflow','hidden');
-        });
-        $(document).on('click','.pop-open4',function(e) {
-            $this = $(this);
-            e.preventDefault();
-            console.log('aaa');
-            $('#pop1').removeClass('on');
-            $('#pop2').removeClass('on');
-            $('#pop3').removeClass('on');
-            $('#pop4').addClass('on');
-            $('body').css('overflow','hidden');
-        });
-        $(document).on('click','.pop-close',function(e) {
-            $this = $(this);
-            e.preventDefault();
-            $('.pop').removeClass('on');
-            $('body').css();
-        });
-    }
-    popUI();
+            $(document).on('click','.pop-open',function(e) {
+                $this = $(this);
+                e.preventDefault();
+                $('#pop1').addClass('on');
+                $('#pop2').removeClass('on');
+                $('#pop3').removeClass('on');
+                $('#pop4').removeClass('on') ;
+                $('body').css('overflow','hidden');
+            });
+            $(document).on('click','.pop-open2',function(e) {
+                $this = $(this);
+                e.preventDefault();
+                $('#pop1').removeClass('on');
+                $('#pop2').addClass('on');
+                $('#pop3').removeClass('on');
+                $('#pop4').removeClass('on');
+                $('body').css('overflow','hidden');
+            });
+            $(document).on('click','.pop-open3',function(e) {
+                $this = $(this);
+                e.preventDefault();
+                $('#pop1').removeClass('on');
+                $('#pop2').removeClass('on');
+                $('#pop3').addClass('on');
+                $('#pop4').removeClass('on');
+                $('body').css('overflow','hidden');
+            });
+            $(document).on('click','.pop-open4',function(e) {
+                $this = $(this);
+                e.preventDefault();
+                console.log('aaa');
+                $('#pop1').removeClass('on');
+                $('#pop2').removeClass('on');
+                $('#pop3').removeClass('on');
+                $('#pop4').addClass('on');
+                $('body').css('overflow','hidden');
+            });
+            $(document).on('click','.pop-close',function(e) {
+                $this = $(this);
+                e.preventDefault();
+                $('.pop').removeClass('on');
+                $('body').css('overflow','visible');
+            });
+        }
+        popUI();
        
     </script>
 </body>
