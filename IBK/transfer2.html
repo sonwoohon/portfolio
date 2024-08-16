@@ -11,7 +11,8 @@
         .transfer-box {position:relative}
         .transfer-box a{position:absolute;top:10px;left:15px;width:35px;height:35px;}
         .img-wrap {position:relative} 
-        .img-wrap.img  a {position:absolute;width:100%;bottom:25px;height:57px;}
+        .img-wrap.type2 a {position:absolute;width:100%;bottom:25px;height:57px;z-index: 10;}
+        .img-wrap.type2 {position:fixed;width:375px;bottom:0}
     </style>
 </head>
 <body>
@@ -21,9 +22,10 @@
                 <img src="./images/transfer/transfer-tit2.jpg" alt="">
                 <a href="./transfer.html"></a>
             </div>
-            <div class="img-wrap img">
+            <div class="img-wrap"><img src="./images/transfer/transfer-fimg2-1.jpg" alt=""></div>
+            <div class="img-wrap type2">
                 <a href="./transfer3.html"></a>
-                <img src="./images/transfer/transfer-fimg2.jpg" alt="">
+                <img src="./images/transfer/transfer-fimg2-2.jpg" alt="">
             </div>
         </div>
     </div>
