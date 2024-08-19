@@ -129,6 +129,7 @@ nav ul li a i.assets.on{background: url(../images/nav-assets-on.png) no-repeat c
 .scroll {-ms-overflow-style: none; /* 인터넷 익스플로러 */scrollbar-width: none; /* 파이어폭스 */}
 
 /* 로딩 */
+.update-wrap{position: relative;}
 .center-lo{display: none; width:50%;margin: 0 auto;text-align: center;position: absolute;top: 150px;left: 50%;transform: translate(-50%, -50%);z-index: 100;}
 .center-lo.on{display: block;}
 .dot{display: inline-block;width: 10px;height: 10px;background-color: gray;border-radius: 50%;animation: loding 1s 0s linear infinite;}
