@@ -29,16 +29,21 @@
         .ai .tab_contents .cont.active{display:block;}
         .ai .tab_contents .top_conts img {margin-top:-6px}
         .ai .tab_btn.last {position:absolute;top:0;right:20px;display:inline-block;width:108px;height:44px;padding:12px 0;border-radius:12px;font-size:15px;font-weight:400;line-height:20px;color:rgba(255,255,255,.8);background:rgba(255, 255, 255, 0.20);text-align:center;z-index:10}
-        .ai .tab_menu.type2 {position:relative;padding:0;overflow:hidden}
-        .ai .tab_menu.type2 .tab_contents {position:relative}
-        .ai .tab_menu.type2 .tab_contents .cont {margin:0}
-        .ai .tab_menu.type2 .menu_list li {position:absolute;width:auto;z-index:10}
-        .ai .tab_menu.type2 .menu_list li:first-child {top:27px;right:80px;height:69px;width:65px;}
-        .ai .tab_menu.type2 .menu_list li.active:first-child {top:27px;right:80px;height:69px;width:65px;}
-        .ai .tab_menu.type2 .menu_list li:nth-child(2) {top:96px;right:40px;height:69px;width:65px;}
-        .ai .tab_menu.type2 .menu_list li.active:nth-child(2) {top:74px;right:40px;height:69px;width:65px;}
-        .ai .tab_menu.type2 .menu_list .tab_btn {width:100%}
-        .ai .tab_menu.type2 .menu_list {left:auto;width:100%}
+        
+        .ai .tab2 {position:relative;padding:0;overflow:hidden}
+        .ai .tab2 .tab_conts {position:relative}
+        .ai .tab2 .tab_conts .cont {margin:0}
+        .ai .tab2 .menu_list li {position:absolute;width:auto;z-index:10}
+        .ai .tab2 .menu_list li:first-child {top:27px;right:80px;height:69px;width:65px;}
+        .ai .tab2 .menu_list li.active:first-child {top:27px;right:80px;height:69px;width:65px;}
+        .ai .tab2 .menu_list li:nth-child(2) {top:96px;right:40px;height:69px;width:65px;}
+        .ai .tab2 .menu_list li.active:nth-child(2) {top:74px;right:40px;height:69px;width:65px;}
+        .ai .tab2 .menu_list .tab_btn {width:100%}
+        .ai .tab2 .menu_list {left:auto;width:100%}
+        .ai .tab2 .tab_conts .cont{display:none;z-index:0;}
+        .ai .tab2 .tab_conts .cont.active{display:block;}
+
+
         .ai .accordion {position:relative; margin:0 20px;border-radius:12px;height:58px;background: rgba(255, 255, 255, 0.20);color:#fff;box-sizing: border-box;}
         .ai .accordion a {position:relative;display:block;font-size:16px;font-weight: 200;line-height:58px;letter-spacing:0;padding:0 12px;width:100%;box-sizing: border-box;}
         .ai .accordion a span {position:absolute;right:12px;top:50%;transform: translateY(-50%);width:14px;height:14px}
@@ -51,7 +56,7 @@
         .ai .accordion.on .folding-panel {position:relative;}
         .ai .accordion.on .folding-panel div {opacity:1}
         .mike {position:sticky;bottom:124px;left:0;margin-left:20px;margin-right:20px}
-        .mike a {display:flex;color:#fff;height:60px;padding:0 20px 0;font-size:16px;font-weight:400;line-height:20px;background: rgba(29, 116, 232, 0.50);border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
+        .mike a {display:flex;color:#fff;height:60px;padding:0 18px 0;font-size:16px;font-weight:400;line-height:20px;background: rgba(29, 116, 232, 0.50);border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .mike a .icon {display:inline-block;width:24px;height:24px}
         .mike.on .txt {display:none}
         .mike.on {width:60px;height:60px;left:100%}
@@ -198,12 +203,12 @@
                 <img src="./images/ai/ai-img3.jpg" alt=""> 
             </div>
             <div class="img-wrap">
-                <div class="tab_menu type2">
+                <div class="tab2">
                     <ul class="menu_list">
                         <li class="active"><a href="#tab2-1" class="tab_btn"></a></li>
                         <li><a href="#tab2-2" class="tab_btn"></a></li>
                     </ul>
-                    <div class="tab_contents">
+                    <div class="tab_conts">
                         <div id="tab2-1" class="cont active">
                             <img src="./images/ai/ai-img3-1.jpg" alt="">
                         </div>
@@ -350,8 +355,39 @@
     <script>
 
  
+    // window.onload = () => {
+    //     // 상단 탭 메뉴
+    //     const tabMenu = document.querySelectorAll(".tab_menu ul li");
+    //     const tabContent = document.querySelectorAll(".tab_contents .cont");
+
+    //     tabMenu.forEach((item, index) => {
+    //         item.addEventListener("click", (e) => {
+    //             e.preventDefault(); // a
+    //             tabContent.forEach((content) => {
+    //                 content.classList.remove("active");
+    //             });
+    //             tabMenu.forEach((content) => {
+    //                 content.classList.remove("active");
+    //             });
+
+    //             tabMenu[index].classList.add("active");
+    //             tabContent[index].classList.add("active");
+    //         });
+    //     });
+
+    // } 
     window.onload = () => {
-        // 상단 탭 메뉴
+       
+       
+    }   
+    $(function(){
+        accordion();
+        mikebt();
+        popUI();
+        tab1();
+        tab2();
+    });
+    function tab1() {
         const tabMenu = document.querySelectorAll(".tab_menu ul li");
         const tabContent = document.querySelectorAll(".tab_contents .cont");
 
@@ -369,12 +405,26 @@
                 tabContent[index].classList.add("active");
             });
         });
-    }  
-    $(function(){
-        accordion();
-        mikebt();
-        popUI();
-    });
+    }
+    function tab2() {
+        const tab2 = document.querySelectorAll(".tab2 ul li");
+        const tabCont2 = document.querySelectorAll(".tab_conts .cont");
+
+        tab2.forEach((item, index) => {
+            item.addEventListener("click", (e) => {
+                e.preventDefault(); // a
+                tabCont2.forEach((content) => {
+                    content.classList.remove("active");
+                });
+                tab2.forEach((content) => {
+                    content.classList.remove("active");
+                });
+
+                tab2[index].classList.add("active");
+                tabCont2[index].classList.add("active");
+            });
+        });
+    }
     function accordion() {
         $('.accordion').on('click', function (e) {
         e.preventDefault();
