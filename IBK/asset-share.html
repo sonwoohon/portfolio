@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산 - 가족에게 공유하기</title>
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <style>
+        .container.asset{background:#F2F7FD;}
+        /* 상단 메뉴 */
+        .wallet-box{position:relative;}
+        .wallet-box a{position:absolute;width:40px;height:40px;top:10px;left:10px;}
+        /* 공통 */
+        .inner{padding:60px 20px 170px}
+        .cont_tit{display:block;font-size:22px;font-weight:700;line-height:29px;letter-spacing:-0.22px;color:#333;}
+        .cont_tit + .btn_all{margin-top:30px;}
+        /* 선택 리스트 */
+        .btn_all{position:relative;display:flex;align-items:center; padding:12px 0;}
+        .btn_all::before{content:"";position:absolute;top:50%;left:0;transform:translateY(-50%);width:20px;height:20px;background:url("./images/asset/btn_all.svg") no-repeat 0 0 / 100%;}
+        .btn_all.checked::before{background:url("./images/asset/btn_checked.svg") no-repeat 0 0 / 100%;;}
+        .btn_all span{padding-left:24px;}
+        .btn_all + .share_list{margin-top:4px;}
+        .share_list div{position:relative;display:flex;flex-direction:column;width:100%;padding:21px 20px 20px 20px;border-radius:12px;background:#FFF;}
+        .share_list div + div{margin-top:12px;}
+        .share_list div span{position:relative;padding-bottom:16px;font-size:16px;font-weight:700;line-height:20px;letter-spacing:-0.16px;color:#333;}
+        .share_list div span::after{content:"";position:absolute;bottom:0;left:0;width:295px;height:1px;background:#E5E8EC;}
+        .share_list div span + label{margin-top:8px}
+        .share_list div label{display:flex;justify-content:space-between;width:295px;padding:12px 0;}
+        .share_list div img{width:100%;height:20px;}
+        .share_list div input[type='checkbox']{display:none;}
+        .share_list div i{position:relative;}
+        .share_list div i::before{content:"";position:absolute;top:50%;right:0;transform:translateY(-50%); width:24px;height:24px;background:url("./images/asset/btn_unchecked.svg") no-repeat 0 0 / 100%;cursor:pointer;}
+        .share_list div input[type="checkbox"]:checked  + i::before{background: url("./images/asset/btn_checked.svg") no-repeat 0 0 / 100%;}
+        /* 하단 고정 버튼 */
+        .btn_box{position:fixed;bottom:0;display:flex;width:375px;height:auto;padding:18px 20px 45px;background:#FFFFFF;z-index:10;}
+        .btn_box a{display:flex;justify-content:center;align-items:center;width:100%;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing:-0.17px;color:#FFF;background:#1D74E8;}
+        /* 팝업 */
+        body.pop_open{overflow:hidden}
+        .pop_wrap.is_visible{display:flex}
+        .pop_wrap{display:none;justify-content:center;align-items:center;position:fixed;top:0;left:0;bottom:0;right:0;z-index:50;background: rgba(0, 0, 0, 0.65);transform:translateZ(0);transition:all .3s ease}
+        .pop_wrap .popup{display:flex;flex-direction:column;overflow:hidden;position:relative;width:335px;height:507px;max-height:100%;border-radius:20px;background:#fff;transition:all .3s ease;box-sizing:border-box;opacity:0;transform:translateY(100%)}
+        .pop_wrap.is_active .popup{transform:translateY(0);opacity:1;display: block;}
+        .pop_wrap .pop_cont{flex:1 1 auto;overflow:hidden auto;padding:40px 20px 0}
+        .pop_wrap .pop_btn{display:flex;width:100%;margin-top:20px;gap:12px}
+        .pop_wrap .pop_btn .btn{display:flex;justify-content:center;align-items:center;width:138px;padding:18px 0;border-radius:10px;font-size:17px;font-weight:700;line-height:21px;letter-spacing: -0.17px;color:#FFF;background:#1D74E8;}
+        .pop_wrap .pop_btn .btn:first-child{color:#004F9D;background:#E8F4FF;}
+    </style>
+</head>
+<body>
+    <div id="wrap" class="container asset">
+        <!-- 상단 메뉴 -->
+        <div class="wallet-box">
+            <img src="./images/asset/wallet-tit.png" alt="">
+            <a href="./asset-1.html"></a>
+        </div>
+        <!-- // 상단 메뉴 -->
+        <!-- 컨텐츠 -->
+        <div class="contents">
+            <div class="inner">
+                <span class="cont_tit">다양한 자산을 연결하고 <br/>가족의 미래를 설계해보세요</span>
+                <button class="btn_all" onclick="toggleAll()"><span>전체선택</span></button>
+                <div class="share_list interaction">
+                    <div>
+                        <span>보험</span>
+                        <label for="check1-1">
+                            <img src="./images/asset/asset01.png" alt="" style="width:248px;">
+                            <input type="checkbox" id="check1-1">
+                            <i></i>
+                        </label>
+                        <label for="check1-2">
+                            <img src="./images/asset/asset02.png" alt="" style="width:198px;">
+                            <input type="checkbox" id="check1-2">
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <span>부동산</span>
+                        <label for="check2-1">
+                            <img src="./images/asset/asset03.png" alt="" style="width:104px;">
+                            <input type="checkbox" id="check2-1">
+                            <i></i>
+                        </label>
+                        <label for="check2-2">
+                            <img src="./images/asset/asset04.png" alt="" style="width:120px;">
+                            <input type="checkbox" id="check2-2">
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <span>자동차</span>
+                        <label for="check3">
+                            <img src="./images/asset/asset05.png" alt="" style="width:118px;">
+                            <input type="checkbox" id="check3">
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <span>입출금</span>
+                        <label for="check4-1">
+                            <img src="./images/asset/asset06.png" alt="" style="width:104px;">
+                            <input type="checkbox" id="check4-1">
+                            <i></i>
+                        </label>
+                        <label for="check4-2">
+                            <img src="./images/asset/asset07.png" alt="" style="width:120px;">
+                            <input type="checkbox" id="check4-2">
+                            <i></i>
+                        </label>
+                    </div>
+                    <div>
+                        <span>주식·펀드</span>
+                        <label for="check5">
+                            <img src="./images/asset/asset08.png" alt="" style="width:104px;">
+                            <input type="checkbox" id="check5">
+                            <i></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_box">
+                <a href="#popupShare" class="btn_share j_pop_open">가족에게 공유하기</a>
+            </div>
+        </div>
+        <!-- // 컨텐츠 -->
+    </div>
+    <!-- 팝업 -->
+    <div id="popupShare" class="pop_wrap pop_share" aria-hidden="true">
+        <article class="popup">
+            <div class="pop_cont">
+                <img src="./images/asset/popup_cont.png" alt="">
+                <div class="pop_btn">
+                    <a href="#none" class="btn j_pop_close">확인</a>
+                    <a href="./asset-2.html" class="btn">패밀리 자산보기</a>
+                </div>
+            </div>
+        </article>
+    </div>
+    <!-- // 팝업 -->
+    <script src="./res/ibk-com.js"></script> 
+    <script>
+        function toggleAll() {
+            const checkboxes = document.querySelectorAll('.inner input[type="checkbox"]');
+            const btnAll = document.querySelector('.btn_all');
+            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+            checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
+            
+            if (allChecked) {
+                btnAll.classList.remove('checked');
+            } else {
+                btnAll.classList.add('checked');
+            }
+        }
+
+        $(function(){
+            popMotion.init();
+        });
+
+        let $popSpeed = 150;
+        const popMotion = {
+            init : () => {
+                if($('.pop_wrap').hasClass('is_active')) popMotion.popOpen($('.pop_wrap.is_active'));
+                else $('.pop_wrap').attr('aria-hidden', 'true');
+
+                $(document).on('click','.j_pop_open', function(e){
+                    e.preventDefault();
+                    let $pop = $(this).attr('href');
+                    popMotion.popOpen($pop);
+                })
+
+                $(document).on('click', '.j_pop_close', function(e){
+                    e.preventDefault();
+                    let $pop = $(this).closest('.pop_wrap'),
+                        $id = $pop.attr('id');
+                    
+                    popMotion.popClose($pop);
+                    $("a[href='#" + $id + "']").focus();
+                })
+            },
+            popOpen : tar => {
+                let $tar = $(tar);
+                $tar.addClass('is_visible').attr('aria-hidden', 'false');
+                $tar.find('.popup').attr('tabindex', 0).focus().find('.pop_cont').attr('tabindex',0);
+                setTimeout(function(){$tar.addClass('is_active')}, $popSpeed);
+                $('#wrap').attr('aria-hidden','true');
+                $('body').addClass('pop_open');
+                if($('.btm_fixed').length > 0){
+                    let btnH = $('.btm_fixed').outerHeight(true);
+                    console.log($tar.find('.pop_cont').css('padding-bottom',btnH + 14))
+                }
+            },
+            popClose: tar => {
+                let $tar = $(tar),
+                    $id = $tar.attr('id');
+                $tar.removeClass('is_active').attr('aria-hidden', 'true').find('.pop_cont').scrollTop(0);
+                $('.pop_wrap.is_visible .popup').attr('tabindex','0').focus();
+                setTimeout(function(){$tar.removeClass('is_visible')}, $popSpeed);
+                $('#wrap').attr('aria-hidden','false');
+                $('body').removeClass('pop_open');
+            },
+        }
+    </script>
+</body>
+</html>

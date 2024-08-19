@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자산 - 홈/패밀리</title>
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <style>
+        .container.asset{background:#F2F7FD;}
+        /* 상단 메뉴 */
+        .alram-box{background:#FFFFFF;}
+        /* 업데이트 */
+        .btn_refresh{display:inline-block;position:absolute;top:54px;right:20px;width:20px;height:20px;z-index:10;}
+        /* 탭메뉴 */
+        .top-menu > ul{position:relative;display:flex;gap:16px;width:100%;height:auto;padding:20px 20px 0;background:#FFFFFF;}
+        .top-menu > ul::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;background:#F7F7F7;z-index:1;}
+        .top-menu > ul li a{position:relative;display:inline-block;padding-bottom:15px;width:56px;text-align:center;font-size:16px;font-weight:700;line-height:20px;letter-spacing:-0.16px;color:#9F9F9F;}
+        .top-menu > ul li.active a{color:#333333;}
+        .top-menu > ul li.active a::after{content:"";position:absolute;bottom:0;left:0;width:56px;height:3px;background:#333333;z-index:10;}
+        .menu-content{position:relative;}
+        .menu-content .cont{display:none;}
+        .menu-content .cont.active{display:block;}
+        .menu-content .cont_wrap{position:relative;padding:0 20px}
+        .menu-content .cont_wrap + .cont_wrap{margin-top:40px;}
+        .menu-content .cont_wrap.type2{padding:0}
+        .menu-content .cont_wrap.type2 > img{padding:0 20px}
+        .menu-content .cont_wrap > span{font-size:21px;font-weight:700;line-height:29px;letter-spacing:-0.21px;color:#333333;}
+        .menu-content .cont_wrap img + img{margin-top:12px}
+        #menu-asset{padding:50px 0 137px}
+        /********** 내자산 **********/
+        .asset_info{padding:0 20px 24px 20px;}
+        /* 아코디언 */
+        .accordion{margin-top:12px;padding:20px;background-color:#FFFFFF;border-radius:12px;margin-bottom:12px;}
+        .accordion h2{display:flex;align-items:center;font-size:16px;font-weight:700;line-height: 20px;}
+        .accordion h2 span{margin-left:4px;font-weight:400;}
+        .accordion h2 a{position:relative;font-weight:500;color:#787878;margin-left:auto;margin-right:30px;}
+        .accordion h2 a::after{content:"";position:absolute;right:-28px;top:50%;transform:translateY(-50%)rotate(180deg);width:20px;height:20px;background:url("./images/asset/accor_icon.svg") no-repeat 0 0 / 100%;}
+        .accordion h2 a.open::after{transform: translateY(-50%);}
+        /* swiper - 챌린지  */
+        .swiper.challenge{margin:20px 0 12px 20px;}
+        .swiper.challenge .swiper-slide{width:210px;height:343px;}
+        .swiper.challenge .swiper-slide:first-child{margin-left:0;}
+        /* 자산연결 */
+        span + .asset_list{margin-top:16px;}
+        .asset_list{display:grid;grid-template-columns:repeat(3, 1fr);row-gap:12px;column-gap:12px}
+        .asset_list > div input{appearance:none;position:absolute;}
+        .asset_list > div input[type="checkbox"] + div{width:104px;height:auto;padding:12px 10px;border-radius:8px;text-align:center;font-size:15px;font-weight:500;line-height:20px;background:#FFF;cursor:pointer;}
+        .asset_list > div input[type="checkbox"]:checked  + div{color:#0F53A8;background:#DAE7F7;}
+        /********** 패밀리 **********/
+        /* Swiper - 탭 메뉴  */
+        .swiper.tab-btn{position:relative;width:100%;cursor:pointer;padding:20px 0 20px 20px;box-sizing:border-box;letter-spacing:0;font-size:0;background:#FFF;}
+        .swiper.tab-btn::-webkit-scrollbar{display:none;}
+        .swiper.tab-btn .swiper-wrapper{position:relative;display:flex;white-space:nowrap;box-sizing:border-box;font-size:0;overflow-x:visible;-webkit-overflow-scrolling:touch;}
+        .swiper.tab-btn .swiper-slide{width:auto;padding:10px 20px;box-sizing:border-box;border-radius:8px;font-size:15px;font-weight:500;line-height:20px;color:#787878;background-color:#F7F7F7;}
+        .swiper.tab-btn .swiper-slide.visible{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
+        .swiper.tab-btn .swiper-slide.type2{padding:10px 20px 10px 40px;background:#E8F4FF;}
+        .swiper.tab-btn .swiper-slide.type2 span{position:relative;color:#004F9D;}
+        .swiper.tab-btn .swiper-slide.type2 span::before{content:"";position:absolute;top:50%;left:-20px;transform:translateY(-50%);width:16px;height:16px;background:url("./images/asset/icon_share.svg") no-repeat 0 0 / 100%;}
+        .tab-contents .tab-content{display:none;}
+        .tab-contents .tab-content.visible{display:block;}
+        .tab-contents .tab-content .inner{padding:40px 0 164px}
+        .tab-contents .cont_wrap + .cont_wrap{margin-top:20px;}
+        .tab-contents .cont_wrap .btn.bg_lblue{height:44px;padding:18px 0px;font-size:15px;font-weight:500;line-height:20px;}
+        .cont_head{display:flex;justify-content:space-between;position:absolute;top:20px;left:40px;width:295px;}
+        .cont_head span{font-size:16px;font-weight:700;line-height:20px;letter-spacing:-0.16px;color:#333;}
+        .cont_head a{display:inline-block;font-size:14px;font-weight:700;color:#1D74E8;}
+        /* 버튼 */
+        .btn_wrap{display:flex;gap:11px}
+        .btn{display:flex;justify-content:center;align-items:center;width:100%;border-radius:10px;}
+        .btn.bg_lblue{color:#004F9D;background:#DDE9F5;}
+    </style>
+</head>
+<body>
+    <div class="container asset">
+        <!-- 상단 메뉴 -->
+        <div class="alram-box">
+            <div class="toggle-tab ui-tab">
+                <div class="active"><a href="#tab1">홈</a></div>
+                <div><a href="#tab2">큰글씨</a></div>
+            </div>
+            <img src="./images/home-icon2.png" alt="">
+            <img src="./images/home-icon3.png" alt="">
+            <a href="./benefit.html" class="benefit"></a>
+            <a href="./wallet.html" class="wallet"></a>
+            <a href="./menu.html" class="allmenu"></a>
+        </div>
+        <!-- // 상단 메뉴 -->
+        <!-- 컨텐츠 -->
+        <div class="contents">
+            <div class="top-menu">
+                <ul>
+                    <li><a href="#menu-asset">내자산</a></li>
+                    <li class="active"><a href="#menu-family">패밀리</a></li>
+                </ul>
+            </div>
+            <div class="menu-content">
+                <div id="menu-asset" class="cont">
+                    <img class="asset_info" src="./images/asset/asset_top.png" alt="">
+                    <a href="#none" class="btn_refresh"><img src="./images/home/home-update.png" alt=""></a>
+                    <div class="update-wrap">
+                        <div class="center-lo">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="cont_wrap interaction">
+                            <img src="./images/asset/asset_img_cont01.png" alt="">
+                            <div class="accordion">
+                                <h2>입출금 3 <a href="#none" class="folding-btn open" role="button">18,115,193원(3%)</a></h2>
+                                <div class="folding-panel">
+                                    <img class="mgt20" src="./images/asset/accor_cont01.png" alt="">
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <h2>대출 <a href="#none" class="folding-btn" role="button">0원(0%)</a></h2>
+                                <div class="folding-panel"></div>
+                            </div>
+                            <div class="accordion">
+                                <h2>투자 1 <a href="#none" class="folding-btn" role="button">91,787,231원(12%)</a></h2>
+                                <div class="folding-panel"></div>
+                            </div>
+                            <div class="accordion">
+                                <h2>보험 <a href="#none" class="folding-btn" role="button">0원(0%)</a></h2>
+                                <div class="folding-panel"></div>
+                            </div>
+                            <div class="accordion">
+                                <h2>부동산 2<a href="#none" class="folding-btn" role="button">651,200,000원(72%)</a></h2>
+                                <div class="folding-panel"></div>
+                            </div>
+                            <div class="accordion">
+                                <h2>자동차 1<a href="#none" class="folding-btn" role="button">37,115,193원(7%)</a></h2>
+                                <div class="folding-panel"></div>
+                            </div>
+                            <div class="accordion">
+                                <h2>기타 5<a href="#none" class="folding-btn" role="button">8,085,030원(10%)</a></h2>
+                                <div class="folding-panel"></div>
+                            </div>
+                        </div>
+                        <div class="cont_wrap interaction">
+                            <img src="./images/asset/asset_img_cont02.png" alt="">
+                            <div class="accordion">
+                                <h2>입출금 5 <a href="#none" class="folding-btn open" role="button">8,102,173원(78%)</a></h2>
+                                <div class="folding-panel">
+                                    <img class="mgt20" src="./images/asset/accor_cont02.png" alt="">
+                                </div>
+                            </div>
+                            <img src="./images/asset/asset_img_cont03.png" alt="">
+                        </div>
+                        <div class="cont_wrap type2 interaction">
+                            <img src="./images/asset/asset_swiperTop.png" alt="">
+                            <div class="swiper challenge">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="./images/asset/asset_swiper01.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/asset/asset_swiper02.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/asset/asset_swiper01.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/asset/asset_swiper02.png" alt=""></div>
+                                </div>
+                            </div>
+                            <img src="./images/asset/asset_banner01.png" alt="">
+                        </div>
+                        <div class="cont_wrap interaction">
+                            <img src="./images/asset/asset_banner02.png" alt="">
+                            <img src="./images/asset/asset_banner03.png" alt="">
+                        </div>
+                        <div class="cont_wrap interaction">
+                            <span>자산을 연결해 보세요</span>
+                            <div class="asset_list">
+                                <div>
+                                    <label for="check1">
+                                        <input type="checkbox" id="check1">
+                                        <div>계좌</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check2">
+                                        <input type="checkbox" id="check2" checked>
+                                        <div>지출</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check3">
+                                        <input type="checkbox" id="check3">
+                                        <div>주식,펀드</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check4">
+                                        <input type="checkbox" id="check4">
+                                        <div>보험</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check5">
+                                        <input type="checkbox" id="check5">
+                                        <div>대출</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check6">
+                                        <input type="checkbox" id="check6">
+                                        <div>포인트,머니</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check7">
+                                        <input type="checkbox" id="check7">
+                                        <div>연금,퇴직연금</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check8">
+                                        <input type="checkbox" id="check8">
+                                        <div>통신</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check9">
+                                        <input type="checkbox" id="check9">
+                                        <div>자동차</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check10">
+                                        <input type="checkbox" id="check10">
+                                        <div>부동산</div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="check11">
+                                        <input type="checkbox" id="check11">
+                                        <div>기타자산</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu-family" class="cont active ">
+                    <!-- swiper tab -->
+                    <div class="swiper tab-btn">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide visible" data-target="tab-insurance">보험</div>
+                            <div class="swiper-slide">부동산</div>
+                            <div class="swiper-slide">자동차</div>
+                            <a class="swiper-slide type2" href="./asset-share.html" role="button"><span>공유하기</span></a>
+                        </div>
+                    </div>
+                    <!-- // swiper tab -->
+                    <!-- swiper tab contents-->
+                    <div id="tab-contents" class="tab-contents">
+                        <div id="tab-insurance" class="tab-content visible">
+                            <div class="inner">
+                                <div class="cont_wrap interaction">
+                                    <img src="./images/asset/fam_cont01.png" alt="">
+                                </div>
+                                <div class="cont_wrap interaction">
+                                    <img src="./images/asset/fam_cont02.png" alt="">
+                                    <div class="cont_head">
+                                        <span>남편이 가입한 보험</span>
+                                        <a href="./asset-detail.html">기운찬</a>
+                                    </div>
+                                </div>
+                                <div class="cont_wrap interaction">
+                                    <img src="./images/asset/fam_cont03.png" alt="">
+                                </div>
+                                <div class="cont_wrap interaction">
+                                    <img src="./images/asset/fam_cont04.png" alt="">
+                                </div>
+                                <div class="cont_wrap interaction">
+                                    <a class="btn bg_lblue" href="./asset-share.html">가족에게 공유하기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // swiper tab contents-->
+            </div>
+            </div>
+        </div>
+        <!-- // 컨텐츠 -->
+        <!-- 하단 메뉴 -->
+        <nav>
+            <ul>
+                <li>
+                    <a id="home" href="./index.html">
+                        <i aria-label="홈 탭" class="home"></i>
+                        <span>홈</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./asset-1.html">
+                        <i aria-label="자산 탭" class="assets on"></i>
+                        <span>자산</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./ai.html">
+                        <i aria-label="AI 탭" class="ai"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="./product.html">
+                        <i aria-label="상품 탭" class="goods"></i>
+                        <span>상품</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./lounge.html">
+                        <i aria-label="라운지 탭" class="lounge"></i>
+                        <span class="on">라운지</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- // 하단 메뉴 -->
+    </div>
+
+    <script src="./res/ibk-com.js"></script>
+    <script>
+        window.onload = () => {
+        // 상단 탭 메뉴
+            const tabMenu = document.querySelectorAll(".top-menu ul li");
+            const tabContent = document.querySelectorAll(".menu-content .cont");
+
+            tabMenu.forEach((item, index) => {
+                item.addEventListener("click", (e) => {
+                    e.preventDefault(); // a
+                    tabContent.forEach((content) => {
+                    content.classList.remove("active");
+                });
+                    tabMenu.forEach((content) => {
+                    content.classList.remove("active");
+                });
+                    tabMenu[index].classList.add("active");
+                    tabContent[index].classList.add("active");
+                });
+            });
+        }
+        // Swiper - 챌린지 
+        const swiperJob = new Swiper('.challenge', {
+            slidesPerView: 'auto',
+            spaceBetween: 12,
+            freeMode: true,
+            autoplay: {
+                enabled: true,
+                disableOnInteraction: false,
+            },
+            speed: 300,
+            loop: true,
+            observer: true,
+            observeParents: true,
+            
+        });
+         // Swiper - 탭 메뉴 
+        const swiperTab = new Swiper('.tab-btn', {
+            slidesPerView: 'auto',
+            freeMode: true,
+            grabCursor: true,
+            spaceBetween: 8,
+        }); 
+        document.querySelector('.btn_refresh').addEventListener('click', function() {
+            document.querySelectorAll('.cont_wrap').forEach(function(element) {
+                element.style.display = 'none';
+            });
+            document.querySelector('.center-lo').style.display = 'block';
+
+            setTimeout(function() {
+                document.querySelector('.center-lo').style.display = 'none';
+                document.querySelectorAll('.cont_wrap').forEach(function(element) {
+                    element.style.display = 'block';
+                });
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
