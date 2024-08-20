@@ -93,7 +93,7 @@ body *{font-family: 'Pretendard', sans-serif;}
 @keyframes alramBanner1{0%{width: 0; height: 0; opacity: 1; transform: translateY(0px) rotate(6deg)}100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(0deg);transition: 0.5s;}}
 @keyframes alramBanner2{0%, 100%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(360deg)}50%{width:  130px; height: 28px; opacity: 1; transform: translateY(0px) rotate(358deg)}}
 .wallet-box .home-bt,
-.aiset-box .home-bt {position:absolute;width:45px;height:40px;top:10px;right:10px;left:auto;border:1px solid red}
+.aiset-box .home-bt {position:absolute;width:45px;height:40px;top:10px;right:10px;left:auto;}
 /* 하단 메인 네비게이션 */
 nav{ position: fixed;bottom: 0;width: 375px; height: 90px; left: 50%;transform: translateX(-50%);background: #fff;border-radius: 12px 12px 0 0;fill: #FFF;filter: drop-shadow(0px -4px 8.3px rgba(0, 0, 0, 0.12)); z-index: 100;}
 nav ul {position: absolute;bottom: 0;display: flex;justify-content: space-around;height: 90px;width: 100%;align-items: flex-start; padding-top: 13px;}
