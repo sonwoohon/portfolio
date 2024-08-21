@@ -20,7 +20,9 @@
         .swiper.tab-btn .swiper-slide.active{color:#FFFFFF;background-color:hsl(214, 82%, 51%);}
         .tab-contents .tab-content{display:none;}
         .tab-contents .tab-content.active{display:block;}
-        .tab-contents .tab-content img + img{margin-top:48px}
+        .cont_wrap + .cont_wrap{margin-top:48px}
+        .cont_wrap .cont_tit{margin-bottom:16px;}
+        .cont_wrap a + img{margin-top:16px;}
     </style>
 </head>
 <body>
@@ -49,11 +51,17 @@
                 </div>
             </div>
             <div id="tab-contents" class="tab-contents">
-                <div id="tab1" class="tab-content"></div>
+                <div class="tab-content"></div>
                 <div id="tab2" class="tab-content active">
                     <div class="inner">
-                        <img src="./images/product/savings_cont01.png" alt="">
-                        <img src="./images/product/savings_cont02.png" alt="">
+                        <div class="cont_wrap">
+                            <img class="cont_tit" src="./images/product/cont_tit01.png" alt="">
+                            <a href="./family.html"><img src="./images/product/savings_cont01.png" alt=""></a>
+                            <img src="./images/product/savings_cont02.png" alt="">
+                        </div>
+                        <div class="cont_wrap">
+                            <img src="./images/product/tips_cont01.png" alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="tab-content"></div>
