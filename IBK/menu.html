@@ -512,8 +512,9 @@
         // 2뎁스 클릭 시 선택영역 표시
         $('.depth-2 a').click(function (e) {
             e.preventDefault();
-            $(this).addClass('on').closest('li').siblings().find('a').stop().removeClass('on')
-
+            $this = e.target;
+            $($this).closest('li').siblings().find('a').stop().removeClass('on')
+            $($this).addClass('on').parents('.depth-2 .panel').siblings().find('a').stop().removeClass('on')
         });
     </script>
 </body>
