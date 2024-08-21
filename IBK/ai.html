@@ -47,6 +47,8 @@
         .ai .accordion {position:relative; margin:0 20px;border-radius:12px;height:58px;background: rgba(255, 255, 255, 0.20);color:#fff;box-sizing: border-box;}
         .ai .accordion a {position:relative;display:block;font-size:16px;font-weight:400;line-height:58px;padding:0 12px;width:100%;box-sizing: border-box;}
         .ai .accordion a span {position:absolute;right:12px;top:50%;transform: translateY(-50%);width:14px;height:14px}
+        .ai .accordion p {position:relative;display:block;font-size:16px;font-weight:400;line-height:58px;padding:0 12px;width:100%;box-sizing: border-box;}
+        .ai .accordion p span {position:absolute;right:12px;top:50%;transform: translateY(-50%);width:14px;height:14px}
         /* .ai .accordion .folding-btn.open + .folding-panel {margin-top:-58px} */
         .ai .accordion .folding-panel {display:none;}
         .ai .accordion .folding-panel div {opacity:0}
@@ -55,6 +57,8 @@
         .ai .accordion.on a {display:none;z-index:-1;opacity:0}
         .ai .accordion.on .folding-panel {position:relative;}
         .ai .accordion.on .folding-panel div {opacity:1}
+        .ai .accordion  +  .accordion {margin-top:16px}
+        .ai .accordion:last-child {margin-bottom:50px}
         .mike {position:sticky;bottom:124px;left:0;margin-left:20px;margin-right:20px}
         .mike a {display:flex;color:#fff;height:60px;padding:0 18px 0;font-size:16px;font-weight:400;line-height:20px;background: rgba(29, 116, 232, 0.50);border-radius:30px;-webkit-backdrop-filter: blur(12.5px);backdrop-filter: blur(12.5px);align-items: center;justify-content: space-between}
         .mike a .icon {display:inline-block;width:24px;height:24px}
@@ -228,13 +232,15 @@
                    <div><img src="./images/ai/ai-img6.png" alt=""></div> 
                 </div>    
             </div>
-            <!-- <div class="accordion">
-                <a href="#none" class="folding-btn">환전 이벤트 [~9/30]<span><img src="./images/ai/ai-acco-arr.png" alt=""></span></a>
-                 
-            </div> -->
-            <div class="img-wrap">
-                <img src="./images/ai/ai-img4.jpg" alt=""> 
+            <div class="accordion">
+                <p class="folding-btn">급여일 [7/10]<span><img src="./images/ai/ai-acco-arr.png" alt=""></span></p> 
             </div>
+            <div class="accordion">
+                <p class="folding-btn">예금 만기 [7/21]<span><img src="./images/ai/ai-acco-arr.png" alt=""></span></p>
+            </div>
+            <!-- <div class="img-wrap">
+                <img src="./images/ai/ai-img4.jpg" alt=""> 
+            </div> -->
         </div>
         <div class="mike">
             <a href="#pop1" class="pop-open"><span class="txt">궁금한 것이 있나요?</span><span class="icon"><img src="./images/ai/ico-mike.png" alt=""></span></a>
