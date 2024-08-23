@@ -10,7 +10,7 @@
         .container .page-wrap{padding: 20px 20px 70px;}
         .financial-box{position: relative;margin: -16px -20px 0;}
         .financial-box a{position: absolute; top: 10px; left: 15px; width:35px; height: 35px;}
-        .financial-tab-wrap{display: flex;justify-content: flex-end;align-items: center;margin-top: 22px; margin-bottom: 34px;}
+        .financial-tab-wrap{display: flex;justify-content: flex-end;align-items: center;margin:22px 0;}
         /* .financial-tab-wrap .txt{color: #787878; font-size: 15px;}
         .financial-tab-wrap .txt span{color: #1D74E8; font-weight: 700;} */
         .financial-tab-wrap ul{display: flex;}
@@ -25,6 +25,7 @@
         /* .finance-btn{display: flex;padding: 18px 0px;justify-content: center;align-items: center; background-color: #1D74E8; border-radius: 10px; color: #fff; font-size: 17px; font-weight: 700;line-height: 21px; margin-top: 90px;} */
         /* .finance-btn{position: fixed;bottom: 0;width: 375px;} */
         /* 리스트형 */
+        #tab2{margin-top: 42px;}
         .financial-accordion {padding: 16px 12px; background-color: #F5F5F5; border-radius: 12px; margin-bottom: 12px;}
         .financial-accordion h2{display: flex; align-items: center;font-size: 16px; font-weight: 700; line-height: 20px;}
         .financial-accordion h2 span{margin-left: 4px; font-weight: 400;}
@@ -51,12 +52,12 @@
         .num.num1 {top: 17%; left: 14%; background: url(./images/financial/father.png) no-repeat center / contain;}
         /*.num.num2 {top: 45%;left: 15%;width: 70px;height: 70px; background: url(./images/financial/invitation.png) no-repeat center / contain;} 초대하기 */
         .num.num3 {top: 45%; left: 43%;  background: url(./images/financial/me.png) no-repeat; box-sizing: content-box;}
-        .num.num4 {top: 27%; left: 61%; background: url(./images/financial/wife.png) no-repeat center / contain}
+        .num.num4 {top: 27%; left: 59%; background: url(./images/financial/wife.png) no-repeat center / contain}
         /* .num.num4.sec{top: 45px; left: 260px; width: 30px; height: 30px; background: url(./images/financial/user.png) no-repeat center / contain} 지인 */
-        .num.num5 {top: 66%; left: 70%; background: url(./images/financial/brother.png) no-repeat center / contain}
-        .num.num6 {top: 44%; left: 84%; background: url(./images/financial/mather1.png) no-repeat center / contain}
+        .num.num5 {top: 59.5%; left: 77.5%; background: url(./images/financial/mather1.png) no-repeat center / contain}
+        .num.num6 {top: 44%; left: 84%; background: url(./images/financial/brother.png) no-repeat center / contain}
         .num.num7 {top: 53%; left: 15%; background: url(./images/financial/son1.png) no-repeat center / contain}
-        .num.num8 {top: 68%; left: 37%; background: url(./images/financial/son2.png) no-repeat center / contain}
+        .num.num8 {top: 67.5%; left: 36%; background: url(./images/financial/son2.png) no-repeat center / contain}
         .sub-box{opacity: 0;transition: 1s ease;}
         /* .line{position: absolute;width: 30px;height: 1px;background: #ECF2F8;}
         .line.line2{top:50px;left:45px;transform:rotate(22deg);}
@@ -123,7 +124,7 @@
                                 <div class="num num4"><a href="#none"></a><span>아내</span></div>
                                 <!-- <div class="num num4 sec"><a href="#none"></a><span>지인</span></div> 지인 -->
                                 <div class="num num5" >
-                                    <a href="#none" onclick="$('.pop1').addClass('on').find('img').animate({bottom : 0},300 )">
+                                    <a href="#none" onclick="$('.pop1').addClass('on').find('.botton-pop').animate({bottom : 0},300 )">
                                         <div class="sub-box">
                                             <span class="line line2"></span>
                                             <span class="line line3"></span>
@@ -131,9 +132,9 @@
                                             <div class="sub-num sub-num3"></div>
                                         </div>
                                     </a>
-                                    <span>매형</span>
+                                    <span>어머니</span>
                                 </div>
-                                <div class="num num6"><a href="#none"></a><span>어머니</span></div>
+                                <!-- <div class="num num6"><a href="#none"></a><span>어머니</span></div> -->
                                 <div class="num num7"><a href="#none"></a><span>자녀</span></div>
                                 <div class="num num8"><a href="#none"></a><span>자녀</span></div>
                             </div>
@@ -192,10 +193,14 @@
         </a> -->
     </div>
     <div class="pop pop1">
-        <a href="#none" onclick="$('.pop1').removeClass('on').find('img').animate({bottom:-100 + '%'},700);$('.num3').click();$('.reset-btn').css('display','none');"></a>
-        <img src="./images/financial/pop1.png" alt="" class="botton-pop">
-        <a href="#none" onclick="$('.pop1').removeClass('on').find('img').animate({bottom:-100 + '%'},700);$('.num3').click();$('.reset-btn').css('display','none');"></a>
+        <a href="#none" onclick="$('.pop1').removeClass('on').find('.botton-pop').animate({bottom:-100 + '%'},700);$('.num3').click();$('.reset-btn').css('display','none');"></a>
+        <div class="botton-pop"></div>
+        <!-- <img src="./images/financial/pop1.png" alt="" class="botton-pop"> -->
+        <a href="#none" onclick="$('.pop1').removeClass('on').find('.botton-pop').animate({bottom:-100 + '%'},700);$('.num3').click();$('.reset-btn').css('display','none');"></a>
     </div>
+    <style>
+        .botton-pop{width: 375px;height: 417px;background: url(./images/financial/pop1.png) no-repeat;background-size: 375px auto; bottom: -100%;}
+    </style>
     <!-- 2024-08-12 주석처리 <div class="pop pop2">
         <article>
             <div class="header">
@@ -279,11 +284,11 @@
                     window.scrollTo({ top: end, behavior: 'smooth' }); // 클릭시 HTML 최하단으로 이동 
                     moveBox.style.top = moveY + -80 + 'px';
                     moveBox.style.left = moveX + 'px';
-                    this.style.transform = 'scale(1.2)';
+                    this.style.transform = 'scale(1.3)';
                     this.style.border = '3px solid rgb(58, 146, 233)';
                     
                     setTimeout( function(){
-                        moveBox.style.transform = 'scale(1.2)';
+                        /* moveBox.style.transform = 'scale(1.2)'; */
                         moveBox.style.transition = '.8s';
                     },300)
 
@@ -300,10 +305,11 @@
                         this.style.transform = 'scale(1)';  
                     } */
                     const resetBtn = document.querySelector('.reset-btn');
-                    if(this.classList.contains('num5') ){ // 매형 클릭시 
+                    if(this.classList.contains('num5') ){ // 매형 클릭시, 2024-08-23 어머니로 변경
+                        moveBox.style.top = moveY + -170 + 'px';
+                        moveBox.style.left = moveX + 30 + 'px';
+                        moveBox.style.transition = '0.8s';
                         setTimeout( function(){
-                            moveBox.style.top = -299 + 'px';
-                            moveBox.style.left = -116 + 'px';
                             resetBtn.style.display = 'block';
                     },350)
                     }
