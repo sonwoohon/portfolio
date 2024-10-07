@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css" />
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title></title>
+    <style>
+        .container {height:812px;min-height:812px}
+        .container .page-wrap{padding:0;}
+        .img-wrap {position:relative;}
+        .b-main {padding:0}
+        .gobt {position:absolute;top:15px;right:16px;width:30px;height:24px;border:1px solid red}
+        .tab_menu{position:relative;width:100%;}
+        .tab_menu .menu_list{left:20px;box-sizing:border-box;z-index:5;padding-top:20px;padding:0 20px;padding-bottom:32px}
+        .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
+        .tab_menu .menu_list li + li{margin-left:2px;}
+        .tab_menu .menu_list .tab_btn{position:relative;display:inline-block;font-size:18px;font-weight:400;color:rgba(255,255,255,.6);padding-bottom:10px;margin-right:15px}
+        .tab_menu .menu_list li.active .tab_btn{position:relative;color:#fff;background:none;}
+        .tab_menu .menu_list li.active .tab_btn:after {content:'';position:absolute;left:0;bottom:0;border-bottom:1px solid #fff;width:100%;border-radius:50%l;height:1.5px}
+        .tab_contents {padding:0 10px 100px 20px;height:643px;box-sizing:border-box;}
+        .tab_contents .cont{display:none;z-index:0;}
+        .tab_contents .cont.active{display:block;}
+        .top_conts img + img {margin-top:16px}
+        .bottom {position:absolute;bottom:0;z-index:5}
+        .scrollbar{width:100%;overflow-y:scroll;}
+        .scrollbar::-webkit-scrollbar-track{background-color:transparent;}
+        .scrollbar::-webkit-scrollbar{width: 10px;background-color:transparent;}
+        .scrollbar::-webkit-scrollbar-thumb{background-color:transparent;}
+        .wrap-image {position:absolute;top:0;z-index:0}
+
+    </style>
+    
+</head>
+<body>
+    <div class="container type b-main">
+
+        <div class="page-wrap">
+            <div class="img-wrap">
+                <a href="b-main2.html" class="gobt"></a>
+                <img src="./images/btype/b_top.png" alt="">
+            </div>
+            <div class="tab_menu">
+                <ul class="menu_list">
+                    <li class="active">
+                        <a href="#tab-1" class="tab_btn">뱅킹</a>
+                    </li>
+                    <li>
+                        <a href="#tab-2" class="tab_btn">추천</a>
+                    </li>
+                </ul>
+                <div class="tab_contents scrollbar">
+                    <div id="tab-1" class="cont active">
+                        <div class="top_conts">
+                            <img src="./images/btype/b_main_txt1.png" alt="">
+                        </div>
+                    </div>
+                    <div id="tab-2" class="cont">
+                        <div class="top_conts">
+                            <img src="./images/btype/b_main_txt2.png" alt="">
+                            <img src="./images/btype/b_main_txt3.png" alt="">
+                            <img src="./images/btype/b_main_txt4.png" alt="">
+                        </div>   
+                    </div>
+                </div>
+            
+            </div>
+            <div class="bottom">
+                <img src="./images/btype/b_bottom.png" alt="">
+            </div>
+            <div class="wrap-image">
+                <img id="wrapImage" src="./images/btype/b_bg1.jpg" alt="">
+            </div>
+        </div>
+           
+       
+    </div>
+    <script src="./res/ibk-com.js"></script>
+    <script>
+
+    $(function(){
+        tab();
+    });
+    function tab() {
+        const bodyImage = document.getElementById("wrapImage"); // 바디 이미지 요소
+
+const imageSources = [
+    './images/btype/b_bg1.jpg', // Tab 1 이미지
+    './images/btype/b_bg2.jpg'  // Tab 2 이미지
+];
+        const tabMenu = document.querySelectorAll(".tab_menu ul li");
+        const tabContent = document.querySelectorAll(".tab_contents .cont");
+
+        tabMenu.forEach((item, index) => {
+            item.addEventListener("click", (e) => {
+                e.preventDefault(); // a
+                tabContent.forEach((content) => {
+                    content.classList.remove("active");
+                });
+                tabMenu.forEach((content) => {
+                    content.classList.remove("active");
+                });
+
+                tabMenu[index].classList.add("active");
+                tabContent[index].classList.add("active");
+            });
+        });
+    }
+    
+   
+   
+    
+
+
+   
+   
+    
+    </script>
+  
+</body>
+</html>
