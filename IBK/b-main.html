@@ -71,9 +71,9 @@
             <div class="bottom">
                 <img src="./images/btype/b_bottom.png" alt="">
             </div>
-            <div class="wrap-image">
+            <!-- <div class="wrap-image">
                 <img id="wrapImage" src="./images/btype/b_bg1.jpg" alt="">
-            </div>
+            </div> -->
         </div>
            
        
@@ -85,12 +85,12 @@
         tab();
     });
     function tab() {
-        const bodyImage = document.getElementById("wrapImage"); // 바디 이미지 요소
+//         const bodyImage = document.getElementById("wrapImage"); // 바디 이미지 요소
 
-const imageSources = [
-    './images/btype/b_bg1.jpg', // Tab 1 이미지
-    './images/btype/b_bg2.jpg'  // Tab 2 이미지
-];
+// const imageSources = [
+//     './images/btype/b_bg1.jpg', // Tab 1 이미지
+//     './images/btype/b_bg2.jpg'  // Tab 2 이미지
+// ];
         const tabMenu = document.querySelectorAll(".tab_menu ul li");
         const tabContent = document.querySelectorAll(".tab_contents .cont");
 
@@ -108,6 +108,8 @@ const imageSources = [
                 tabContent[index].classList.add("active");
             });
         });
+
+        // wrapImage.src = imageSources[index];
     }
     
    
