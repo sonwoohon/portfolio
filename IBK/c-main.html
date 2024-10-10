@@ -9,14 +9,15 @@
     <script src="./res/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <style>
-        .container::after{content:"";position:fixed;bottom:8px;left:50%;transform:translateX(-50%); width:134px;height:5px;border-radius:100px;background:#000000;}
+        .container{width:375px;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);margin:0;height:812px;min-height:812px;overflow-y:scroll;}
         .container.home{background:#DDE8F4;}
-        .contents{margin: 0 auto;padding-bottom:120px}
+        .contents{margin: 0 auto;}
         .inner{padding:32px 20px 0;}
         .inner.ty2{padding:0}
         /* 하단 네비게이션 */
-        .bottom_nav{position:fixed;bottom:40px;;left:0;right:0;margin:0 auto;width:272px;height:56px;padding:4px 3.5px 4px 4px;border-radius:100px;box-shadow:2px 4px 4px 0px rgba(0, 0, 0, 0.07);backdrop-filter:blur(15px);background:rgba(51, 61, 75, 0.90);}
-        .bottom_nav ul{display:flex;}
+        .bottom_nav{position:sticky;bottom:40px;left:0;right:0;margin:24px 0 40px}
+        .bottom_nav::after{content:"";position:absolute;bottom:-27px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#000000;}
+        .bottom_nav ul{display:flex;margin:0 auto;width:272px;height:56px;padding:4px 3.5px 4px 4px;border-radius:100px;box-shadow:2px 4px 4px 0px rgba(0, 0, 0, 0.07);backdrop-filter:blur(15px);background:rgba(51, 61, 75, 0.90);}
         .bottom_nav li{position:relative;width:48px;height:48px;cursor:pointer;}
         .bottom_nav li + li{margin-left:6px;}
         .bottom_nav a{display:block;width:48px;height:48px;}
@@ -89,25 +90,25 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bottom_nav">
-        <ul>
-            <li class="home on">
-                <a href="./c-main.html"></a>
-            </li>
-            <li class="point">
-                <a href="./c-benefit.html"></a>
-            </li>
-            <li class="ai">
-                <a href="./c-ai.html"></a>
-            </li>
-            <li class="asset">
-                <a href="./c-asset.html"></a>
-            </li>
-            <li class="product">
-                <a href="./c-product.html"></a>
-            </li>
-        </ul>
+        <div class="bottom_nav">
+            <ul>
+                <li class="home on">
+                    <a href="./c-main.html"></a>
+                </li>
+                <li class="point">
+                    <a href="./c-benefit.html"></a>
+                </li>
+                <li class="ai">
+                    <a href="./c-ai.html"></a>
+                </li>
+                <li class="asset">
+                    <a href="./c-asset.html"></a>
+                </li>
+                <li class="product">
+                    <a href="./c-product.html"></a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <script>
