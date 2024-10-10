@@ -9,19 +9,60 @@
     <style>
         header{display: none;}
         .container{padding: 0 ;}
-        .container .nav{position: absolute;bottom: 40px;left: 50px;display: flex;width: 272px;height: 56px;}
-        .container .nav a{width: 54.4px;}
+        body{height: 100vh;}
+        .container{    height: 812px;min-height: 812px;margin: 0;transform: translate(-50%, -50%);top: 50%;left: 50%; overflow: scroll;scrollbar-width: none;}
+        /* 하단 네비게이션 */
+        .bottom_nav{position:sticky;bottom:40px;left:0;right:0;margin:24px 0 40px}
+        .bottom_nav::after{content:"";position:absolute;bottom:-27px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#000000;}
+        .bottom_nav ul{display:flex;margin:0 auto;width:272px;height:56px;padding:4px 3.5px 4px 4px;border-radius:100px;box-shadow:2px 4px 4px 0px rgba(0, 0, 0, 0.07);backdrop-filter:blur(15px);background:rgba(51, 61, 75, 0.90);}
+        .bottom_nav li{position:relative;width:48px;height:48px;cursor:pointer;}
+        .bottom_nav li + li{margin-left:6px;}
+        .bottom_nav a{display:block;width:48px;height:48px;}
+        .bottom_nav li::after, .bottom_nav li.on::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;z-index:-1;}
+        .bottom_nav li.on::before{content:"";position:absolute;top:0;left:0;width:48px;height:48px;border-radius:100px;background:#1D74E8;animation: popIn 0.4s ease-in-out;z-index:-1;}
+        .bottom_nav .ai{position:relative;}
+        .bottom_nav .ai.on::before{content:"";position:absolute;top:-28px;left:-28px;width:104px;height:104px;background:url(./images/Ctype/ico_ai_on_bg.svg);animation: popIn 0.4s ease-in-out;z-index:-1;}
+        @keyframes popIn {
+            0% {
+                transform:scale(0);
+            }
+            100% {
+                transform:scale(1);
+            }
+        }
+        .bottom_nav .home::after{background:url("./images/Ctype/ico_home.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .point:after{background:url("./images/Ctype/ico_point.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .ai::after{width:21px;height:30px;background:url("./images/Ctype/ico_ai.svg") no-repeat center center / 100%;}
+        .bottom_nav .asset::after{background:url("./images/Ctype/ico_asset.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .product::after{background:url("./images/Ctype/ico_product.svg") no-repeat  0 0 / 100%;}
+        .bottom_nav .home.on::after{background:url("./images/Ctype/ico_home_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .point.on:after{background:url("./images/Ctype/ico_point_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .ai.on::after{background:url("./images/Ctype/ico_ai_on.svg") no-repeat center center / 100%;}
+        .bottom_nav .asset.on::after{background:url("./images/Ctype/ico_asset_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .product.on::after{background:url("./images/Ctype/ico_product_on.svg") no-repeat  0 0 / 100%;}
     </style>
 </head>
 <body>
     <div class="container">
         <img src="./images/Ctype/Ai/ai.png" alt="">
-        <div class="nav">
-            <a href="c-main.html"></a>
-            <a href="c-benefit.html"></a> 
-            <a href="#none"></a>
-            <a href="c-asset.html"></a>
-            <a href="c-product.html"></a>
+        <div class="bottom_nav">
+            <ul>
+                <li class="home">
+                    <a href="./c-main.html"></a>
+                </li>
+                <li class="point">
+                    <a href="./c-benefit.html"></a>
+                </li>
+                <li class="ai on">
+                    <a href="./c-ai.html"></a>
+                </li>
+                <li class="asset">
+                    <a href="./c-asset.html"></a>
+                </li>
+                <li class="product">
+                    <a href="./c-product.html"></a>
+                </li>
+            </ul>
         </div>
     </div>
     <script src="./res/ibk-com.js"></script>
