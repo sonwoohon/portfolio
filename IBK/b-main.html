@@ -28,7 +28,7 @@
         .tab_conts img + img {margin-top:16px}
         .bottom {position:absolute;bottom:0;z-index:5}
         .home{position:absolute;left:18px;bottom:10px;width:55px;height:55px;}
-        .scrollbar{width:100%;overflow-y:scroll;}
+        .scrollbar{width:100%;overflow-y:auto;}
         .scrollbar::-webkit-scrollbar-track{background-color:transparent;}
         .scrollbar::-webkit-scrollbar{width: 10px;background-color:transparent;}
         .scrollbar::-webkit-scrollbar-thumb{background-color:transparent;}
@@ -70,7 +70,7 @@
                 </ul>
                 <div class="tab_contents scrollbar">
                     <div id="tab-1" class="cont active">
-                        <div class="tap_conts">
+                        <div class="tab_conts">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide"><img src="./images/btype/b_main_txt1.png" alt=""></div>
@@ -116,12 +116,14 @@
             './images/btype/b_bg1.jpg', 
             './images/btype/b_bg2.jpg'
         ];
+        const scrollPosition = window.scrollY;
 
         tabMenu.forEach((item, index) => {
             item.addEventListener("click", (e) => {
                 e.preventDefault(); // a
                 tabContent.forEach((content) => {
                     content.classList.remove("active");
+                    content.scrollTop = 0;
                 });
                 tabMenu.forEach((content) => {
                     content.classList.remove("active");
@@ -129,9 +131,7 @@
 
                 tabMenu[index].classList.add("active");
                 tabContent[index].classList.add("active");
-                bodyImage.src = imageSources[index];
-                tab1Content.scrollTop = 0;
-                tab2Content.scrollTop = 0;
+                bodyImage.src = imageSources[index];           
             });
         });
     }
