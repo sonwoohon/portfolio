@@ -28,9 +28,7 @@
         .event_wrap .cont .bg2 .fish_right.right1{width: 51px;top: 30%;left: 280px; animation:fish_right1 3s ease-in-out forwards, fish_right1_2 2s ease-in-out infinite}
         .event_wrap .cont .bg2 .fish_right.right2{width: 40px;top: 48%;left: 325px; animation: fish_right2 8s 2s cubic-bezier(0.1, 0.2, 0.22, 1)  infinite;}
         .loop_box{position: relative !important; animation: fishing_move1 1.5s ease-in-out forwards;}
-        /* .event_wrap .cont .bg2 .fishing_line{width: 5px;height: 340px;top: -35%;left: 194px; animation: fishing_move1 2s forwards;} */
         .event_wrap .cont .bg2 .fishing_line{width: 5px;height: 340px;margin-left: 187.5px; margin-top: -26%;}
-        /* .event_wrap .cont .bg2 .fishing_hook{width: 43px;top: 2%;left: 168px; transform-origin: top;  transform: rotate3d(1, 1, 1, 17deg);animation: fishing_hook 4s 1s infinite, fishing_move2 2s forwards;} */
         .event_wrap .cont .bg2 .fishing_hook{margin-left: 162.5px;width: 43px;transform-origin: top;transform: rotate3d(1, 1, 1, 17deg);animation: fishing_hook 4s 1s infinite, fishing_move2 2s forwards;}
         @keyframes fish_up{
             0%{ top: 49%;  transform: rotateZ(-5deg);}
@@ -81,12 +79,7 @@
         .event_wrap .cont .bg3 .txt{position: absolute;left:104px;top: 115px; opacity: 0;}
         .event_wrap .cont .bg3.on .txt{animation: txt .7s 4.5s ease-in forwards}
         @keyframes tide{0%,25%, 75%{ left: -16px;}50%, 100%{left: 0;} }
-        @keyframes crucian_carp{
-        0%,50%{ top: -2%;}
-        25%,75%{top: -4%;}
-        100%{top: -22%;} 
-        }
-
+        @keyframes crucian_carp{0%,50%{ top: -2%;}25%,75%{top: -4%;}100%{top: -22%;} }
         @keyframes coin1{0%{ top:44%;left:-40px;}100%{top:26%; left: 90px; opacity: 1;}}
         @keyframes coin2{0%{ top:60%;left:120px;}100%{top:40%; left: 30px; opacity: 1;} }
         @keyframes coin3{0%{ top:61%;left:193px;}100%{top:38%; left: 114px; opacity: 1;} }
@@ -95,37 +88,6 @@
         .bg1.on{margin-top: 812px; }
         .bg2.on{opacity: 0; z-index: -10;}
         .event_wrap .cont .bg3.on{margin-top: 0vh;}
-
-        /* @media screen and (max-height:768px) {
-            .event_wrap .cont .bg2 .fishing_line{margin-top: -35%;}
-            .event_wrap .cont .box{bottom: 20px;}
-            .event_wrap .cont .bg3 .tide{height: 345px;}
-            .event_wrap .cont .bg3 .crucian_carp{top: -14%;}
-            .event_wrap .cont .bg3 .coin.coin1{top:24%;}
-            .event_wrap .cont .bg3 .coin.coin2{top:40%;}
-            .event_wrap .cont .bg3 .coin.coin3{top:38%;}
-            .event_wrap .cont .bg3 .coin.coin4{top:50%;}
-            @keyframes crucian_carp{0%,50%{ top: -14%;}25%,75%{top: -16%;}100%{top: -40%;}}
-            @keyframes coin1{0%{top: 38%; left:-40px;} 100%{top:24%; opacity: 1;}}
-            @keyframes coin2{0%{top: 57%; left:120px;} 100%{top:40%; opacity: 1;}}
-            @keyframes coin3{0%{top: 60%; left:193px;} 100%{top:38%; opacity: 1;}}
-            @keyframes coin4{0%{top: 60%; left:243px;} 100%{top:48%; opacity: 1;}}
-        } */
-        /* @media screen and (min-height:1024px) {
-            .event_wrap .cont .bg2 .fishing_line{margin-top: 0%;}
-            .event_wrap .cont .box{bottom: 58px;}
-            .event_wrap .cont .bg3 .crucian_carp{top: 23%;}
-            @keyframes crucian_carp{0%,50%{ top: 23%;}25%,75%{top: 25%;}100%{top: 3%;}}
-            .event_wrap .cont .bg3 .coin.coin1{top:44%;}
-            .event_wrap .cont .bg3 .coin.coin2{top:50%;}
-            .event_wrap .cont .bg3 .coin.coin3{top:53%;}
-            .event_wrap .cont .bg3 .coin.coin4{top:63%;}
-            
-            @keyframes coin1{0%{top: 57%; left:-40px;} 100%{top:44%; opacity: 1;}}
-            @keyframes coin2{0%{top: 74%; left:120px;} 100%{top:50%; opacity: 1;}}
-            @keyframes coin3{0%{top: 73%; left:193px;} 100%{top:53%; opacity: 1;}}
-            @keyframes coin4{0%{top: 73%; left:243px;} 100%{top:63%; opacity: 1;}}
-        } */
         /* 하단 네비게이션 */
         .bottom_nav{position:sticky;bottom:40px;left:0;right:0;margin:24px 0 40px}
         .bottom_nav::after{content:"";position:absolute;bottom:-27px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#000000;}
@@ -137,14 +99,7 @@
         .bottom_nav li.on::before{content:"";position:absolute;top:0;left:0;width:48px;height:48px;border-radius:100px;background:#1D74E8;animation: popIn 0.4s ease-in-out;z-index:-1;}
         .bottom_nav .ai{position:relative;}
         .bottom_nav .ai.on::before{content:"";position:absolute;top:-28px;left:-28px;width:104px;height:104px;background:url(./images/Ctype/ico_ai_on_bg.svg);animation: popIn 0.4s ease-in-out;z-index:-1;}
-        @keyframes popIn {
-            0% {
-                transform:scale(0);
-            }
-            100% {
-                transform:scale(1);
-            }
-        }
+        @keyframes popIn {0% {transform:scale(0);}100% {transform:scale(1);}}
         .bottom_nav .home::after{background:url("./images/Ctype/ico_home.svg") no-repeat 0 0 / 100%;}
         .bottom_nav .point:after{background:url("./images/Ctype/ico_point.svg") no-repeat 0 0 / 100%;}
         .bottom_nav .ai::after{width:21px;height:30px;background:url("./images/Ctype/ico_ai.svg") no-repeat center center / 100%;}
