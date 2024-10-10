@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBK 상품</title>
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <link rel="stylesheet" href="./res/swiper-bundle.min.css">
+    <script src="./res/swiper-bundle.min.js"></script>
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <style>
+        .container::after{content:"";position:fixed;bottom:8px;left:50%;transform:translateX(-50%); width:134px;height:5px;border-radius:100px;background:#000000;}
+        .container.product{background:#FFFFFF;}
+        .contents{margin: 0 auto;padding-bottom:120px}
+        .inner{padding:32px 20px 0;}
+        /* 하단 네비게이션 */
+        .bottom_nav{position:fixed;bottom:40px;;left:0;right:0;margin:0 auto;width:272px;height:56px;padding:4px 3.5px 4px 4px;border-radius:100px;box-shadow:2px 4px 4px 0px rgba(0, 0, 0, 0.07);backdrop-filter:blur(15px);background:rgba(51, 61, 75, 0.90);}
+        .bottom_nav ul{display:flex;}
+        .bottom_nav li{position:relative;width:48px;height:48px;cursor:pointer;}
+        .bottom_nav li + li{margin-left:6px;}
+        .bottom_nav a{display:block;width:48px;height:48px;}
+        .bottom_nav li::after, .bottom_nav li.on::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;z-index:-1;}
+        .bottom_nav li.on::before{content:"";position:absolute;top:0;left:0;width:48px;height:48px;border-radius:100px;background:#1D74E8;animation: popIn 0.4s ease-in-out;z-index:-1;}
+        .bottom_nav .ai{position:relative;}
+        .bottom_nav .ai.on::before{content:"";position:absolute;top:-28px;left:-28px;width:104px;height:104px;background:url(./images/Ctype/ico_ai_on_bg.svg);animation: popIn 0.4s ease-in-out;z-index:-1;}
+        @keyframes popIn {
+            0% {
+                transform:scale(0);
+            }
+            100% {
+                transform:scale(1);
+            }
+        }
+        .bottom_nav .home::after{background:url("./images/Ctype/ico_home.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .point:after{background:url("./images/Ctype/ico_point.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .ai::after{width:21px;height:30px;background:url("./images/Ctype/ico_ai.svg") no-repeat center center / 100%;}
+        .bottom_nav .asset::after{background:url("./images/Ctype/ico_asset.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .product::after{background:url("./images/Ctype/ico_product.svg") no-repeat  0 0 / 100%;}
+        .bottom_nav .home.on::after{background:url("./images/Ctype/ico_home_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .point.on:after{background:url("./images/Ctype/ico_poin_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .ai.on::after{background:url("./images/Ctype/ico_ai_on.svg") no-repeat center center / 100%;}
+        .bottom_nav .asset.on::after{background:url("./images/Ctype/ico_asset_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .product.on::after{background:url("./images/Ctype/ico_product_on.svg") no-repeat  0 0 / 100%;}
+
+    </style>
+</head>
+<body>
+    <div id="wrap" class="container product">
+        <header>
+            <img src="./images/Ctype/header.png" alt="">
+        </header>
+        <div class="top_bar">
+            <img src="./images/Ctype/product/topbar.png" alt="">
+        </div>
+        <div class="contents">
+            <div class="inner">
+                <img src="./images/Ctype/product/product_cont01.png" alt="">
+            </div>
+            <img src="./images/Ctype/product/product_cont02-1.png" alt="" style="padding:16px 0 32px 20px">
+            <img src="./images/Ctype/product/product_cont02-2.png" alt="">
+            <img src="./images/Ctype/product/product_cont03.png" alt="" style="padding:18px 32px 16px 32px">
+        </div>
+    </div>
+    <div class="bottom_nav">
+        <ul>
+            <li class="home">
+                <a href="./c-main.html"></a>
+            </li>
+            <li class="point">
+                <a href="./c-benefit.html"></a>
+            </li>
+            <li class="ai">
+                <a href="./c-ai.html"></a>
+            </li>
+            <li class="asset">
+                <a href="./c-asset.html"></a>
+            </li>
+            <li class="product on">
+                <a href="./c-product.html"></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
