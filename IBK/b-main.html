@@ -10,12 +10,12 @@
     <title></title>
     <style>
         .container {height:812px;min-height:812px}
-        .container .page-wrap{padding:0;}
+        .container .page-wrap{padding:0;height:768px}
         .img-wrap {position:relative;}
         .b-main {padding:0}
         .gobt {position:absolute;top:15px;right:16px;width:30px;height:24px;border:1px solid red}
         .tab_menu{position:relative;width:100%;}
-        .tab_menu .menu_list{left:20px;box-sizing:border-box;z-index:5;padding-top:20px;padding:0 20px;padding-bottom:32px}
+        .tab_menu .menu_list{left:20px;box-sizing:border-box;z-index:5;padding-top:20px;padding:0 20px;padding-bottom:25px}
         .tab_menu .menu_list li{display:inline-block;width:auto;height:100%;}
         .tab_menu .menu_list li + li{margin-left:2px;}
         .tab_menu .menu_list .tab_btn{position:relative;display:inline-block;font-size:18px;font-weight:400;color:rgba(255,255,255,.6);padding-bottom:10px;margin-right:15px}
@@ -24,23 +24,38 @@
         .tab_contents {padding:0 10px 100px 20px;height:643px;box-sizing:border-box;}
         .tab_contents .cont{display:none;z-index:0;}
         .tab_contents .cont.active{display:block;}
-        .top_conts img + img {margin-top:16px}
+        .tab_conts img + img {margin-top:16px}
         .bottom {position:absolute;bottom:0;z-index:5}
+        .home{position:absolute;left:18px;bottom:10px;width:55px;height:55px;}
         .scrollbar{width:100%;overflow-y:scroll;}
         .scrollbar::-webkit-scrollbar-track{background-color:transparent;}
         .scrollbar::-webkit-scrollbar{width: 10px;background-color:transparent;}
         .scrollbar::-webkit-scrollbar-thumb{background-color:transparent;}
-        .wrap-image {position:absolute;top:0;z-index:0}
+        .body-image {position:absolute;top:0;z-index:0}
+        .page-wrap {position:relative;z-index:1}
+        header {position:relative;z-index:1}
+        .swiper-slide {text-align:center}
+        .swiper-slide img {width:249px;}
+        .swiper-button-next {width:14px;height:28px;top:55%;background:url(./images/btype/slidebt.png) no-repeat;background-size:100%}
+        .swiper-button-prev {width:14px;height:28px;top:55%;background:url(./images/btype/slidebt.png) no-repeat;transform: rotate(180deg);background-size:100%}
+        .swiper-button-next:after ,.swiper-button-prev:after {display:none}
+        .swiper-button-next.swiper-button-disabled {opacity:.4}
+        .swiper-pagination {bottom:-5px !important;}
+        .swiper-pagination-bullet {width:5px;height:5px;background:#fff;opacity:1}
+        .swiper-pagination-bullet-active {width:18px;background:#5BC0FF;border-radius:9px}
+        .swiper {height:183px}
+        .img2 img {width:191px;height:16px}
+        .img2 {text-align:center;margin:21px 0 45px;line-height:0}
+
+
 
     </style>
     
 </head>
 <body>
     <div class="container type b-main">
-
         <div class="page-wrap">
             <div class="img-wrap">
-                <a href="b-main2.html" class="gobt"></a>
                 <img src="./images/btype/b_top.png" alt="">
             </div>
             <div class="tab_menu">
@@ -54,26 +69,36 @@
                 </ul>
                 <div class="tab_contents scrollbar">
                     <div id="tab-1" class="cont active">
-                        <div class="top_conts">
-                            <img src="./images/btype/b_main_txt1.png" alt="">
+                        <div class="tap_conts">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="./images/btype/b_main_txt1.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="./images/btype/b_main_txt1.png" alt=""></div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                            <div class="img2"><img src="./images/btype/b_main_txt1_2.png" alt=""></div>
+                            <img src="./images/btype/b_main_txt1_3.png" alt="">
                         </div>
                     </div>
                     <div id="tab-2" class="cont">
-                        <div class="top_conts">
+                        <div class="tab_conts">
                             <img src="./images/btype/b_main_txt2.png" alt="">
                             <img src="./images/btype/b_main_txt3.png" alt="">
                             <img src="./images/btype/b_main_txt4.png" alt="">
                         </div>   
                     </div>
-                </div>
-            
+                </div>            
             </div>
             <div class="bottom">
                 <img src="./images/btype/b_bottom.png" alt="">
+                <a href="" class="home"></a>
             </div>
-            <!-- <div class="wrap-image">
-                <img id="wrapImage" src="./images/btype/b_bg1.jpg" alt="">
-            </div> -->
+        </div>
+        <div class="body-image">
+            <img id="bodyImage" src="./images/btype/b_bg1.jpg" alt="">
         </div>
            
        
@@ -85,14 +110,13 @@
         tab();
     });
     function tab() {
-//         const bodyImage = document.getElementById("wrapImage"); // 바디 이미지 요소
-
-// const imageSources = [
-//     './images/btype/b_bg1.jpg', // Tab 1 이미지
-//     './images/btype/b_bg2.jpg'  // Tab 2 이미지
-// ];
         const tabMenu = document.querySelectorAll(".tab_menu ul li");
         const tabContent = document.querySelectorAll(".tab_contents .cont");
+        const bodyImage = document.getElementById("bodyImage"); // 바디 이미지 요소
+        const imageSources = [
+            './images/btype/b_bg1.jpg', 
+            './images/btype/b_bg2.jpg'
+        ];
 
         tabMenu.forEach((item, index) => {
             item.addEventListener("click", (e) => {
@@ -106,11 +130,37 @@
 
                 tabMenu[index].classList.add("active");
                 tabContent[index].classList.add("active");
+                bodyImage.src = imageSources[index];
             });
         });
-
-        // wrapImage.src = imageSources[index];
     }
+    const swiper = new Swiper('.swiper', {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+    });
+    function updateBodyClass(slideIndex) {
+        document.body.classList.remove('body-slide-1', 'body-slide-2');
+        document.body.classList.add(`body-slide-${slideIndex + 1}`); 
+        const bodyImage = document.getElementById("bodyImage"); // body-image 태그
+            // body-slide-2 일 때 이미지 변경
+            if (slideIndex === 1) { // body-slide-2
+                bodyImage.src = './images/btype/b_bg3.jpg';
+            } else {
+                // 기본 이미지로 다시 변경
+                bodyImage.src = './images/btype/b_bg1.jpg';
+            }
+    }
+
+    // Swiper 슬라이드 변경 이벤트
+    swiper.on('slideChange', function () {
+        const currentIndex = swiper.realIndex; 
+        updateBodyClass(currentIndex); 
+    });
     
    
    
