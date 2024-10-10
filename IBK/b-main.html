@@ -9,8 +9,9 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <title></title>
     <style>
-        .container {height:812px;min-height:812px}
-        .container .page-wrap{padding:0;height:768px}
+        body {height:100vh}
+        .container {height:812px;min-height:812px;margin:0;transform: translate(-50%, -50%);top:50%;left:50%;}
+        .container .page-wrap{display:block;padding:0;height:768px}
         .img-wrap {position:relative;}
         .b-main {padding:0}
         .gobt {position:absolute;top:15px;right:16px;width:30px;height:24px;border:1px solid red}
@@ -129,6 +130,8 @@
                 tabMenu[index].classList.add("active");
                 tabContent[index].classList.add("active");
                 bodyImage.src = imageSources[index];
+                tab1Content.scrollTop = 0;
+                tab2Content.scrollTop = 0;
             });
         });
     }
@@ -144,12 +147,10 @@
     function updateBodyClass(slideIndex) {
         document.body.classList.remove('body-slide-1', 'body-slide-2');
         document.body.classList.add(`body-slide-${slideIndex + 1}`); 
-        const bodyImage = document.getElementById("bodyImage"); // body-image 태그
-            // body-slide-2 일 때 이미지 변경
-            if (slideIndex === 1) { // body-slide-2
+        const bodyImage = document.getElementById("bodyImage"); 
+            if (slideIndex === 1) { 
                 bodyImage.src = './images/btype/b_bg3.jpg';
             } else {
-                // 기본 이미지로 다시 변경
                 bodyImage.src = './images/btype/b_bg1.jpg';
             }
     }
