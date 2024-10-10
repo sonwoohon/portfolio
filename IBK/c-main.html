@@ -9,14 +9,15 @@
     <script src="./res/swiper-bundle.min.js"></script>
     <script src="./res/jquery-3.6.4.min.js"></script>
     <style>
-        .container{width:375px;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);margin:0;height:812px;min-height:812px;overflow-y:scroll;scrollbar-width:none;}
+        body{height:100vh;}
+        .container{width:375px;top:50%;left:50%;transform:translate(-50%, -50%);margin:0;height:812px;min-height:812px;overflow-y:scroll;scrollbar-width:none;}
         .container.home{background:#DDE8F4;}
         .contents{margin: 0 auto;}
         .inner{padding:32px 20px 0;}
         .inner.ty2{padding:0}
         /* 하단 네비게이션 */
-        .bottom_nav{position:sticky;bottom:40px;left:0;right:0;margin:24px 0 40px}
-        .bottom_nav::after{content:"";position:absolute;bottom:-27px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#000000;}
+        .bottom_nav{position:sticky;bottom:0;left:0;right:0;height:124px;padding:24px 0 40px}
+        .bottom_nav::after{content:"";position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#000000;}
         .bottom_nav ul{display:flex;margin:0 auto;width:272px;height:56px;padding:4px 3.5px 4px 4px;border-radius:100px;box-shadow:2px 4px 4px 0px rgba(0, 0, 0, 0.07);backdrop-filter:blur(15px);background:rgba(51, 61, 75, 0.90);}
         .bottom_nav li{position:relative;width:48px;height:48px;cursor:pointer;}
         .bottom_nav li + li{margin-left:6px;}
@@ -54,6 +55,7 @@
         
         .tab-contents .tab-content{display:none;margin-top:24px}
         .tab-contents .tab-content.active{display:block;}
+        .tab-contents .tab-content:last-of-type{height:257px;}
     </style>
 </head>
 <body>
@@ -86,8 +88,7 @@
                 <div id="tab-2" class="tab-content">
                     <img src="./images/Ctype/home/home_cont02.png" alt="" style="padding:0 20px;">
                 </div>
-                <div class="tab-content">
-                </div>
+                <div class="tab-content"></div>
             </div>
         </div>
         <div class="bottom_nav">
@@ -120,10 +121,14 @@
             spaceBetween: 10,
         }); 
 
-        document.querySelectorAll('.swiper-slide').forEach((slide, index) => { 
+        document.querySelectorAll('.swiper-slide').forEach((slide, index) => {
             slide.addEventListener('click', () => {
                 const targetId = slide.getAttribute('data-target');
                 const targetContent = document.getElementById(targetId);
+
+                if (!targetContent || targetContent.innerHTML.trim() === "") {
+                    return;
+                }
 
                 document.querySelectorAll('.tab-content').forEach(content => {
                     content.classList.remove('active');
