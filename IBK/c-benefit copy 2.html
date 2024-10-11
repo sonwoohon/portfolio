@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./res/ibk-com.css">
+    <script src="./res/jquery-3.6.4.min.js"></script>
+    <title>혜택</title>
+    <style>
+        body{height: 100vh;}
+        .container{    height: 812px;min-height: 812px;margin: 0;transform: translate(-50%, -50%);top: 50%;left: 50%; overflow: scroll;scrollbar-width: none;}
+        footer{width: 100%;position: absolute;left: 0;bottom: 0;}
+        footer .nav{position: absolute;top: 24px;left: 50px;display: flex;width: 272px;height: 56px;}
+        footer .nav a{width: 54.4px;}
+        .event_link{position: absolute;top: 814px;width: 337px;height: 200px;left: 20px;}
+        /* 이벤트 */
+        .event_wrap{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 376px;height: 812px;background: black;color: #fff;overflow: hidden;display: none;}
+        .event_wrap .cont{position: relative; width: 100%; height: 100%; background: #fff;}
+        .event_wrap .cont .header{position: absolute;top: 0;left: 0;z-index: 100;}
+        .event_wrap .cont .header a{position: absolute;top: 57px;left: 18px;z-index: 100;width: 30px;height: 30px;}
+        .event_wrap .cont .bg{width: 100%; height: 100%; position: absolute; transition: all 2s; overflow: hidden;}
+        .event_wrap .cont .box{position: absolute; bottom: 48px; left: 0; padding: 0 20px; z-index: 100;}
+        .event_wrap .cont .box button {position: absolute;bottom: -2px;left: 0;width: 100%;height: 60px;z-index: 100;}
+        .event_wrap .cont .bg2{top: 0; z-index: 10;}
+        .event_wrap .cont .bg2 > div{position: absolute; }
+        .event_wrap .cont .bg2 .fish_up{width: 26px;top: 49%; left: 35px;transform-origin: center; animation: fish_up 6s ease-out forwards, fish_up_2 6s ease-out infinite;}
+        .event_wrap .cont .bg2 .fish_left.left1{width: 32px;top: 22%;left: 60px; animation : fish_left1 3s ease-in-out forwards, fish_left1_1 3s ease-in-out infinite }
+        .event_wrap .cont .bg2 .fish_left.left2{width: 40px;top: 40%;left: 167px;animation:fish_left2 3s ease-in-out forwards, fish_left2_1 3s 4s ease-in-out infinite}
+        .event_wrap .cont .bg2 .fish_right.right1{width: 51px;top: 30%;left: 280px; animation:fish_right1 3s ease-in-out forwards, fish_right1_2 2s ease-in-out infinite}
+        .event_wrap .cont .bg2 .fish_right.right2{width: 40px;top: 48%;left: 325px; animation: fish_right2 8s 2s cubic-bezier(0.1, 0.2, 0.22, 1)  infinite;}
+        .loop_box{position: relative !important; animation: fishing_move1 1.5s ease-in-out forwards;}
+        .event_wrap .cont .bg2 .fishing_line{width: 5px;height: 340px;margin-left: 187.5px; margin-top: -26%;}
+        .event_wrap .cont .bg2 .fishing_hook{margin-left: 162.5px;width: 43px;transform-origin: top;transform: rotate3d(1, 1, 1, 17deg);animation: fishing_hook 4s 1s infinite, fishing_move2 2s forwards;}
+        @keyframes fish_up{
+            0%{ top: 49%;  transform: rotateZ(-5deg);}
+            20%,30%,60%,70%,80%{  transform: rotateZ(8deg);}
+            25%,35%,65%,75%,85%{  transform: rotateZ(-5deg);}
+            100%{top: -10%;  transform: rotateZ(8deg);}
+        }
+        @keyframes fish_up_2{
+            0%{ top: 49%;  transform: rotateZ(-5deg); opacity: 0;}
+            20%,30%,60%,70%,80%{  transform: rotateZ(8deg); opacity: 1;}
+            25%,35%,65%,75%,85%{  transform: rotateZ(-5deg); opacity: 1;}
+            100%{top: -10%;  transform: rotateZ(8deg); opacity: 0;}
+        }
+        @keyframes fish_left1{0%{ left: 60px;}100%{left: 380px;}}
+        @keyframes fish_left1_1{0%{ left: -30px;}100%{left: 380px;}}
+        @keyframes fish_left2{0%{ left: 167px;}100%{left: 380px;}}
+        @keyframes fish_left2_1{0%{ left: -30px;}100%{left: 380px;}}
+        @keyframes fish_right1{0%{ left: 280px;}100%{left: -50px;}}
+        @keyframes fish_right1_2{0%{ left: 370px;}100%{left: -50px;}}
+        @keyframes fish_right2{
+            0%{ top: 48%;left: 325px;}
+            10%{ top: 46%;left: 300px;transform: rotate3d(1, 1, 1, 45deg) scale(1.2);}
+            30%{ top: 42%;left: 250px;transform: rotate3d(1, 1, 1, 45deg) scale(1.2)}
+            50%{ top: 38%;left: 230px; transform: rotate3d(1, 1, 1, 45deg) scale(2)}
+            70%{ top: 30%;left: 0px;}
+            100%{ top: 30%;left: -50px;}
+        }
+        @keyframes fish_right2_1{0%{ left: 370px;}100%{left: -50px;}}
+        @keyframes fishing_move1{0%{ margin-top: -100%;}100%{top: 0%;}}
+        @keyframes fishing_move2{0%{ top: 2%;}100%{top: 32%;}}
+        @keyframes fishing_hook{0%{ transform: rotate3d(1, 1, 1, 17deg);}50%{ transform: rotate3d(1, 1, 1, -11deg);}100%{transform: rotate3d(1, 1, 1, 19deg);}}
+        
+        .event_wrap .cont .bg3{margin-top: -812px;}
+        .event_wrap .cont .bg3 .tide{width: 395px;position: absolute;bottom: 0; z-index: 5;}
+        .event_wrap .cont .bg3.on .tide{animation:tide 3s 1s forwards;}
+        .event_wrap .cont .bg3 .crucian_carp{position:absolute;top:-2%;left: 77px; width: 325px;}
+        .event_wrap .cont .bg3.on .crucian_carp{animation: crucian_carp 2s 1.8s cubic-bezier(0, 0.82, 0.165, 1) forwards;}
+
+        .event_wrap .cont .bg3 .coin{position: absolute;} 
+        .event_wrap .cont .bg3 .coin.coin1{width: 29px; top:26%; left:90px;; opacity: 0;} 
+        .event_wrap .cont .bg3.on .coin.coin1{animation: coin1 .7s 4.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards}
+        .event_wrap .cont .bg3 .coin.coin2{width: 34px; top: 40%; left: 30px; opacity: 0; } 
+        .event_wrap .cont .bg3.on .coin.coin2{animation: coin2 .7s 4.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards}
+        .event_wrap .cont .bg3 .coin.coin3{width: 25px; top: 38%; left: 114px;  opacity: 0;} 
+        .event_wrap .cont .bg3.on .coin.coin3{animation: coin3 .7s 4.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards}
+        .event_wrap .cont .bg3 .coin.coin4{width: 29px; top: 50%; left: 313px; z-index: 10; opacity: 0;} 
+        .event_wrap .cont .bg3.on .coin.coin4{animation: coin4 .7s 4.3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards}
+        .event_wrap .cont .bg3 .txt{position: absolute;left:104px;top: 115px; opacity: 0;}
+        .event_wrap .cont .bg3.on .txt{animation: txt .7s 4.3s ease-in forwards}
+        @keyframes tide{0%,25%, 75%{ left: -16px;}50%, 100%{left: 0;} }
+        @keyframes crucian_carp{0%,50%{ top: -2%;}25%,75%{top: -4%;}100%{top: -22%;} }
+        @keyframes coin1{0%{ top:44%;left:-40px;}100%{top:26%; left: 90px; opacity: 1;}}
+        @keyframes coin2{0%{ top:60%;left:120px;}100%{top:40%; left: 30px; opacity: 1;} }
+        @keyframes coin3{0%{ top:61%;left:193px;}100%{top:38%; left: 114px; opacity: 1;} }
+        @keyframes coin4{0%{ top:62%;left:243px;}100%{top:50%; left: 313px; opacity: 1;} }
+        @keyframes txt{0%{top: 135px;}100%{top:115px; opacity: 1;} }
+        .bg1.on{margin-top: 812px; }
+        .bg2.on{opacity: 0; z-index: -10;}
+        .event_wrap .cont .bg3.on{margin-top: 0vh;}
+        /* 하단 네비게이션 */
+        .bottom_nav{position:sticky;bottom:0;left:0;right:0;height:120px;padding:24px 0 40px}
+        .bottom_nav::after{content:"";position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:100px;background:#000000;}
+        .bottom_nav ul{display:flex;margin:0 auto;width:272px;height:56px;padding:4px 3.5px 4px 4px;border-radius:100px;box-shadow:2px 4px 4px 0px rgba(0, 0, 0, 0.07);backdrop-filter:blur(15px);background:rgba(51, 61, 75, 0.90);}
+        .bottom_nav li{position:relative;width:48px;height:48px;cursor:pointer;}
+        .bottom_nav li + li{margin-left:6px;}
+        .bottom_nav a{display:block;width:48px;height:48px;}
+        .bottom_nav li::after, .bottom_nav li.on::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;z-index:-1;}
+        .bottom_nav li.on::before{content:"";position:absolute;top:0;left:0;width:48px;height:48px;border-radius:100px;background:#1D74E8;animation: popIn 0.4s ease-in-out;z-index:-1;}
+        .bottom_nav .ai{position:relative;}
+        .bottom_nav .ai.on::before{content:"";position:absolute;top:-28px;left:-28px;width:104px;height:104px;background:url(./images/Ctype/ico_ai_on_bg.svg);animation: popIn 0.4s ease-in-out;z-index:-1;}
+        @keyframes popIn {
+            0% {
+                transform:scale(0);
+            }
+            100% {
+                transform:scale(1);
+            }
+        }
+        .bottom_nav .home::after{background:url("./images/Ctype/ico_home.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .point:after{background:url("./images/Ctype/ico_point.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .ai::after{width:21px;height:30px;background:url("./images/Ctype/ico_ai.svg") no-repeat center center / 100%;}
+        .bottom_nav .asset::after{background:url("./images/Ctype/ico_asset.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .product::after{background:url("./images/Ctype/ico_product.svg") no-repeat  0 0 / 100%;}
+        .bottom_nav .home.on::after{background:url("./images/Ctype/ico_home_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .point.on:after{background:url("./images/Ctype/ico_point_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .ai.on::after{background:url("./images/Ctype/ico_ai_on.svg") no-repeat center center / 100%;}
+        .bottom_nav .asset.on::after{background:url("./images/Ctype/ico_asset_on.svg") no-repeat 0 0 / 100%;}
+        .bottom_nav .product.on::after{background:url("./images/Ctype/ico_product_on.svg") no-repeat  0 0 / 100%;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <img src="./images/Ctype/benefit/title.png" />
+            <div style="margin: 0 20px;" >
+                <img src="./images/Ctype/benefit/cont_1.png" style="margin-bottom: 32px;"/>
+                <img src="./images/Ctype/benefit/cont_2.png" style="margin-bottom: 26px;"/>
+                <img src="./images/Ctype/benefit/cont_3.png" />
+                <button href="#none" class="event_link"></button>
+            </div>
+        </div>
+        <div class="bottom_nav">
+            <ul>
+                <li class="home">
+                    <a href="./c-main.html"></a>
+                </li>
+                <li class="point on">
+                    <a href="./c-benefit.html"></a>
+                </li>
+                <li class="ai">
+                    <a href="./c-ai.html"></a>
+                </li>
+                <li class="asset">
+                    <a href="./c-asset.html"></a>
+                </li>
+                <li class="product">
+                    <a href="./c-product.html"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="event_wrap">
+        <div class="cont">
+            <div class="header">
+                <img src="./images/Ctype/header.png" alt="" >
+                <img src="./images/Ctype/benefit/box2.png" alt="" >
+                <a href="./c-benefit.html"></a>
+            </div>
+            <div class="box">
+                <img src="./images/Ctype/benefit/box.png" alt=""  />
+                <button onclick="start();"></button>
+            </div>
+            <div class="bg bg1">
+                <img src="./images/Ctype/benefit/bg.png" alt="" />
+            </div>
+            <!-- bg1 위를 덮음 -->
+            <div class="bg bg2">
+                <div class="fish_up">
+                    <img src="./images/Ctype/benefit/hippocampus.png" alt="">
+                </div>
+                <div class="fish_left left1">
+                    <img src="./images/Ctype/benefit/flying_fish1.png" alt="">
+                </div>
+                <div class="fish_left left2">
+                    <img src="./images/Ctype/benefit/redfish2.png" alt="" style="width: 24px;margin-left: 35px;">
+                    <img src="./images/Ctype/benefit/redfish1.png" alt="" style="width: 36px;">
+                </div>
+                <div class="fish_right right1">
+                    <img src="./images/Ctype/benefit/flying_fish2.png" alt="">
+                </div>
+                <div class="fish_right right2">
+                    <img src="./images/Ctype/benefit/stripe_fish.png" alt="">
+                </div>
+                <div class="loop_box">
+                    <div class="fishing_line">
+                        <img src="./images/Ctype/benefit/fishing_line.png" alt="" style="height: 340px;">
+                    </div>
+                    <div class="fishing_hook">
+                        <img src="./images/Ctype/benefit/fishing_hook.png" alt="" style="">
+                    </div>
+                </div>
+            </div>
+            <div class="bg bg3">
+                <div class="tide">
+                    <img src="./images/Ctype/benefit/bg2.png" alt="" >
+                </div>
+                <div class="crucian_carp">
+                    <img src="./images/Ctype/benefit/crucian_carp.png" alt="" style="">
+                </div>
+                <img src="./images/Ctype/benefit/coin1.png" class="coin coin1" alt="">
+                <img src="./images/Ctype/benefit/coin2.png" class="coin coin2" alt="">
+                <img src="./images/Ctype/benefit/coin3.png" class="coin coin3" alt="">
+                <img src="./images/Ctype/benefit/coin4.png" class="coin coin4" alt="">
+                <div class="txt">
+                    <img src="./images/Ctype/benefit/c_txt.png" alt="" width="167px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./res/ibk-com.js"></script>
+    <script>
+        const bg1 = document.querySelector('.bg1')
+        const bg2 = document.querySelector('.bg2')
+        const bg3 = document.querySelector('.bg3')
+        const event_wrap = document.querySelector('.event_wrap')
+
+        const start =() => {
+            bg1.classList.add('on');
+            bg2.classList.add('on');
+            bg3.classList.add('on');
+        }
+        
+        document.querySelector('.event_link').addEventListener('click', function(){
+            event_wrap.style.display = "block";
+        })
+    </script>
+</body>
+</html>
