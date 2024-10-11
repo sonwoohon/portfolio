@@ -27,10 +27,10 @@
     
         /* 전체 */
         .depth {display: flex;height:100vh;margin: 0 -20px;}  
-        .depth-1{ position: relative; width: 134px; background-color: #215C9C;}
-        .depth-1 ul{display: flex; flex-direction: column;}
+        .depth-1{ position: relative; width: 134px; background-color: #215C9C;  overflow-y: auto;scrollbar-width: none;}
+        .depth-1 ul{display: flex; flex-direction: column; height: 900px;}
         .depth-1 ul li{padding: 16px 20px; white-space: nowrap; line-height: 20px;}
-        .depth-1 ul li:first-child{padding-top: 30px;}
+        /* .depth-1 ul li:first-child{padding-top: 30px;} */
         .depth-1 ul li a{display: inline-block; color: #fff; opacity: 0.6;}
         .depth-1 ul li a.on{color: #fff; font-weight: 700; opacity: 1;}
         .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png) no-repeat center / contain; vertical-align: sub; margin-right: 8px;}
@@ -45,7 +45,7 @@
         .depth-1 ul li:nth-of-type(10) a::before{background: url(./images/menu/icon-11.png) no-repeat center / contain;}
         .depth-1 ul li:nth-of-type(11) a::before{background: url(./images/menu/icon-8.png) no-repeat center / contain;}
         .depth-1 ul li:nth-of-type(12) a::before{background: url(./images/menu/icon-10.png) no-repeat center / contain;}
-        .depth-2{position: relative; width: 100%; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px; scrollbar-width: none; margin-bottom: 180px;}
+        .depth-2{position: relative; width: 241px; border-top: 1px solid #E5E8EC;overflow-y: auto;font-size: 16px; scrollbar-width: none; margin-bottom: 180px;}
         .depth-2 ul{display: flex;flex-direction: column; padding:0 20px;}
         .depth-2 ul li a{position: relative; display:block; padding: 20px 0; font-weight: 700; border-bottom: 1px solid #F7F7F7;}
         .depth-2 ul li a.on{ color: #1D74E8;}
