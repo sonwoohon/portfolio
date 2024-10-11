@@ -33,7 +33,7 @@
         .depth-1 ul li:first-child{padding-top: 30px;}
         .depth-1 ul li a{display: inline-block; color: #fff; opacity: 0.6;}
         .depth-1 ul li a.on{color: #fff; font-weight: 700; opacity: 1;}
-        .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png) no-repeat center / contain; vertical-align: sub; margin-right: 4px;}
+        .depth-1 ul li a:before{content: ""; display: inline-block; width: 20px; height: 20px; background: url(./images/menu/icon.png) no-repeat center / contain; vertical-align: sub; margin-right: 8px;}
         .depth-1 ul li:nth-of-type(2) a::before{background: url(./images/menu/icon-1.png) no-repeat center / contain;}
         .depth-1 ul li:nth-of-type(3) a::before{background: url(./images/menu/icon-3.png) no-repeat center / contain;}
         .depth-1 ul li:nth-of-type(4) a::before{background: url(./images/menu/icon-7.png) no-repeat center / contain;}
@@ -68,7 +68,7 @@
                         <a href="#tab1">최근</a>
                     </div>
                     <div>
-                        <a href="#tab2" onclick="$('.depth-2').animate({ scrollTop: 600 }, 300);">전체</a>
+                        <a href="#tab2" onclick="$('.depth-2').animate({ scrollTop: 260 }, 300);">전체</a>
                     </div>
                 </div>
                 <a href="./menu-search.html" class="search"></a>
@@ -140,7 +140,7 @@
                         </ul>
                     </div>
                     <div class="depth-2">
-                        <ul class="panel">
+                        <ul class="panel"><!-- 조회 -->
                             <li class="accordion">
                                 <a href="#none" class="folding-btn">전체계좌조회</a>
                                 <div class="depth-3 folding-panel">
@@ -154,7 +154,7 @@
                             <li><a href="#none">이체결과조회</a></li>
                             <li><a href="#none">해지결과조회</a></li>
                         </ul>
-                        <ul class="panel">
+                        <ul class="panel"><!-- 이체 -->
                             <li><a href="#none">이체</a></li>
                             <li><a href="#none">지연이체</a></li>
                             <li class="accordion">
@@ -191,18 +191,237 @@
                                     <ul>
                                         <li><a href="#none">이체한도관리</a></li>
                                         <li><a href="#none">이체정지해제</a></li>
-                                        <li><a href="#none">자동이체이력조회</a></li>
-                                        <li><a href="#none">자동이체이력조회</a></li>
-                                        <li><a href="#none">자동이체이력조회</a></li>
+                                        <li><a href="#none">착오송금반환</a></li>
+                                        <li><a href="#none">신입금계좌지정서비스</a></li>
+                                        <li><a href="#none">지연이체서비스</a></li>
                                     </ul>
                                 </div> 
                             </li>
-                            <li><a href="#none">이체관리</a></li>
                             <li><a href="#none">ATM출금</a></li>
-                            <li><a href="#none">오픈뱅킹</a></li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">오픈뱅킹</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">오픈뱅킹안내</a></li>
+                                        <li><a href="#none">다른금융조회</a></li>
+                                        <li><a href="#none">다른금융이체</a></li>
+                                        <li><a href="#none">잔액가져오기</a></li>
+                                        <li><a href="#none">오픈뱅킹관리</a></li>
+                                        <li><a href="#none">오픈뱅킹제한</a></li>
+                                    </ul>
+                                </div> 
+                            </li>
                         </ul>
-                        <ul class="panel">
-                            <li><a href="#none">한눈에보기</a></li>
+                        <ul class="panel"><!-- 뱅킹 -->
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">계좌관리</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">평생계좌번호관리</a></li>
+                                        <li><a href="#none">자주쓰는계좌/그룹관리</a></li>
+                                        <li><a href="#none">출금계좌관리</a></li>
+                                        <li><a href="#none">보완계좌등록</a></li>
+                                        <li><a href="#none">계좌비밀번호 변경</a></li>
+                                        <li><a href="#none">계좌비밀번호오류해제</a></li>
+                                        <li><a href="#none">자동화기기 한도축소 해제</a></li>
+                                        <li><a href="#none">통장표지조회서비스</a></li>
+                                        <li><a href="#none">통장발행여부변경</a></li>
+                                        <li><a href="#none">계좌이동서비스</a></li>
+                                        <li><a href="#none">i-ONE전자위임장서비스</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">예금</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">예금계좌조회</a></li>
+                                        <li><a href="#none">세제혜택한도조회</a></li>
+                                        <li><a href="#none">예금상품전환</a></li>
+                                        <li><a href="#none">변동금리통지서비스</a></li>
+                                        <li><a href="#none">예금해지</a></li>
+                                        <li><a href="#none">중도인출서비스</a></li>
+                                        <li><a href="#none">예금예약갱신/자동재예치</a></li>
+                                        <li><a href="#none">외화정기예금자동재예치</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">신탁</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">신탁추가입금</a></li>
+                                        <li><a href="#none">신탁 매도/해지</a></li>
+                                        <li><a href="#none">신탁관리</a></li>
+                                        <li><a href="#none">신탁조회</a></li>
+                                        <li><a href="#none">연금형신탁</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">펀드</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">펀드조회</a></li>
+                                        <li><a href="#none">펀드입금/취소</a></li>
+                                        <li><a href="#none">펀드환매/취소</a></li>
+                                        <li><a href="#none">신탁조회</a></li>
+                                        <li><a href="#none">연금저축펀드</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">대출</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">대출한도조회</a></li>
+                                        <li><a href="#none">대출조회</a></li>
+                                        <li><a href="#none">대출원금상환</a></li>
+                                        <li><a href="#none">대출이자납입</a></li>
+                                        <li><a href="#none">대출관리</a></li>
+                                        <li><a href="#none">적합성/적정성 고객정보확인</a></li>
+                                        <li><a href="#none">대출계약서류조회</a></li>
+                                        <li><a href="#none">FAST서류제출</a></li>
+                                        <li><a href="#none">스마트여신약정</a></li>
+                                        <li><a href="#none">대출청약철회</a></li>
+                                        <li><a href="#none">배우자동의</a></li>
+                                        <li><a href="#none">부동산등기 전자서명</a></li>
+                                        <li><a href="#none">근저당권 유지확인서</a></li>
+                                        <li><a href="#none">안심전환대출</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">보험</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">보험조회</a></li>
+                                        <li><a href="#none">보험료납입</a></li>
+                                        <li><a href="#none">보험관리</a></li>
+                                        <li><a href="#none">보험사안내</a></li>
+                                        <li><a href="#none">노랑우산공재</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">퇴직연금</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">퇴직연금조회</a></li>
+                                        <li><a href="#none">퇴직연금관리</a></li>
+                                        <li><a href="#none">퇴직연금ETF</a></li>
+                                        <li><a href="#none">타사 IRP가져오기</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">개인종합자산관리</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">ISA안내</a></li>
+                                        <li><a href="#none">신탁형 ISA</a></li>
+                                        <li><a href="#none">일임형 ISA</a></li>
+                                        <li><a href="#none">ISA중도인출</a></li>
+                                        <li><a href="#none">ISA만기연장</a></li>
+                                        <li><a href="#none">ISA해지</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">주택청약통장관리</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">비과세신청</a></li>
+                                        <li><a href="#none">세대주기간충족 등록</a></li>
+                                        <li><a href="#none">소득공제대상 등록/해지</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion"> 
+                                <a href="#none" class="folding-btn">내 아이 카드/계좌</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">내 아이 계좌</a></li> 
+                                        <li><a href="#none">내 아이 Check카드</a></li>
+                                        <li><a href="#none">내 아이 카드/계좌 조회서비스</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                        </ul>
+                        <ul class="panel"><!-- 자산 -->
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">자신</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">MY자산</a></li>
+                                        <li><a href="#none">자산리포트</a></li>
+                                        <li><a href="#none">자산포트폴리오</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">지출</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">MY지출</a></li>
+                                        <li><a href="#none">안쓰기 챌린지</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">대출·신용관리</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">내 신용정보</a></li>
+                                        <li><a href="#none">신용점수올리기</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">보험</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">MY보험</a></li>
+                                        <li><a href="#none">내 보험 진단</a></li>
+                                        <li><a href="#none">실손보험 빠른청구</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">주식</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">주식매매</a></li>
+                                        <li><a href="#none">공모주 알림</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li><a href="#none">연금</a></li>
+                            <li><a href="#none">부동산</a></li>
+                            <li><a href="#none">자동차</a></li>
+                        </ul>
+                        <ul class="panel"><!-- 상품 -->
+                            <li><a href="#none">예적금/청약</a></li>
+                            <li><a href="#none">중금채</a></li>
+                            <li><a href="#none">입출금</a></li>
+                            <li><a href="#none">대출</a></li>
+                            <li><a href="#none">카드</a></li>
+                            <li><a href="#none">펀드</a></li>
+                            <li><a href="#none">보험</a></li>
+                            <li><a href="#none">퇴직연금(개인형IRP)</a></li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">개인종합자산관리계좌(ISA)</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">ISA안내</a></li>
+                                        <li><a href="#none">신탁형 ISA 알아보기</a></li>
+                                        <li><a href="#none">일임형 ISA 신규가입</a></li> 
+                                    </ul>
+                                </div>    
+                            </li>
+                        </ul>
+                        <ul class="panel"><!-- 공과금 -->
+                            <li><a href="#none">한눈에 보기</a></li>
                             <li class="accordion">
                                 <a href="#none" class="folding-btn">생활공과금</a>
                                 <div class="depth-3 folding-panel">
@@ -234,7 +453,7 @@
                             </li>
                             <li><a href="#none">국민연금</a></li>
                             <li class="accordion">
-                                <a href="#none" class="folding-btn">보혐료</a>
+                                <a href="#none" class="folding-btn">보험료</a>
                                 <div class="depth-3 folding-panel">
                                     <ul>
                                         <li><a href="#none">고용보험</a></li>
@@ -246,94 +465,9 @@
                             <li><a href="#none">펌/금융결제원 CMS</a></li>
                             <li><a href="#none">국세</a></li>
                             <li><a href="#none">관세</a></li>
-                            <li><a href="#none">경찰청범칙금</a></li>
+                            <li><a href="#none">경찰청범칙금 </a></li>
                         </ul>
-                        <ul class="panel">
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">계좌관리</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">평생계좌번호관리</a></li>
-                                        <li><a href="#none">자주쓰는계좌/그룹관리</a></li>
-                                        <li><a href="#none">출금계좌관리</a></li>
-                                        <li><a href="#none">보완계좌등록</a></li>
-                                        <li><a href="#none">계좌비밀번호 변경</a></li>
-                                        <li><a href="#none">계좌비밀번호오류해제</a></li>
-                                        <li><a href="#none">자동화기기 한도축소 해제</a></li>
-                                        <li><a href="#none">통장표지조회서비스</a></li>
-                                    </ul>
-                                </div>    
-                            </li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">예금</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">예금계좌조회</a></li>
-                                        <li><a href="#none">세제혜택한도조회</a></li>
-                                        <li><a href="#none">예금상품전환</a></li>
-                                        <li><a href="#none">변동금리통지서비스</a></li>
-                                        <li><a href="#none">예금해지</a></li>
-                                        <li><a href="#none">중도인출서비스</a></li>
-                                        <li><a href="#none">예금예약갱신/자동재예치</a></li>
-                                        <li><a href="#none">외화정기예금자동재예치</a></li>
-                                    </ul>
-                                </div>    
-                            </li>
-                            <li><a href="#none">신탁</a></li>
-                            <li><a href="#none">펀드</a></li>
-                            <li><a href="#none">대출</a></li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">보험</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">보험조회</a></li>
-                                        <li><a href="#none">보험료납입</a></li>
-                                        <li><a href="#none">보험관리</a></li>
-                                        <li><a href="#none">보험사안내</a></li>
-                                        <li><a href="#none">노랑우산공재</a></li>
-                                    </ul>
-                                </div>    
-                            </li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">퇴직연금</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">퇴직연금조회</a></li>
-                                        <li><a href="#none">퇴직연금관리</a></li>
-                                        <li><a href="#none">퇴직연금ETF</a></li>
-                                        <li><a href="#none">타사 IRP가져오기</a></li>
-                                    </ul>
-                                </div>    
-                            </li>
-                            <li><a href="#none">개인종합자산관리</a></li>
-                            <li><a href="#none">주택청약통장관리</a></li>
-                            <li><a href="#none">내 아이 카드/계좌</a></li>
-                            <li><a href="#none">뱅킹</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">내 카드 통합관리</a></li>
-                            <li><a href="#none">이용내역조회</a></li>
-                            <li><a href="#none">이용대금명세서</a></li>
-                            <li><a href="#none">실적충족현황</a></li>
-                            <li><a href="#none">결제</a></li>
-                            <li><a href="#none">카드관리</a></li>
-                            <li><a href="#none">기프트카드</a></li>
-                            <li class="accordion">
-                                <a href="#none" class="folding-btn">종합안내</a>
-                                <div class="depth-3 folding-panel">
-                                    <ul>
-                                        <li><a href="#none">명세서표기제외 신청/취소</a></li>
-                                        <li><a href="#none">연체내역조회</a></li>
-                                        <li><a href="#none">연간캐시백조회</a></li>
-                                        <li><a href="#none">카드마케팅활용 동의</a></li>
-                                    </ul>
-                                </div>    
-                            </li>
-                            <li><a href="#none">혜택</a></li>
-                            <li><a href="#none">금융</a></li>
-                            <li><a href="#none">편의</a></li>
-                        </ul>
-                        <ul class="panel">
+                        <ul class="panel"><!-- 외환 -->
                             <li class="accordion">
                                 <a href="#none" class="folding-btn">환율</a>
                                 <div class="depth-3 folding-panel">
@@ -359,7 +493,7 @@
                                 <div class="depth-3 folding-panel">
                                     <ul>
                                         <li><a href="#none">해외송금/WU빠른송금</a></li>
-                                        <li><a href="#none">해외송금내역</a></li>
+                                        <li><a href="#none">환전신청내역</a></li>
                                         <li><a href="#none">조건변경/자금반환요청</a></li>
                                         <li><a href="#none">거래외국환은행 지정</a></li>
                                         <li><a href="#none">받은송금조회</a></li>
@@ -367,112 +501,195 @@
                                     </ul>
                                 </div>    
                             </li>
-                            <li><a href="#none">외환이체</a></li>
-                            <li><a href="#none">당행외화이체내역</a></li>
-                            <li><a href="#none">타행외화이체내역</a></li>
-                            <li><a href="#none">국내실시간외화송금(금결원)</a></li>
-                            <li><a href="#none">외화송금 조건변경</a></li>
-                            <li><a href="#none">QR코드 반복송금</a></li>
-                            <li><a href="#none">외화예금조회</a></li>
-                            <li><a href="#none">외국환거래법 신고여부 확인</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">예적금/청약</a></li>
-                            <li><a href="#none">중금채</a></li>
-                            <li><a href="#none">입출금</a></li>
-                            <li><a href="#none">대출</a></li>
-                            <li><a href="#none">카드</a></li>
-                            <li><a href="#none">펀드</a></li>
-                            <li><a href="#none">보험</a></li>
-                            <li><a href="#none">퇴직연금(개인형IRP)</a></li>
-                            <li><a href="#none">개인종합자산관리계좌(ISA)</a></li>
-                            <li><a href="#none">상품가입</a></li>
-                            <li><a href="#none">ISA안내</a></li>
-                            <li><a href="#none">신탁형 ISA 알아보기</a></li>
-                            <li><a href="#none">일임형 ISA 신규가입</a></li>
-                        </ul>
-                        <ul class="panel"> 
                             <li class="accordion">
-                                <a href="#none" class="folding-btn">자산</a>
+                                <a href="#none" class="folding-btn">외환이체</a>
                                 <div class="depth-3 folding-panel">
                                     <ul>
-                                        <li><a href="#none">MY자산</a></li>
-                                        <li><a href="#none">자산리포트</a></li>
-                                        <li><a href="#none">자산포트폴리오</a></li>
+                                        <li><a href="#none">외화이체</a></li>
+                                        <li><a href="#none">당행외화이체내역</a></li>
+                                        <li><a href="#none">타행외화이체내역</a></li>
+                                        <li><a href="#none">국내실시간외화송금(금결원)</a></li>
                                     </ul>
                                 </div>    
                             </li>
-                            <li><a href="#none">지출</a></li>
-                            <li><a href="#none">MY지출</a></li>
-                            <li><a href="#none">안쓰기 챌린지</a></li>
-                            <li><a href="#none">대출·신용관리</a></li>
-                            <li><a href="#none">내 신용정보</a></li>
-                            <li><a href="#none">신용점수올리기</a></li>
-                            <li><a href="#none">보험</a></li>
-                            <li><a href="#none">실손보험 빠른청구</a></li>
-                            <li><a href="#none">연금</a></li>
-                            <li><a href="#none">부동산</a></li>
-                            <li><a href="#none">자동차</a></li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">외화송금 조건변경</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">외화송금조건변경</a></li>
+                                        <li><a href="#none">외화송금조건변경내역조회</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li><a href="#none">QR코드 반복송금</a></li>
+                            <li><a href="#none">외화예금조회</a></li>
+                            <li><a href="#none">외국환거래법 신고여부 확인 </a></li>
                         </ul>
-                        <ul class="panel">
+                        <ul class="panel"><!-- 카드 -->
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">내 카드 통합관리</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">이용내역조회</a></li>
+                                        <li><a href="#none">이용대금명세서</a></li>
+                                        <li><a href="#none">실적충족현황</a></li>
+                                        <li><a href="#none">결제</a></li>
+                                        <li><a href="#none">카드관리</a></li>
+                                        <li><a href="#none">기프트카드</a></li>
+                                        <li><a href="#none">종합안내</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">혜택</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">할인혜택</a></li>
+                                        <li><a href="#none">포인트조회/전환</a></li>
+                                        <li><a href="#none">BUSS바우처안내/신청</a></li>
+                                        <li><a href="#none">카드VIP제도</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">금융</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">할인혜택</a></li>
+                                        <li><a href="#none">포인트조회/전환</a></li>
+                                        <li><a href="#none">BUSS바우처안내/신청</a></li>
+                                        <li><a href="#none">카드VIP제도</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">편의</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">할인혜택 </a></li>
+                                        <li><a href="#none">포인트조회/전환</a></li>
+                                        <li><a href="#none">BUSS바우처안내/신청</a></li>
+                                        <li><a href="#none">카드VIP제도</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                        </ul>
+                        <ul class="panel"><!-- 생활 -->
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">생활·편의</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">IBK알뜰폰요금제 </a></li>
+                                        <li><a href="#none">장기렌탈 서비스</a></li>
+                                        <li><a href="#none">계좌통합관리(어카운트인포)</a></li>
+                                        <li><a href="#none">IBK비주얼가계부</a></li>
+                                        <li><a href="#none">오늘의 운세</a></li>
+                                        <li><a href="#none">공공시설 예약</a></li>
+                                        <li><a href="#none">반려동물 등록</a></li>
+                                        <li><a href="#none">자원봉사 신청 및 조회</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">교통·여행</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">ONE할 때 여행 </a></li>
+                                        <li><a href="#none">자동차 · 도로</a></li>
+                                        <li><a href="#none">여행 예약 서비스</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">금융</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">I오늘의금융팁 </a></li>
+                                        <li><a href="#none">IBK급여라운지</a></li>
+                                        <li><a href="#none">IBK군인라운지</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">보험·환급금</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">자동차보험 </a></li>
+                                        <li><a href="#none">생활간편보험</a></li>
+                                        <li><a href="#none">여행/골프(홀인원)보험</a></li>
+                                        <li><a href="#none">숨은보험금찾기</a></li>
+                                        <li><a href="#none">국세 미수령 환급금 찾기</a></li>
+                                        <li><a href="#none">용산재보험료 미환급액 조회/환급</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                            <li><a href="#none">쇼핑</a></li>
+                            <li><a href="#none">증권 소식</a></li> 
+                        </ul>
+                        <ul class="panel"><!-- 주식 -->
+                            <li><a href="#none">계좌개설</a></li>
+                            <li><a href="#none">주식매매</a></li>
+                            <li><a href="#none">자녀 계좌개설</a></li>
+                        </ul>
+                        <ul class="panel"><!-- 혜택 -->
                             <li><a href="#none">한눈에 보기</a></li>
-                            <li><a href="#none">출석체크</a></li>
-                            <li><a href="#none">함께걷기</a></li>
-                            <li><a href="#none">i-ONE 놀이터</a></li>
-                            <li><a href="#none">칭찬스티커 보내기</a></li>
-                            <li><a href="#none">반려식물키우기</a></li>
-                            <li><a href="#none">황금열쇠찾기</a></li>
-                            <li><a href="#none">워라벨 실천하기</a></li>
-                            <li><a href="#none">전역까지 D-Day</a></li>
-                            <li><a href="#none">군인퀴즈</a></li>
+                            <li><a href="#none">포인트 얻기</a></li>
+                            <li><a href="#none">함께하는 혜택</a></li>
+                            <li><a href="#none">제휴 혜택</a></li>
+                            <li><a href="#none">전체 이벤트</a></li>
+                            <li><a href="#none">오늘의 퀴즈</a></li>
+                            <li><a href="#none">도전/미션</a></li>
+                            <li><a href="#none">모바일 쿠폰 마켓</a></li>
+                            <li><a href="#none">이벤트 당첨 확인 </a></li>
                         </ul>
-                        <ul class="panel">
-                            <li><a href="#none">생활·편의</a></li>
-                            <li><a href="#none">IBK알뜰폰요금제</a></li>
-                            <li><a href="#none">교통·여행</a></li>
-                            <li><a href="#none">반려동물 등록</a></li>
-                            <li><a href="#none">I오늘의금융팁</a></li>
-                            <li><a href="#none">IBK급여라운지</a></li>
-                            <li><a href="#none">IBK군인라운지</a></li>
-                            <li><a href="#none">보험·환급금</a></li>
-                            <li><a href="#none">자동차보험</a></li>
-                            <li><a href="#none">모바일인증서</a></li>
-                        </ul>
-                        <ul class="panel">
+                        <ul class="panel"><!-- 고객센터 -->
                             <li><a href="#none">고객센터 홈</a></li>
                             <li><a href="#none">FAQ</a></li>
-                            <li><a href="#none">채팅상담</a></li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">고객지원</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">개인신용정보마케팅활용동의 </a></li>
+                                        <li><a href="#none">개인(신용)정보 조회동의</a></li>
+                                        <li><a href="#none">본인확인서 등록</a></li>
+                                        <li><a href="#none">금융거래종합보고서</a></li>
+                                        <li><a href="#none">거부정보해제</a></li>
+                                        <li><a href="#none">비과세종합저축 증비서류 제출</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><a href="#none">전화상담</a></li>
-                            <li><a href="#none">영업점 방문예약</a></li>
-                            <li><a href="#none">음성본인확인서비스</a></li>
+                            <li><a href="#none">개인정보처리방침</a></li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">소비자민원</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">칭찬/불만</a></li>
+                                        <li><a href="#none">민원접수</a></li>
+                                        <li><a href="#none">1:1업무문의</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="accordion">
+                                <a href="#none" class="folding-btn">이용안내</a>
+                                <div class="depth-3 folding-panel">
+                                    <ul>
+                                        <li><a href="#none">아이원뱅크 소개</a></li>
+                                        <li><a href="#none">아이원뱅크 개편안내</a></li>
+                                        <li><a href="#none">아이원뱅크 쉬운뱅크 소개</a></li>
+                                        <li><a href="#none">금융관계인 소개</a></li>
+                                        <li><a href="#none">이용시간</a></li>
+                                        <li><a href="#none">영업점/ATM찾기</a></li>
+                                        <li><a href="#none">영업점 방문예약</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li><a href="#none">사고신고/해제</a></li>
                             <li><a href="#none">공지사항</a></li>
-                            <li><a href="#none">고객지원</a></li>
-                            <li><a href="#none">개인정보처리방침</a></li>
-                            <li><a href="#none">소비자민원</a></li>
-                            <li><a href="#none">이용안내</a></li>
-                            <li><a href="#none">아이원뱅크</a></li>
-                            <li><a href="#none">보안매체</a></li>
-                            <li><a href="#none">인증수단</a></li>
-                            <li><a href="#none">금융사기예방센터</a></li>
-                        </ul>
-                        <ul class="panel">
-                            <li><a href="#none">고객센터 홈</a></li>
-                            <li><a href="#none">FAQ</a></li>
                             <li><a href="#none">채팅상담</a></li>
-                            <li><a href="#none">전화상담</a></li>
+                            <li><a href="#none">수화상담</a></li>
                             <li><a href="#none">영업점 방문예약</a></li>
                             <li><a href="#none">음성본인확인서비스</a></li>
-                            <li><a href="#none">사고신고/해제</a></li>
-                            <li><a href="#none">공지사항</a></li>
-                            <li><a href="#none">고객지원</a></li>
-                            <li><a href="#none">개인정보처리방침</a></li>
-                            <li><a href="#none">소비자민원</a></li>
-                            <li><a href="#none">이용안내</a></li>
-                            <li><a href="#none">아이원뱅크</a></li>
-                            <li><a href="#none">보안매체</a></li>
-                            <li><a href="#none">인증수단</a></li>
-                            <li><a href="#none">금융사기예방센터</a></li>
                         </ul>
                     </div>
                 </div>    
