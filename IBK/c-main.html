@@ -10,7 +10,8 @@
     <script src="./res/jquery-3.6.4.min.js"></script>
     <style>
         body{height:100vh;}
-        .container{width:375px;top:50%;left:50%;transform:translate(-50%, -50%);margin:0;height:812px;min-height:812px;overflow-y:scroll;scrollbar-width:none;}
+        .container{width:375px;top:50%;left:50%;transform:translate(-50%, -50%);margin:0;height:812px;min-height:812px;overflow-y:scroll;overflow-x:hidden;-ms-overflow-style:none;scrollbar-width:none;}
+        .container::-webkit-scrollbar{display:none;}
         .container.home{background:#DDE8F4;}
         .contents{margin: 0 auto;}
         .inner{padding:32px 20px 0;}
@@ -56,6 +57,8 @@
         .tab-contents .tab-content:nth-child(1){width:408px;height:257px;margin:24px 0 5px 20px;}
         .tab-contents .tab-content:nth-child(2){width:335px;height:324px;margin:24px 20px 12px}
         .tab-contents .tab-content.active{display:block;}
+
+
     </style>
 </head>
 <body>
@@ -145,6 +148,7 @@
                 refreshContent(targetContent);
             });
         });
+
     </script>
     </html>
 </body>
